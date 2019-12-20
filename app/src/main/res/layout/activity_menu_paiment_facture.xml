@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#0E91A1"
+        android:gravity="center"
+        android:paddingBottom="7sp"
+        android:paddingTop="7sp"
+        android:text="Title"
+        android:textColorHint="#FFF"
+        android:textSize="26sp" />
+
+
+    <Button
+        android:id="@+id/buttonPaiementParCode"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_gravity="start"
+        android:layout_height="65dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:background="@drawable/fieldset_gris"
+        android:drawableEnd="@drawable/ic_navigation_chevron_right"
+        android:drawableLeft="@drawable/ic_action_account_balance_wallet"
+        android:drawableRight="@drawable/ic_navigation_chevron_right"
+        android:drawableStart="@drawable/ic_action_account_balance_wallet"
+        android:onClick="validationCodePaiement"
+        android:text="Label"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#5F5F5F"
+        android:textSize="16sp"
+        android:visibility="visible" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFacturiers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

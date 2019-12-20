@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sensoft="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FormulaireFacturierActivity">
+
+    <!-- Header aligned to top -->
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="#FFF"
+        android:gravity="center" >
+
+        <!-- Header aligned to top -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#0E91A1"
+            android:orientation="horizontal"
+            android:padding="5dp" >
+
+
+            <TextView
+                android:id="@+id/form_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                android:background="#0E91A1"
+                android:gravity="center"
+                android:paddingBottom="7sp"
+                android:paddingRight="10sp"
+                android:text="Formulaire de paiement"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Footer aligned to bottom -->
+
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp"
+        android:background="#f3f3f3"
+        android:orientation="vertical" >
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="#0E91A1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtVersionApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:paddingRight="10dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#5F5F5F"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:width="150dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Item below header and above footer -->
+
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/footer"
+        android:layout_below="@id/header"
+        android:background="#FFF" >
+
+        <!-- Inflate the contents of the ScrollView dynamicaly -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10sp"
+            android:orientation="vertical" >
+
+            <!-- Message d'erreur -->
+
+            <TextView
+                android:id="@+id/erreur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#fd0062"
+                android:visibility="gone" />
+            <!-- fin Message d'erreur -->
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/titleFacturier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Facture"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_margin="4dp"
+                android:background="#0E91A1" />
+
+            <!-- formulaire dynamique -->
+
+            <LinearLayout
+                android:id="@+id/contentForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10sp"
+                android:orientation="vertical"/>
+
+            <!-- Layout Button-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20sp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="2" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1" >
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:background="@drawable/fieldset_default"
+                        android:onClick="onAnnluer"
+                        android:text="Button"
+                        android:textColor="#1e1e1e"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5sp"
+                    android:layout_weight="1" >
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5sp"
+                        android:background="@drawable/fieldset_orange"
+                        android:onClick="onSuivant"
+                        android:text="Button"
+                        android:textColor="#F2F2F2"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

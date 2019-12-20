@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- info -> #00529B #186B9E (#186B9E - "#55AAD7" - #D0D8DD), (#ABA7A7 - #E7E5E5 - #FFFFFF) #C94727-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" >
+
+    <gradient
+        android:startColor="#dddddd"
+        android:centerColor="#dddddd"
+        android:endColor="#dddddd"
+        android:angle="270"/>
+
+    <corners
+        android:layout_height="10dp"
+        android:radius="70dp"
+    />
+
+</shape>
