@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormulaireFacturierActivity">
+    tools:context=".FormulaireActivity">
 
     <!-- Header aligned to top -->
 
@@ -164,7 +164,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5sp"
                         android:background="@drawable/fieldset_default"
-                        android:onClick="onAnnluer"
+                        android:onClick="onAnnuler"
                         android:text="Button"
                         android:textColor="#1e1e1e"
                         android:textSize="20sp"

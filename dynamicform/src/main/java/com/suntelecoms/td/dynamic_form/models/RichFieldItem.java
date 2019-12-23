@@ -1,30 +1,23 @@
 package com.suntelecoms.td.dynamic_form.models;
-
-import com.google.gson.annotations.SerializedName;
-
-import javax.annotation.Generated;
-
-@Generated("com.robohorse.robopojogenerator")
+/**
+ *
+ *   Djvmil 19/12/2020
+ *
+ **/
 public class RichFieldItem{
 
 	private int id;
 
-	@SerializedName("isRequired")
 	private boolean isRequired;
 
-	@SerializedName("method")
 	private String method;
 
-	@SerializedName("field")
 	private String field;
 
-	@SerializedName("label")
 	private String label;
 
-	@SerializedName("type")
 	private String type;
 
-	@SerializedName("url")
 	private String url;
 
 	public RichFieldItem(String label, String field, String type) {

@@ -1,5 +1,9 @@
 package com.suntelecoms.td.dynamic_form;
-
+/**
+ *
+ *   Djvmil 19/12/2020
+ *
+ **/
 public abstract class CONSTANTES_VIEW {
     public static final int TEXT_VIEW_ID            = 1;
     public static final int EDIT_TEXT_ID            = 2;
@@ -52,11 +56,7 @@ public abstract class CONSTANTES_VIEW {
     public static int TYPE_TEXT_VARIATION_PHONETIC = 192;
     public static int TYPE_TEXT_VARIATION_POSTAL_ADDRESS = 112;
     public static int TYPE_TEXT_VARIATION_SHORT_MESSAGE = 64;
-    public static int TYPE_TEXT_VARIATION_URI = 16;
     public static int TYPE_TEXT_VARIATION_VISIBLE_PASSWORD = 144;
-    public static int TYPE_TEXT_VARIATION_WEB_EDIT_TEXT = 160;
-    public static int TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS = 208;
-    public static int TYPE_TEXT_VARIATION_WEB_PASSWORD = 224;
 
 
 }

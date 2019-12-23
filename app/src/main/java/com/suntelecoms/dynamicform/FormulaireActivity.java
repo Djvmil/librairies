@@ -1,6 +1,5 @@
 package com.suntelecoms.dynamicform;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -15,7 +14,7 @@ import com.suntelecoms.td.dynamic_form.models.RichFieldItem;
 
 import java.util.ArrayList;
 
-public class FormulaireFacturierActivity extends AppCompatActivity {
+public class FormulaireActivity extends AppCompatActivity {
 private LinearLayout contentForm;
 private ArrayList<RichFieldItem> fieldItems;
 private ArrayList<FieldObject> fieldObjects;
@@ -23,7 +22,7 @@ private ArrayList<FieldObject> fieldObjects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulaire_facturier);
+        setContentView(R.layout.activity_formulaire);
         contentForm = findViewById(R.id.contentForm);
 
         fieldItems = new ArrayList<>();
@@ -35,10 +34,9 @@ private ArrayList<FieldObject> fieldObjects;
         fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.TEXT_VIEW));
         fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.TEXT_VIEW));
 
-        FormDynamic
-                .with(this)
-                .getForm(contentForm, fieldItems)
-                .in(fieldObjects);
+        FormDynamic.with(this)
+                .loadForm(contentForm, fieldItems)
+                .getValuesWith(fieldObjects);
 
     }
 
@@ -50,28 +48,17 @@ private ArrayList<FieldObject> fieldObjects;
      * Etape suivante
      */
     public void onSuivant(View v) {
-
-
-        if (recupererInformations()) {
-
-        }
-    }
-
-    private boolean recupererInformations() {
-        FormDynamic.load();
+        FormDynamic.getValues();
 
         try {
             Toast.makeText(this,fieldObjects.get(1).getField()+" "+fieldObjects.get(1).getValue(), Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
         }
-        return  false;
     }
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(this, MenuPaimentFactureActivity.class);
-        startActivity(intent);
-        finish();
+        super.onBackPressed();
     }
 }
