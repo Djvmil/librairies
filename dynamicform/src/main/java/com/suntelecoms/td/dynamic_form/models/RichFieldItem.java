@@ -20,6 +20,8 @@ public class RichFieldItem{
 
 	private String url;
 
+	private String value;
+
 	public RichFieldItem(String label, String field, String type) {
 		this.label = label;
 		this.field = field;
@@ -88,6 +90,14 @@ public class RichFieldItem{
 
 	public String getUrl(){
 		return url;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	@Override

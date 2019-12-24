@@ -19,36 +19,35 @@
 
 
 <resources>
-    <color name="blue">#3366FF</color>
-    <color name="light_green">#66FF66</color>
-    <color name="dark_green">#338800</color>
-    <color name="orange">#FF6600</color>
-    <color name="cyan">#33B5E5</color>
-    <color name="purple">#9933FF</color>
-    <color name="yellow">#CCCC00</color>
-    <color name="red">#ff0000</color>
-    <color name="light_gray">#DDDDDD</color>
-    <color name="dark_gray">#222222</color>
-    <color name="blue_home_page">#0444BA</color>
-    
-   <!-- deb added -->
-    <color name="review_green">#ff669900</color>
-    <color name="text_light">#66000000</color>
-    
-    <color name="warning_wait_card">#9F6000</color>
-    <color name="error_wait_card">#D8000C</color>
-    <color name="info_wait_card">#00529B</color>
-   <!-- end added -->
-    
-   
-   
-   <!-- Deb  -->
-    <color name="saisi_obligatoire">#F0DFE4</color>
-    <color name="white_15_percent">#26ffffff</color>
-    <color name="white_30_percent">#4Dffffff</color>
 
-    <color name="white">#ffffff</color>
-    <color name="black">#000000</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorGrisClair">#E0DFE8</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="vertKaki">#8AA927</color>
+    <color name="vert">#245249</color>
+    <color name="colorBgMenu">#F7F7F7</color>
+
+
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+    <color name="colorBackground">#241445</color>
+    <color name="separatorColor">#f1f1f1</color>
+
+    <color name="pink">#FF308E</color>
+    <color name="orange">#FA9301</color>
+    <color name="yellow">#F8D411</color>
+    <color name="blue">#20CBF3</color>
+    <color name="purple">#6F26FA</color>
+    <color name="green">#49CC56</color>
+    <color name="white">#FFFFFF</color>
 
    <!-- End  -->
 </resources>

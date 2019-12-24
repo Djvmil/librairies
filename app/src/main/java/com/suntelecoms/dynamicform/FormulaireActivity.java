@@ -28,15 +28,15 @@ private ArrayList<FieldObject> fieldObjects;
         fieldItems = new ArrayList<>();
         fieldObjects = new ArrayList<>();
 
-        fieldItems.add(new RichFieldItem("Nom", "nom", CONSTANTES_VIEW.TEXT_VIEW));
-        fieldItems.add(new RichFieldItem("Prenom", "prenom", CONSTANTES_VIEW.TEXT_VIEW));
-        fieldItems.add(new RichFieldItem("Telephone", "telephone", CONSTANTES_VIEW.TEXT_VIEW));
-        fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.TEXT_VIEW));
-        fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.TEXT_VIEW));
+        fieldItems.add(new RichFieldItem("Nom", "nom", CONSTANTES_VIEW.Text));
+        fieldItems.add(new RichFieldItem("Prenom", "prenom", CONSTANTES_VIEW.CheckBox));
+        fieldItems.add(new RichFieldItem("Telephone", "telephone", CONSTANTES_VIEW.Number));
+        fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.Password));
+        fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.Radio));
 
         FormDynamic.with(this)
                 .loadForm(contentForm, fieldItems)
-                .getValuesWith(fieldObjects);
+                .loadValuesInto(fieldObjects);
 
     }
 
@@ -48,7 +48,7 @@ private ArrayList<FieldObject> fieldObjects;
      * Etape suivante
      */
     public void onSuivant(View v) {
-        FormDynamic.getValues();
+        FormDynamic.done();
 
         try {
             Toast.makeText(this,fieldObjects.get(1).getField()+" "+fieldObjects.get(1).getValue(), Toast.LENGTH_SHORT).show();

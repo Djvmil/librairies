@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="50dp"
+    android:layout_height="40dp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="10dp"
     android:orientation="horizontal"
@@ -12,18 +13,20 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="Label"
-        android:textStyle="bold"/>
+        android:layout_weight="1"
+        android:text="Label" android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/editText"
+    <Spinner
+        android:id="@+id/material_spinner"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="2"
-        android:imeOptions="actionNext"
-        android:hint="Saisir le champ"
-        android:inputType="textCapWords|textCapCharacters|textNoSuggestions"
-        android:textStyle="bold"/>
+        android:textColor="@color/vertKaki"
+        android:textColorHint="@color/vert"
+        app:errorEnabled="true"
+        app:hintAnimationEnabled="true"
+        app:hintEnabled="true" />
 </LinearLayout>
+
+

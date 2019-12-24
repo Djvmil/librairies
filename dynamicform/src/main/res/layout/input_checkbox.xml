@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="50dp"
+    android:layout_height="40dp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="10dp"
     android:orientation="horizontal"
@@ -14,16 +15,15 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="Label"
+        android:text="label"
         android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/editText"
+    <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textColor="@color/vert"
+        android:outlineAmbientShadowColor="@color/vert"
         android:layout_weight="2"
-        android:imeOptions="actionNext"
-        android:hint="Saisir le champ"
-        android:inputType="textCapWords|textCapCharacters|textNoSuggestions"
-        android:textStyle="bold"/>
+        android:text="" />
 </LinearLayout>
