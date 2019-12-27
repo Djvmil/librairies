@@ -5,11 +5,9 @@ package com.suntelecoms.djamil.dynamic_form;
  *
  **/
 
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,7 +22,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shagi.materialdatepicker.date.DatePickerFragmentDialog;
-import com.suntelecoms.djamil.dynamic_form.models.FieldObject;
 import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
 import com.suntelecoms.djamil.dynamic_form.models.Sequence;
 
@@ -36,31 +33,30 @@ public class FormDynamic {
     private static TextView textView;
     private static EditText  editText;
     private static CheckBox checkBox;
-    private static AppCompatActivity context;
+    private static Context context;
     private static ArrayList<RichFieldItem> listForms;
     private static View view;
     private static LayoutInflater inflater;
 
     private static Calendar calendar ;
-    private static DatePickerDialog datePickerDialog ;
     private static int Year, Month, Day ;
 
 
     static volatile FormDynamic singleton = null;
 
     /**   **/
-    public  FormDynamic(AppCompatActivity activity){
-        context = activity;
-        inflater =  context.getLayoutInflater();
+    public  FormDynamic(Context context){
+        this.context = context;
+        inflater =  LayoutInflater.from(context);
     }
 
 
     /**   **/
-    public static FormDynamic with(AppCompatActivity activity) {
+    public static FormDynamic with(Context context) {
         if (singleton == null) {
             synchronized (FormDynamic.class) {
                 if (singleton == null) {
-                    singleton = new FormDynamic(activity);
+                    singleton = new FormDynamic(context);
                 }
             }
         }
@@ -103,21 +99,19 @@ public class FormDynamic {
     private View getView(RichFieldItem item){
 
         switch (item.getType()){
-            case CONSTANTES_VIEW.Int      :
-            case CONSTANTES_VIEW.Double   :
-            case CONSTANTES_VIEW.Number   : return getChampsEditText(item, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-            case CONSTANTES_VIEW.Email    :
-            case CONSTANTES_VIEW.String   :
-            case CONSTANTES_VIEW.Text     : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT);
-            case CONSTANTES_VIEW.Password : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            case CONSTANTES_VIEW.Phone    : return getChampsEditText(item, InputType.TYPE_CLASS_PHONE);
-            case CONSTANTES_VIEW.Date     : return getChampsDate(item);
-            case CONSTANTES_VIEW.CheckBox : return getChampsCheckbox(item);
-            case CONSTANTES_VIEW.Label    : return getChampsLabel(item);
-            case CONSTANTES_VIEW.Radio    : return getChampsRadio(item);
-            case CONSTANTES_VIEW.ComboBox :
-            case CONSTANTES_VIEW.Select   : return getChampsSelect(item);
-
+            case ConstantesView.Int      :
+            case ConstantesView.Double   :
+            case ConstantesView.Number   : return getChampsEditText(item, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
+            case ConstantesView.Email    :
+            case ConstantesView.String   :
+            case ConstantesView.Text     : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT);
+            case ConstantesView.Password : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            case ConstantesView.Phone    : return getChampsEditText(item, InputType.TYPE_CLASS_PHONE);
+            case ConstantesView.Date     : return getChampsDate(item);
+            case ConstantesView.CheckBox : return getChampsCheckbox(item);
+            case ConstantesView.Label    : return getChampsLabel(item);
+            case ConstantesView.Radio    : return getChampsRadio(item);
+            case ConstantesView.Spinner  : return getChampsSelect(item);
 
             default: return  null;
         }
@@ -342,7 +336,7 @@ public class FormDynamic {
         },Year, Month, Day);
 
 
-        datePickerFragmentDialog.show(context.getSupportFragmentManager(), null);
+        datePickerFragmentDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), null);
         datePickerFragmentDialog.setMaxDate(System.currentTimeMillis());
         datePickerFragmentDialog.setYearRange(1900,Year);
         datePickerFragmentDialog.setCancelColor(context.getResources().getColor(R.color.vertKaki));
@@ -360,20 +354,20 @@ public class FormDynamic {
         for(int i = 0; i < listForms.size(); i++){
             switch (listForms.get(i).getType()){
 
-                case CONSTANTES_VIEW.Int      :
-                case CONSTANTES_VIEW.Double   :
-                case CONSTANTES_VIEW.Number   :
-                case CONSTANTES_VIEW.Email    :
-                case CONSTANTES_VIEW.String   :
-                case CONSTANTES_VIEW.Label    :
-                case CONSTANTES_VIEW.Text     :
-                case CONSTANTES_VIEW.Password :
-                case CONSTANTES_VIEW.Phone    :
-                case CONSTANTES_VIEW.Date     : value = ((TextView)view.findViewById(listForms.get(i).getId())).getText().toString(); break;
-                case CONSTANTES_VIEW.Select   : value = ((Spinner)view.findViewById(listForms.get(i).getId())).getSelectedItem().toString(); break;
+                case ConstantesView.Int      :
+                case ConstantesView.Double   :
+                case ConstantesView.Number   :
+                case ConstantesView.Email    :
+                case ConstantesView.String   :
+                case ConstantesView.Label    :
+                case ConstantesView.Text     :
+                case ConstantesView.Password :
+                case ConstantesView.Phone    :
+                case ConstantesView.Date     : value = ((TextView)view.findViewById(listForms.get(i).getId())).getText().toString(); break;
+                case ConstantesView.Spinner: value = ((Spinner)view.findViewById(listForms.get(i).getId())).getSelectedItem().toString(); break;
 
-                case CONSTANTES_VIEW.CheckBox : value = ((CheckBox)view.findViewById(listForms.get(i).getId())).isChecked()? "true" : "false"; break;
-                case CONSTANTES_VIEW.Radio    : RadioGroup radioGroup = view.findViewById(listForms.get(i).getId());
+                case ConstantesView.CheckBox : value = ((CheckBox)view.findViewById(listForms.get(i).getId())).isChecked()? "true" : "false"; break;
+                case ConstantesView.Radio    : RadioGroup radioGroup = view.findViewById(listForms.get(i).getId());
                                                 int idx = radioGroup.getCheckedRadioButtonId();
                                                 value   =  ((RadioButton)radioGroup.findViewById(idx)).getText().toString(); break;
                 default: value = null;

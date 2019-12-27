@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.suntelecoms.djamil.dynamic_form.CONSTANTES_VIEW;
+import com.suntelecoms.djamil.dynamic_form.ConstantesView;
 import com.suntelecoms.djamil.dynamic_form.FormDynamic;
 import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
 
@@ -25,11 +25,11 @@ private ArrayList<RichFieldItem> fieldItems;
         String []list = {"Nom", "Nom 1", "Nom 2"};
 
         fieldItems = new ArrayList<>();
-        fieldItems.add(new RichFieldItem("Nom", "nom", CONSTANTES_VIEW.Label, "Name"));
-        fieldItems.add(new RichFieldItem("Prenom", "prenom", CONSTANTES_VIEW.CheckBox, list));
-        fieldItems.add(new RichFieldItem("Telephone", "telephone", CONSTANTES_VIEW.Number, list));
-        fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.Password, list));
-        fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.Radio, list));
+        fieldItems.add(new RichFieldItem("Nom", "nom", ConstantesView.Label,R.layout.label_text));
+        fieldItems.add(new RichFieldItem("Prenom", "prenom", ConstantesView.Text, list));
+        fieldItems.add(new RichFieldItem("Telephone", "telephone", ConstantesView.Date, list));
+        fieldItems.add(new RichFieldItem("Email", "email", ConstantesView.Password, list));
+        fieldItems.add(new RichFieldItem("Test", "test", ConstantesView.Radio, list));
 
         FormDynamic.with(this)
                 .loadForm(contentForm, fieldItems);

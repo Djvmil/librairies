@@ -2,11 +2,9 @@ package com.suntelecoms.djamil.dynamic_form.models;
 
 import androidx.annotation.LayoutRes;
 
-import com.suntelecoms.djamil.dynamic_form.R;
 import com.suntelecoms.djamil.dynamic_form.models.annotations.Expose;
 import com.suntelecoms.djamil.dynamic_form.models.annotations.SerializedName;
 
-import java.util.ArrayList;
 
 /**
  *
@@ -75,6 +73,15 @@ public class RichFieldItem{
 	public RichFieldItem() {
 		this.template = 0;
 		this.color = 0;
+	}
+
+	public RichFieldItem(String label, String field, String type) {
+		this.label = label;
+		this.field = field;
+		this.type  = type;
+		this.template = 0;
+		this.color = 0;
+
 	}
 
 	public RichFieldItem(String label, String field, String type, @LayoutRes int template) {
