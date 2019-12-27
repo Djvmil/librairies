@@ -120,7 +120,7 @@ public class FormDynamic {
 
     /**  **/
     private static View getChampsEditText(RichFieldItem item, int inputType) {
-        View rowView = inflater.inflate(R.layout.input_text, null,true);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_text, null,true);
         rowView.setId(View.NO_ID);
 
         textView = rowView.findViewById(R.id.textView);
