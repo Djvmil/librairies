@@ -7,36 +7,32 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.suntelecoms.td.dynamic_form.CONSTANTES_VIEW;
-import com.suntelecoms.td.dynamic_form.FormDynamic;
-import com.suntelecoms.td.dynamic_form.models.FieldObject;
-import com.suntelecoms.td.dynamic_form.models.RichFieldItem;
+import com.suntelecoms.djamil.dynamic_form.CONSTANTES_VIEW;
+import com.suntelecoms.djamil.dynamic_form.FormDynamic;
+import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
 
 import java.util.ArrayList;
 
 public class FormulaireActivity extends AppCompatActivity {
 private LinearLayout contentForm;
 private ArrayList<RichFieldItem> fieldItems;
-private ArrayList<FieldObject> fieldObjects;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulaire);
         contentForm = findViewById(R.id.contentForm);
 
-        fieldItems = new ArrayList<>();
-        fieldObjects = new ArrayList<>();
+        String []list = {"Nom", "Nom 1", "Nom 2"};
 
-        fieldItems.add(new RichFieldItem("Nom", "nom", CONSTANTES_VIEW.Text));
-        fieldItems.add(new RichFieldItem("Prenom", "prenom", CONSTANTES_VIEW.CheckBox));
-        fieldItems.add(new RichFieldItem("Telephone", "telephone", CONSTANTES_VIEW.Number));
-        fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.Password));
-        fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.Radio));
+        fieldItems = new ArrayList<>();
+        fieldItems.add(new RichFieldItem("Nom", "nom", CONSTANTES_VIEW.Label, "Name"));
+        fieldItems.add(new RichFieldItem("Prenom", "prenom", CONSTANTES_VIEW.CheckBox, list));
+        fieldItems.add(new RichFieldItem("Telephone", "telephone", CONSTANTES_VIEW.Number, list));
+        fieldItems.add(new RichFieldItem("Email", "email", CONSTANTES_VIEW.Password, list));
+        fieldItems.add(new RichFieldItem("Test", "test", CONSTANTES_VIEW.Radio, list));
 
         FormDynamic.with(this)
-                .loadForm(contentForm, fieldItems)
-                .loadValuesInto(fieldObjects);
+                .loadForm(contentForm, fieldItems);
 
     }
 
@@ -51,7 +47,7 @@ private ArrayList<FieldObject> fieldObjects;
         FormDynamic.done();
 
         try {
-            Toast.makeText(this,fieldObjects.get(1).getField()+" "+fieldObjects.get(1).getValue(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,fieldItems.get(4).getField()+" "+fieldItems.get(4).getValue(), Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
         }

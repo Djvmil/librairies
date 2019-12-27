@@ -1,11 +1,21 @@
-package com.suntelecoms.td.dynamic_form.models;
+package com.suntelecoms.djamil.dynamic_form.models;
+
+import com.suntelecoms.djamil.dynamic_form.models.annotations.Expose;
+import com.suntelecoms.djamil.dynamic_form.models.annotations.SerializedName;
+
 /**
  *
  *   Djvmil 19/12/2020
  *
  **/
 public class FieldObject {
+
+    @SerializedName("field")
+    @Expose
     private String field;
+
+    @SerializedName("value")
+    @Expose
     private String value;
 
     public FieldObject() {

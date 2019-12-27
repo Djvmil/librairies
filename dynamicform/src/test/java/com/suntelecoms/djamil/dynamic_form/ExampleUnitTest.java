@@ -1,4 +1,4 @@
-package com.suntelecoms.td.dynamic_form;
+package com.suntelecoms.djamil.dynamic_form;
 
 import org.junit.Test;
 

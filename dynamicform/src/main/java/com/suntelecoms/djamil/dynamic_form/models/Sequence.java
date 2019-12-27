@@ -1,4 +1,4 @@
-package com.suntelecoms.td.dynamic_form.models;
+package com.suntelecoms.djamil.dynamic_form.models;
 /**
  *
  *   Djvmil 19/12/2020

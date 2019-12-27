@@ -1,4 +1,4 @@
-package com.suntelecoms.td.dynamic_form;
+package com.suntelecoms.djamil.dynamic_form;
 /**
  *
  *   Djvmil 19/12/2020
@@ -12,19 +12,21 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shagi.materialdatepicker.date.DatePickerFragmentDialog;
-import com.suntelecoms.td.dynamic_form.models.FieldObject;
-import com.suntelecoms.td.dynamic_form.models.RichFieldItem;
-import com.suntelecoms.td.dynamic_form.models.Sequence;
+import com.suntelecoms.djamil.dynamic_form.models.FieldObject;
+import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
+import com.suntelecoms.djamil.dynamic_form.models.Sequence;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -35,7 +37,6 @@ public class FormDynamic {
     private static EditText  editText;
     private static CheckBox checkBox;
     private static AppCompatActivity context;
-    private static ArrayList<FieldObject> fieldObjects;
     private static ArrayList<RichFieldItem> listForms;
     private static View view;
     private static LayoutInflater inflater;
@@ -43,6 +44,7 @@ public class FormDynamic {
     private static Calendar calendar ;
     private static DatePickerDialog datePickerDialog ;
     private static int Year, Month, Day ;
+
 
     static volatile FormDynamic singleton = null;
 
@@ -65,7 +67,8 @@ public class FormDynamic {
         return singleton;
     }
 
-    /**   **/
+
+    /** Cette methode charge le formulaire en fonction de la liste de type RichField fourni **/
     public FormDynamic loadForm(LinearLayout layout, ArrayList<RichFieldItem> listForm){
         view = layout;
         listForms = listForm;
@@ -82,19 +85,12 @@ public class FormDynamic {
        return singleton;
     }
 
-    /** Liste  **/
-    public void loadValuesInto(ArrayList<FieldObject> fieldObject){
-        fieldObjects = fieldObject;
-    }
-
-    /** Fluent API for creating {@link FormDynamic} instances. */
+    /**  **/
     @SuppressWarnings("UnusedDeclaration") // Public API.
     public static class Builder {
         private final Context context;
 
-        /**
-         * Start building a new {@link FormDynamic} instance.
-         */
+        /**  **/
         public Builder(Context context) {
             if (context == null) {
                 throw new IllegalArgumentException("Context must not be null.");
@@ -103,8 +99,8 @@ public class FormDynamic {
         }
     }
 
-
-    public View getView(RichFieldItem item){
+    /**  **/
+    private View getView(RichFieldItem item){
 
         switch (item.getType()){
             case CONSTANTES_VIEW.Int      :
@@ -119,18 +115,17 @@ public class FormDynamic {
             case CONSTANTES_VIEW.CheckBox : return getChampsCheckbox(item);
             case CONSTANTES_VIEW.Label    : return getChampsLabel(item);
             case CONSTANTES_VIEW.Radio    : return getChampsRadio(item);
+            case CONSTANTES_VIEW.ComboBox :
+            case CONSTANTES_VIEW.Select   : return getChampsSelect(item);
 
-            //case CONSTANTES_VIEW.Time:     return InputType.TYPE_CLASS_NUMBER;
-            //case CONSTANTES_VIEW.Select:   return InputType.TYPE_CLASS_NUMBER;
-            //case CONSTANTES_VIEW.ComboBox: return InputType.TYPE_CLASS_NUMBER;
 
             default: return  null;
         }
     }
 
 
-
-    public static View getChampsEditText(RichFieldItem item, int inputType) {
+    /**  **/
+    private static View getChampsEditText(RichFieldItem item, int inputType) {
         View rowView = inflater.inflate(R.layout.input_text, null,true);
         rowView.setId(View.NO_ID);
 
@@ -139,6 +134,10 @@ public class FormDynamic {
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
 
         try {
             int nextValue = Sequence.nextValue();
@@ -155,55 +154,50 @@ public class FormDynamic {
         return rowView;
     }
 
-    public static View getChampsCheckbox(RichFieldItem item) {
+    /**  **/
+    private static View getChampsCheckbox(RichFieldItem item) {
 
-        LinearLayout linearLayout = new LinearLayout(context);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.setGravity(Gravity.CENTER);
-        linearLayout.setId(View.NO_ID);
-
-        ArrayList<String> values = new ArrayList<>();
-        values.add("value");
-        values.add("value 1");
-        values.add("value 2");
-        values.add("value 3");
-
-        for (String val : values){
-            View rowView = inflater.inflate(R.layout.input_checkbox, null,true);
-            rowView.setId(View.NO_ID);
-
-            textView = rowView.findViewById(R.id.textView);
-            checkBox = rowView.findViewById(R.id.checkBox);
-
-            textView.setId(View.NO_ID);
-            textView.setText(val);
-
-            try {
-                int nextValue = Sequence.nextValue();
-
-                checkBox.setId(nextValue);
-                item.setId(nextValue);
-                checkBox.setTag(item.getLabel());
-            } catch (Exception e) {
-                Log.e("getForm Error", e.toString());
-            }
-
-            linearLayout.addView(rowView);
-        }
-
-
-        return linearLayout;
-    }
-
-    public static View getChampsLabel(RichFieldItem item) {
-        View rowView = inflater.inflate(R.layout.label_text, null,true);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_checkbox, null,true);
         rowView.setId(View.NO_ID);
 
         textView = rowView.findViewById(R.id.textView);
-        editText = rowView.findViewById(R.id.editText);
+        checkBox = rowView.findViewById(R.id.checkBox);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
+
+        try {
+            int nextValue = Sequence.nextValue();
+
+            checkBox.setId(nextValue);
+            item.setId(nextValue);
+            checkBox.setTag(item.getLabel());
+        } catch (Exception e) {
+            Log.e("getForm Error", e.toString());
+        }
+
+        return rowView;
+    }
+
+    /**  **/
+    private static View getChampsLabel(RichFieldItem item) {
+
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.label_text, null,true);
+        rowView.setId(View.NO_ID);
+
+        textView = rowView.findViewById(R.id.textView);
+        TextView editText = rowView.findViewById(R.id.editText);
+
+        textView.setId(View.NO_ID);
+        textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
 
         try {
             int nextValue = Sequence.nextValue();
@@ -219,7 +213,8 @@ public class FormDynamic {
         return rowView;
     }
 
-    public static View getChampsDate(final RichFieldItem item) {
+    /**  **/
+    private static View getChampsDate(final RichFieldItem item) {
 
         calendar = Calendar.getInstance();
         Year     = calendar.get(Calendar.YEAR) ;
@@ -227,7 +222,7 @@ public class FormDynamic {
         Day      = calendar.get(Calendar.DAY_OF_MONTH);
 
 
-        final View rowView = inflater.inflate(R.layout.input_date, null,true);
+        final View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_date, null,true);
         rowView.setId(View.NO_ID);
 
         textView = rowView.findViewById(R.id.textView);
@@ -235,6 +230,10 @@ public class FormDynamic {
         editText.setText(Day + "/" + (Month + 1) + "/" + Year);
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
 
         try {
             int nextValue = Sequence.nextValue();
@@ -258,23 +257,32 @@ public class FormDynamic {
         return rowView;
     }
 
-    public static View getChampsSelect(RichFieldItem item, int inputType) {
-        View rowView = inflater.inflate(R.layout.label_text, null,true);
+    /**  **/
+    private static View getChampsSelect(RichFieldItem item) {
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_select, null,true);
         rowView.setId(View.NO_ID);
 
         textView = rowView.findViewById(R.id.textView);
-        editText = rowView.findViewById(R.id.editText);
+        Spinner editText = rowView.findViewById(R.id.editText);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
 
         try {
             int nextValue = Sequence.nextValue();
 
             editText.setId(nextValue);
             item.setId(nextValue);
-            editText.setText(item.getValue());
             editText.setTag(item.getLabel());
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<>(context,   android.R.layout.simple_spinner_item, item.getListSelect());
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            editText.setAdapter(spinnerArrayAdapter);
+
         } catch (Exception e) {
             Log.e("getForm Error", e.toString());
         }
@@ -282,22 +290,20 @@ public class FormDynamic {
         return rowView;
     }
 
+    /**  **/
+    private static View getChampsRadio(RichFieldItem item) {
 
-    public static View getChampsRadio(RichFieldItem item) {
-
-        ArrayList<String> values = new ArrayList<>();
-        values.add("value");
-        values.add("value 1");
-        values.add("value 2");
-        values.add("value 3");
-
-        View rowView = inflater.inflate(R.layout.input_radio, null,true);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_radio, null,true);
         RadioGroup group_radio = rowView.findViewById(R.id.group_radio);
 
         boolean active = true;
-        for (String val : values){
+        for (String val : item.getListRadio()){
             RadioButton radioButton = new RadioButton(context);
             radioButton.setText(val);
+
+            if(item.getColor() != 0)
+                radioButton.setTextColor(item.getColor());
+
             if(active){
                 radioButton.setChecked(true);
                 active = false;
@@ -325,6 +331,7 @@ public class FormDynamic {
         return rowView;
     }
 
+    /**  **/
     private static void datePicker(final View viewById, final int id) {
         final DatePickerFragmentDialog datePickerFragmentDialog = DatePickerFragmentDialog.newInstance(new DatePickerFragmentDialog.OnDateSetListener() {
 
@@ -333,6 +340,7 @@ public class FormDynamic {
                 ((TextView) viewById.findViewById(id)).setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
             }
         },Year, Month, Day);
+
 
         datePickerFragmentDialog.show(context.getSupportFragmentManager(), null);
         datePickerFragmentDialog.setMaxDate(System.currentTimeMillis());
@@ -345,12 +353,12 @@ public class FormDynamic {
 
     }
 
-
+    /**  **/
     public static void done(){
         String value;
 
-        for(RichFieldItem item : listForms){
-            switch (item.getType()){
+        for(int i = 0; i < listForms.size(); i++){
+            switch (listForms.get(i).getType()){
 
                 case CONSTANTES_VIEW.Int      :
                 case CONSTANTES_VIEW.Double   :
@@ -361,17 +369,17 @@ public class FormDynamic {
                 case CONSTANTES_VIEW.Text     :
                 case CONSTANTES_VIEW.Password :
                 case CONSTANTES_VIEW.Phone    :
-                case CONSTANTES_VIEW.Date     : value = ((TextView)view.findViewById(item.getId())).getText().toString(); break;
-                case CONSTANTES_VIEW.CheckBox : value = ((CheckBox)view.findViewById(item.getId())).isChecked()? "true" : "false"; break;
-                case CONSTANTES_VIEW.Radio    : RadioGroup radioGroup = view.findViewById(item.getId());
+                case CONSTANTES_VIEW.Date     : value = ((TextView)view.findViewById(listForms.get(i).getId())).getText().toString(); break;
+                case CONSTANTES_VIEW.Select   : value = ((Spinner)view.findViewById(listForms.get(i).getId())).getSelectedItem().toString(); break;
+
+                case CONSTANTES_VIEW.CheckBox : value = ((CheckBox)view.findViewById(listForms.get(i).getId())).isChecked()? "true" : "false"; break;
+                case CONSTANTES_VIEW.Radio    : RadioGroup radioGroup = view.findViewById(listForms.get(i).getId());
                                                 int idx = radioGroup.getCheckedRadioButtonId();
-                                                value  =  ((RadioButton)radioGroup.findViewById(idx)).getText().toString();  break;
+                                                value   =  ((RadioButton)radioGroup.findViewById(idx)).getText().toString(); break;
                 default: value = null;
             }
-
-            fieldObjects.add(new FieldObject(item.getField(), value));
-            item.setValue(value);
-
+            //Log.e("Liste bug", "done: "+i );
+            listForms.get(i).setValue(value);
         }
     }
 }
