@@ -9,13 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.suntelecoms.djamil.dynamic_form.ConstantesView;
 import com.suntelecoms.djamil.dynamic_form.FormDynamic;
-import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
+import com.suntelecoms.djamil.dynamic_form.models.IOFieldsItem;
 
 import java.util.ArrayList;
 
 public class FormulaireActivity extends AppCompatActivity {
 private LinearLayout contentForm;
-private ArrayList<RichFieldItem> fieldItems;
+private ArrayList<IOFieldsItem> fieldItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +25,11 @@ private ArrayList<RichFieldItem> fieldItems;
         String []list = {"Nom", "Nom 1", "Nom 2"};
 
         fieldItems = new ArrayList<>();
-        fieldItems.add(new RichFieldItem("Nom", "nom", ConstantesView.Label,R.layout.label_text));
-        fieldItems.add(new RichFieldItem("Prenom", "prenom", ConstantesView.Text, list));
-        fieldItems.add(new RichFieldItem("Telephone", "telephone", ConstantesView.Date, list));
-        fieldItems.add(new RichFieldItem("Email", "email", ConstantesView.Password, list));
-        fieldItems.add(new RichFieldItem("Test", "test", ConstantesView.Radio, list));
+        fieldItems.add(new IOFieldsItem("Nom", "nom", ConstantesView.Label,R.layout.label_text));
+        fieldItems.add(new IOFieldsItem("Prenom", "prenom", ConstantesView.Text));
+        fieldItems.add(new IOFieldsItem("Telephone", "telephone", ConstantesView.Date));
+        fieldItems.add(new IOFieldsItem("Email", "email", ConstantesView.Password));
+        fieldItems.add(new IOFieldsItem("Test", "test", ConstantesView.Radio));
 
         FormDynamic.with(this)
                 .loadForm(contentForm, fieldItems);

@@ -1,8 +1,6 @@
 package com.suntelecoms.djamil.dynamic_form;
 /**
- *
  *   Djvmil 19/12/2020
- *
  **/
 
 import android.content.Context;
@@ -22,7 +20,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.shagi.materialdatepicker.date.DatePickerFragmentDialog;
-import com.suntelecoms.djamil.dynamic_form.models.RichFieldItem;
+import com.suntelecoms.djamil.dynamic_form.models.IOFieldsItem;
 import com.suntelecoms.djamil.dynamic_form.models.Sequence;
 
 import java.util.ArrayList;
@@ -32,21 +30,19 @@ public class FormDynamic {
 
     private static TextView textView;
     private static EditText  editText;
-    private static CheckBox checkBox;
     private static Context context;
-    private static ArrayList<RichFieldItem> listForms;
+    private static ArrayList<IOFieldsItem> listForms;
     private static View view;
     private static LayoutInflater inflater;
 
-    private static Calendar calendar ;
     private static int Year, Month, Day ;
 
 
-    static volatile FormDynamic singleton = null;
+    private static volatile FormDynamic singleton = null;
 
     /**   **/
-    public  FormDynamic(Context context){
-        this.context = context;
+    private FormDynamic(Context context){
+        FormDynamic.context = context;
         inflater =  LayoutInflater.from(context);
     }
 
@@ -65,12 +61,12 @@ public class FormDynamic {
 
 
     /** Cette methode charge le formulaire en fonction de la liste de type RichField fourni **/
-    public FormDynamic loadForm(LinearLayout layout, ArrayList<RichFieldItem> listForm){
+    public void loadForm(LinearLayout layout, ArrayList<IOFieldsItem> listForm){
         view = layout;
         listForms = listForm;
         layout.setOrientation(LinearLayout.VERTICAL);
 
-       for(RichFieldItem item : listForm){
+       for(IOFieldsItem item : listForm){
            View rowView = getView(item);
            if(rowView == null)
                throw new IllegalArgumentException(item.getLabel()+" must not be null");
@@ -78,25 +74,23 @@ public class FormDynamic {
            layout.addView(rowView);
        }
 
-       return singleton;
     }
 
     /**  **/
     @SuppressWarnings("UnusedDeclaration") // Public API.
     public static class Builder {
-        private final Context context;
 
         /**  **/
         public Builder(Context context) {
             if (context == null) {
                 throw new IllegalArgumentException("Context must not be null.");
             }
-            this.context = context.getApplicationContext();
+            Context context1 = context.getApplicationContext();
         }
     }
 
     /**  **/
-    private View getView(RichFieldItem item){
+    private View getView(IOFieldsItem item){
 
         switch (item.getType()){
             case ConstantesView.Int      :
@@ -119,12 +113,12 @@ public class FormDynamic {
 
 
     /**  **/
-    private static View getChampsEditText(RichFieldItem item, int inputType) {
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_text, null,true);
+    private static View getChampsEditText(IOFieldsItem item, int inputType) {
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.input_text, null,true);
         rowView.setId(View.NO_ID);
 
-        textView = rowView.findViewById(R.id.textView);
-        editText = rowView.findViewById(R.id.editText);
+        textView = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.textView);
+        editText = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.editText);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
@@ -149,13 +143,13 @@ public class FormDynamic {
     }
 
     /**  **/
-    private static View getChampsCheckbox(RichFieldItem item) {
+    private static View getChampsCheckbox(IOFieldsItem item) {
 
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_checkbox, null,true);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.input_checkbox, null,true);
         rowView.setId(View.NO_ID);
 
-        textView = rowView.findViewById(R.id.textView);
-        checkBox = rowView.findViewById(R.id.checkBox);
+        textView = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.textView);
+        CheckBox checkBox = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.checkBox);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
@@ -178,13 +172,13 @@ public class FormDynamic {
     }
 
     /**  **/
-    private static View getChampsLabel(RichFieldItem item) {
+    private static View getChampsLabel(IOFieldsItem item) {
 
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.label_text, null,true);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.label_text, null,true);
         rowView.setId(View.NO_ID);
 
-        textView = rowView.findViewById(R.id.textView);
-        TextView editText = rowView.findViewById(R.id.editText);
+        textView = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.textView);
+        TextView editText = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.editText);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
@@ -208,19 +202,19 @@ public class FormDynamic {
     }
 
     /**  **/
-    private static View getChampsDate(final RichFieldItem item) {
+    private static View getChampsDate(final IOFieldsItem item) {
 
-        calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         Year     = calendar.get(Calendar.YEAR) ;
         Month    = calendar.get(Calendar.MONTH);
         Day      = calendar.get(Calendar.DAY_OF_MONTH);
 
 
-        final View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_date, null,true);
+        final View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.input_date, null,true);
         rowView.setId(View.NO_ID);
 
-        textView = rowView.findViewById(R.id.textView);
-        editText = rowView.findViewById(R.id.editText);
+        textView = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.textView);
+        editText = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.editText);
         editText.setText(Day + "/" + (Month + 1) + "/" + Year);
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
@@ -252,12 +246,12 @@ public class FormDynamic {
     }
 
     /**  **/
-    private static View getChampsSelect(RichFieldItem item) {
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_select, null,true);
+    private static View getChampsSelect(IOFieldsItem item) {
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.input_select, null,true);
         rowView.setId(View.NO_ID);
 
-        textView = rowView.findViewById(R.id.textView);
-        Spinner editText = rowView.findViewById(R.id.editText);
+        textView = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.textView);
+        Spinner editText = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.editText);
 
         textView.setId(View.NO_ID);
         textView.setText(item.getLabel());
@@ -285,12 +279,13 @@ public class FormDynamic {
     }
 
     /**  **/
-    private static View getChampsRadio(RichFieldItem item) {
+    private static View getChampsRadio(IOFieldsItem item) {
 
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_radio, null,true);
-        RadioGroup group_radio = rowView.findViewById(R.id.group_radio);
+        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : com.suntelecoms.djamil.dynamic_form.R.layout.input_radio, null,true);
+        RadioGroup group_radio = rowView.findViewById(com.suntelecoms.djamil.dynamic_form.R.id.group_radio);
 
         boolean active = true;
+        if(item.getListCheckBox() != null)
         for (String val : item.getListRadio()){
             RadioButton radioButton = new RadioButton(context);
             radioButton.setText(val);
@@ -339,11 +334,11 @@ public class FormDynamic {
         datePickerFragmentDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), null);
         datePickerFragmentDialog.setMaxDate(System.currentTimeMillis());
         datePickerFragmentDialog.setYearRange(1900,Year);
-        datePickerFragmentDialog.setCancelColor(context.getResources().getColor(R.color.vertKaki));
-        datePickerFragmentDialog.setOkColor(context.getResources().getColor(R.color.colorPrimary));
-        datePickerFragmentDialog.setAccentColor(context.getResources().getColor(R.color.vertKaki));
-        datePickerFragmentDialog.setOkText(context.getResources().getString(R.string.ok_dob));
-        datePickerFragmentDialog.setCancelText(context.getResources().getString(R.string.cancel_dob));
+        datePickerFragmentDialog.setCancelColor(context.getResources().getColor(com.suntelecoms.djamil.dynamic_form.R.color.vertKaki));
+        datePickerFragmentDialog.setOkColor(context.getResources().getColor(com.suntelecoms.djamil.dynamic_form.R.color.colorPrimary));
+        datePickerFragmentDialog.setAccentColor(context.getResources().getColor(com.suntelecoms.djamil.dynamic_form.R.color.vertKaki));
+        datePickerFragmentDialog.setOkText(context.getResources().getString(com.suntelecoms.djamil.dynamic_form.R.string.ok_dob));
+        datePickerFragmentDialog.setCancelText(context.getResources().getString(com.suntelecoms.djamil.dynamic_form.R.string.cancel_dob));
 
     }
 
