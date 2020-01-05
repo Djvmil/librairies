@@ -15,6 +15,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:text="Label"
+        android:textSize="@dimen/_12sdp"
         android:textStyle="bold"/>
 
     <EditText
@@ -25,5 +26,5 @@
         android:imeOptions="actionNext"
         android:hint="Saisir le champ"
         android:inputType="textCapWords|textCapCharacters|textNoSuggestions"
-        android:textStyle="bold"/>
+        android:textSize="@dimen/_12sdp"/>
 </LinearLayout>

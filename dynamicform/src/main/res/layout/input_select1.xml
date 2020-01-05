@@ -15,6 +15,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:layout_weight="1"
+        android:textSize="@dimen/_12sdp"
         android:text="Label" android:textStyle="bold"/>
 
     <Spinner
@@ -23,6 +24,7 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:textColor="@color/vertKaki"
+        android:textSize="@dimen/_12sdp"
         android:textColorHint="@color/vert"
         app:errorEnabled="true"
         app:hintAnimationEnabled="true"

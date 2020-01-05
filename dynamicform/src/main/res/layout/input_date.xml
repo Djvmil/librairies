@@ -16,6 +16,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:text="Date"
+        android:textSize="@dimen/_12sdp"
         android:textStyle="bold"/>
 
     <EditText
@@ -28,6 +29,5 @@
         android:editable="false"
         android:inputType="none"
         android:textColor="@color/vertKaki"
-        android:textSize="19dp"
-        android:textStyle="bold"/>
+        android:textSize="@dimen/_12sdp"/>
 </LinearLayout>
