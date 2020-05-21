@@ -233,11 +233,7 @@ public class DynamicForm extends NestedScrollView {
 
     /**  **/
     private View getView(IOFieldsItem item){
-        if (item != null && item.getField() != null && item.getField().trim().toLowerCase().contains("frais"))
-            item.setType(ConstantesView.Label);
 
-
-        assert item != null;
         switch (item.getType()){
             case ConstantesView.Separator : return getSeparator(item);
             //case ConstantesView.Select    : return getChampsSelect(item);
@@ -356,9 +352,13 @@ public class DynamicForm extends NestedScrollView {
             editText.setId(belowId);
             item.setId(belowId);
 
-            String str = ((item.getLabel().trim().toLowerCase().contains("montant") || item.getLabel().trim().toLowerCase().contains("frais"))
-                     && !item.getValue().trim().contains("XOF")) ?
-                    (FonctionUtils.getNumberFloatFormat(Float.valueOf(item.getValue().replaceAll("\\s", ""))) + " XOF ") : (item.getValue());
+            String str = item.getValue();
+
+            if (item.isFormatter())
+                str = FonctionUtils.getNumberFloatFormat(Float.valueOf(str.replaceAll("\\s", "")));
+
+            if (item.isMoney())
+                str = String.format("%s %s", str, item.getDevise());
 
             editText.setText(str);
             editText.setTag(item.getLabel());
@@ -490,7 +490,6 @@ public class DynamicForm extends NestedScrollView {
 
             rowView.setId(belowId);
             item.setId(belowId);
-
 
         } catch (Exception e) {
             Log.e("getForm Error", e.toString());

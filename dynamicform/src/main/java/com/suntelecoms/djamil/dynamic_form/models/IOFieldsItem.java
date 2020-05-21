@@ -70,10 +70,18 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 	@Expose
 	private int color = 0;
 
+	@SerializedName("devise")
+	@Expose
+	private String devise = "XOF";
+
 	private ArrayList<IOFieldsItem> listSelect;
 
 	@LayoutRes
 	private int template = 0;
+
+	private boolean formatter = false;
+
+	private boolean isMoney = false;
 
 
 	public IOFieldsItem() {
@@ -83,17 +91,16 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
-		this.value  = type;
-
+		this.value = type;
 	}
 
 	public IOFieldsItem(String label, String field, String type, @LayoutRes int template) {
-		this.label = label;
-		this.field = field;
-		this.type  = type;
-		this.value  = type;
+		this.label    = label;
+		this.field    = field;
+		this.type     = type;
+		this.value    = type;
 		this.template = template;
-		this.color = 0;
+		this.color    = 0;
 
 	}
 
@@ -243,6 +250,30 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	public void setIdIndicatif(int idIndicatif) {
 		this.idIndicatif = idIndicatif;
+	}
+
+	public String getDevise() {
+		return devise;
+	}
+
+	public void setDevise(String devise) {
+		this.devise = devise;
+	}
+
+	public boolean isFormatter() {
+		return formatter;
+	}
+
+	public void setFormatter(boolean formatter) {
+		this.formatter = formatter;
+	}
+
+	public boolean isMoney() {
+		return isMoney;
+	}
+
+	public void setMoney(boolean money) {
+		isMoney = money;
 	}
 
 	@Override
