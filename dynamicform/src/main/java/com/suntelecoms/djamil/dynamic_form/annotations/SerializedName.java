@@ -1,4 +1,5 @@
-package com.suntelecoms.djamil.dynamic_form.models.annotations;
+package com.suntelecoms.djamil.dynamic_form.annotations;
+
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -8,14 +9,13 @@ import java.lang.annotation.Target;
 
 /**
  * @author Djvmil
- **/
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.FIELD)
-public @interface Expose {
+@Target({ElementType.FIELD, ElementType.METHOD})
+public @interface SerializedName {
 
+    String value();
 
-    public boolean serialize() default true;
-
-    public boolean deserialize() default true;
+    String[] alternate() default {};
 }

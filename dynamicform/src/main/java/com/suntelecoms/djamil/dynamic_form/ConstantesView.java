@@ -7,7 +7,10 @@ package com.suntelecoms.djamil.dynamic_form;
 public abstract class ConstantesView {
 
     public static final String Double   = "Double";
+    public static final String Select   = "Select";
     public static final String String   = "String";
+    public static final String Integer  = "Integer";
+    public static final String Separator = "Separator";
     public static final String Int      = "Int";
     public static final String Number   = "Number";
     public static final String Phone    = "Phone";
@@ -18,6 +21,7 @@ public abstract class ConstantesView {
     public static final String Radio    = "Radio";
     public static final String Spinner  = "Spinner";
     public static final String Time     = "Time";
+    public static final String Country  = "Country";
     public static final String Date     = "Date";
     public static final String Label    = "Label";
 

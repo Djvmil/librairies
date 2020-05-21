@@ -2,21 +2,24 @@ package com.suntelecoms.djamil.dynamic_form.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import androidx.annotation.LayoutRes;
 
-import com.suntelecoms.djamil.dynamic_form.models.annotations.Expose;
-import com.suntelecoms.djamil.dynamic_form.models.annotations.Generated;
-import com.suntelecoms.djamil.dynamic_form.models.annotations.SerializedName;
+import com.suntelecoms.djamil.dynamic_form.annotations.Expose;
+import com.suntelecoms.djamil.dynamic_form.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Generated("com.robohorse.robopojogenerator")
-public class IOFieldsItem implements Parcelable {
+
+public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	@SerializedName("isRequired")
 	@Expose
 	private boolean isRequired;
+
+	@SerializedName("children")
+	@Expose
+	private Object children;
 
 	@SerializedName("field")
 	@Expose
@@ -34,60 +37,53 @@ public class IOFieldsItem implements Parcelable {
 	@Expose
 	private String type;
 
-	@SerializedName("errors")
-	@Expose
-	private Errors errors;
-
 	@SerializedName("url")
 	@Expose
 	private String url;
 
-//------------------------------------------------------------------------------------------------------------------------
+	@SerializedName("order")
+	@Expose
+	private int order = 0;
+
+	@SerializedName("isReadOnly")
+	@Expose
+	private boolean isReadOnly;
+
+	@SerializedName("shouldBeShown")
+	@Expose
+	private Boolean shouldBeShown;
+
+	//------------------------------------------------------------------------------------------------------------------------
 	@SerializedName("id")
 	@Expose
 	private int id;
+
+	private int idIndicatif;
+
+	private int idBillerFields;
 
 	@SerializedName("value")
 	@Expose
 	private String value;
 
-	@SerializedName("listSelect")
-	@Expose
-	private List<String> listSelect;
-
-	@SerializedName("listRadio")
-	@Expose
-	private List<String> listRadio;
-
-	@SerializedName("listCheckBox")
-	@Expose
-	private List<String> listCheckBox;
-
-	@SerializedName("listValueSelect")
-	@Expose
-	private List<String> valueSelect;
-
 	@SerializedName("color")
 	@Expose
-	private int color;
+	private int color = 0;
 
-	@SerializedName("template")
-	@Expose
+	private ArrayList<IOFieldsItem> listSelect;
+
 	@LayoutRes
-	private int template;
+	private int template = 0;
 
 
 	public IOFieldsItem() {
-		this.template = 0;
-		this.color = 0;
 	}
 
 	public IOFieldsItem(String label, String field, String type) {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
-		this.template = 0;
-		this.color = 0;
+		this.value  = type;
 
 	}
 
@@ -95,6 +91,7 @@ public class IOFieldsItem implements Parcelable {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
+		this.value  = type;
 		this.template = template;
 		this.color = 0;
 
@@ -104,9 +101,6 @@ public class IOFieldsItem implements Parcelable {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
-		this.color = 0;
-		this.template = 0;
-		this.listRadio = listRadio;
 
 	}
 
@@ -114,9 +108,7 @@ public class IOFieldsItem implements Parcelable {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
-		this.template = 0;
 		this.value = value;
-		this.color = 0;
 
 	}
 
@@ -137,38 +129,6 @@ public class IOFieldsItem implements Parcelable {
 		this.value = value;
 	}
 
-	public List<String> getListSelect() {
-		return listSelect;
-	}
-
-	public void setListSelect(List<String> listSelect) {
-		this.listSelect = listSelect;
-	}
-
-	public List<String> getListRadio() {
-		return listRadio;
-	}
-
-	public void setListRadio(List<String> listRadio) {
-		this.listRadio = listRadio;
-	}
-
-	public List<String> getListCheckBox() {
-		return listCheckBox;
-	}
-
-	public void setListCheckBox(List<String> listCheckBox) {
-		this.listCheckBox = listCheckBox;
-	}
-
-	public List<String> getValueSelect() {
-		return valueSelect;
-	}
-
-	public void setValueSelect(List<String> valueSelect) {
-		this.valueSelect = valueSelect;
-	}
-
 	public int getColor() {
 		return color;
 	}
@@ -187,11 +147,20 @@ public class IOFieldsItem implements Parcelable {
 
 //------------------------------------------------------------------------------------------------------------------------
 
+
+	public boolean isReadOnly() {
+		return isReadOnly;
+	}
+
+	public void setReadOnly(boolean readOnly) {
+		isReadOnly = readOnly;
+	}
+
 	public void setIsRequired(boolean isRequired){
 		this.isRequired = isRequired;
 	}
 
-	public boolean isIsRequired(){
+	public boolean isRequired(){
 		return isRequired;
 	}
 
@@ -227,14 +196,6 @@ public class IOFieldsItem implements Parcelable {
 		return type;
 	}
 
-	public void setErrors(Errors errors){
-		this.errors = errors;
-	}
-
-	public Errors getErrors(){
-		return errors;
-	}
-
 	public void setUrl(String url){
 		this.url = url;
 	}
@@ -243,23 +204,63 @@ public class IOFieldsItem implements Parcelable {
 		return url;
 	}
 
+	public int getIdBillerFields() {
+		return idBillerFields;
+	}
+
+	public void setIdBillerFields(int idBillerFields) {
+		this.idBillerFields = idBillerFields;
+	}
+
+
+	public Object getChildren() {
+		return children;
+	}
+
+	public void setChildren(Object children) {
+		this.children = children;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
+	}
+
+	public Boolean getShouldBeShown() {
+		return shouldBeShown;
+	}
+
+	public void setShouldBeShown(Boolean shouldBeShown) {
+		this.shouldBeShown = shouldBeShown;
+	}
+
+	public int getIdIndicatif() {
+		return idIndicatif;
+	}
+
+	public void setIdIndicatif(int idIndicatif) {
+		this.idIndicatif = idIndicatif;
+	}
 
 	@Override
 	public String toString() {
 		return "IOFieldsItem{" +
 				"isRequired=" + isRequired +
+				", children=" + children +
 				", field='" + field + '\'' +
 				", method='" + method + '\'' +
 				", label='" + label + '\'' +
 				", type='" + type + '\'' +
-				", errors=" + errors +
 				", url='" + url + '\'' +
+				", order=" + order +
+				", isReadOnly=" + isReadOnly +
+				", shouldBeShown=" + shouldBeShown +
 				", id=" + id +
+				", idBillerFields=" + idBillerFields +
 				", value='" + value + '\'' +
-				", listSelect=" + listSelect +
-				", listRadio=" + listRadio +
-				", listCheckBox=" + listCheckBox +
-				", valueSelect=" + valueSelect +
 				", color=" + color +
 				", template=" + template +
 				'}';
@@ -269,9 +270,12 @@ public class IOFieldsItem implements Parcelable {
 	public int describeContents() {
 		return 0;
 	}
+
 	protected IOFieldsItem(Parcel in) {
 		id = in.readInt();
 		isRequired = in.readInt() == 1;
+		shouldBeShown = in.readInt() == 1;
+		order = in.readInt();
 		field = in.readString();
 		method = in.readString();
 		label = in.readString();
@@ -279,10 +283,6 @@ public class IOFieldsItem implements Parcelable {
 		//errors = in.readString();
 		url = in.readString();
 		value = in.readString();
-		listSelect = in.createStringArrayList();
-		listRadio = in.createStringArrayList();
-		listCheckBox = in.createStringArrayList();
-		valueSelect = in.createStringArrayList();
 
 		color = in.readInt();
 		template = in.readInt();
@@ -292,7 +292,9 @@ public class IOFieldsItem implements Parcelable {
 
 		dest.writeLong(id);
 		dest.writeString(label);
+		dest.writeInt(order);
 		dest.writeInt(isRequired ? 1 : 0);
+		dest.writeInt(shouldBeShown ? 1 : 0);
 		dest.writeString(field);
 		dest.writeString(method);
 		dest.writeString(type);
@@ -303,11 +305,6 @@ public class IOFieldsItem implements Parcelable {
 		dest.writeString(value);
 
 		//errors;
-
-		dest.writeStringList(listCheckBox);
-		dest.writeStringList(listRadio);
-		dest.writeStringList(listSelect);
-		dest.writeStringList(valueSelect);
 	}
 
 
@@ -322,4 +319,9 @@ public class IOFieldsItem implements Parcelable {
 			return new IOFieldsItem[size];
 		}
 	};
+
+	@Override
+	public int compareTo(IOFieldsItem item) {
+		return (this.order - item.order);
+	}
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:weightSum="3">
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/indicatif"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_weight="1"
+        app:ccpDialog_allowSearch="false"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_autoDetectLanguage="true"
+        app:ccp_countryAutoDetectionPref="SIM_ONLY"
+        app:ccp_countryPreference="BF"
+        app:ccp_customMasterCountries="SN,BF,ML,BJ,GH,GN,CI,MR,NG,TG,"
+        app:ccp_defaultNameCode="BF"
+        app:ccp_hintExampleNumber="true"
+        app:ccp_showNameCode="false"
+        app:ccp_textSize="@dimen/_12ssp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:imeOptions="actionNext"
+        android:fontFamily="@font/exo"
+        android:textSize="@dimen/_12ssp"
+        android:hint="Numéro téléphone"
+        android:inputType="textCapWords|textCapCharacters|textNoSuggestions" />
+</LinearLayout>

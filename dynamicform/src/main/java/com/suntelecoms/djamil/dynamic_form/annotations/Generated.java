@@ -1,4 +1,4 @@
-package com.suntelecoms.djamil.dynamic_form.models.annotations;
+package com.suntelecoms.djamil.dynamic_form.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -3,6 +3,10 @@
 
     <string name="ok_dob">OK</string>
     <string name="cancel_dob">Annuler</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
 
     <string-array name="typeName">
         <item>Double</item>
