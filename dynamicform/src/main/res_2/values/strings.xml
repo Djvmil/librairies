@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">DynamicForm</string>
+
+    <string name="ok_dob">OK</string>
+    <string name="cancel_dob">Annuler</string>
+    <string name="cancel">Cancel</string>
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+
+    <string-array name="typeName">
+        <item>Double</item>
+        <item>String</item>
+        <item>Int</item>
+        <item>Number</item>
+        <item>Phone</item>
+        <item>Email</item>
+        <item>Text</item>
+        <item>Password</item>
+        <item>CheckBox</item>
+        <item>Radio</item>
+        <item>Select</item>
+        <item>ComboBox</item>
+        <item>Time</item>
+        <item>Date</item>
+    </string-array>
+</resources>

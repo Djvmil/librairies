@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--            Djvmil             -->
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="10dp"
+    android:orientation="horizontal"
+    android:weightSum="3" >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_weight="1"
+        android:textSize="@dimen/_12sdp"
+        android:gravity="center_vertical"
+        android:text="Label"
+        android:textStyle="bold"/>
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/country"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40sdp"
+        app:ccp_showFullName="true"
+        app:ccp_showPhoneCode="false"
+        android:layout_weight="2"
+        android:gravity="right|center"
+        app:ccp_showNameCode="false"
+        app:ccpDialog_allowSearch="true"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_autoDetectLanguage="true"
+        app:ccp_countryAutoDetectionPref="SIM_ONLY"
+        app:ccp_countryPreference="SN"
+        app:ccp_defaultNameCode="SN"
+        app:ccp_textSize="14sp" />
+</LinearLayout>

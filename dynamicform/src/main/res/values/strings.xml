@@ -7,6 +7,10 @@
     <string name="back">Back</string>
     <string name="next">Next</string>
     <string name="done">Done</string>
+    <string name="valider">Valider</string>
+    <string name="suivant">Suivant</string>
+    <string name="annuler">Annuler</string>
+    <string name="precedent">Précédent</string>
 
     <string-array name="typeName">
         <item>Double</item>
