@@ -4,6 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/dynamic_form"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_margin="@dimen/_14sdp"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:text="Formulaire Dynamique"/>
+
+    <Button
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_margin="@dimen/_14sdp"
+        android:layout_below="@+id/dynamic_form"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:text="Clavier Dynamique"/>
+
+    <Button
+        android:id="@+id/utils"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_margin="@dimen/_14sdp"
+        android:layout_below="@+id/keyboard_view"
+        android:textSize="@dimen/_15sdp"
+        android:textStyle="bold"
+        android:text="Utils"/>
 
 </RelativeLayout>

@@ -77,11 +77,16 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 	@Expose
 	private String paysAlpha2;
 
+	@SerializedName("msg_hint")
+	@Expose
+	private String msgHint;
+
 	private ArrayList<ItemDF> listItemDF;
 	private ArrayList<ItemDF> listItemDFSelected;
 	private ItemDF itemDFSelected;
-	private int idView;
+	private int idView = -1;
 	private int indicatif;
+	private int numPage = 0;
 	private int idBillerFields;
 	private boolean formatter = false;
 	private boolean isMoney = false;
@@ -332,6 +337,22 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.listItemDFSelected = listItemDFSelected;
 	}
 
+	public String getMsgHint() {
+		return msgHint;
+	}
+
+	public void setMsgHint(String msgHint) {
+		this.msgHint = msgHint;
+	}
+
+	public int getNumPage() {
+		return numPage;
+	}
+
+	public void setNumPage(int numPage) {
+		this.numPage = numPage;
+	}
+
 	@Override
 	public int describeContents() {
 		return 0;
@@ -409,6 +430,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 				", color=" + color +
 				", devise='" + devise + '\'' +
 				", paysAlpha2='" + paysAlpha2 + '\'' +
+				", msgHint='" + msgHint + '\'' +
 				", listItemDF=" + listItemDF +
 				", listItemDFSelected=" + listItemDFSelected +
 				", itemDFSelected=" + itemDFSelected +
