@@ -16,7 +16,7 @@ import com.djamil.dynamic_form.models.ItemDF;
 
 import java.util.ArrayList;
 
-public class FormulaireActivity extends AppCompatActivity {
+public class FormulaireActivity extends AppCompatActivity implements OnClickDynamicFormListener {
     private static final String TAG = "FormulaireActivity";
     private DynamicForm dynamicForm;
     private ArrayList<IOFieldsItem> fieldItems;
@@ -80,61 +80,67 @@ public class FormulaireActivity extends AppCompatActivity {
         ioFieldsItem.setIsRequired(true);
         fieldItems.add(ioFieldsItem);
 
-        //dynamicForm.setNbFieldPerPage(2);
+        dynamicForm.setNbFieldPerPage(3);
         dynamicForm.loadForm(fieldItems);
 
         //dynamicForm.findViewById();
 
         dynamicForm.setNameButtonFr();
+        dynamicForm.setOnClickDynamicFormListener(this);
 
+    }
 
-        dynamicForm.setOnClickDynamicFormListener(new OnClickDynamicFormListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(TAG, "onClick: " );
-            }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 
-            @Override
-            public void OnDoneClicked(ArrayList<IOFieldsItem> ioFieldsItems) {
-                Log.d(TAG, "OnDoneClicked: " );
-                Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue() );
+    @Override
+    public void onClick(View v) {
+        Log.d(TAG, "onClick: " );
+    }
 
-            }
+    @Override
+    public void OnDoneClicked(ArrayList<IOFieldsItem> ioFieldsItems) {
+        Log.d(TAG, "OnDoneClicked: " );
+        Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue() );
 
-            @Override
-            public void OnNextClicked() {
-                Log.d(TAG, "OnNextClicked: " );
+    }
 
-            }
+    @Override
+    public void OnNextClicked() {
+        Log.d(TAG, "OnNextClicked: " );
 
-            @Override
-            public void OnBackClicked() {
-                Log.d(TAG, "OnBackClicked: " );
+    }
 
-            }
+    @Override
+    public void OnBackClicked() {
+        Log.d(TAG, "OnBackClicked: " );
 
-            @Override
-            public void OnCancelClicked() {
-                Log.d(TAG, "OnCancelClicked: " );
+    }
 
-            }
+    @Override
+    public void OnCancelClicked() {
+        Log.d(TAG, "OnCancelClicked: " );
 
-            @Override
-            public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems) {
-                Log.e(TAG, "OnFormCreated: ");
+    }
 
-                IOFieldsItem item = dynamicForm.findIOFieldByFieldName("seck");
+    @Override
+    public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems) {
+        Log.e(TAG, "OnFormCreated: ");
 
-                if (item != null){
-                    final EditText editText = dynamicForm.findViewById(item.getIdView());
-                    editText.setClickable(true);
-                    editText.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Toast.makeText(FormulaireActivity.this, "akk mom "+editText.getText(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+        IOFieldsItem item = dynamicForm.findIOFieldByFieldName("seck");
+
+        if (item != null){
+            final EditText editText = dynamicForm.findViewById(item.getIdView());
+            editText.setClickable(true);
+            editText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(FormulaireActivity.this, "akk mom "+editText.getText(), Toast.LENGTH_SHORT).show();
                 }
+            });
+        }
 
 
             /*
@@ -167,13 +173,5 @@ public class FormulaireActivity extends AppCompatActivity {
                 }
             });*/
 
-            }
-        });
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }
