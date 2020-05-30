@@ -62,5 +62,4 @@ public class Utils {
         return (new Gson()).fromJson(jo, Object.class);
     }
 
-
 }

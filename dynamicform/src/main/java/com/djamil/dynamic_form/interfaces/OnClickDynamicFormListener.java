@@ -16,4 +16,5 @@ public interface OnClickDynamicFormListener extends View.OnClickListener {
     public void OnNextClicked();
     public void OnBackClicked();
     public void OnCancelClicked();
+    public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems);
 }

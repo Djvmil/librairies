@@ -50,6 +50,14 @@ dependencies {
     implementation project(':utils')
     implementation project(':dynamickeyboard')
 
+/*
+    def _version = "1.0.0"
+    implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version
+    implementation 'com.suntelecoms.gitlab.librairies.librairies:utils:'+_version
+    implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamickeyboard:'+_version
+*/
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
