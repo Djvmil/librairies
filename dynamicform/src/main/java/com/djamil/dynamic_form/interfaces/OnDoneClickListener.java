@@ -4,12 +4,12 @@ import android.view.View;
 
 import com.djamil.dynamic_form.models.IOFieldsItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by Djvmil_ on 5/20/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 
 public interface OnDoneClickListener {
-    public void OnDoneClicked(View v, ArrayList<IOFieldsItem> ioFieldsItems);
+    public void OnDoneClicked(View v, List<IOFieldsItem> ioFieldsItems);
 }

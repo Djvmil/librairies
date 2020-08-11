@@ -1,9 +1,8 @@
 package com.djamil.dynamic_form.exceptions;
 
 /**
- * Created by Djvmil_ on 5/20/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
-
 public class EmptyValueException extends RuntimeException {
     /**
      *

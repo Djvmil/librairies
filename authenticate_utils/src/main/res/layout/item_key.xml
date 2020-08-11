@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardviewClavier"
+    android:orientation="vertical"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_margin="@dimen/_7sdp"
+    android:layout_width="@dimen/_40sdp"
+    android:layout_height="@dimen/_30sdp"
+    app:cardCornerRadius="@dimen/_12sdp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/key"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="0"
+            android:textColor="#000"
+            android:textSize="@dimen/_20sdp"
+            android:fontFamily="@font/exo"
+            android:visibility="visible"/>
+
+        <Button
+            android:id="@+id/backspace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_5ssp"
+            android:background="@drawable/ic_backspace_24dp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/finger"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_7ssp"
+            android:layout_marginEnd="@dimen/_5ssp"
+            android:background="@drawable/ic_baseline_no_fingerprint_24"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
+

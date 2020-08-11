@@ -1,9 +1,6 @@
 package com.djamil.dynamic_form;
 
-/**
- * Created by Djvmil_ on 2019-12-10
- */
-
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
@@ -13,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,10 +21,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
-import androidx.annotation.Nullable;
+import androidx.annotation.IntDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 
+import com.djamil.contactlist.ContactList;
+import com.djamil.contactlist.ContactsInfo;
+import com.djamil.contactlist.interfaces.OnClickCantactListener;
+import com.djamil.dynamic_form.annotations.TypeButton;
+import com.djamil.dynamic_form.models.CustomButton;
+import com.djamil.dynamic_form.utils.NumberTextWatcherWithSeperator;
 import com.hbb20.CountryCodePicker;
 import com.djamil.dynamic_form.exceptions.EmptyValueException;
 import com.djamil.dynamic_form.interfaces.OnBackClickListener;
@@ -43,7 +47,11 @@ import com.shagi.materialdatepicker.date.DatePickerFragmentDialog;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.List;
 
+/**
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ */
 public class DynamicForm extends NestedScrollView {
     private static final String TAG = "FormDynamic";
 
@@ -54,11 +62,11 @@ public class DynamicForm extends NestedScrollView {
     private LayoutInflater inflater;
 
     private TextView textView;
-    private Context context;
-    private ArrayList<IOFieldsItem> listIOField;
+    private Activity activity;
+    private List<IOFieldsItem> listIOField;
 
-    private ArrayList<IOFieldsItem> listFormsInPage;
-    private ArrayList<ArrayList<IOFieldsItem>> arrayListsForms;
+    private List<IOFieldsItem> listFormsInPage;
+    private List<List<IOFieldsItem>> arrayListsForms;
 
 
     //Attributes
@@ -90,18 +98,30 @@ public class DynamicForm extends NestedScrollView {
 
     private Boolean isShowing = false;
 
+    private ContactList contactList;
+
+    private boolean checkShowButton = true;
+
+    private boolean showNextButton = false;
+
+    //Button
+    public static final int BUTTON_DONE   = 3414;
+    public static final int BUTTON_NEXT   = 3412;
+    public static final int BUTTON_BACK   = 3413;
+    public static final int BUTTON_CANCEL = 3411;
+
     /**
      * DynamicForm
      * @param ctx context
      * @param attrs attributes
      */
-    public DynamicForm(Context ctx, @Nullable AttributeSet attrs) {
+    public DynamicForm(Context ctx, @androidx.annotation.Nullable AttributeSet attrs) {
         super(ctx, attrs);
-        context  = ctx;
-        inflater =  LayoutInflater.from(ctx);
+        activity = ((Activity)ctx);
+        inflater =  LayoutInflater.from(activity);
         init();
 
-        TypedArray attr = context.getTheme().obtainStyledAttributes(attrs, R.styleable.DynamicForm, 0, 0);
+        TypedArray attr = activity.getTheme().obtainStyledAttributes(attrs, R.styleable.DynamicForm, 0, 0);
 
         try {
             nbFieldPerPage = attr.getInteger(R.styleable.DynamicForm_nb_field_per_page, ZERO);
@@ -124,7 +144,7 @@ public class DynamicForm extends NestedScrollView {
             //throw new RuntimeException("No subtitle provided");
         }
         else if (paddingField != ZERO) {
-           // throw new RuntimeException("No subtitle provided");
+            // throw new RuntimeException("No subtitle provided");
         }
         else if (marginField != ZERO) {
             //throw new RuntimeException("No subtitle provided");
@@ -147,7 +167,7 @@ public class DynamicForm extends NestedScrollView {
      * @param ioFieldsItems liste InputOutputField (IOFieldsItem) fourni
      * @return
      */
-    public DynamicForm loadForm(ArrayList<IOFieldsItem> ioFieldsItems){
+    public DynamicForm loadForm(List<IOFieldsItem> ioFieldsItems){
         listIOField = ioFieldsItems;
         pageList = new ArrayList<>();
         arrayListsForms = new ArrayList<>();
@@ -163,7 +183,7 @@ public class DynamicForm extends NestedScrollView {
                     Log.i(TAG, "loadForm: "+nbFieldPerPage );
 
                     int id = Sequence.nextValue();
-                    currentFormContainer = new LinearLayout(context);
+                    currentFormContainer = new LinearLayout(activity);
                     currentFormContainer.setId(id);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     //params.addRule(RelativeLayout.ABOVE, R.id.buttons);
@@ -193,11 +213,21 @@ public class DynamicForm extends NestedScrollView {
 
             if(rowView == null)
                 Log.e(TAG, "loadForm: "+ioFieldsItems.get(i).getLabel()+" ne peut pas etre null" );
-                //throw new IllegalArgumentException(ioFieldsItems.get(i).getLabel()+" ne peut pas etre null");
+            //throw new IllegalArgumentException(ioFieldsItems.get(i).getLabel()+" ne peut pas etre null");
+
+
+            if (!ioFieldsItems.get(i).isReadOnly())
+                showNextButton = true;
         }
 
         pageList.get(numCurrentPage).setVisibility(VISIBLE);
         initButtons();
+
+        if (showNextButton){
+            getButton(BUTTON_NEXT).setVisibility(VISIBLE);
+            getButton(BUTTON_DONE).setVisibility(GONE);
+            Log.e(TAG, "loadForm: button next" );
+        }
 
         return this;
     }
@@ -263,35 +293,37 @@ public class DynamicForm extends NestedScrollView {
      */
     private void showButtons(){
         Log.i(TAG, "----------------- PAGE: "+numCurrentPage+" -----------------" );
-        if (pageList.size() == 1){
-            findViewById(R.id.back_btn).setVisibility(GONE);
-            findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
-            findViewById(R.id.next_btn).setVisibility(GONE);
-            findViewById(R.id.done_btn).setVisibility(VISIBLE);
-            //Log.e(TAG, "----------------- showButtons: 1 -----------------" );
 
-        } else if (numCurrentPage == 0){
-            findViewById(R.id.back_btn).setVisibility(GONE);
-            findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
-            findViewById(R.id.next_btn).setVisibility(VISIBLE);
-            findViewById(R.id.done_btn).setVisibility(GONE);
-            //Log.e(TAG, "----------------- showButtons: 2 -----------------" );
+        if (checkShowButton)
+            if (pageList.size() == 1){
+                findViewById(R.id.back_btn).setVisibility(GONE);
+                findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
+                findViewById(R.id.next_btn).setVisibility(GONE);
+                findViewById(R.id.done_btn).setVisibility(VISIBLE);
+                //Log.e(TAG, "----------------- showButtons: 1 -----------------" );
 
-        } else if (numCurrentPage >= pageList.size() - 1){
-            findViewById(R.id.back_btn).setVisibility(VISIBLE);
-            findViewById(R.id.cancel_btn).setVisibility(GONE);
-            findViewById(R.id.next_btn).setVisibility(GONE);
-            findViewById(R.id.done_btn).setVisibility(VISIBLE);
-            //Log.e(TAG, "----------------- showButtons: 3 -----------------" );
+            } else if (numCurrentPage == 0){
+                findViewById(R.id.back_btn).setVisibility(GONE);
+                findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
+                findViewById(R.id.next_btn).setVisibility(VISIBLE);
+                findViewById(R.id.done_btn).setVisibility(GONE);
+                //Log.e(TAG, "----------------- showButtons: 2 -----------------" );
 
-        }else{
-            findViewById(R.id.back_btn).setVisibility(VISIBLE);
-            findViewById(R.id.cancel_btn).setVisibility(GONE);
-            findViewById(R.id.next_btn).setVisibility(VISIBLE);
-            findViewById(R.id.done_btn).setVisibility(GONE);
-            //Log.e(TAG, "----------------- showButtons: 4 -----------------" );
+            } else if (numCurrentPage >= pageList.size() - 1){
+                findViewById(R.id.back_btn).setVisibility(VISIBLE);
+                findViewById(R.id.cancel_btn).setVisibility(GONE);
+                findViewById(R.id.next_btn).setVisibility(GONE);
+                findViewById(R.id.done_btn).setVisibility(VISIBLE);
+                //Log.e(TAG, "----------------- showButtons: 3 -----------------" );
 
-        }
+            }else{
+                findViewById(R.id.back_btn).setVisibility(VISIBLE);
+                findViewById(R.id.cancel_btn).setVisibility(GONE);
+                findViewById(R.id.next_btn).setVisibility(VISIBLE);
+                findViewById(R.id.done_btn).setVisibility(GONE);
+                //Log.e(TAG, "----------------- showButtons: 4 -----------------" );
+
+            }
     }
 
     /**
@@ -315,9 +347,9 @@ public class DynamicForm extends NestedScrollView {
             case INPUT_TYPE_DF.Int       :
             case INPUT_TYPE_DF.Integer   :
             case INPUT_TYPE_DF.Number    : return getChampsEditText(item, InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
-            case INPUT_TYPE_DF.Email     :
+            /*case INPUT_TYPE_DF.Email     :
             case INPUT_TYPE_DF.String    :
-            case INPUT_TYPE_DF.Text      : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT);
+            case INPUT_TYPE_DF.Text      : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT);*/
             case INPUT_TYPE_DF.Password  : return getChampsEditText(item, InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
             case INPUT_TYPE_DF.Phone     : return getChampsPhone(item);
             case INPUT_TYPE_DF.Label     : return getChampsLabel(item);
@@ -363,7 +395,7 @@ public class DynamicForm extends NestedScrollView {
             Log.e("getForm Error", e.toString());
         }
 
-        if (item.getShouldBeShown() != null && !item.getShouldBeShown())
+        if (!item.getShouldBeShown())
             rowView.setVisibility(View.GONE);
         else
             item.setShouldBeShown(true);
@@ -389,13 +421,20 @@ public class DynamicForm extends NestedScrollView {
         if(item.getColor() != ZERO)
             textView.setTextColor(item.getColor());
 
-        textView.setTextColor(context.getResources().getColor(R.color.black_semi_transparent));
+        if (item.isMoney())
+            editText.addTextChangedListener(new NumberTextWatcherWithSeperator(editText));
+
+        textView.setTextColor(activity.getResources().getColor(R.color.black_semi_transparent));
         try {
             currentIdView = Sequence.nextValue();
 
             editText.setId(currentIdView);
             item.setIdView(currentIdView);
-            editText.setHint(item.getMsgHint() != null ? item.getMsgHint() : "Saisir "+ item.getLabel());
+            if (item.getValue() != null && !item.getValue().isEmpty())
+                editText.setText(item.getValue());
+            else
+                editText.setHint(item.getMsgHint() != null ? item.getMsgHint() : "Saisir "+ item.getLabel());
+
             editText.setTag(item.getLabel());
             editText.setInputType(inputType);
 
@@ -456,7 +495,24 @@ public class DynamicForm extends NestedScrollView {
         rowView.setId(NO_ID);
 
         CountryCodePicker textView = rowView.findViewById( R.id.indicatif);
-        EditText editText          = rowView.findViewById(R.id.editText);
+        final EditText editText    = rowView.findViewById(R.id.editText);
+        textView.registerCarrierNumberEditText(editText);
+
+        contactList = ContactList.getInstance(activity);
+        findViewById(R.id.contacts).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                contactList.showContactList();
+            }
+        });
+        contactList.setOnClickCantactListener(new OnClickCantactListener() {
+            @Override
+            public void onClickCantact(View v, ContactsInfo contactsInfo) {
+                Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
+
+                editText.setText(contactsInfo.getPhoneNumber());
+            }
+        });
 
         try {
             currentIdView = Sequence.nextValue();
@@ -515,7 +571,7 @@ public class DynamicForm extends NestedScrollView {
             item.setIdView(nextValue);
             editText.setTag(item.getLabel());
 
-            SpinAdapter spinnerArrayAdapter = new SpinAdapter(context, android.R.layout.simple_spinner_item, item.getListItemDF());
+            SpinAdapter spinnerArrayAdapter = new SpinAdapter(activity, android.R.layout.simple_spinner_item, item.getListItemDF());
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
             editText.setAdapter(spinnerArrayAdapter);
@@ -581,7 +637,7 @@ public class DynamicForm extends NestedScrollView {
 
         boolean active = true;
         for (ItemDF itemDF : item.getListItemDF()){
-            RadioButton radioButton = new RadioButton(context);
+            RadioButton radioButton = new RadioButton(activity);
             radioButton.setText(itemDF.getLabel());
 
             if(item.getColor() != 0)
@@ -635,16 +691,16 @@ public class DynamicForm extends NestedScrollView {
 
 
             if (colorId != 0){
-                datePickerFragmentDialog.setCancelColor(context.getResources().getColor(colorId));
-                datePickerFragmentDialog.setOkColor(context.getResources().getColor(colorId));
-                datePickerFragmentDialog.setAccentColor(context.getResources().getColor(R.color.amdp_accent_color));
+                datePickerFragmentDialog.setCancelColor(activity.getResources().getColor(colorId));
+                datePickerFragmentDialog.setOkColor(activity.getResources().getColor(colorId));
+                datePickerFragmentDialog.setAccentColor(activity.getResources().getColor(R.color.amdp_accent_color));
             }
 
-            datePickerFragmentDialog.show(((AppCompatActivity)context).getSupportFragmentManager(), null);
+            datePickerFragmentDialog.show(((AppCompatActivity) activity).getSupportFragmentManager(), null);
             //datePickerFragmentDialog.setMaxDate(System.currentTimeMillis());
             //datePickerFragmentDialog.setYearRange(1900, Year);
-            datePickerFragmentDialog.setOkText(context.getResources().getString(R.string.ok_dob));
-            datePickerFragmentDialog.setCancelText(context.getResources().getString(R.string.cancel_dob));
+            datePickerFragmentDialog.setOkText(activity.getResources().getString(R.string.ok_dob));
+            datePickerFragmentDialog.setCancelText(activity.getResources().getString(R.string.cancel_dob));
             datePickerFragmentDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 @Override
                 public void onCancel(DialogInterface dialog) {
@@ -708,6 +764,129 @@ public class DynamicForm extends NestedScrollView {
     }
 
     /**
+     * getChampsPhoto
+     * @param item
+     * @return
+     */
+    private View getChampsPhoto(final IOFieldsItem item) {
+
+        final View rowView = inflater.inflate((item.getTemplate() != ZERO) ? item.getTemplate() : R.layout.input_date, currentFormContainer, true);
+        rowView.setId(NO_ID);
+
+        textView = rowView.findViewById(R.id.textView);
+        EditText editText = rowView.findViewById(R.id.editText);
+
+        textView.setId(NO_ID);
+        textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
+
+        try {
+            int nextValue = Sequence.nextValue();
+
+            editText.setId(nextValue);
+            item.setIdView(nextValue);
+            editText.setTag(item.getLabel());
+            editText.setClickable(true);
+            editText.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    datePicker(rowView, item.getIdView(), item.getColor());
+                }
+            });
+
+        } catch (Exception e) {
+            Log.e("getForm Error", e.toString());
+        }
+
+        return rowView;
+    }
+
+    /**
+     * getChampsImageView
+     * @param item
+     * @return
+     */
+    private View getChampsImageView(final IOFieldsItem item) {
+
+        final View rowView = inflater.inflate((item.getTemplate() != ZERO) ? item.getTemplate() : R.layout.input_date, currentFormContainer, true);
+        rowView.setId(NO_ID);
+
+        textView = rowView.findViewById(R.id.textView);
+        EditText editText = rowView.findViewById(R.id.editText);
+
+        textView.setId(NO_ID);
+        textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
+
+        try {
+            int nextValue = Sequence.nextValue();
+
+            editText.setId(nextValue);
+            item.setIdView(nextValue);
+            editText.setTag(item.getLabel());
+            editText.setClickable(true);
+            editText.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    datePicker(rowView, item.getIdView(), item.getColor());
+                }
+            });
+
+        } catch (Exception e) {
+            Log.e("getForm Error", e.toString());
+        }
+
+        return rowView;
+    }
+
+    /**
+     * getChampsSignView
+     * @param item
+     * @return
+     */
+    private View getChampsSignView(final IOFieldsItem item) {
+
+        final View rowView = inflater.inflate((item.getTemplate() != ZERO) ? item.getTemplate() : R.layout.input_date, currentFormContainer, true);
+        rowView.setId(NO_ID);
+
+        textView = rowView.findViewById(R.id.textView);
+        EditText editText = rowView.findViewById(R.id.editText);
+
+        textView.setId(NO_ID);
+        textView.setText(item.getLabel());
+        if(item.getColor() != 0){
+            textView.setTextColor(item.getColor());
+            textView.setTextColor(item.getColor());
+        }
+
+        try {
+            int nextValue = Sequence.nextValue();
+
+            editText.setId(nextValue);
+            item.setIdView(nextValue);
+            editText.setTag(item.getLabel());
+            editText.setClickable(true);
+            editText.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    datePicker(rowView, item.getIdView(), item.getColor());
+                }
+            });
+
+        } catch (Exception e) {
+            Log.e("getForm Error", e.toString());
+        }
+
+        return rowView;
+    }
+
+    /**
      * getSeparator
      * @param item IOFieldsItem
      * @return view separator
@@ -735,7 +914,7 @@ public class DynamicForm extends NestedScrollView {
      * done
      * @return list values
      */
-    private ArrayList<IOFieldsItem>  done() throws EmptyValueException {
+    private List<IOFieldsItem> done() throws EmptyValueException {
         String value = null;
 
         for(int i = 0; i < listIOField.size(); i++){
@@ -745,14 +924,15 @@ public class DynamicForm extends NestedScrollView {
                     listIOField.get(i).setIndicatif(Integer.parseInt(((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedCountryCode()));
                     listIOField.get(i).setPaysAlpha2(((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedCountryNameCode());
                     break;
-
+/*
                 case INPUT_TYPE_DF.Phone    : value = String.format("%s%s",
                         ((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIndicatif())).getSelectedCountryCode(),
                         ((TextView)rootLayout.findViewById(listIOField.get(i).getIdView())).getText().toString());
 
                     listIOField.get(i).setIndicatif(Integer.parseInt(((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIndicatif())).getSelectedCountryCode()));
-                    listIOField.get(i).setPaysAlpha2(((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIndicatif())).getSelectedCountryNameCode());
-                    break;
+                    //listIOField.get(i).setPaysAlpha2(((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIndicatif())).getSelectedCountryNameCode());*/
+
+                case INPUT_TYPE_DF.Phone    : value = String.format("%s",((TextView)rootLayout.findViewById(listIOField.get(i).getIdView())).getText().toString()); break;
 
                 case INPUT_TYPE_DF.Select   : ItemDF item = (ItemDF)((Spinner)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedItem();
                     listIOField.get(i).setItemDFSelected(item);
@@ -796,6 +976,14 @@ public class DynamicForm extends NestedScrollView {
     }
 
     /**
+     *
+     * @return
+     */
+    public List<IOFieldsItem> getListIOField(){
+        return done();
+    }
+
+    /**
      * findIOFieldByIdView
      * @param idView id view
      * @return IOFieldsItem
@@ -830,7 +1018,7 @@ public class DynamicForm extends NestedScrollView {
      * @param numPage num page
      * @return list IOFieldsItem
      */
-    private ArrayList<IOFieldsItem> getListFormsByPageId(int numPage) {
+    private List<IOFieldsItem> getListFormsByPageId(int numPage) {
         if (numPage < 0 || numPage > listIOField.size())
             return null;
         else
@@ -843,11 +1031,11 @@ public class DynamicForm extends NestedScrollView {
      */
     private boolean checkIOFieldRequired() {
 
-        ArrayList<IOFieldsItem> list = getListFormsByPageId(numCurrentPage);
+        List<IOFieldsItem> list = getListFormsByPageId(numCurrentPage);
         for (IOFieldsItem item : list){
             Log.i(TAG, "checkIOFieldRequired: "+item.getLabel() );
 
-            if (item.getIdView() != -1 && item.isRequired() && item.getShouldBeShown()){
+            if (item.getIdView() != ZERO && item.isRequired() && item.getShouldBeShown()){
                 try {
                     EditText editText = findViewById(item.getIdView());
                     if (editText.getText().toString().isEmpty()){
@@ -978,7 +1166,7 @@ public class DynamicForm extends NestedScrollView {
             onDoneClickListener.OnDoneClicked(v, done());
 
         if (onClickDynamicFormListener != null)
-            onClickDynamicFormListener.OnDoneClicked(done());
+            onClickDynamicFormListener.OnDoneClicked(v, done());
     }
 
     /**
@@ -998,7 +1186,7 @@ public class DynamicForm extends NestedScrollView {
             onNextClickListener.OnNextClicked(v);
 
         if (onClickDynamicFormListener != null)
-            onClickDynamicFormListener.OnNextClicked();
+            onClickDynamicFormListener.OnNextClicked(v);
     }
 
     /**
@@ -1017,7 +1205,7 @@ public class DynamicForm extends NestedScrollView {
             onBackClickListener.OnBackClicked(v);
 
         if (onClickDynamicFormListener != null)
-            onClickDynamicFormListener.OnBackClicked();
+            onClickDynamicFormListener.OnBackClicked(v);
     }
 
     /**
@@ -1029,7 +1217,7 @@ public class DynamicForm extends NestedScrollView {
             onCancelClickListener.OnCancelClicked(v);
 
         if (onClickDynamicFormListener != null)
-            onClickDynamicFormListener.OnCancelClicked();
+            onClickDynamicFormListener.OnCancelClicked(v);
     }
 
     /**
@@ -1132,35 +1320,92 @@ public class DynamicForm extends NestedScrollView {
     }
 
     /**
-     * setDoneText
-     * @param nameButton name
+     *
+     * @param customButton
      */
-    public void setDoneText(String nameButton) {
-        ((TextView)findViewById(R.id.done_btn)).setText(nameButton);
+    public void customDoneButton(CustomButton customButton) {
+        if (customButton.getText() != null)
+            ((Button)findViewById(R.id.done_btn)).setText(customButton.getText());
+
+        if (customButton.getBackground() != -1)
+            findViewById(R.id.done_btn).setBackground(getResources().getDrawable(customButton.getBackground()));
+
+        if (customButton.getBackgroundTint() != -1)
+            findViewById(R.id.done_btn).setBackgroundColor(getResources().getColor(customButton.getBackgroundTint()));
+
+        if (customButton.getTextColor() != -1)
+            ((Button)findViewById(R.id.done_btn)).setTextColor(getResources().getColor(customButton.getTextColor()));
+
+        if (customButton.getTextSize() != -1)
+            ((Button)findViewById(R.id.done_btn)).setTextSize(customButton.getTextSize());
     }
 
     /**
-     * setNextText
-     * @param nameButton name
+     *
+     * @param customButton
      */
-    public void setNextText(String nameButton) {
-        ((TextView)findViewById(R.id.next_btn)).setText(nameButton);
+    public void customNextButton(CustomButton customButton) {
+        if (customButton.getText() != null)
+            ((Button)findViewById(R.id.next_btn)).setText(customButton.getText());
+
+        if (customButton.getBackground() != -1)
+            findViewById(R.id.next_btn).setBackground(getResources().getDrawable(customButton.getBackground()));
+
+        if (customButton.getBackgroundTint() != -1)
+            findViewById(R.id.next_btn).setBackgroundColor(getResources().getColor(customButton.getBackgroundTint()));
+
+        if (customButton.getTextColor() != -1)
+            ((Button)findViewById(R.id.next_btn)).setTextColor(getResources().getColor(customButton.getTextColor()));
+
+        if (customButton.getTextSize() != -1)
+            ((Button)findViewById(R.id.next_btn)).setTextSize(customButton.getTextSize());
     }
 
     /**
-     * setCancelText
-     * @param nameButton name
+     *
+     * @param customButton
      */
-    public void setCancelText(String nameButton) {
-        ((TextView)findViewById(R.id.cancel_btn)).setText(nameButton);
+    public void customCancelButton(CustomButton customButton) {
+        if (customButton.getText() != null)
+            ((Button)findViewById(R.id.cancel_btn)).setText(customButton.getText());
+
+        if (customButton.getBackground() != -1)
+            findViewById(R.id.cancel_btn).setBackground(getResources().getDrawable(customButton.getBackground()));
+
+        if (customButton.getBackgroundTint() != -1)
+            findViewById(R.id.cancel_btn).setBackgroundColor(getResources().getColor(customButton.getBackgroundTint()));
+
+        if (customButton.getTextColor() != -1)
+            ((Button)findViewById(R.id.cancel_btn)).setTextColor(getResources().getColor(customButton.getTextColor()));
+
+        if (customButton.getTextSize() != -1)
+            ((Button)findViewById(R.id.cancel_btn)).setTextSize(customButton.getTextSize());
     }
 
     /**
-     * setBackText
-     * @param nameButton name
+     *
+     * @param customButton
      */
-    public void setBackText(String nameButton) {
-        ((TextView)findViewById(R.id.back_btn)).setText(nameButton);
+    public void customBackButton(CustomButton customButton) {
+        if (customButton.getText() != null)
+            ((Button)findViewById(R.id.back_btn)).setText(customButton.getText());
+
+        if (customButton.getBackground() != -1)
+            findViewById(R.id.back_btn).setBackground(getResources().getDrawable(customButton.getBackground()));
+
+        if (customButton.getBackgroundTint() != -1)
+            findViewById(R.id.back_btn).setBackgroundColor(getResources().getColor(customButton.getBackgroundTint()));
+
+        if (customButton.getTextColor() != -1)
+            ((Button)findViewById(R.id.back_btn)).setTextColor(getResources().getColor(customButton.getTextColor()));
+
+        if (customButton.getTextSize() != -1)
+            ((Button)findViewById(R.id.back_btn)).setTextSize(customButton.getTextSize());
+    }
+
+    public DynamicForm visibiltyButtons(int visibility){
+        findViewById(R.id.footer).setVisibility(visibility);
+        return this;
     }
 
     /**
@@ -1185,6 +1430,33 @@ public class DynamicForm extends NestedScrollView {
         ((TextView)findViewById(R.id.next_btn)).setText(R.string.suivant);
         ((TextView)findViewById(R.id.cancel_btn)).setText(R.string.annuler);
         ((TextView)findViewById(R.id.back_btn)).setText(R.string.precedent);
+    }
+
+    public Button getButton(@TypeButton int button){
+        switch (button){
+            case BUTTON_DONE: return findViewById(R.id.done_btn);
+            case BUTTON_NEXT: return findViewById(R.id.next_btn);
+            case BUTTON_CANCEL: return findViewById(R.id.cancel_btn);
+            case BUTTON_BACK: return findViewById(R.id.back_btn);
+            default: return null;
+        }
+    }
+
+    public boolean isCheckShowButton() {
+        return checkShowButton;
+    }
+
+    public DynamicForm setCheckShowButton(boolean checkShowButton) {
+        this.checkShowButton = checkShowButton;
+        return this;
+    }
+
+
+    /**
+     * remove viewField
+     */
+    public void clearFormView(){
+        containerForm.removeAllViews();
     }
 
 }

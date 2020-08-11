@@ -112,7 +112,7 @@ public class DateUtils {
 	}
 
 	public static String monthBetweenStringDotation(String[] arrayMonthName,
-			Date startDate, Date endDate) {
+													Date startDate, Date endDate) {
 		Log.d("DateUtils", "**** DEB monthBetweenStringDotation ***");
 
 		if (startDate == null) {
@@ -172,7 +172,7 @@ public class DateUtils {
 	}
 
 	public static boolean isThisDateValid(String dateToValidate,
-			String dateFromat) {
+										  String dateFromat) {
 		if (dateToValidate == null) {
 			return false;
 		}
@@ -231,7 +231,7 @@ public class DateUtils {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param startDate
 	 *            -> Date derniére dotation
 	 * @param endDate
@@ -361,7 +361,7 @@ public class DateUtils {
 	}// End fonction
 
 	public static ArrayList<Integer> iterateBetweenMonth(Date startDate,
-			Date endDate) {
+														 Date endDate) {
 		Calendar startCalemder = Calendar.getInstance();
 		startCalemder.setTime(startDate);
 		Calendar endCalendar = Calendar.getInstance();
@@ -379,7 +379,7 @@ public class DateUtils {
 	}// End fonction
 
 	public static boolean isDateBetween(Date dateStart, Date dateEnd,
-			Date dateInQuestion) {
+										Date dateInQuestion) {
 		if (dateStart == null) {
 			throw new IllegalArgumentException(
 					"La date de début ne doit pas être null");

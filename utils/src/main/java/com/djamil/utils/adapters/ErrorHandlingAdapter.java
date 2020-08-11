@@ -1,5 +1,6 @@
 package com.djamil.utils.adapters;
 
+
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
@@ -12,11 +13,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-
 /**
- * Created by Djvmil_ on 2020-01-15
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ *
+ * A sample showing a custom {@link CallAdapter} which adapts the built-in {@link Call} to a custom
+ * version whose callback has more granular methods.
  */
-
 public final class ErrorHandlingAdapter {
     /** A callback which offers granular callbacks for various conditions. */
     public interface MyCallback<T> {
@@ -26,7 +28,10 @@ public final class ErrorHandlingAdapter {
         /** Called for 401 responses. */
         void unauthenticated(Response<?> response);
 
-        /** Called for [400, 500) responses, except 401. */
+        /** Called for 404 responses. */
+        void notFoundError(Response<?> response);
+
+        /** Called for [400, 500) responses, except 401, 404, 408. */
         void clientError(Response<?> response);
 
         /** Called for [500, 600) response. */
@@ -34,6 +39,9 @@ public final class ErrorHandlingAdapter {
 
         /** Called for network errors while making the call. */
         void networkError(IOException e);
+
+        /** Called for unexpected errors while making the call. */
+        void timeOut();
 
         /** Called for unexpected errors while making the call. */
         void unexpectedError(Throwable t);
@@ -107,6 +115,10 @@ public final class ErrorHandlingAdapter {
                         callback.success(response);
                     } else if (code == 401) {
                         callback.unauthenticated(response);
+                    } else if (code == 404) {
+                        callback.notFoundError(response);
+                    } else if (code == 408) {
+                        callback.timeOut();
                     } else if (code >= 400 && code < 500) {
                         callback.clientError(response);
                     } else if (code >= 500 && code < 600) {
@@ -116,11 +128,15 @@ public final class ErrorHandlingAdapter {
                     }
                 }
 
+
                 @Override public void onFailure(Call<T> call, Throwable t) {
                     // TODO if 'callbackExecutor' is not null, the 'callback' methods should be executed
                     // on that executor by submitting a Runnable. This is left as an exercise for the reader.
 
-                    if (t instanceof IOException) {
+                    if (t.getMessage() != null && t.getMessage().equals("timeout")){
+                        callback.timeOut();
+                    }
+                    else if (t instanceof IOException) {
                         callback.networkError((IOException) t);
                     } else {
                         callback.unexpectedError(t);

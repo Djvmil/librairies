@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <EditText
+        android:id="@+id/code_pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/font_exo"
+        android:gravity="center"
+        android:hint="Entrez votre code secret"
+        android:textAllCaps="true"
+        android:inputType="none"
+        android:singleLine="true"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/code_pin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/font_exo"
+        android:gravity="center"
+        android:hint="Entrez votre code secret"
+        android:textAllCaps="true"
+        android:inputType="none"
+        android:singleLine="true"
+        android:editable="false" />
+
+    <RelativeLayout
+        android:id="@+id/keyboard_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5ssp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"/>
+
+</LinearLayout>
+

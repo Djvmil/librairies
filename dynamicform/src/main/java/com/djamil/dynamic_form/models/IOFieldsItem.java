@@ -12,8 +12,10 @@ import com.djamil.dynamic_form.annotations.InputTypeDF;
 import com.djamil.dynamic_form.annotations.SerializedName;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ */
 
 public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
@@ -59,7 +61,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	@SerializedName("shouldBeShown")
 	@Expose
-	private Boolean shouldBeShown = true;
+	private boolean shouldBeShown = true;
 
 	@SerializedName("value")
 	@Expose
@@ -79,13 +81,15 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	@SerializedName("msg_hint")
 	@Expose
-	private String msgHint;
+	private String msgHint = "";
+
+	private int idOperationBiller = -1;
 
 	private ArrayList<ItemDF> listItemDF;
 	private ArrayList<ItemDF> listItemDFSelected;
 	private ItemDF itemDFSelected;
-	private int idView = -1;
-	private int indicatif;
+	private int idView = 0;
+	private int indicatif = 0;
 	private int numPage = 0;
 	private int idBillerFields;
 	private boolean formatter = false;
@@ -99,32 +103,49 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
-		this.value = type;
+
 	}
 
-	public IOFieldsItem(String label, String field, String type, @LayoutRes int template) {
+	public IOFieldsItem(String label, String field, @InputTypeDF String type, Boolean isMoney) {
+		this.label   = label;
+		this.field   = field;
+		this.type    = type;
+		this.isMoney = isMoney;
+	}
+
+	public IOFieldsItem(String label, String field, @InputTypeDF String type, @LayoutRes int template) {
 		this.label    = label;
 		this.field    = field;
 		this.type     = type;
 		this.value    = type;
 		this.template = template;
-		this.color    = 0;
 
 	}
 
-	public IOFieldsItem(String label, String field, String type, List<String> listRadio) {
-		this.label = label;
-		this.field = field;
-		this.type  = type;
-
-	}
-
-	public IOFieldsItem(String label, String field, String type, String value) {
+	public IOFieldsItem(String label, String field,  @InputTypeDF String type, String value) {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
 		this.value = value;
 
+	}
+
+	public IOFieldsItem(boolean isRequired, String field, String label, @InputTypeDF String type, int order, boolean isReadOnly, Boolean shouldBeShown, String value, int color, String devise, String paysAlpha2, String msgHint, int indicatif, boolean isMoney, int template) {
+		this.isRequired = isRequired;
+		this.field = field;
+		this.label = label;
+		this.type = type;
+		this.order = order;
+		this.isReadOnly = isReadOnly;
+		this.shouldBeShown = shouldBeShown;
+		this.value = value;
+		this.color = color;
+		this.devise = devise;
+		this.paysAlpha2 = paysAlpha2;
+		this.msgHint = msgHint;
+		this.indicatif = indicatif;
+		this.isMoney = isMoney;
+		this.template = template;
 	}
 
 	public int getId() {
@@ -207,7 +228,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		return label;
 	}
 
-	public void setType(String type){
+	public void setType(@InputTypeDF String type){
 		this.type = type;
 	}
 
@@ -248,7 +269,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.order = order;
 	}
 
-	public Boolean getShouldBeShown() {
+	public boolean getShouldBeShown() {
 		return shouldBeShown;
 	}
 
@@ -316,7 +337,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.listItemDFSelected = new ArrayList<>();
 		for (ItemDF item : this.listItemDF){
 			if (((CheckBox)view.findViewById(item.getIdView())).isChecked());
-				this.listItemDFSelected.add(item);
+			this.listItemDFSelected.add(item);
 		}
 
 	}
@@ -353,6 +374,14 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		this.numPage = numPage;
 	}
 
+	public int getIdOperationBiller() {
+		return idOperationBiller;
+	}
+
+	public void setIdOperationBiller(int idOperationBiller) {
+		this.idOperationBiller = idOperationBiller;
+	}
+
 	@Override
 	public int describeContents() {
 		return 0;
@@ -362,16 +391,24 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		id = in.readInt();
 		isRequired = in.readInt() == 1;
 		shouldBeShown = in.readInt() == 1;
+		isMoney    = in.readInt() == 1;
+		isReadOnly = in.readInt() == 1;
+		formatter = in.readInt() == 1;
 		order = in.readInt();
 		field = in.readString();
 		method = in.readString();
 		label = in.readString();
 		type = in.readString();
-		//errors = in.readString();
 		url = in.readString();
 		value = in.readString();
-
 		color = in.readInt();
+		order = in.readInt();
+		idOperationBiller = in.readInt();
+		idView = in.readInt();
+		numPage = in.readInt();
+		devise = in.readString();
+		msgHint = in.readString();
+		paysAlpha2 = in.readString();
 		template = in.readInt();
 	}
 
@@ -381,17 +418,26 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		dest.writeString(label);
 		dest.writeInt(order);
 		dest.writeInt(isRequired ? 1 : 0);
+		dest.writeInt(isMoney ? 1 : 0);
+		dest.writeInt(isReadOnly ? 1 : 0);
+		dest.writeInt(formatter ? 1 : 0);
 		dest.writeInt(shouldBeShown ? 1 : 0);
+
+		dest.writeInt(idOperationBiller);
 		dest.writeString(field);
 		dest.writeString(method);
 		dest.writeString(type);
 		dest.writeString(url);
 		dest.writeString(value);
 		dest.writeInt(template);
+		dest.writeInt(order);
 		dest.writeInt(color);
+		dest.writeInt(idView);
+		dest.writeInt(numPage);
+		dest.writeString(devise);
+		dest.writeString(paysAlpha2);
+		dest.writeString(msgHint);
 		dest.writeString(value);
-
-		//errors;
 	}
 
 
@@ -431,11 +477,13 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 				", devise='" + devise + '\'' +
 				", paysAlpha2='" + paysAlpha2 + '\'' +
 				", msgHint='" + msgHint + '\'' +
+				", idOperationBiller=" + idOperationBiller +
 				", listItemDF=" + listItemDF +
 				", listItemDFSelected=" + listItemDFSelected +
 				", itemDFSelected=" + itemDFSelected +
 				", idView=" + idView +
 				", indicatif=" + indicatif +
+				", numPage=" + numPage +
 				", idBillerFields=" + idBillerFields +
 				", formatter=" + formatter +
 				", isMoney=" + isMoney +

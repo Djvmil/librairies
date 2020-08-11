@@ -1,7 +1,7 @@
 package com.djamil.dynamic_form.models;
 
 /**
- * Created by Djvmil_ on 2020-02-10
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 
 public class ItemDF {

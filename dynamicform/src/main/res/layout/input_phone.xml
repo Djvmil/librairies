@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="50dp"
+    android:layout_height="@dimen/_35sdp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="10dp"
     android:orientation="horizontal"
@@ -33,7 +33,16 @@
         android:layout_weight="2"
         android:imeOptions="actionNext"
         android:fontFamily="@font/exo"
-        android:textSize="@dimen/_12ssp"
+        android:textSize="@dimen/_10ssp"
         android:hint="Numéro téléphone"
         android:inputType="textCapWords|textCapCharacters|textNoSuggestions" />
+
+    <ImageView
+        android:id="@+id/contacts"
+        android:layout_width="@dimen/_30ssp"
+        android:layout_height="@dimen/_30ssp"
+        android:layout_weight="2"
+        android:src="@drawable/ic_contacts_black_24dp"
+        android:padding="@dimen/_2ssp"
+        android:clickable="true"  />
 </LinearLayout>

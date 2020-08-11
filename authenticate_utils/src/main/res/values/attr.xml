@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="DynamicKeyBoard">
+        <attr name="color_field" format="color" />
+        <attr name="icon_backspace" format="reference" />
+        <attr name="icon_fingerprint" format="reference" />
+        <attr name="icon_no_fingerprint" format="reference" />
+    </declare-styleable>
+
+</resources>

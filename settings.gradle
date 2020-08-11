@@ -1,2 +1,2 @@
-include ':app', ':dynamicform', ':utils', ':dynamickeyboard'
+include ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll'
 rootProject.name='Librairie'

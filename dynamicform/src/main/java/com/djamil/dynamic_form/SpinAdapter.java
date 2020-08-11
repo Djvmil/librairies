@@ -12,7 +12,7 @@ import com.djamil.dynamic_form.models.ItemDF;
 import java.util.ArrayList;
 
 /**
- * Created by Djvmil_ on 2019-12-10
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 
 public class SpinAdapter extends ArrayAdapter<ItemDF> {
