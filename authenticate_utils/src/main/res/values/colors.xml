@@ -1,0 +1,38 @@
+<resources>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#808080</color>
+    <color name="colorGrisClair">#E0DFE8</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="vertKaki">#8AA927</color>
+    <color name="vert">#245249</color>
+    <color name="colorBgMenu">#F7F7F7</color>
+
+    <color name="cancel">#F45757</color>
+
+
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+    <color name="colorBackground">#241445</color>
+    <color name="separatorColor">#f1f1f1</color>
+
+    <color name="pink">#FF308E</color>
+    <color name="orange">#FA9301</color>
+    <color name="yellow">#F8D411</color>
+    <color name="blue">#20CBF3</color>
+    <color name="purple">#6F26FA</color>
+    <color name="red">#EA1616</color>
+    <color name="green">#49CC56</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="vert_danaya">#008D36</color>
+
+    <!-- End  -->
+</resources>

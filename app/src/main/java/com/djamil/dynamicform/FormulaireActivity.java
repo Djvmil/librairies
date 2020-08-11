@@ -11,50 +11,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.djamil.dynamic_form.INPUT_TYPE_DF;
 import com.djamil.dynamic_form.DynamicForm;
 import com.djamil.dynamic_form.interfaces.OnClickDynamicFormListener;
+import com.djamil.dynamic_form.models.CustomButton;
 import com.djamil.dynamic_form.models.IOFieldsItem;
 import com.djamil.dynamic_form.models.ItemDF;
+import com.djamil.utils.RandomStringUUID;
 
 import java.util.ArrayList;
 
 public class FormulaireActivity extends AppCompatActivity implements OnClickDynamicFormListener {
     private static final String TAG = "FormulaireActivity";
     private DynamicForm dynamicForm;
-    private ArrayList<IOFieldsItem> fieldItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulaire);
         dynamicForm = findViewById(R.id.dynamic_form);
 
-        String []list = {"Nom", "Nom 1", "Nom 2"};
-
+        ArrayList<IOFieldsItem> fieldItems = new ArrayList<>();
         IOFieldsItem ioFieldsItem;
 
-        fieldItems = new ArrayList<>();
         fieldItems.add(new IOFieldsItem("Nom", "nom", INPUT_TYPE_DF.Label, R.layout.label_text));
-        ioFieldsItem = new IOFieldsItem("Test required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
-        fieldItems.add(ioFieldsItem);
-        fieldItems.add(new IOFieldsItem("Prenom", "prenom", INPUT_TYPE_DF.Text));
+        fieldItems.add(new IOFieldsItem("Prénom", "prenom", INPUT_TYPE_DF.Text));
 
-        fieldItems.add(new IOFieldsItem("Telephone", "telephone", INPUT_TYPE_DF.Date));
-        fieldItems.add(new IOFieldsItem("Email", "email", INPUT_TYPE_DF.Password));
-        fieldItems.add(new IOFieldsItem("Djamil", "email", INPUT_TYPE_DF.Password));
-
-        ioFieldsItem = new IOFieldsItem("Test required", "required", INPUT_TYPE_DF.Text);
+        ioFieldsItem = new IOFieldsItem("Required", "required", INPUT_TYPE_DF.Text);
         ioFieldsItem.setIsRequired(true);
         fieldItems.add(ioFieldsItem);
 
-        fieldItems.add(new IOFieldsItem("Dieme", "email", INPUT_TYPE_DF.Password));
-        //fieldItems.add(new IOFieldsItem("Test", "test", ConstantesView.Radio));
-        fieldItems.add(new IOFieldsItem("Nom", "nom", INPUT_TYPE_DF.Label,R.layout.label_text));
-        ioFieldsItem = new IOFieldsItem("Test required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
-        fieldItems.add(ioFieldsItem);
-        fieldItems.add(new IOFieldsItem("Prenom", "prenom", INPUT_TYPE_DF.Country));
-        fieldItems.add(new IOFieldsItem("Telephone", "seck", INPUT_TYPE_DF.Text));
-        fieldItems.add(new IOFieldsItem("Email", "email", INPUT_TYPE_DF.Password));
-        //fieldItems.add(new IOFieldsItem("Test", "test", ConstantesView.Radio));
+        fieldItems.add(new IOFieldsItem("Téléphone", "telephone", INPUT_TYPE_DF.Phone));
+        fieldItems.add(new IOFieldsItem("Date", "date", INPUT_TYPE_DF.Date));
+        fieldItems.add(new IOFieldsItem("Email", "email", INPUT_TYPE_DF.Email));
+        fieldItems.add(new IOFieldsItem("Password", "password", INPUT_TYPE_DF.Password));
 
         ArrayList<ItemDF> itemDFS = new ArrayList<>();
         itemDFS.add(new ItemDF(1, "Label 1", "Value 1", "Field 1"));
@@ -65,9 +52,6 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         ioFieldsItem = new IOFieldsItem("ListSelect", "select", INPUT_TYPE_DF.Select);
         ioFieldsItem.setListItemDF(itemDFS);
         fieldItems.add(ioFieldsItem);
-        ioFieldsItem = new IOFieldsItem("Test required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
-        fieldItems.add(ioFieldsItem);
 
         ioFieldsItem = new IOFieldsItem("ListRadio", "radio", INPUT_TYPE_DF.Radio);
         ioFieldsItem.setListItemDF(itemDFS);
@@ -76,17 +60,15 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         ioFieldsItem = new IOFieldsItem("ListRadio", "CheckBox", INPUT_TYPE_DF.CheckBox);
         ioFieldsItem.setListItemDF(itemDFS);
         fieldItems.add(ioFieldsItem);
-        ioFieldsItem = new IOFieldsItem("Test required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
-        fieldItems.add(ioFieldsItem);
 
-        dynamicForm.setNbFieldPerPage(3);
         dynamicForm.loadForm(fieldItems);
 
-        //dynamicForm.findViewById();
-
         dynamicForm.setNameButtonFr();
+        dynamicForm.customNextButton(new CustomButton(R.color.black_semi_transparent, -1, R.drawable.fieldset_default, "SuivantRR", -1));
         dynamicForm.setOnClickDynamicFormListener(this);
+
+
+        RandomStringUUID.getUUID();
 
     }
 
@@ -101,28 +83,28 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
     }
 
     @Override
-    public void OnDoneClicked(ArrayList<IOFieldsItem> ioFieldsItems) {
+    public void OnDoneClicked(View v, ArrayList<IOFieldsItem> ioFieldsItems) {
         Log.d(TAG, "OnDoneClicked: " );
-        Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue() );
+        Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue());
 
     }
 
     @Override
-    public void OnNextClicked() {
+    public void OnNextClicked(View v) {
         Log.d(TAG, "OnNextClicked: " );
 
     }
 
     @Override
-    public void OnBackClicked() {
+    public void OnBackClicked(View v) {
         Log.d(TAG, "OnBackClicked: " );
 
     }
 
     @Override
-    public void OnCancelClicked() {
+    public void OnCancelClicked(View v) {
         Log.d(TAG, "OnCancelClicked: " );
-
+        finish();
     }
 
     @Override
@@ -143,35 +125,12 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         }
 
 
-            /*
-            editText.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> adapterView, View v, int i, long l) {
-                    //Toast.makeText(context, ""+ ((Formules)editText.getSelectedItem()).getPrix(), Toast.LENGTH_SHORT).show();
-
-                    try {
-                        if (foundAmount){
-                            String mtn = ((Formules)editText.getSelectedItem()).getPrix();
-                            if (view.findViewById(idAmount) != null)
-                                ((TextView)view.findViewById(idAmount)).setText(String.format("%s XOF", FonctionUtils.getNumberFloatFormat(Float.valueOf(mtn))));
-                        }
-                        else
-                            for (IOFieldsItem montant : listForms){
-                                if (montant.getField() != null && montant.getField().equals("montant")){
-                                    idAmount = montant.getId();
-                                    foundAmount = true;
-                                }
-                            }
-                    }catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {
-
-                }
-            });*/
-
     }
+
+    @Override
+    public void finish() {
+        super.finish();
+    }
+
+
 }

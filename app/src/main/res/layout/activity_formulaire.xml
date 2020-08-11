@@ -11,5 +11,6 @@
         android:id="@+id/dynamic_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:nb_field_per_page="4"
         />
 </RelativeLayout>

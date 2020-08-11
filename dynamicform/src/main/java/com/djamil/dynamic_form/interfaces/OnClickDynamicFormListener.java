@@ -4,17 +4,20 @@ import android.view.View;
 
 import com.djamil.dynamic_form.models.IOFieldsItem;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by Djvmil_ on 5/21/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 
 public interface OnClickDynamicFormListener extends View.OnClickListener {
+
+    //======================= deb methode dynamic form =======================
     public void onClick(View v);
-    public void OnDoneClicked(ArrayList<IOFieldsItem> ioFieldsItems);
-    public void OnNextClicked();
-    public void OnBackClicked();
-    public void OnCancelClicked();
-    public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems);
+    public void OnDoneClicked(View v, List<IOFieldsItem> ioFieldsItems);
+    public void OnNextClicked(View v);
+    public void OnBackClicked(View v);
+    public void OnCancelClicked(View v);
+    public void OnFormCreated(List<IOFieldsItem> ioFieldsItems);
+    //======================= end methode dynamic form =======================
 }

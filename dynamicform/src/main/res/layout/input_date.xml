@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="40dp"
+    android:layout_height="@dimen/_35sdp"
     android:layout_gravity="center_horizontal"
     android:layout_margin="10dp"
     android:orientation="horizontal"
@@ -17,7 +17,7 @@
         android:layout_weight="1"
         android:gravity="center_vertical"
         android:text="Date"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10ssp"
         android:textStyle="bold"/>
 
     <EditText
@@ -30,5 +30,5 @@
         android:editable="false"
         android:inputType="none"
         android:textColor="@color/vertKaki"
-        android:textSize="@dimen/_12sdp"/>
+        android:textSize="@dimen/_10ssp"/>
 </LinearLayout>

@@ -1,10 +1,10 @@
 package com.djamil.dynamic_form.models;
-/**
- *   Djvmil 19/12/2020
- */
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ */
 public class Sequence {
 
     private static final AtomicInteger counter = new AtomicInteger();

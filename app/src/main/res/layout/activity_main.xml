@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,33 +7,69 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/dynamic_form"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_margin="@dimen/_14sdp"
-        android:textSize="@dimen/_15sdp"
-        android:textStyle="bold"
-        android:text="Formulaire Dynamique"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/keyboard_view"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_margin="@dimen/_14sdp"
-        android:layout_below="@+id/dynamic_form"
-        android:textSize="@dimen/_15sdp"
-        android:textStyle="bold"
-        android:text="Clavier Dynamique"/>
+        <Button
+            android:id="@+id/dynamic_form"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Formulaire Dynamique"/>
 
-    <Button
-        android:id="@+id/utils"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:layout_margin="@dimen/_14sdp"
-        android:layout_below="@+id/keyboard_view"
-        android:textSize="@dimen/_15sdp"
-        android:textStyle="bold"
-        android:text="Utils"/>
+        <Button
+            android:id="@+id/keyboard_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/dynamic_form"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Clavier Dynamique"/>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/utils"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/keyboard_view"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Utils"/>
+
+        <Button
+            android:id="@+id/contact_list"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/utils"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Liste contact"/>
+
+        <TextView
+            android:id="@+id/contact_result"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/contact_list"
+            android:gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Contact select"/>
+
+        <com.djamil.authenticate_utils.Authenticate
+            android:id="@+id/dynamic_key"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact_result"
+            app:color_field="@color/colorBlack"
+            app:icon_backspace="@drawable/ic_backspace_24dp"
+            app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"  />
+
+    </RelativeLayout>
+
+</androidx.core.widget.NestedScrollView>
