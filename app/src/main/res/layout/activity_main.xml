@@ -11,9 +11,66 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+        <LinearLayout
+            android:id="@+id/finger"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="HardcodedText"
+            >
+            <com.mattprecious.swirl.SwirlView
+                android:id="@+id/swirl"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                tools:swirl_state="on"
+                />
+            <RadioGroup
+                android:id="@+id/state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:checkedButton="@+id/off"
+                android:orientation="horizontal"
+                tools:checkedButton="@+id/on"
+                >
+                <RadioButton
+                    android:id="@+id/off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="32dp"
+                    android:text="Off"
+                    />
+                <RadioButton
+                    android:id="@+id/on"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="32dp"
+                    android:text="On"
+                    />
+                <RadioButton
+                    android:id="@+id/error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Error"
+                    />
+            </RadioGroup>
+
+            <CheckBox
+                android:id="@+id/animate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:checked="true"
+                android:text="Animate"
+                />
+        </LinearLayout>
+
         <Button
             android:id="@+id/dynamic_form"
             android:layout_width="match_parent"
+            android:layout_below="@+id/finger"
             android:layout_height="@dimen/_50sdp"
             android:layout_margin="@dimen/_14sdp"
             android:textSize="@dimen/_15sdp"

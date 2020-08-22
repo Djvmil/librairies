@@ -17,6 +17,7 @@ import com.djamil.dynamic_form.models.ItemDF;
 import com.djamil.utils.RandomStringUUID;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FormulaireActivity extends AppCompatActivity implements OnClickDynamicFormListener {
     private static final String TAG = "FormulaireActivity";
@@ -83,7 +84,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
     }
 
     @Override
-    public void OnDoneClicked(View v, ArrayList<IOFieldsItem> ioFieldsItems) {
+    public void OnDoneClicked(View v, List<IOFieldsItem> ioFieldsItems) {
         Log.d(TAG, "OnDoneClicked: " );
         Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue());
 
@@ -108,7 +109,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
     }
 
     @Override
-    public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems) {
+    public void OnFormCreated(List<IOFieldsItem> ioFieldsItems) {
         Log.e(TAG, "OnFormCreated: ");
 
         IOFieldsItem item = dynamicForm.findIOFieldByFieldName("seck");

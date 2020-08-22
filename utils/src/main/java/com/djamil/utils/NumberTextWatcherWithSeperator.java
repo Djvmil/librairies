@@ -13,9 +13,9 @@ public class NumberTextWatcherWithSeperator implements TextWatcher {
 
     private EditText editText;
 
+
     public NumberTextWatcherWithSeperator(EditText editText) {
         this.editText = editText;
-
 
     }
 
@@ -45,7 +45,7 @@ public class NumberTextWatcherWithSeperator implements TextWatcher {
 
                 }
 
-                String str = editText.getText().toString().replaceAll(",", "");
+                String str = editText.getText().toString().replaceAll(" ", "");
                 if (!value.equals(""))
                     editText.setText(getDecimalFormattedString(str));
                 editText.setSelection(editText.getText().toString().length());
@@ -79,7 +79,7 @@ public class NumberTextWatcherWithSeperator implements TextWatcher {
                 return str3;
             }
             if (i == 3) {
-                str3 = "," + str3;
+                str3 = " " + str3;
                 i = 0;
             }
             str3 = str1.charAt(k) + str3;

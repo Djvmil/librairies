@@ -1,2 +1,3 @@
+include ':authenticate'
 include ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll'
 rootProject.name='Librairie'

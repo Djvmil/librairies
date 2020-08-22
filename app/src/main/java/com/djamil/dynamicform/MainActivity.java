@@ -7,6 +7,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
@@ -14,18 +16,29 @@ import com.djamil.contactlist.ContactList;
 import com.djamil.contactlist.ContactsInfo;
 import com.djamil.contactlist.interfaces.OnClickCantactListener;
 import com.djamil.authenticate_utils.Authenticate;
+import com.mattprecious.swirl.SwirlView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
     private static final String TAG = "MainActivity";
 
     private ContactList contactList;
     private TextView contactResult;
     private Authenticate authenticate;
+
+     SwirlView swirlView;
+     RadioGroup stateView;
+     CompoundButton animateView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        swirlView   = findViewById(R.id.swirl);
+        stateView   = findViewById(R.id.state);
+        animateView = findViewById(R.id.animate);
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -36,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onAuthFailed() {
+            public void onAuthFailed(int typeAuth) {
 
             }
 
@@ -96,8 +109,25 @@ public class MainActivity extends AppCompatActivity {
                 contactList.showContactList();
             }
         });
-
+        stateView.setOnCheckedChangeListener(this);
     }
+
+    @Override public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.off:
+                swirlView.setState(SwirlView.State.OFF, animateView.isChecked());
+                break;
+            case R.id.on:
+                swirlView.setState(SwirlView.State.ON, animateView.isChecked());
+                break;
+            case R.id.error:
+                swirlView.setState(SwirlView.State.ERROR, animateView.isChecked());
+                break;
+            default:
+                throw new IllegalArgumentException("Unexpected checkedId: " + checkedId);
+        }
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -107,4 +137,8 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }
