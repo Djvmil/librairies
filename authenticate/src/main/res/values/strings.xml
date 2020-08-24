@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">LockScreen</string>
-    <string name="pinlock_title">Enter Pin Code</string>
-    <string name="pinlock_settitle">Set Pin Code</string>
-    <string name="pinlock_firsttry">Wrong Pin Code: First Try</string>
-    <string name="pinlock_secondtry">Wrong Pin Code: Second Try</string>
-    <string name="pinlock_wrongpin">Wrong Pin code</string>
-    <string name="pinlock_secondPin">Enter Pin Code Again</string>
-    <string name="pinlock_tryagain">Pin Codes Are Not The Same</string>
-    <string name="pinlock_fingerprint">Use Fingerprint</string>
+    <string name="app_name">Authentication</string>
+    <string name="pinlock_title">Entrez le code PIN</string>
+    <string name="pinlock_settitle">Définir le code PIN</string>
+    <string name="pinlock_firsttry">Mauvais code PIN: premier essai</string>
+    <string name="pinlock_secondtry">Mauvais code PIN: deuxième essai</string>
+    <string name="pinlock_wrongpin">Mauvais code PIN</string>
+    <string name="pinlock_secondPin">Entrez à nouveau le code PIN</string>
+    <string name="pinlock_tryagain">Les codes PIN ne sont pas les mêmes</string>
+    <string name="pinlock_fingerprint">Utiliser l\'empreinte digitale</string>
 </resources>

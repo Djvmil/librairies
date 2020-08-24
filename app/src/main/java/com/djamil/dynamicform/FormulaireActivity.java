@@ -68,9 +68,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         dynamicForm.customNextButton(new CustomButton(R.color.black_semi_transparent, -1, R.drawable.fieldset_default, "SuivantRR", -1));
         dynamicForm.setOnClickDynamicFormListener(this);
 
-
         RandomStringUUID.getUUID();
-
     }
 
     @Override

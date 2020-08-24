@@ -1,34 +1,36 @@
 package com.djamil.dynamicform;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.RadioGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
 import com.djamil.contactlist.ContactList;
 import com.djamil.contactlist.ContactsInfo;
 import com.djamil.contactlist.interfaces.OnClickCantactListener;
 import com.djamil.authenticate_utils.Authenticate;
-import com.mattprecious.swirl.SwirlView;
+import com.suntelecoms.authenticate.activity.AuthenticateActivity;
+import com.suntelecoms.authenticate.pinlockview.OnAuthListener;
 
 
-public class MainActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements OnAuthListener {
     private static final String TAG = "MainActivity";
 
     private ContactList contactList;
     private TextView contactResult;
     private Authenticate authenticate;
 
-     SwirlView swirlView;
-     RadioGroup stateView;
-     CompoundButton animateView;
+    private static final String FONT_TEXT = "font/ALEAWB.TTF";
+    private static final String FONT_NUMBER = "font/BLKCHCRY.TTF";
+
+    private static final int REQUEST_CODE = 123;
+
 
 
     @Override
@@ -36,9 +38,15 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        swirlView   = findViewById(R.id.swirl);
-        stateView   = findViewById(R.id.state);
-        animateView = findViewById(R.id.animate);
+
+        Intent intent = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
+        //AuthenticateActivity.Companion.setGoneBtnBack(true);
+        AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
+        AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
+        AuthenticateActivity.Companion.setShuffle(true);
+        AuthenticateActivity.Companion.setUseFingerPrint(true);
+        startActivity(intent);
+
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -109,22 +117,72 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 contactList.showContactList();
             }
         });
-        stateView.setOnCheckedChangeListener(this);
+        Button normal = (Button) findViewById(R.id.normal);
+        Button setPin = (Button) findViewById(R.id.setPin);
+        Button setFont = (Button) findViewById(R.id.setFont);
+        Button setPinAndFont = (Button) findViewById(R.id.setPinAndFont);
+
+        normal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // start the activity, It handles the setting and checking
+                Intent intent = new Intent(MainActivity.this, AuthenticateActivity.class);
+//                startActivity(intent);
+
+                // for handling back press
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        setPin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // set pin instead of checking it
+                Intent intent = AuthenticateActivity.getIntent(MainActivity.this, true, null, null);
+                //AuthenticateActivity.Companion.setGoneBtnBack(true);
+                AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
+                AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
+                AuthenticateActivity.Companion.setShuffle(true);
+                AuthenticateActivity.Companion.setUseFingerPrint(true);
+                startActivity(intent);
+
+            }
+        });
+
+        setFont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // setting font for library
+                Intent intent = AuthenticateActivity.getIntent(MainActivity.this, false, FONT_TEXT, FONT_NUMBER, MainActivity.this, false, R.drawable.logo_aicha, true, false);
+                startActivity(intent);
+            }
+        });
+
+        setPinAndFont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // setting font for library and set pin instead of checking it
+                Intent intent = AuthenticateActivity.getIntent(MainActivity.this, true, FONT_TEXT, FONT_NUMBER, MainActivity.this, false, R.drawable.logo_aicha, true, false);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
-    @Override public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-            case R.id.off:
-                swirlView.setState(SwirlView.State.OFF, animateView.isChecked());
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == AuthenticateActivity.RESULT_BACK_PRESSED) {
+                    Toast.makeText(MainActivity.this, "back pressed", Toast.LENGTH_LONG).show();
+                }
                 break;
-            case R.id.on:
-                swirlView.setState(SwirlView.State.ON, animateView.isChecked());
-                break;
-            case R.id.error:
-                swirlView.setState(SwirlView.State.ERROR, animateView.isChecked());
-                break;
-            default:
-                throw new IllegalArgumentException("Unexpected checkedId: " + checkedId);
         }
     }
 
@@ -139,6 +197,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
+    @Override
+    public void onSuccess(String pin, boolean success) {
+
+    }
+
+    @Override
+    public void onError(String msg) {
 
     }
 }

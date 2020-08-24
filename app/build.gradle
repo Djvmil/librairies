@@ -22,12 +22,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':authenticate')
     implementation project(':dynamicform')
     implementation project(':utils')
     implementation project(':contactlist')
     implementation project(':authenticate_utils')
     //implementation project(':fragmentmanagement')
     implementation 'com.mattprecious.swirl:swirl:1.3.0'
+   // //implementation files('libs/authenticate.aar')
 /*
     def _version = "1.0.1"
     implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version

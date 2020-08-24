@@ -1,32 +1,30 @@
-package com.suntelecoms.authenticate.andrognito.pinlockview;
+package com.suntelecoms.authenticate.pinlockview
 
 /**
  * The listener that triggers callbacks for various events
- * in the {@link PinLockView}
+ * in the [PinLockView]
  *
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 3/12/20.
  */
-public interface PinLockListener {
-
+interface PinLockListener {
     /**
      * Triggers when the complete pin is entered,
      * depends on the pin length set by the user
      *
      * @param pin the complete pin
      */
-    void onComplete(String pin);
-
+    fun onComplete(pin: String?)
 
     /**
      * Triggers when the pin is empty after manual deletion
      */
-    void onEmpty();
+    fun onEmpty()
 
     /**
-     * Triggers on a key press on the {@link PinLockView}
+     * Triggers on a key press on the [PinLockView]
      *
      * @param pinLength       the current pin length
      * @param intermediatePin the intermediate pin
      */
-    void onPinChange(int pinLength, String intermediatePin);
+    fun onPinChange(pinLength: Int, intermediatePin: String?)
 }

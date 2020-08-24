@@ -8,7 +8,8 @@
 
     // text size
     <dimen name="default_text_size">25sp</dimen>
-    <dimen name="default_button_size">60dp</dimen>
+    <dimen name="default_button_size">75dp</dimen>
+    <dimen name="default_spacing_button">4dp</dimen>
 
     // dots
     <dimen name="dot_diameter">12dp</dimen>
@@ -27,7 +28,7 @@
 
     // title
     <dimen name="textsize_title">20sp</dimen>
-    <dimen name="title_margintop">54dp</dimen>
+    <dimen name="title_margintop">50dp</dimen>
     <dimen name="title_marginstart">10dp</dimen>
     <dimen name="title_marginend">10dp</dimen>
 
@@ -39,7 +40,7 @@
 
     // fingerprint
     <dimen name="finger_text_marginbottom">22dp</dimen>
-    <dimen name="finger_icon">60dp</dimen>
+    <dimen name="finger_icon">90dp</dimen>
     <dimen name="finger_icon_margintop">80dp</dimen>
     <dimen name="finger_icon_marginbottom">10dp</dimen>
     <dimen name="textsize_fingerprint">14sp</dimen>
