@@ -2,9 +2,9 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BackgroundAuth"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/layout_background"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -13,7 +13,6 @@
         android:layout_gravity="center_horizontal"
         android:maxWidth="@dimen/layout_maxwidth"
         android:padding="@dimen/layout_padding">
-
 
         <LinearLayout
             android:id="@+id/imgMenuBackImageView"

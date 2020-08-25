@@ -45,4 +45,6 @@
     <dimen name="finger_icon_marginbottom">10dp</dimen>
     <dimen name="textsize_fingerprint">14sp</dimen>
 
+    <dimen name="finger_gradientWidth">250dp</dimen>
+    <dimen name="finger_gradientHeight">250dp</dimen>
 </resources>

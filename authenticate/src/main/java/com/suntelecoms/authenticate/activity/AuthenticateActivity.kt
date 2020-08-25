@@ -105,15 +105,14 @@ class AuthenticateActivity : AppCompatActivity() {
 
         val pinLockListener: PinLockListener = object : PinLockListener {
             override fun onComplete(pin: String?) {
-                if (mSetPin) {
-                    setPin(pin!!)
-                } else {
-                    checkPin(pin)
-                }
+                if (mSetPin) setPin(pin!!)
+
+                else checkPin(pin)
+
             }
 
             override fun onEmpty() {
-                Log.d(TAG, "Pin empty")
+                Log.d(TAG, getString(R.string.pin_empty))
             }
 
             override fun onPinChange(pinLength: Int, intermediatePin: String?) {
@@ -252,14 +251,16 @@ class AuthenticateActivity : AppCompatActivity() {
             if (pin == mFirstPin) {
                 writePinToSharedPreferences(pin)
                 setResult(Activity.RESULT_OK)
-                onAuthListener?.onSuccess(pin, true)
+                if(onAuthListener != null)
+                    onAuthListener?.onSuccess(pin, true)
                 finish()
             } else {
                 shake()
                 mTextTitle!!.text = getString(R.string.pinlock_tryagain)
                 pinlockView!!.resetPinLockView()
                 mFirstPin = ""
-                onAuthListener?.onError(getString(R.string.pinlock_tryagain))
+                if(onAuthListener != null)
+                    onAuthListener?.onError(getString(R.string.pinlock_tryagain))
             }
         }
     }
@@ -267,14 +268,18 @@ class AuthenticateActivity : AppCompatActivity() {
     private fun checkPin(pin: String?) {
         if (sha256(pin!!) == pinFromSharedPreferences) {
             setResult(Activity.RESULT_OK)
-            onAuthListener?.onSuccess(pin, true)
+            if(onAuthListener != null)
+                onAuthListener?.onSuccess(pin, true)
             finish()
         } else {
+            Log.e(TAG, "checkPin: wrong pin ${closeAfterAttempts}" )
             shake()
 
-            onAuthListener?.onError(getString(R.string.pinlock_tryagain))
+            if(onAuthListener != null)
+                onAuthListener?.onError(getString(R.string.pinlock_wrongpin))
 //            mTryCount++;
             mTextAttempts!!.text = getString(R.string.pinlock_wrongpin)
+            if (closeAfterAttempts) finish()
             pinlockView!!.resetPinLockView()
 
 //            if (mTryCount == 1) {
@@ -306,26 +311,35 @@ class AuthenticateActivity : AppCompatActivity() {
         val fingerPrintListener: FingerPrintListener = object : FingerPrintListener {
             override fun onSuccess() {
                 setResult(Activity.RESULT_OK)
-                onAuthListener?.onSuccess("", true)
+
+                if(onAuthListener != null)
+                    onAuthListener?.onSuccess("", true)
                 animate(mImageViewFingerView!!, fingerprintToTick!!)
                 val handler = Handler()
                 handler.postDelayed({ finish() }, 750)
             }
 
             override fun onFailed() {
-                onAuthListener?.onError("")
+
+                if(onAuthListener != null)
+                    onAuthListener?.onError("")
                 animate(mImageViewFingerView!!, fingerprintToCross!!)
                 val handler = Handler()
                 handler.postDelayed({ animate(mImageViewFingerView!!, showFingerprint!!) }, 750)
+                if (closeAfterAttempts) finish()
             }
 
             override fun onError(errorString: CharSequence?) {
-                onAuthListener?.onError("$errorString")
+
+                if(onAuthListener != null)
+                    onAuthListener?.onError("$errorString")
                 Toast.makeText(this@AuthenticateActivity, errorString, Toast.LENGTH_SHORT).show()
+                if (closeAfterAttempts) finish()
             }
 
             override fun onHelp(helpString: CharSequence?) {
-                onAuthListener?.onError("$helpString")
+                if(onAuthListener != null)
+                    onAuthListener?.onError("$helpString")
                 Toast.makeText(this@AuthenticateActivity, helpString, Toast.LENGTH_SHORT).show()
             }
         }
@@ -346,7 +360,6 @@ class AuthenticateActivity : AppCompatActivity() {
 //                Toast.makeText(EnterPinActivity.this, "Please enable the fingerprint permission", Toast.LENGTH_LONG).show();
                     mImageViewFingerView!!.visibility = View.GONE
                     mTextFingerText!!.visibility = View.GONE
-                    //                    mTextFingerText.setVisibility(View.GONE);
                     return
                 }
 
@@ -358,7 +371,6 @@ class AuthenticateActivity : AppCompatActivity() {
 //                        Toast.LENGTH_LONG).show();
                     mImageViewFingerView!!.visibility = View.GONE
                     mTextFingerText!!.visibility = View.GONE
-                    // mTextFingerText.setVisibility(View.GONE);
                     return
                 }
 
@@ -368,7 +380,6 @@ class AuthenticateActivity : AppCompatActivity() {
 //                Toast.makeText(EnterPinActivity.this, "Please enable auth security in your device's Settings", Toast.LENGTH_LONG).show();
                     mImageViewFingerView!!.visibility = View.GONE
                     mTextFingerText!!.visibility = View.GONE
-                    //                    mTextFingerText.setVisibility(View.GONE);
                     return
                 } else {
                     try {
@@ -390,12 +401,10 @@ class AuthenticateActivity : AppCompatActivity() {
             } else {
                 mImageViewFingerView!!.visibility = View.GONE
                 mTextFingerText!!.visibility = View.GONE
-                //                mTextFingerText.setVisibility(View.GONE);
             }
         } else {
             mImageViewFingerView!!.visibility = View.GONE
             mTextFingerText!!.visibility = View.GONE
-            //            mTextFingerText.setVisibility(View.GONE);
         }
     }
 
@@ -421,8 +430,9 @@ class AuthenticateActivity : AppCompatActivity() {
         var shuffle = true
         var goneBtnBack = true
         var useFingerPrint = true
+        var closeAfterAttempts = false
         var onAuthListener: OnAuthListener? = null
-        @DrawableRes var icon: Int = R.drawable.circlebutton_notpressed
+        var icon: Int = R.drawable.circlebutton_notpressed
 
 
         @JvmStatic
@@ -443,7 +453,7 @@ class AuthenticateActivity : AppCompatActivity() {
         @JvmStatic
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null,
                       onAuthListener: OnAuthListener? = null, shuffle: Boolean, @DrawableRes icon: Int,
-                      gonBtnBack: Boolean, useFingerPrint: Boolean): Intent {
+                      goneBtnBack: Boolean, useFingerPrint: Boolean): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
 
@@ -461,5 +471,12 @@ class AuthenticateActivity : AppCompatActivity() {
 
             return intent
         }
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        onAuthListener = null
+
     }
 }

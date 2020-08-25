@@ -13,5 +13,6 @@
     <color name="text_fingerprint">#FF87898C</color>
     <color name="button_notpressed">#2136FFD9</color>
     <color name="dot_emptyborder">#87898C</color>
+    <color name="dot_filledborder">#87898C</color>
     <color name="transparent">#00000000</color>
 </resources>

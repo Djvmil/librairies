@@ -38,12 +38,12 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         Intent intent = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
         //AuthenticateActivity.Companion.setGoneBtnBack(true);
         AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
         AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
         AuthenticateActivity.Companion.setShuffle(true);
+        AuthenticateActivity.Companion.setCloseAfterAttempts(false);
         AuthenticateActivity.Companion.setUseFingerPrint(true);
         startActivity(intent);
 
@@ -144,10 +144,10 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
                 //AuthenticateActivity.Companion.setGoneBtnBack(true);
                 AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
                 AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
-                AuthenticateActivity.Companion.setShuffle(true);
+                AuthenticateActivity.Companion.setShuffle(false);
+                AuthenticateActivity.Companion.setCloseAfterAttempts(true);
                 AuthenticateActivity.Companion.setUseFingerPrint(true);
                 startActivity(intent);
-
             }
         });
 
