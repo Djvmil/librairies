@@ -252,7 +252,7 @@ class AuthenticateActivity : AppCompatActivity() {
                 writePinToSharedPreferences(pin)
                 setResult(Activity.RESULT_OK)
                 if(onAuthListener != null)
-                    onAuthListener?.onSuccess(pin, true)
+                    onAuthListener?.onSuccess(pin, false)
                 finish()
             } else {
                 shake()
@@ -269,10 +269,10 @@ class AuthenticateActivity : AppCompatActivity() {
         if (sha256(pin!!) == pinFromSharedPreferences) {
             setResult(Activity.RESULT_OK)
             if(onAuthListener != null)
-                onAuthListener?.onSuccess(pin, true)
+                onAuthListener?.onSuccess(pin, false)
             finish()
         } else {
-            Log.e(TAG, "checkPin: wrong pin ${closeAfterAttempts}" )
+            Log.d(TAG, "checkPin: wrong pin ${closeAfterAttempts}" )
             shake()
 
             if(onAuthListener != null)
