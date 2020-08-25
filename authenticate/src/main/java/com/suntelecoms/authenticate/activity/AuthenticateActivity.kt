@@ -279,7 +279,11 @@ class AuthenticateActivity : AppCompatActivity() {
                 onAuthListener?.onError(getString(R.string.pinlock_wrongpin))
 //            mTryCount++;
             mTextAttempts!!.text = getString(R.string.pinlock_wrongpin)
-            if (closeAfterAttempts) finish()
+            if (closeAfterAttempts){
+                setResult(Activity.RESULT_OK)
+                onAuthListener?.onSuccess(pin, false)
+                finish()
+            }
             pinlockView!!.resetPinLockView()
 
 //            if (mTryCount == 1) {
