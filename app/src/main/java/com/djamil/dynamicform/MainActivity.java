@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
     }
 
     @Override
-    public void onSuccess(String pin, boolean success) {
+    public void onSuccess(String pin, boolean authWithFinger, boolean success) {
 
     }
 

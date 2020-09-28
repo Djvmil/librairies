@@ -1,5 +1,6 @@
 package com.suntelecoms.authenticate.util
 
+import android.util.Base64
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -34,5 +35,16 @@ object Utils {
         } catch (e1: NoSuchAlgorithmException) {
             s
         }
+    }
+
+    @JvmStatic
+    fun encrypt(input: String): String {
+        // TODO not a real encrypt but make the job for the moment
+        return Base64.encodeToString(input.toByteArray(), Base64.DEFAULT)
+    }
+
+    @JvmStatic
+    fun decrypt(input: String): String {
+        return String(Base64.decode(input, Base64.DEFAULT))
     }
 }

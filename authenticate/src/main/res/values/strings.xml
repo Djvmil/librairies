@@ -9,4 +9,5 @@
     <string name="pinlock_tryagain">Les codes PIN ne sont pas les mêmes</string>
     <string name="pinlock_fingerprint">Utiliser l\'empreinte digitale</string>
     <string name="pin_empty">Pin empty</string>
+    <string name="key_app_sharpref">com.suntelecoms.auth</string>
 </resources>
