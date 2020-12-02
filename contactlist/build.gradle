@@ -42,6 +42,17 @@ dependencies {
     implementation "com.google.android.material:material:${axAppcompat}"
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation project(':fastscroll')
+
+
+    def _version = "1.0.2"
+    //implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version
+    //implementation 'com.suntelecoms.gitlab.librairies.librairies:utils:'+_version
+    /*implementation ('com.suntelecoms.gitlab.librairies:librairies:'+_version){
+        exclude module: 'com.djamil.dynamic_form'
+        exclude module: 'com.djamil.dynamic_form'
+    }
+*/
 
     implementation "androidx.annotation:annotation:1.1.0"
     implementation "androidx.cardview:cardview:1.0.0"
