@@ -64,6 +64,7 @@ class AuthenticateActivity : AppCompatActivity() {
     private var showFingerprint: AnimatedVectorDrawable? = null
     private var fingerprintToTick: AnimatedVectorDrawable? = null
     private var fingerprintToCross: AnimatedVectorDrawable? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -94,7 +95,6 @@ class AuthenticateActivity : AppCompatActivity() {
             mImageViewFingerView!!.visibility = View.GONE
             mTextFingerText!!.visibility = View.GONE
         }
-
 
         mSetPin = intent.getBooleanExtra(EXTRA_SET_PIN, false)
         if (mSetPin) {
@@ -498,7 +498,9 @@ class AuthenticateActivity : AppCompatActivity() {
          fun changePinToSharedPreferences(context: Context?, pin: String) {
             val prefs = context?.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
              prefs?.edit()?.putString(KEY_PIN, encrypt(pin))?.apply()
-             Log.d(TAG, "changePinToSharedPreferences: ")
+
+             Log.d(TAG, "changePinToSharedPreferences: $pin")
+
         }
 
 

@@ -1,6 +1,7 @@
 <resources>
 
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryContact">#008577</color>
+    <color name="colorPrimary">@color/colorPrimaryContact</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorGrisClair">#E0DFE8</color>
@@ -13,6 +14,7 @@
 
 
     <color name="black_semi_transparent">#B2000000</color>
+    <color name="black">#000</color>
     <color name="background">#e5e5e5</color>
     <color name="half_black">#808080</color>
     <color name="white_pressed">#f1f1f1</color>

@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
                 startActivity(intent);
             }
         });
-
+/*
         setFont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
             }
         });
 
-
+*/
     }
 
     @Override

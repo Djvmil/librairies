@@ -9,6 +9,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0.1"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,7 +28,8 @@ dependencies {
     implementation project(':utils')
     implementation project(':contactlist')
     implementation project(':authenticate_utils')
-    implementation project('::material-stepper')
+    implementation project(':material-stepper')
+    implementation project(':fluid-swipe')
     //implementation project(':fragmentmanagement')
     implementation 'com.mattprecious.swirl:swirl:1.3.0'
    // //implementation files('libs/authenticate.aar')
@@ -40,6 +42,7 @@ dependencies {
 
     //implementation "com.google.android.material:material:1.1.0"
     //implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.android.support:multidex:1.0.3'
     implementation "androidx.cardview:cardview:1.0.0"
 
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
