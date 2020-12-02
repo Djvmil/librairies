@@ -510,7 +510,10 @@ public class DynamicForm extends NestedScrollView {
             @Override
             public void onClickCantact(View v, ContactsInfo contactsInfo) {
                 Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
-                textView.setFullNumber(contactsInfo.getPhoneNumber());
+                if (contactsInfo.getPhoneNumber().contains("+"))
+                    textView.setFullNumber(contactsInfo.getPhoneNumber());
+                else
+                    editText.setText(contactsInfo.getPhoneNumber());
             }
         });
 
