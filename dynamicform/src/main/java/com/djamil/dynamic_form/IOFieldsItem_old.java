@@ -1,4 +1,4 @@
-package com.djamil.dynamic_form.models;
+package com.djamil.dynamic_form;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -10,6 +10,7 @@ import androidx.annotation.LayoutRes;
 import com.djamil.dynamic_form.annotations.Expose;
 import com.djamil.dynamic_form.annotations.InputTypeDF;
 import com.djamil.dynamic_form.annotations.SerializedName;
+import com.djamil.dynamic_form.models.ItemDF;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 
-public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
+public class IOFieldsItem_old implements Parcelable, Comparable<IOFieldsItem_old> {
 
 	@SerializedName("id")
 	@Expose
@@ -96,24 +97,24 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 	private boolean isMoney = false;
 	@LayoutRes private int template = 0;
 
-	public IOFieldsItem() {
+	public IOFieldsItem_old() {
 	}
 
-	public IOFieldsItem(String label, String field, @InputTypeDF String type) {
+	public IOFieldsItem_old(String label, String field, @InputTypeDF String type) {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
 
 	}
 
-	public IOFieldsItem(String label, String field, @InputTypeDF String type, Boolean isMoney) {
+	public IOFieldsItem_old(String label, String field, @InputTypeDF String type, Boolean isMoney) {
 		this.label   = label;
 		this.field   = field;
 		this.type    = type;
 		this.isMoney = isMoney;
 	}
 
-	public IOFieldsItem(String label, String field, @InputTypeDF String type, @LayoutRes int template) {
+	public IOFieldsItem_old(String label, String field, @InputTypeDF String type, @LayoutRes int template) {
 		this.label    = label;
 		this.field    = field;
 		this.type     = type;
@@ -122,7 +123,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	}
 
-	public IOFieldsItem(String label, String field,  @InputTypeDF String type, String value) {
+	public IOFieldsItem_old(String label, String field, @InputTypeDF String type, String value) {
 		this.label = label;
 		this.field = field;
 		this.type  = type;
@@ -130,7 +131,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 
 	}
 
-	public IOFieldsItem(boolean isRequired, String field, String label, @InputTypeDF String type, int order, boolean isReadOnly, Boolean shouldBeShown, String value, int color, String devise, String paysAlpha2, String msgHint, int indicatif, boolean isMoney, int template) {
+	public IOFieldsItem_old(boolean isRequired, String field, String label, @InputTypeDF String type, int order, boolean isReadOnly, Boolean shouldBeShown, String value, int color, String devise, String paysAlpha2, String msgHint, int indicatif, boolean isMoney, int template) {
 		this.isRequired = isRequired;
 		this.field = field;
 		this.label = label;
@@ -387,7 +388,7 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 		return 0;
 	}
 
-	protected IOFieldsItem(Parcel in) {
+	protected IOFieldsItem_old(Parcel in) {
 		id = in.readInt();
 		isRequired = in.readInt() == 1;
 		shouldBeShown = in.readInt() == 1;
@@ -441,20 +442,20 @@ public class IOFieldsItem implements Parcelable, Comparable<IOFieldsItem> {
 	}
 
 
-	public static final Creator<IOFieldsItem> CREATOR = new Creator<IOFieldsItem>() {
+	public static final Creator<IOFieldsItem_old> CREATOR = new Creator<IOFieldsItem_old>() {
 		@Override
-		public IOFieldsItem createFromParcel(Parcel in) {
-			return new IOFieldsItem(in);
+		public IOFieldsItem_old createFromParcel(Parcel in) {
+			return new IOFieldsItem_old(in);
 		}
 
 		@Override
-		public IOFieldsItem[] newArray(int size) {
-			return new IOFieldsItem[size];
+		public IOFieldsItem_old[] newArray(int size) {
+			return new IOFieldsItem_old[size];
 		}
 	};
 
 	@Override
-	public int compareTo(IOFieldsItem item) {
+	public int compareTo(IOFieldsItem_old item) {
 		return (this.order - item.order);
 	}
 

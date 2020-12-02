@@ -15,13 +15,12 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
-import android.widget.RadioGroup; ;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
-import androidx.annotation.IntDef;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.NestedScrollView;
 
@@ -29,25 +28,27 @@ import com.djamil.contactlist.ContactList;
 import com.djamil.contactlist.ContactsInfo;
 import com.djamil.contactlist.interfaces.OnClickCantactListener;
 import com.djamil.dynamic_form.annotations.TypeButton;
-import com.djamil.dynamic_form.models.CustomButton;
-import com.djamil.dynamic_form.utils.NumberTextWatcherWithSeperator;
-import com.hbb20.CountryCodePicker;
 import com.djamil.dynamic_form.exceptions.EmptyValueException;
 import com.djamil.dynamic_form.interfaces.OnBackClickListener;
 import com.djamil.dynamic_form.interfaces.OnCancelClickListener;
-import com.djamil.dynamic_form.interfaces.OnDoneClickListener;
 import com.djamil.dynamic_form.interfaces.OnClickDynamicFormListener;
+import com.djamil.dynamic_form.interfaces.OnDoneClickListener;
 import com.djamil.dynamic_form.interfaces.OnNextClickListener;
-import com.djamil.dynamic_form.models.ItemDF;
+import com.djamil.dynamic_form.models.CustomButton;
 import com.djamil.dynamic_form.models.IOFieldsItem;
+import com.djamil.dynamic_form.models.ItemDF;
 import com.djamil.dynamic_form.models.Sequence;
+import com.djamil.dynamic_form.utils.NumberTextWatcherWithSeperator;
 import com.djamil.dynamic_form.utils.Utils;
+import com.hbb20.CountryCodePicker;
 import com.shagi.materialdatepicker.date.DatePickerFragmentDialog;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+
+;
 
 /**
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
@@ -296,32 +297,32 @@ public class DynamicForm extends NestedScrollView {
 
         if (checkShowButton)
             if (pageList.size() == 1){
+                //Log.e(TAG, "----------------- showButtons: 1 -----------------" );
                 findViewById(R.id.back_btn).setVisibility(GONE);
                 findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
                 findViewById(R.id.next_btn).setVisibility(GONE);
                 findViewById(R.id.done_btn).setVisibility(VISIBLE);
-                //Log.e(TAG, "----------------- showButtons: 1 -----------------" );
 
             } else if (numCurrentPage == 0){
+                //Log.e(TAG, "----------------- showButtons: 2 -----------------" );
                 findViewById(R.id.back_btn).setVisibility(GONE);
                 findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
                 findViewById(R.id.next_btn).setVisibility(VISIBLE);
                 findViewById(R.id.done_btn).setVisibility(GONE);
-                //Log.e(TAG, "----------------- showButtons: 2 -----------------" );
 
             } else if (numCurrentPage >= pageList.size() - 1){
+                //Log.e(TAG, "----------------- showButtons: 3 -----------------" );
                 findViewById(R.id.back_btn).setVisibility(VISIBLE);
                 findViewById(R.id.cancel_btn).setVisibility(GONE);
                 findViewById(R.id.next_btn).setVisibility(GONE);
                 findViewById(R.id.done_btn).setVisibility(VISIBLE);
-                //Log.e(TAG, "----------------- showButtons: 3 -----------------" );
 
             }else{
+                //Log.e(TAG, "----------------- showButtons: 4 -----------------" );
                 findViewById(R.id.back_btn).setVisibility(VISIBLE);
                 findViewById(R.id.cancel_btn).setVisibility(GONE);
                 findViewById(R.id.next_btn).setVisibility(VISIBLE);
                 findViewById(R.id.done_btn).setVisibility(GONE);
-                //Log.e(TAG, "----------------- showButtons: 4 -----------------" );
 
             }
     }

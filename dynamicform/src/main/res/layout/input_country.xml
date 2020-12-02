@@ -15,9 +15,9 @@
         android:layout_width="0dp"
         android:layout_height="@dimen/_35sdp"
         android:layout_weight="1"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_14sdp"
         android:gravity="center_vertical"
-        android:text="Label"
+        android:text="---"
         android:textStyle="bold"/>
 
     <com.hbb20.CountryCodePicker
@@ -35,5 +35,5 @@
         app:ccp_countryAutoDetectionPref="SIM_ONLY"
         app:ccp_countryPreference="SN"
         app:ccp_defaultNameCode="SN"
-        app:ccp_textSize="@dimen/_10sdp" />
+        android:textSize="@dimen/_14sdp"/>
 </LinearLayout>

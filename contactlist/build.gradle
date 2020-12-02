@@ -46,9 +46,9 @@ dependencies {
 
 
     def _version = "1.0.2"
-    //implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version
-    //implementation 'com.suntelecoms.gitlab.librairies.librairies:utils:'+_version
-    /*implementation ('com.suntelecoms.gitlab.librairies:librairies:'+_version){
+    /*implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version
+    implementation 'com.suntelecoms.gitlab.librairies.librairies:utils:'+_version
+    implementation ('com.suntelecoms.gitlab.librairies:librairies:'+_version){
         exclude module: 'com.djamil.dynamic_form'
         exclude module: 'com.djamil.dynamic_form'
     }

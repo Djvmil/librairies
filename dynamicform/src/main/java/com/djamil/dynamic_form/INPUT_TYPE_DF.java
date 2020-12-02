@@ -28,5 +28,7 @@ public abstract class INPUT_TYPE_DF {
     public static final String Sign      = "Sign";
     public static final String Photo     = "Photo";
     public static final String ImageView = "ImageView";
+    public static final String OutPutField = "OutPutField";
+    public static final String InPutField = "InPutField";
 
 }
