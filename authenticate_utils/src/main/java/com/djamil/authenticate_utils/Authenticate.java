@@ -173,12 +173,12 @@ public class Authenticate extends RelativeLayout {
 
     public static Result checkFingerPrint(Activity activity){
         Result result = null;
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.getSystemService(Context.FINGERPRINT_SERVICE) != null) {
 
             FingerprintManager fingerprintManager = (FingerprintManager) activity.getSystemService(Context.FINGERPRINT_SERVICE);
             KeyguardManager keyguardManager = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
 
-            if(! fingerprintManager.isHardwareDetected()){
+            if(!fingerprintManager.isHardwareDetected()){
                 result = new Result(false, "Scanner d'empreintes digitales non détecté dans l'appareil.\n");
 
             } else if (ContextCompat.checkSelfPermission(activity, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
@@ -196,6 +196,7 @@ public class Authenticate extends RelativeLayout {
             }
 
         }else  result = new Result(false, "Empreinte digitale non disponible pour cette version android (V-"+Build.VERSION.SDK_INT+")\n");
+
         return result;
     }
 

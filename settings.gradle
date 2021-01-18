@@ -1,2 +1,2 @@
-include ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll'
+include ':library_mifare', ':mifare_nfc', ':authenticate', ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll', ':material-stepper', ':fluid-swipe'
 rootProject.name='Librairie'

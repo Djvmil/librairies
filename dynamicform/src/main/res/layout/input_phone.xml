@@ -24,7 +24,7 @@
         app:ccp_defaultNameCode="BF"
         app:ccp_hintExampleNumber="true"
         app:ccp_showNameCode="false"
-        app:ccp_textSize="@dimen/_12ssp" />
+        android:textSize="@dimen/_14sdp" />
 
     <EditText
         android:id="@+id/editText"
@@ -33,7 +33,7 @@
         android:layout_weight="2"
         android:imeOptions="actionNext"
         android:fontFamily="@font/exo"
-        android:textSize="@dimen/_10ssp"
+        android:textSize="@dimen/_14sdp"
         android:hint="Numéro téléphone"
         android:inputType="textCapWords|textCapCharacters|textNoSuggestions" />
 

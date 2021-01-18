@@ -17,6 +17,7 @@ import com.djamil.dynamic_form.models.ItemDF;
 import com.djamil.utils.RandomStringUUID;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FormulaireActivity extends AppCompatActivity implements OnClickDynamicFormListener {
     private static final String TAG = "FormulaireActivity";
@@ -35,7 +36,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         fieldItems.add(new IOFieldsItem("Prénom", "prenom", INPUT_TYPE_DF.Text));
 
         ioFieldsItem = new IOFieldsItem("Required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
+        ioFieldsItem.setRequired(true);
         fieldItems.add(ioFieldsItem);
 
         fieldItems.add(new IOFieldsItem("Téléphone", "telephone", INPUT_TYPE_DF.Phone));
@@ -67,9 +68,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         dynamicForm.customNextButton(new CustomButton(R.color.black_semi_transparent, -1, R.drawable.fieldset_default, "SuivantRR", -1));
         dynamicForm.setOnClickDynamicFormListener(this);
 
-
         RandomStringUUID.getUUID();
-
     }
 
     @Override
@@ -83,7 +82,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
     }
 
     @Override
-    public void OnDoneClicked(View v, ArrayList<IOFieldsItem> ioFieldsItems) {
+    public void OnDoneClicked(View v, List<IOFieldsItem> ioFieldsItems) {
         Log.d(TAG, "OnDoneClicked: " );
         Log.d(TAG, "value: "+ioFieldsItems.get(1).getValue());
 
@@ -108,7 +107,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
     }
 
     @Override
-    public void OnFormCreated(ArrayList<IOFieldsItem> ioFieldsItems) {
+    public void OnFormCreated(List<IOFieldsItem> ioFieldsItems) {
         Log.e(TAG, "OnFormCreated: ");
 
         IOFieldsItem item = dynamicForm.findIOFieldByFieldName("seck");

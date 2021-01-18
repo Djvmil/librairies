@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!-- warning -> #9F6000 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_warning"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <gradient
+        android:angle="270"
+        android:centerColor="#FEEFB3"
+        android:endColor="#FEEFB3"
+        android:startColor="#FEEFB3" />
+
+    <corners
+        android:layout_height="wrap_content"
+        android:radius="10dp" />
+
+</shape>

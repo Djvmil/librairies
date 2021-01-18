@@ -8,5 +8,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/colorPrimary"/>
+        android:background="@color/bank_colorPrimary"/>
 </LinearLayout>

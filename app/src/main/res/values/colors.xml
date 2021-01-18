@@ -2,6 +2,18 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#fff</color>
+
     <color name="colorBlack">#000</color>
+
+    <color name="text_numberpressed">#2962FF</color>
+    <color name="text_title">#FFFF</color>
+    <color name="layout_background">#00000000</color>
+    <color name="text_attempts">#bfc0c1</color>
+    <color name="text_fingerprint">#FFFF</color>
+    <color name="button_notpressed">#fff</color>
+    <color name="dot_emptyborder">#87898C</color>
+    <color name="transparent">#00000000</color>
+    <color name="colorAccentAuth">#00000000</color>
+    <color name="button_text_color">#00000000</color>
 </resources>

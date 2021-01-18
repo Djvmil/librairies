@@ -6,4 +6,5 @@
 
     <dimen name="mlb_lineSpacingTop">5dp</dimen>
     <dimen name="mlb_lineSpacingBottom">5dp</dimen>
+
 </resources>

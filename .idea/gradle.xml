@@ -12,15 +12,21 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/authenticate" />
             <option value="$PROJECT_DIR$/authenticate_utils" />
             <option value="$PROJECT_DIR$/contactlist" />
             <option value="$PROJECT_DIR$/dynamicform" />
             <option value="$PROJECT_DIR$/fastscroll" />
+            <option value="$PROJECT_DIR$/fluid-swipe" />
             <option value="$PROJECT_DIR$/fragmentmanagement" />
+            <option value="$PROJECT_DIR$/library_mifare" />
+            <option value="$PROJECT_DIR$/material-stepper" />
+            <option value="$PROJECT_DIR$/mifare_nfc" />
             <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>
