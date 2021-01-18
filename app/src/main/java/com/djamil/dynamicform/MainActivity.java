@@ -2,21 +2,18 @@ package com.djamil.dynamicform;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.djamil.authenticate_utils.interfaces.OnResultAuth;
 import com.djamil.contactlist.ContactList;
-import com.djamil.contactlist.ContactsInfo;
-import com.djamil.contactlist.interfaces.OnClickCantactListener;
 import com.djamil.authenticate_utils.Authenticate;
 import com.suntelecoms.authenticate.activity.AuthenticateActivity;
 import com.suntelecoms.authenticate.pinlockview.OnAuthListener;
+import com.suntelecoms.library_mifare.Activities.ReadAllSectors;
+import com.suntelecoms.library_mifare.Activities.WaitForReadCard;
 
 
 public class MainActivity extends AppCompatActivity implements OnAuthListener {
@@ -38,6 +35,20 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        findViewById(R.id.dynamic_form).setOnClickListener(view -> {
+            //startActivity(new Intent(MainActivity.this, MainMenu.class));
+            Log.e(TAG, "onCreate: " );
+            Intent readTag = new Intent(MainActivity.this, ReadAllSectors.class);
+            //readTag.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivityForResult(readTag, 234);
+
+        });
+
+        findViewById(R.id.contact_list).setOnClickListener(view ->
+            startActivity(new Intent(MainActivity.this, WaitForReadCard.class))
+        );
+
         Intent intent = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
         //AuthenticateActivity.Companion.setGoneBtnBack(true);
         AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
@@ -46,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         AuthenticateActivity.Companion.setCloseAfterAttempts(false);
         AuthenticateActivity.Companion.setUseFingerPrint(true);
         startActivity(intent);
-
+/*
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -170,18 +181,24 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
                 startActivity(intent);
             }
         });
-
 */
+
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        Log.e(TAG, "onActivityResult: " );
         switch (requestCode) {
             case REQUEST_CODE:
                 if (resultCode == AuthenticateActivity.RESULT_BACK_PRESSED) {
                     Toast.makeText(MainActivity.this, "back pressed", Toast.LENGTH_LONG).show();
                 }
+                break;
+
+            case 234:
+                Toast.makeText(MainActivity.this, "Read DOne", Toast.LENGTH_LONG).show();
                 break;
         }
     }
@@ -202,7 +219,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
     @Override
     public void onSuccess(String pin, boolean authWithFinger, boolean success) {
-
+        Log.e(TAG, "onSuccess: " );
     }
 
     @Override

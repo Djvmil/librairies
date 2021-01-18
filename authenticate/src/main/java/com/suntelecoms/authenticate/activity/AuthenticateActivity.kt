@@ -278,7 +278,7 @@ class AuthenticateActivity : AppCompatActivity() {
                 onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
             finish()
         } else {
-            Log.d(TAG, "checkPin: wrong pin ${closeAfterAttempts}" )
+            Log.d(TAG, "checkPin: wrong pin $closeAfterAttempts" )
             shake()
 
             if(onAuthListener != null)

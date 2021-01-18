@@ -98,14 +98,14 @@
             android:textStyle="bold"
             android:text="Contact select"/>
 
-        <com.djamil.authenticate_utils.Authenticate
+        <!--com.djamil.authenticate_utils.Authenticate
             android:id="@+id/dynamic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/contact_result"
             app:color_field="@color/colorBlack"
             app:icon_backspace="@drawable/ic_backspace_24dp"
-            app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"  />
+            app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"  /-->
 
     </RelativeLayout>
 
