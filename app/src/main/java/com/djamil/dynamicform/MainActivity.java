@@ -148,8 +148,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
 
         setPinAndFont.setOnClickListener(v -> {
-
-
             Intent intent2 = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
             //AuthenticateActivity.Companion.setGoneBtnBack(true);
             AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
