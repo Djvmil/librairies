@@ -19,9 +19,7 @@
             <option value="$PROJECT_DIR$/fastscroll" />
             <option value="$PROJECT_DIR$/fluid-swipe" />
             <option value="$PROJECT_DIR$/fragmentmanagement" />
-            <option value="$PROJECT_DIR$/library_mifare" />
             <option value="$PROJECT_DIR$/material-stepper" />
-            <option value="$PROJECT_DIR$/mifare_nfc" />
             <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>

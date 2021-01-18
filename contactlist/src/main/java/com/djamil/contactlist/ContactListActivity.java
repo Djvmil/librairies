@@ -96,7 +96,7 @@ public class ContactListActivity extends AppCompatActivity {
         Map<Long, List<String>> phones = new HashMap<>();
         ContentResolver cr = getContentResolver();
 
-// First build a mapping: contact-id > list of phones
+        // First build a mapping: contact-id > list of phones
         Cursor cur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[] { ContactsContract.CommonDataKinds.Phone.CONTACT_ID, ContactsContract.CommonDataKinds.Phone.NUMBER }, null, null, null);
         while (cur != null && cur.moveToNext()) {
             long contactId = cur.getLong(0);
