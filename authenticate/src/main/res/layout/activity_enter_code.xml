@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/attempts"
             app:layout_constraintVertical_bias="0.1" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/fingerView"
             android:layout_width="@dimen/finger_icon"
             android:layout_height="@dimen/finger_icon"
