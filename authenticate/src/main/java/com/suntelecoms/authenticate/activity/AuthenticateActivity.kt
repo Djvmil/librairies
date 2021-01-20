@@ -23,6 +23,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.suntelecoms.authenticate.R
@@ -50,7 +51,7 @@ class AuthenticateActivity : AppCompatActivity() {
     private var mTextTitle: TextView? = null
     private var mTextAttempts: TextView? = null
     private var mTextFingerText: TextView? = null
-    private var mImageViewFingerView: ImageView? = null
+    private var mImageViewFingerView: AppCompatImageView? = null
     private var mCipher: Cipher? = null
     private var mKeyStore: KeyStore? = null
     private var mKeyGenerator: KeyGenerator? = null
