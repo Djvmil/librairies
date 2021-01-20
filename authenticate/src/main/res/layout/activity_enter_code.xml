@@ -30,7 +30,7 @@
 
         </LinearLayout>
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/logo"
             android:layout_width="90dp"
             android:layout_height="90dp"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/attempts"
             app:layout_constraintVertical_bias="0.1" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/fingerView"
             android:layout_width="@dimen/finger_icon"
             android:layout_height="@dimen/finger_icon"
