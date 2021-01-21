@@ -1,7 +1,6 @@
 <resources>
 
-    <color name="colorPrimaryContact">#008577</color>
-    <color name="colorPrimary">@color/colorPrimaryContact</color>
+    <color name="colorPrimary">#00574B</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorGrisClair">#E0DFE8</color>
@@ -33,6 +32,8 @@
     <color name="red">#EA1616</color>
     <color name="green">#49CC56</color>
     <color name="white">#FFFFFF</color>
+    <color name="fastscrollBubbleColor">#5e64ce</color>
+    <color name="fastscrollHandleColor">#8f93d1</color>
 
    <!-- End  -->
 </resources>

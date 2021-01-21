@@ -6,4 +6,43 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+
+    <style name="StyleEditTextPhone">
+        <item name="android:drawableRight">@drawable/ic_remove_eye_black_24dp</item>
+    </style>
+
+    <style name="StyleImageViewPhone">
+        <item name="android:src">@drawable/error_circle</item>
+    </style>
+
+    <style name="AppThemeContactList" parent="AppTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppThemeContactListAppBar" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
+    </style>
+
+    <style name="AppThemeContactListToolbar" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
+    </style>
+
+
+    <style name="AppThemeDynamicForm" parent="AppTheme">
+        <item name="colorPrimary">@color/colorBlack</item>
+        <item name="colorPrimaryDark">@color/colorBlack</item>
+    </style>
+
+    <style name="AppThemeFastScroller" parent="AppTheme.AppBarOverlay">
+        <!-- Customize your theme here. -->
+        <item name="fastscroll__bubbleColor">#000</item>
+        <item name="fastscroll__handleColor">#000</item>
+    </style>
 </resources>

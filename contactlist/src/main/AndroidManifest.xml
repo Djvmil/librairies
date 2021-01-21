@@ -4,13 +4,14 @@
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <application android:supportsRtl="true">
+    <application android:supportsRtl="true"
+        android:theme="@style/AppThemeContactList">
         <activity android:name=".MainActivity"/>
         <activity
             android:name=".ContactListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/AppThemeContactList">
 
             <meta-data
                 android:name="android.app.searchable"

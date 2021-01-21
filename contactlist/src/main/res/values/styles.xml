@@ -12,4 +12,22 @@
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppThemeContactList" parent="AppTheme.AppBarOverlay">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppThemeContactListAppBar" parent="AppTheme.AppBarOverlay">
+        <!-- Customize your theme here. -->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppThemeContactListToolbar" parent="AppTheme.AppBarOverlay">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="AppThemeFastScroller" parent="AppTheme.AppBarOverlay">
+        <!-- Customize your theme here. -->
+        <item name="fastscroll__bubbleColor">#000</item>
+        <item name="fastscroll__handleColor">#000</item>
+    </style>
+
 </resources>
