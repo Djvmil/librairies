@@ -101,3 +101,9 @@ Ufastscroll/src/main/java/com/djamil/fastscroll/viewprovider/ScrollerViewProvide
 Mfastscroll/src/main/java/com/djamil/fastscroll/viewprovider/ViewBehavior.java,b/8/b86a43591537052dcfeda70ec8fa1c2a42c41684
 ‹
 [fastscroll/src/main/java/com/djamil/fastscroll/viewprovider/VisibilityAnimationManager.java,8/d/8d0681146473c0b58fb379c1d94f787d37eb0c60
+a
+1app/src/main/java/com/djamil/dynamicform/App.java,f/8/f83d99e58b479aee60d3a1364678fba86dea9b04
+{
+Kmaterial-stepper/src/main/java/com/stepstone/stepper/VerificationError.java,6/0/60f1dc6c7f7173947ff4206f19f63dec461dc2ab
+p
+@app/src/main/java/com/djamil/dynamicform/FormulaireActivity.java,5/6/566a07259c6cbe4bdc7696e6b60f03ba4b05e6ce

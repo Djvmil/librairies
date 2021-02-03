@@ -1,4 +1,4 @@
-package com.chaos.view;
+package com.djamil.view;
 
 import android.text.Selection;
 import android.text.Spannable;

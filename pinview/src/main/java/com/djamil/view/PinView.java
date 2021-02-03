@@ -1,4 +1,4 @@
-package com.chaos.view;
+package com.djamil.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
