@@ -12,7 +12,7 @@ import com.djamil.recyclerviewfastscroll.R;
 import com.djamil.fastscroll.Utils;
 
 /**
- * Created by Djvmil_ on 6/9/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 public class DefaultScrollerViewProvider extends ScrollerViewProvider {
 
