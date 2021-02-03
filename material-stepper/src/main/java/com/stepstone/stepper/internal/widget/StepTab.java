@@ -127,7 +127,7 @@ public class StepTab extends RelativeLayout {
 
         mSelectedColor = ContextCompat.getColor(context, R.color.ms_selectedColor);
         mUnselectedColor = ContextCompat.getColor(context, R.color.ms_unselectedColor);
-        mErrorColor = ContextCompat.getColor(context, R.color.ms_errorColor);
+        mErrorColor = ContextCompat.getColor(context, R.color.ms_errorColorMS);
 
         mStepNumberTextView = (TextView) findViewById(R.id.ms_stepNumber);
         mStepDoneIndicator = (ImageView) findViewById(R.id.ms_stepDoneIndicator);

@@ -1,0 +1,44 @@
+
+g
+java:S1301®"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ
+g
+java:S1301¾"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ
+D
+java:S1199¯"-Extract this nested code block into a method.(òß¹‹
+J
+java:S1066V"/Merge this if statement with the enclosing one.(æ§Üüÿÿÿÿÿ
+Y
+java:S1155U">Use isEmpty() to check whether the collection is empty or not.(‚”Á¸ÿÿÿÿÿ
+Z
+java:S1155‚">Use isEmpty() to check whether the collection is empty or not.(î½¬ıÿÿÿÿ
+P
+java:S1128"5Remove this unused import 'android.widget.ImageView'.(ú¯ëàüÿÿÿÿ
+Q
+java:S1874."6Remove this use of "ProgressDialog"; it is deprecated.(™á‘›ûÿÿÿÿ
+z
+java:S3252d"_Use static access with "android.provider.ContactsContract$RawContactsColumns" for "CONTACT_ID".(Â’ö›üÿÿÿÿ
+[
+java:S3252x"@Use static access with "android.provider.BaseColumns" for "_ID".(¬ÃŸşÿÿÿÿ
+y
+java:S3252x"^Use static access with "android.provider.ContactsContract$ContactsColumns" for "DISPLAY_NAME".(¬ÃŸşÿÿÿÿ
+y
+java:S3252x"^Use static access with "android.provider.ContactsContract$ContactsColumns" for "DISPLAY_NAME".(¬ÃŸşÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(‚Ñ™°ÿÿÿÿÿ
+2
+java:S3626¶"Remove this redundant jump.(ûÁİ…
+O
+java:S1197­"8Move the array designator from the variable to the type.(¯ÜÑñ
+=	java:S131®""Add a default case to this switch.(×ö³–úÿÿÿÿ
+=	java:S131¾""Add a default case to this switch.(øå´¡ÿÿÿÿÿ
+x
+java:S4144ä"bUpdate this method so that its implementation is not identical to "onQueryTextSubmit" on line 221.(‡Ñ¸P
+R
+java:S1874õ"6Remove this use of "ProgressDialog"; it is deprecated.(ä÷İ£ûÿÿÿÿ
+H
+java:S1874õ",Remove this use of "show"; it is deprecated.(ä÷İ£ûÿÿÿÿ
+Y
+java:S1874Š"=Remove this use of "getSystemUiVisibility"; it is deprecated.(”µÀûşÿÿÿÿ
+c
+java:S1874‹"GRemove this use of "SYSTEM_UI_FLAG_LIGHT_STATUS_BAR"; it is deprecated.(ñ¸ßïøÿÿÿÿ
+T
+java:S1874Œ"=Remove this use of "setSystemUiVisibility"; it is deprecated.(¥ççÉ

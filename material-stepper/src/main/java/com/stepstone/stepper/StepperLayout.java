@@ -852,8 +852,8 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
             if (a.hasValue(R.styleable.StepperLayout_ms_inactiveStepColor)) {
                 mUnselectedColor = a.getColor(R.styleable.StepperLayout_ms_inactiveStepColor, mUnselectedColor);
             }
-            if (a.hasValue(R.styleable.StepperLayout_ms_errorColor)) {
-                mErrorColor = a.getColor(R.styleable.StepperLayout_ms_errorColor, mErrorColor);
+            if (a.hasValue(R.styleable.StepperLayout_ms_errorColorMS)) {
+                mErrorColor = a.getColor(R.styleable.StepperLayout_ms_errorColorMS, mErrorColor);
             }
             if (a.hasValue(R.styleable.StepperLayout_ms_bottomNavigationBackground)) {
                 mBottomNavigationBackground = a.getResourceId(R.styleable.StepperLayout_ms_bottomNavigationBackground, 0);
@@ -924,7 +924,7 @@ public class StepperLayout extends LinearLayout implements TabsContainer.TabItem
                 ContextCompat.getColorStateList(getContext(), R.color.ms_bottomNavigationButtonTextColor);
         mSelectedColor = ContextCompat.getColor(getContext(), R.color.ms_selectedColor);
         mUnselectedColor = ContextCompat.getColor(getContext(), R.color.ms_unselectedColor);
-        mErrorColor = ContextCompat.getColor(getContext(), R.color.ms_errorColor);
+        mErrorColor = ContextCompat.getColor(getContext(), R.color.ms_errorColorMS);
         mBackButtonText = getContext().getString(R.string.ms_back);
         mNextButtonText = getContext().getString(R.string.ms_next);
         mCompleteButtonText = getContext().getString(R.string.ms_complete);

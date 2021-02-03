@@ -22,7 +22,7 @@ limitations under the License.
     <color name="ms_white_54_opacity">#89FFFFFF</color>
     <color name="ms_material_blue_500">#2196f3</color>
     <color name="ms_material_grey_400">#BDBDBD</color>
-    <color name="ms_errorColor">#f44336</color>
+    <color name="ms_errorColorMS">#f44336</color>
     <color name="ms_selectedColor">@color/ms_material_blue_500</color>
     <color name="ms_unselectedColor">@color/ms_material_grey_400</color>
     <color name="ms_bottomNavigationButtonTextColor">@color/ms_material_grey_400</color>
