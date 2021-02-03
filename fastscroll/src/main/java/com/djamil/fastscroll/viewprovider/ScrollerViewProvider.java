@@ -9,9 +9,9 @@ import androidx.annotation.Nullable;
 
 import com.djamil.fastscroll.FastScroller;
 
+
 /**
- * Created by Michal on 05/08/16.
- * Provides {@link View}s and their behaviors for the handle and bubble of the fastscroller.
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 public abstract class ScrollerViewProvider {
 

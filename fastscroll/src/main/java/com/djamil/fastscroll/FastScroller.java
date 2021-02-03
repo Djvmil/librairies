@@ -1,7 +1,7 @@
 package com.djamil.fastscroll;
 
 /**
- * Created by Djvmil_ on 6/9/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
 import android.content.Context;
 import android.content.res.TypedArray;
