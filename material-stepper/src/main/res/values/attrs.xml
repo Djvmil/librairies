@@ -30,7 +30,7 @@ limitations under the License.
         <!-- Background of the bottom navigation -->
         <attr name="ms_bottomNavigationBackground" format="reference" />
         <!-- Error's color -->
-        <attr name="ms_errorColor" format="color|reference" />
+        <attr name="ms_errorColorMS" format="color|reference" />
 
         <!-- BACK button's background -->
         <attr name="ms_backButtonBackground" format="reference" />

@@ -101,7 +101,7 @@ public class TabsContainer extends FrameLayout {
 
         mSelectedColor = ContextCompat.getColor(context, R.color.ms_selectedColor);
         mUnselectedColor = ContextCompat.getColor(context, R.color.ms_unselectedColor);
-        mErrorColor = ContextCompat.getColor(context, R.color.ms_errorColor);
+        mErrorColor = ContextCompat.getColor(context, R.color.ms_errorColorMS);
         mContainerLateralPadding = context.getResources().getDimensionPixelOffset(R.dimen.ms_tabs_container_lateral_padding);
 
         mTabsInnerContainer = (LinearLayout) findViewById(R.id.ms_stepTabsInnerContainer);
