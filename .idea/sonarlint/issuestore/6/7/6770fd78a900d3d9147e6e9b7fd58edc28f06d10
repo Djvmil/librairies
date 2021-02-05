@@ -1,38 +1,36 @@
 
-6
-java:S1659Ã"Declare "r" on a separate line.(ßÚ›µ
+z
+java:S3252"WUse static access with "android.text.InputType" for "TYPE_TEXT_VARIATION_WEB_PASSWORD".(ç©‰ªùÿÿÿÿ8“öæÀö.
 g
 java:S1301å"KReplace this "switch" statement by "if" statements to increase readability.(ªù şÿÿÿÿ
-n
-java:S3776à"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(—Ïë™ùÿÿÿÿ
-H
-java:S1068?"2Remove this unused "VIEW_TYPE_NONE" private field.(¯ˆ»ê
-=	java:S131å""Add a default case to this switch.(ªù şÿÿÿÿ
-D
-java:S1185Â"(Remove this method to simply inherit it.(¨¼Íâıÿÿÿÿ
-=
-java:S10680"'Remove this unused "TAG" private field.(æÃº¦
-M
-java:S2589É"7Remove this expression which always evaluates to "true"(­¦Á:
+f
+java:S3252Ÿ"HUse static access with "android.text.InputType" for "TYPE_CLASS_NUMBER".(é¶–8“öæÀö.
+q
+java:S3252›"SUse static access with "android.text.InputType" for "TYPE_TEXT_VARIATION_PASSWORD".(®¡¼å8“öæÀö.
+6
+java:S1659Ã"Declare "r" on a separate line.(ßÚ›µ
 F
 java:S1066 "/Merge this if statement with the enclosing one.(ÛÀœü
-˜
-java:S1186ğ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œÎÌ
-¼
-java:S1598"™This file "PinView.java" should be located in "com/chaos/view" directory, not in "/Users/suntel/Desktop/Librairie/pinview/src/main/java/com/djamil/view".(‡ø­îıÿÿÿÿ8“öæÀö.
+H
+java:S1068?"2Remove this unused "VIEW_TYPE_NONE" private field.(¯ˆ»ê
 c
 java:S3252™"FUse static access with "android.text.InputType" for "TYPE_MASK_CLASS".(Ì¨µ*8“öæÀö.
 g
 java:S3252™"JUse static access with "android.text.InputType" for "TYPE_MASK_VARIATION".(Ì¨µ*8“öæÀö.
+=
+java:S10680"'Remove this unused "TAG" private field.(æÃº¦
+˜
+java:S1186ğ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(œÎÌ
+n
+java:S3776à"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(—Ïë™ùÿÿÿÿ
 d
 java:S3252›"FUse static access with "android.text.InputType" for "TYPE_CLASS_TEXT".(®¡¼å8“öæÀö.
-q
-java:S3252›"SUse static access with "android.text.InputType" for "TYPE_TEXT_VARIATION_PASSWORD".(®¡¼å8“öæÀö.
-i
-java:S3252"FUse static access with "android.text.InputType" for "TYPE_CLASS_TEXT".(ç©‰ªùÿÿÿÿ8“öæÀö.
-z
-java:S3252"WUse static access with "android.text.InputType" for "TYPE_TEXT_VARIATION_WEB_PASSWORD".(ç©‰ªùÿÿÿÿ8“öæÀö.
-f
-java:S3252Ÿ"HUse static access with "android.text.InputType" for "TYPE_CLASS_NUMBER".(é¶–8“öæÀö.
 s
 java:S3252Ÿ"UUse static access with "android.text.InputType" for "TYPE_NUMBER_VARIATION_PASSWORD".(é¶–8“öæÀö.
+D
+java:S1185Â"(Remove this method to simply inherit it.(¨¼Íâıÿÿÿÿ
+M
+java:S2589É"7Remove this expression which always evaluates to "true"(­¦Á:
+=	java:S131å""Add a default case to this switch.(ªù şÿÿÿÿ
+i
+java:S3252"FUse static access with "android.text.InputType" for "TYPE_CLASS_TEXT".(ç©‰ªùÿÿÿÿ8“öæÀö.

@@ -35,22 +35,12 @@ B
 pinview/.gitignore,b/0/b019a41da70624d33bd62e1a7cc7213701d619ba
 D
 pinview/build.gradle,0/f/0fcfa3dbbf54f20042b42df9a0e6eac09dc629b5
-U
-%pinview/src/main/res/values/attrs.xml,5/5/55a6bb91ff5f34bb23f9962fa38a04154df4e386
-V
-&pinview/src/main/res/values/dimens.xml,7/7/77b3d208637b1a3901ac5d9ef935aecba66a07ea
-V
-&pinview/src/main/res/values/styles.xml,5/4/5492ddea6afa62e32a04a6e816dbee04fcd431c4
-d
-4pinview/src/main/res/drawable/pv_invisible_image.xml,c/7/c7abff77063c57439c8603c981948d23163c6b10
 p
 @pinview/src/main/java/com/djamil/view/DefaultMovementMethod.java,1/e/1ed0d4ab48d2b9fafb0e5bd6ee99a449a88fdd86
 b
 2pinview/src/main/java/com/djamil/view/PinView.java,6/7/6770fd78a900d3d9147e6e9b7fd58edc28f06d10
 T
 $pinview/src/main/AndroidManifest.xml,1/d/1d08060b730c32d53b46bc7839d15118a22631a7
-F
-pinview/publish.gradle,1/9/1980fa9ce4d6aa5bda46695470c3291ae6ee8705
 F
 contactlist/.gitignore,2/5/25019bc80a962ca5517ea5960a90a4bd54273117
 H
@@ -107,3 +97,11 @@ a
 Kmaterial-stepper/src/main/java/com/stepstone/stepper/VerificationError.java,6/0/60f1dc6c7f7173947ff4206f19f63dec461dc2ab
 p
 @app/src/main/java/com/djamil/dynamicform/FormulaireActivity.java,5/6/566a07259c6cbe4bdc7696e6b60f03ba4b05e6ce
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+j
+:pinview/src/test/java/com/djamil/view/ExampleUnitTest.java,2/7/27ca9a5c02277fb26e41d93ec94af2b6e8282b54
+J
+pinview/proguard-rules.pro,5/2/523391348bab0523c6b2c188404bb1d9f4fc6b5d
+X
+(contactlist/src/main/AndroidManifest.xml,4/7/479109c3dbb096669f020aecf33880ba2b5cedb5

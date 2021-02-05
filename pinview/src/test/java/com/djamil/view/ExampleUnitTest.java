@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.chaos.view;
+package com.djamil.view;
 
 import org.junit.Test;
 
