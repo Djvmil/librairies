@@ -1,4 +1,4 @@
-package com.chaos.view;
+package com.djamil.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -40,9 +40,9 @@ import androidx.core.view.ViewCompat;
 /**
  * Provides a widget for enter PIN/OTP/password etc.
  *
- * @author Chaos Leong
- * 01/04/2017
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 23/12/2020
  */
+
 public class PinView extends AppCompatEditText {
 
     private static final String TAG = "PinView";

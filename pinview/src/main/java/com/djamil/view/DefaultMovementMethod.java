@@ -1,4 +1,4 @@
-package com.chaos.view;
+package com.djamil.view;
 
 import android.text.Selection;
 import android.text.Spannable;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 /**
  * For disable arrow key
  *
- * @author Chaos
- *         31/03/2018
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 23/12/2020
  */
+
 class DefaultMovementMethod implements MovementMethod {
 
     private static DefaultMovementMethod sInstance;
@@ -26,6 +26,7 @@ class DefaultMovementMethod implements MovementMethod {
     }
 
     private DefaultMovementMethod() {
+
     }
 
     @Override
