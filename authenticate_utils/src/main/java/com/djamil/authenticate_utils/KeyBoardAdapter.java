@@ -112,7 +112,8 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
                 if (iconFingerPrint != null)
                     holder.fingerPrintBtn.setBackground(iconNoFingerPrint);
                 else
-                    holder.fingerPrintBtn.setBackground(mContext.getResources().getDrawable(R.drawable.ic_baseline_no_fingerprint_24));
+                    holder.fingerPrintBtn.setVisibility(View.INVISIBLE);
+                    //holder.fingerPrintBtn.setBackground(mContext.getResources().getDrawable(R.drawable.ic_baseline_no_fingerprint_24));
             }
         }
 

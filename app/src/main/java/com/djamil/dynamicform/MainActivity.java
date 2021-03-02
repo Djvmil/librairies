@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
     private ContactList contactList;
     private TextView contactResult;
-    private Authenticate authenticate;
+    private static Authenticate authenticate;
 
     private static final String FONT_TEXT = "font/ALEAWB.TTF";
     private static final String FONT_NUMBER = "font/BLKCHCRY.TTF";
@@ -59,11 +59,12 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         AuthenticateActivity.Companion.setShuffle(true);
         AuthenticateActivity.Companion.setCloseAfterAttempts(false);
         AuthenticateActivity.Companion.setUseFingerPrint(true);
-        startActivity(intent);
+       // startActivity(intent);
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
-        authenticate.setOnResultAuth(new OnResultAuth() {
+
+        authenticate.setSecret("0000", false).setOnResultAuth(new OnResultAuth() {
             @Override
             public void onAuthError(int errorCode) {
 
@@ -87,24 +88,21 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
             @Override
             public void onDoneClicked(String pwd, String pwdMd5, boolean isSuccess) {
                 if (!isSuccess){
-                    authenticate.setMsgError("Bakhoullllll");
+                    authenticate.setMsgError("Unauthorized");
                 }
             }
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            authenticate.useFingerPrintForAuth(true);
+            authenticate.useFingerPrintForAuth(false);
             Authenticate.Result result = authenticate.checkFingerPrint(this);
             Log.e(TAG, "onCreate: "+result.toString());
         }
 
         contactList = ContactList.getInstance(this);
-        contactList.setOnClickCantactListener(new OnClickCantactListener() {
-            @Override
-            public void onClickCantact(View v, ContactsInfo contactsInfo) {
-                Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
-                contactResult.setText(contactsInfo.getDisplayName().concat("\n"+contactsInfo.getPhoneNumber()));
-            }
+        contactList.setOnClickCantactListener((v, contactsInfo) -> {
+            Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
+            contactResult.setText(contactsInfo.getDisplayName().concat("\n"+contactsInfo.getPhoneNumber()));
         });
 
         findViewById(R.id.dynamic_form).setOnClickListener(new View.OnClickListener() {

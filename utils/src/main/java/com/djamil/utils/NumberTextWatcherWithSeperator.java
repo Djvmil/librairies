@@ -1,7 +1,7 @@
 package com.djamil.utils;
 
 /**
- * Created by Djvmil_ on 2019-12-12
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 4/15/20
  */
 import android.text.Editable;
 import android.text.TextWatcher;

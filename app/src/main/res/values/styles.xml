@@ -4,9 +4,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
-
 
     <style name="StyleEditTextPhone">
         <item name="android:drawableRight">@drawable/ic_remove_eye_black_24dp</item>
@@ -16,33 +15,39 @@
         <item name="android:src">@drawable/error_circle</item>
     </style>
 
-    <style name="AppThemeContactList" parent="AppTheme">
-        <!-- Customize your theme here. -->
-    </style>
-
-    <style name="AppThemeContactListAppBar" parent="AppTheme">
+    <style name="AppThemeContactList" >
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorBlack</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
         <item name="android:background">@color/colorBlack</item>
     </style>
 
-    <style name="AppThemeContactListToolbar" parent="AppTheme">
+    <style name="AppThemeContactListAppBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorBlack</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
         <item name="android:background">@color/colorBlack</item>
     </style>
 
-
-    <style name="AppThemeDynamicForm" parent="AppTheme">
+    <style name="AppThemeContactListToolbar" >
+        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorBlack</item>
         <item name="colorPrimaryDark">@color/colorBlack</item>
+        <item name="android:background">@color/colorBlack</item>
     </style>
 
-    <style name="AppThemeFastScroller" parent="AppTheme.AppBarOverlay">
+    <style name="AppThemeDynamicForm" >
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeFastScroller" >
         <!-- Customize your theme here. -->
-        <item name="fastscroll__bubbleColor">#000</item>
-        <item name="fastscroll__handleColor">#000</item>
+        <item name="fastscroll__bubbleColor">#FFF</item>
+        <item name="fastscroll__handleColor">#FFF</item>
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
     </style>
 </resources>
