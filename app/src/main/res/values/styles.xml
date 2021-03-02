@@ -17,23 +17,23 @@
 
     <style name="AppThemeContactList" >
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorBlack</item>
-        <item name="colorPrimaryDark">@color/colorBlack</item>
-        <item name="android:background">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="AppThemeContactListAppBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorBlack</item>
-        <item name="colorPrimaryDark">@color/colorBlack</item>
-        <item name="android:background">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="AppThemeContactListToolbar" >
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorBlack</item>
-        <item name="colorPrimaryDark">@color/colorBlack</item>
-        <item name="android:background">@color/colorBlack</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="AppThemeDynamicForm" >

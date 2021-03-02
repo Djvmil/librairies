@@ -34,7 +34,7 @@ import java.util.*
 /**
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 4/15/20
  */
-object UtilsFonction {
+object UtilsFunction {
     private const val TAG = "FonctionUtils"
     fun getDecimalFormattedString(value: String): String {
         val lst = StringTokenizer(value, ".")

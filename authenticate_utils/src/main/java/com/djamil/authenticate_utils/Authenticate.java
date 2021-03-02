@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.djamil.authenticate_utils.fingerprint.FingerPrintHandler;
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
-import com.djamil.utils.UtilsFonction;
+import com.djamil.utils.UtilsFunction;
 
 import java.security.KeyStore;
 import java.util.concurrent.Executor;
@@ -130,17 +130,17 @@ public class Authenticate extends RelativeLayout {
                 if (!textView.getText().toString().isEmpty()){
                     if (secret != null){
                         boolean tmp = false;
-                        if (secretIsMd5 && secret.equals(UtilsFonction.md5Hash(textView.getText().toString().trim()))){
+                        if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(textView.getText().toString().trim()))){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFonction.md5Hash(textView.getText().toString().trim()));
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFonction.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
 
                         } else if (!secretIsMd5 && secret.equals(textView.getText().toString().trim())){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFonction.md5Hash(textView.getText().toString().trim()));
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFonction.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
 
                         }else{
                             onResultAuth.onAuthFailed(CODED);
@@ -148,7 +148,7 @@ public class Authenticate extends RelativeLayout {
                         }
 
                     }else
-                        onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFonction.md5Hash(textView.getText().toString()), false);
+                        onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFunction.md5Hash(textView.getText().toString()), false);
 
                     onResultAuth.onAttempts(increment());
                 }else {

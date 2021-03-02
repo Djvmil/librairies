@@ -6,7 +6,7 @@ import androidx.biometric.BiometricPrompt;
 import com.djamil.authenticate_utils.Authenticate;
 import com.djamil.authenticate_utils.SessionManager;
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
-import com.djamil.utils.UtilsFonction;
+import com.djamil.utils.UtilsFunction;
 
 /**
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 7/28/20
@@ -44,7 +44,7 @@ public class FingerPrintHandler extends BiometricPrompt.AuthenticationCallback{
         if (isMd5)
             onResultAuth.onAuthSucceeded(null, secret);
         else
-            onResultAuth.onAuthSucceeded(secret, UtilsFonction.md5Hash(secret));
+            onResultAuth.onAuthSucceeded(secret, UtilsFunction.md5Hash(secret));
 
         onResultAuth.onAttempts(increment());
     }
