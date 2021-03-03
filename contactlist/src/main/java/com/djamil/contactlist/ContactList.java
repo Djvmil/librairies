@@ -37,7 +37,6 @@ public class ContactList {
     }
 
     public void removeInstance() {
-        activity.finish();
         activity = null;
         instance = null;
     }

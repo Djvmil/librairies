@@ -105,3 +105,12 @@ J
 pinview/proguard-rules.pro,5/2/523391348bab0523c6b2c188404bb1d9f4fc6b5d
 X
 (contactlist/src/main/AndroidManifest.xml,4/7/479109c3dbb096669f020aecf33880ba2b5cedb5
+=
+Librairie.iml,e/a/ea3103bd3b3a6c5cd930ae3b8af7425184848aa0
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+_
+/authenticate_utils/src/main/AndroidManifest.xml,e/b/ebf0bd9448fd65afa8d3ca2e227ebd51f98b2414
+X
+(dynamicform/src/main/AndroidManifest.xml,0/2/02e5555447657d1faae6126f96020a4fb502b64a

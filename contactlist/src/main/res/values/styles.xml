@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -17,7 +17,7 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppThemeContactList" parent="AppTheme.AppBarOverlay">
+    <style name="AppThemeContactList">
         <!-- Customize your theme here. -->
         <item name="android:windowActionBar">false</item>
         <item name="android:windowNoTitle">true</item>
@@ -25,17 +25,20 @@
         <item name="windowNoTitle">true</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppThemeContactListAppBar" parent="AppTheme.AppBarOverlay">
+
+    <style name="AppThemeContactListAppBar" >
         <!-- Customize your theme here. -->
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppThemeContactListToolbar" parent="AppTheme.AppBarOverlay">
+
+    <style name="AppThemeContactListToolbar" >
         <!-- Customize your theme here. -->
     </style>
-    <style name="AppThemeFastScroller" parent="AppTheme.AppBarOverlay">
+
+    <style name="AppThemeFastScroller">
         <!-- Customize your theme here. -->
-        <item name="fastscroll__bubbleColor">#000</item>
-        <item name="fastscroll__handleColor">#000</item>
+        <item name="fastscroll__bubbleColor">#FFF</item>
+        <item name="fastscroll__handleColor">#FFF</item>
     </style>
 
 </resources>

@@ -1,2 +1,2 @@
-include ':authenticate', ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll', ':material-stepper', ':fluid-swipe', ':pinview', ':spacelib', ':dynamickeyboard'
+include ':authenticate', ':app', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll', ':material-stepper', ':fluid-swipe', ':pinview', ':spacelib', ':dynamickeyboard', ':sample', ':imagepicker'
 rootProject.name='Librairie'

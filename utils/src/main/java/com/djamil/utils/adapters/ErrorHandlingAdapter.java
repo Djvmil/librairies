@@ -1,6 +1,5 @@
 package com.djamil.utils.adapters;
 
-
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
@@ -127,7 +126,6 @@ public final class ErrorHandlingAdapter {
                         callback.unexpectedError(new RuntimeException("Unexpected response " + response));
                     }
                 }
-
 
                 @Override public void onFailure(Call<T> call, Throwable t) {
                     // TODO if 'callbackExecutor' is not null, the 'callback' methods should be executed

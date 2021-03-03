@@ -1,9 +1,8 @@
 package com.djamil.utils;
 
 /**
- * Created by Djvmil_ on 6/7/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 4/15/20
  */
-
 import java.security.SecureRandom;
 import java.util.UUID;
 
