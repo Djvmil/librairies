@@ -44,7 +44,5 @@
         <item name="colorControlActivated">@color/colorAccent</item>
     </style>
 
-    <style name="AppThemeDynamicForm" parent="AppTheme">
-    </style>
 
 </resources>

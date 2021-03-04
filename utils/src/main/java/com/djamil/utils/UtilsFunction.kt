@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.ContentResolver
 import android.content.Context
+import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -472,6 +473,18 @@ object UtilsFunction {
             e.printStackTrace()
         }
         return Constants.EMPTY_VALUE
+    }
+
+
+    fun getAppLable(context: Context): String? {
+        val packageManager = context.packageManager
+        var applicationInfo: ApplicationInfo? = null
+        try {
+            applicationInfo = packageManager.getApplicationInfo(context.applicationInfo.packageName, 0)
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        return (if (applicationInfo != null) packageManager.getApplicationLabel(applicationInfo) else "Unknown") as String
     }
 
 }

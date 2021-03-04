@@ -3,8 +3,9 @@
     package="com.djamil.dynamic_form">
 
     <application  android:supportsRtl="true"
-        android:theme="@style/AppThemeDynamicForm">
-        <activity android:name=".utils.MainActivity"></activity>
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".utils.MainActivity"/>
     </application>
 
 </manifest>

@@ -49,7 +49,7 @@ dependencies {
     //Leakcanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0'
 
-    implementation project(':imagepicker')
+    implementation project(':takephoto')
 
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
