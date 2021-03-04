@@ -50,4 +50,10 @@
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
     </style>
+
+
+    <!-- Dimension auth style. -->
+    <style name="BackgroundAuth" parent="AppTheme">
+        <item name="android:background">@drawable/bank_gradientbackground</item>
+    </style>
 </resources>
