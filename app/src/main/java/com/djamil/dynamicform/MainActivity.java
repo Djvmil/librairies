@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         AuthenticateActivity.Companion.setShuffle(true);
         AuthenticateActivity.Companion.setCloseAfterAttempts(false);
         AuthenticateActivity.Companion.setUseFingerPrint(true);
-       // startActivity(intent);
+        startActivity(intent);
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            authenticate.useFingerPrintForAuth(false);
+            authenticate.useFingerPrintForAuth(true);
             Authenticate.Result result = authenticate.checkFingerPrint(this);
             Log.e(TAG, "onCreate: "+result.toString());
         }

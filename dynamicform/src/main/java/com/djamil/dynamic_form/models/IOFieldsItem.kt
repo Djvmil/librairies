@@ -20,86 +20,89 @@ import java.util.*
 @Parcelize
 @Entity(tableName = "io_fields")
 data class IOFieldsItem(
+
     @PrimaryKey(autoGenerate = true)
     @field:Json(name = "id")
-    public var id: Int = 0,
+    var id: Int = 0,
 
     @field:Json(name = "isRequired")
-    public var isRequired: Boolean = false,
+    var isRequired: Boolean = false,
 
     @Ignore
     @field:Json(name = "children")
-    public var children: @RawValue Any? = null,
+    var children: @RawValue Any? = null,
 
     @field:Json(name = "field")
-    public var field: String? = null,
+    var field: String? = null,
 
     @field:Json(name = "method")
-    public var method: String? = null,
+    var method: String? = null,
 
     @field:Json(name = "label")
-    public var label: String? = null,
+    var label: String? = null,
 
     @field:Json(name = "type")
-    public var type: String? = null,
+    var type: String? = null,
 
     @field:Json(name = "url")
-    public var url: String? = null,
+    var url: String? = null,
 
     @field:Json(name = "order")
-    public var order: Int = 0,
+    var order: Int = 0,
 
     @field:Json(name = "isReadOnly")
-    public var isReadOnly: Boolean = false,
+    var isReadOnly: Boolean = false,
 
     @field:Json(name = "shouldBeShown")
-    public var shouldBeShown: Boolean = true,
+    var shouldBeShown: Boolean = true,
 
     @field:Json(name = "value")
-    public var value: String? = null,
+    var value: String? = null,
 
     @field:Json(name = "color")
-    public var color: Int = 0,
+    var color: Int = 0,
 
     @field:Json(name = "devise")
-    public var devise: String? = "XOF",
+    var devise: String? = "XOF",
 
     @field:Json(name = "pays_alpha2")
-    public var paysAlpha2: String? = null,
+    var paysAlpha2: String? = null,
 
     @field:Json(name = "msg_hint")
-    public var msgHint: String? = "",
-    public var idOperationBiller: Int = -1,
+    var msgHint: String? = "",
+    var idOperationBiller: Int = -1,
 
-    @Ignore public var listItemDF: @RawValue ArrayList<ItemDF>? = null,
-    @Ignore public var listItemDFSelected: @RawValue  ArrayList<ItemDF>? = null,
-    @Ignore public var itemDFSelected: @RawValue  ItemDF? = null,
+    @Ignore var listItemDF: @RawValue ArrayList<ItemDF>? = null,
+    @Ignore var listItemDFSelected: @RawValue  ArrayList<ItemDF>? = null,
+    @Ignore var itemDFSelected: @RawValue  ItemDF? = null,
 
-    public var idView: Int = 0,
-    public var indicatif: Int = 0,
-    public var numPage: Int = 0,
-    public var idBillerFields: Int = 0,
-    public var isFormatter: Boolean = false,
-    public var isMoney: Boolean = false,
+    var idView    : Int = 0,
+    var idRowView : Int = 0,
+    var idLabelView : Int = 0,
+    var indicatif : Int = 0,
+    var numPage   : Int = 0,
+    var idBillerFields: Int = 0,
+    var isFormatter: Boolean = false,
+    var isMoney: Boolean = false,
 
     @LayoutRes
-    public var template: Int = 0,
+    var template: Int = 0,
 
     @TypeField
     @field:Json(name = "type_field")
-    public var type_field: String? = null,
+    var type_field: String? = null,
 
     var biller_field_parent_id: Int? = null
 
 ): Comparable<IOFieldsItem> , Parcelable{
 
-    public constructor(label: String?, field: String?, @InputTypeDF type: String?) : this() {
+    constructor(label: String?, field: String?, @InputTypeDF type: String?) : this() {
         this.label = label
         this.field = field
         this.type = type
     }
 
-    public  constructor(
+    constructor(
         label: String?,
         field: String?,
         @InputTypeDF type: String?,
@@ -111,7 +114,7 @@ data class IOFieldsItem(
         this.isMoney = isMoney
     }
 
-    public constructor(
+    constructor(
         label: String?,
         field: String?,
         @InputTypeDF type: String?,
@@ -124,7 +127,7 @@ data class IOFieldsItem(
         this.template = template
     }
 
-    public constructor(
+    constructor(
         label: String?,
         field: String?,
         @InputTypeDF type: String?,
@@ -136,7 +139,7 @@ data class IOFieldsItem(
         this.value = value
     }
 
-    public constructor(
+    constructor(
         isRequired: Boolean,
         field: String?,
         label: String?,
@@ -170,11 +173,11 @@ data class IOFieldsItem(
         this.template = template
     }
 
-    public fun getItemDFByIdView(idView: Int) {
+    fun getItemDFByIdView(idView: Int) {
         for (item in listItemDF!!) if (item.idView == idView) itemDFSelected = item
     }
 
-    public fun getListItemDFByView(view: View) {
+    fun getListItemDFByView(view: View) {
         listItemDFSelected = ArrayList()
         for (item in listItemDF!!) {
             if ((view.findViewById<View>(item.idView) as CheckBox).isChecked)
@@ -182,12 +185,12 @@ data class IOFieldsItem(
         }
     }
 
-    public override fun compareTo(other: IOFieldsItem): Int {
+    override fun compareTo(other: IOFieldsItem): Int {
         return order - other.order
     }
 
     override fun toString(): String {
-        return "IOFieldsItem(id=$id, isRequired=$isRequired, children=$children, field=$field, method=$method, label=$label, type=$type, url=$url, order=$order, isReadOnly=$isReadOnly, shouldBeShown=$shouldBeShown, value=$value, color=$color, devise=$devise, paysAlpha2=$paysAlpha2, msgHint=$msgHint, idOperationBiller=$idOperationBiller, listItemDF=$listItemDF, listItemDFSelected=$listItemDFSelected, itemDFSelected=$itemDFSelected, idView=$idView, indicatif=$indicatif, numPage=$numPage, idBillerFields=$idBillerFields, isFormatter=$isFormatter, isMoney=$isMoney, template=$template, type_field=$type_field, biller_field_parent_id=$biller_field_parent_id)"
+        return "IOFieldsItem(id=$id, isRequired=$isRequired, children=$children, field=$field, method=$method, label=$label, type=$type, url=$url, order=$order, isReadOnly=$isReadOnly, shouldBeShown=$shouldBeShown, value=$value, color=$color, devise=$devise, paysAlpha2=$paysAlpha2, msgHint=$msgHint, idOperationBiller=$idOperationBiller, listItemDF=$listItemDF, listItemDFSelected=$listItemDFSelected, itemDFSelected=$itemDFSelected, idView=$idView, idLabelView=$idLabelView, idRowView=$idRowView, indicatif=$indicatif, numPage=$numPage, idBillerFields=$idBillerFields, isFormatter=$isFormatter, isMoney=$isMoney, template=$template, type_field=$type_field, biller_field_parent_id=$biller_field_parent_id)"
     }
 
 
