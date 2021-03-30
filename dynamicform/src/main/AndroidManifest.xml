@@ -1,2 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.djamil.dynamic_form" />
+    package="com.djamil.dynamic_form">
+
+    <application  android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".utils.MainActivity"/>
+    </application>
+
+</manifest>

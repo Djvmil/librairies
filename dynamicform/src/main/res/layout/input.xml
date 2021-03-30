@@ -14,7 +14,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Label" />
+        android:textSize="@dimen/_14sdp"
+        android:text="---" />
 
     <EditText
         android:id="@+id/editText"
@@ -23,6 +24,7 @@
         android:layout_weight="2"
         android:imeOptions="actionNext"
         android:hint="Saisir label"
+        android:textSize="@dimen/_13sdp"
         android:inputType="textCapWords|textCapCharacters|textNoSuggestions"
         android:textStyle="bold"/>
 </LinearLayout>

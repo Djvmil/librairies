@@ -7,8 +7,9 @@ android {
         applicationId "com.djamil.dynamicform"
         minSdkVersion 17
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.1"
+        versionCode 2
+        versionName "1.0.6-beta5"
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -17,6 +18,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }
 
@@ -27,26 +32,23 @@ dependencies {
     implementation project(':utils')
     implementation project(':contactlist')
     implementation project(':authenticate_utils')
+    implementation project(':material-stepper')
+    implementation project(':fluid-swipe')
     //implementation project(':fragmentmanagement')
     implementation 'com.mattprecious.swirl:swirl:1.3.0'
    // //implementation files('libs/authenticate.aar')
-/*
-    def _version = "1.0.1"
-    implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamicform:'+_version
-    implementation 'com.suntelecoms.gitlab.librairies.librairies:utils:'+_version
-    implementation 'com.suntelecoms.gitlab.librairies.librairies:dynamickeyboard:'+_version
-*/
-
-    //implementation "com.google.android.material:material:1.1.0"
+    implementation "com.google.android.material:material:1.1.0"
     //implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.android.support:multidex:1.0.2'
     implementation "androidx.cardview:cardview:1.0.0"
 
     implementation 'com.intuit.ssp:ssp-android:1.0.6'
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
+    implementation 'com.nineoldandroids:library:2.4.0'
+
     //implementation 'com.github.florent37:materialleanback:1.0.2'
 
-    implementation 'com.nineoldandroids:library:2.4.0'
 
     implementation 'org.glassfish:javax.annotation:10.0-b28'
     implementation 'com.google.code.gson:gson:2.8.0'
@@ -55,6 +57,8 @@ dependencies {
     //charger une image
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
+    //logger
+    implementation 'com.orhanobut:logger:2.2.0'
 
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 

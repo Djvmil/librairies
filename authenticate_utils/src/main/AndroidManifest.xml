@@ -5,6 +5,7 @@ package="com.djamil.authenticate_utils">
 <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
 <application
-    android:supportsRtl="true"/>
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme"/>
 
 </manifest>

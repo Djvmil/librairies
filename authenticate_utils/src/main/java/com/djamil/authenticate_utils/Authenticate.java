@@ -26,7 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.djamil.authenticate_utils.fingerprint.FingerPrintHandler;
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
-import com.djamil.utils.FonctionUtils;
+import com.djamil.utils.UtilsFunction;
 
 import java.security.KeyStore;
 import java.util.concurrent.Executor;
@@ -35,7 +35,7 @@ import java.util.concurrent.Executors;
 import javax.crypto.Cipher;
 
 /**
- * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ * Created by Djvmil_ on 2020-03-05
  */
 public class Authenticate extends RelativeLayout {
     private static final String TAG = "KeyboardDynamic";
@@ -131,17 +131,17 @@ public class Authenticate extends RelativeLayout {
                 if (!textView.getText().toString().isEmpty()){
                     if (secret != null){
                         boolean tmp = false;
-                        if (secretIsMd5 && secret.equals(FonctionUtils.md5Hash(textView.getText().toString().trim()))){
+                        if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(textView.getText().toString().trim()))){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), FonctionUtils.md5Hash(textView.getText().toString().trim()));
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), FonctionUtils.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
 
                         } else if (!secretIsMd5 && secret.equals(textView.getText().toString().trim())){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), FonctionUtils.md5Hash(textView.getText().toString().trim()));
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), FonctionUtils.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
 
                         }else{
                             onResultAuth.onAuthFailed(CODED);
@@ -149,11 +149,11 @@ public class Authenticate extends RelativeLayout {
                         }
 
                     }else
-                        onResultAuth.onDoneClicked(textView.getText().toString(), FonctionUtils.md5Hash(textView.getText().toString()), false);
+                        onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFunction.md5Hash(textView.getText().toString()), false);
 
                     onResultAuth.onAttempts(increment());
                 }else {
-                    textView.setError(errorMsg != null ? errorMsg : "Entrez votre le code secret");
+                    textView.setError(errorMsg != null ? errorMsg : "Entrez votre code secret");
                     textView.requestFocus();
                 }
             }
@@ -174,29 +174,34 @@ public class Authenticate extends RelativeLayout {
 
     public static Result checkFingerPrint(Activity activity){
         Result result = null;
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        try{
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 
-            FingerprintManager fingerprintManager = (FingerprintManager) activity.getSystemService(Context.FINGERPRINT_SERVICE);
-            KeyguardManager keyguardManager = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
+                FingerprintManager fingerprintManager = (FingerprintManager) activity.getSystemService(Context.FINGERPRINT_SERVICE);
+                KeyguardManager keyguardManager = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
 
-            if(! fingerprintManager.isHardwareDetected()){
-                result = new Result(false, "Scanner d'empreintes digitales non détecté dans l'appareil.\n");
+                if((fingerprintManager != null) && ! fingerprintManager.isHardwareDetected()){
+                    result = new Result(false, "Scanner d'empreintes digitales non détecté dans l'appareil.\n");
 
-            } else if (ContextCompat.checkSelfPermission(activity, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
-                result = new Result(false, "Autorisation d'utiliser le scanner d'empreintes digitales non accordée\n");
+                } else if (ContextCompat.checkSelfPermission(activity, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
+                    result = new Result(false, "Autorisation d'utiliser le scanner d'empreintes digitales non accordée\n");
 
-            } else if (! keyguardManager.isKeyguardSecure()){
-                result = new Result(false, "Ajouter un verrou à votre téléphone dans les paramètres.\n");
+                } else if (! keyguardManager.isKeyguardSecure()){
+                    result = new Result(false, "Ajouter un verrou à votre téléphone dans les paramètres.\n");
 
-            } else if (! fingerprintManager.hasEnrolledFingerprints()){
-                result = new Result(false, "Vous devez ajouter au moins 1 empreinte digitale pour utiliser cette fonction.\n");
+                } else if (fingerprintManager != null &&  ! fingerprintManager.hasEnrolledFingerprints()){
+                    result = new Result(false, "Vous devez ajouter au moins 1 empreinte digitale pour utiliser cette fonction.\n");
 
-            }else {
-                result = new Result(true, "Placez votre doigt sur le scanner pour accéder à l'application.\n");
+                }else {
+                    result = new Result(true, "Placez votre doigt sur le scanner pour accéder à l'application.\n");
 
-            }
+                }
 
-        }else  result = new Result(false, "Empreinte digitale non disponible pour cette version android (V-"+Build.VERSION.SDK_INT+")\n");
+            }else  result = new Result(false, "Empreinte digitale non disponible pour cette version android (V-"+Build.VERSION.SDK_INT+")\n");
+        }catch (Exception e){
+            result = new Result(false, "Empreinte digitale non disponible pour cette version android (V-"+Build.VERSION.SDK_INT+")\n");
+        }
+
         return result;
     }
 

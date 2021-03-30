@@ -35,8 +35,10 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         fieldItems.add(new IOFieldsItem("Nom", "nom", INPUT_TYPE_DF.Label, R.layout.label_text));
         fieldItems.add(new IOFieldsItem("Prénom", "prenom", INPUT_TYPE_DF.Text));
 
-        ioFieldsItem = new IOFieldsItem("Required", "required", INPUT_TYPE_DF.Text);
-        ioFieldsItem.setIsRequired(true);
+        ioFieldsItem = new IOFieldsItem("Required", "required", INPUT_TYPE_DF.Label);
+        ioFieldsItem.setRequired(true);
+        ioFieldsItem.setValue("Required");
+        ioFieldsItem.setShouldBeShown(false);
         fieldItems.add(ioFieldsItem);
 
         fieldItems.add(new IOFieldsItem("Téléphone", "telephone", INPUT_TYPE_DF.Phone));
@@ -113,14 +115,14 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         IOFieldsItem item = dynamicForm.findIOFieldByFieldName("seck");
 
         if (item != null){
+
+            View view = dynamicForm.findViewById(item.getIdRowView());
+
+            view.setVisibility(View.GONE);
+
             final EditText editText = dynamicForm.findViewById(item.getIdView());
             editText.setClickable(true);
-            editText.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(FormulaireActivity.this, "akk mom "+editText.getText(), Toast.LENGTH_SHORT).show();
-                }
-            });
+            editText.setOnClickListener(view1 -> Toast.makeText(FormulaireActivity.this, "akk mom "+editText.getText(), Toast.LENGTH_SHORT).show());
         }
 
 

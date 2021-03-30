@@ -1,7 +1,9 @@
 package com.djamil.contactlist;
 
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -32,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ContactListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class ContactListActivity extends AppCompatActivity {
     private static final String TAG = "ContactListActivity";
 
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
@@ -42,18 +45,19 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
     ContactAdapter adapter;
     ProgressDialog prd;
     TextView msg;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
-        final ImageView img = findViewById(R.id.img);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // toolbar fancy stuff
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Contacts");
+
         contactsInfoList = new ArrayList<>();
         showProgress();
 
@@ -83,6 +87,8 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
                     msg.setText("Vous avez désactivé une autorisation de contacts");
             }
         }
+
+        whiteNotificationBar(recyclerView);
     }
 
 
@@ -90,7 +96,7 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
         Map<Long, List<String>> phones = new HashMap<>();
         ContentResolver cr = getContentResolver();
 
-// First build a mapping: contact-id > list of phones
+        // First build a mapping: contact-id > list of phones
         Cursor cur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, new String[] { ContactsContract.CommonDataKinds.Phone.CONTACT_ID, ContactsContract.CommonDataKinds.Phone.NUMBER }, null, null, null);
         while (cur != null && cur.moveToNext()) {
             long contactId = cur.getLong(0);
@@ -124,7 +130,6 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
         if (contactsInfoList.size() > 0)
             msg.setVisibility(View.GONE);
         if (adapter != null) {
-            adapter.setArraylist();
             adapter.notifyDataSetChanged();
             if (prd != null )
                 prd.dismiss();
@@ -181,13 +186,6 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -195,8 +193,48 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
                 return true;
         }
 
+        //noinspection SimplifiableIfStatement
+        if (item.getItemId() == R.id.action_search) {
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+
+        // listening to search query text change
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                adapter.getFilter().filter(query);
+                return false;
+            }
+        });
+        return true;
+    }
+
+
 
 
     private void showProgress() {
@@ -214,14 +252,22 @@ public class ContactListActivity extends AppCompatActivity implements SearchView
     }
 
     @Override
-    public boolean onQueryTextSubmit(String query) {
-        return false;
-    }
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        adapter.filter(newText);
-        return false;
+    public void onBackPressed() {
+        // close search view on back button pressed
+        if (!searchView.isIconified()) {
+            searchView.setIconified(true);
+            return;
+        }
+        super.onBackPressed();
     }
 
+    private void whiteNotificationBar(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            int flags = view.getSystemUiVisibility();
+            flags |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+            view.setSystemUiVisibility(flags);
+            getWindow().setStatusBarColor(getColor(R.color.colorPrimary));
+        }
+    }
 
 }

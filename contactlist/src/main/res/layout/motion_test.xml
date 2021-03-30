@@ -7,7 +7,6 @@
     android:orientation="vertical"
     app:layoutDescription="@xml/motion_test_scene">
 
-
     <TextView
         android:id="@+id/text_search"
         android:layout_width="90dp"
@@ -16,6 +15,5 @@
         android:drawableEnd="@drawable/ic_baseline_search_24"
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="763dp" />
-
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

@@ -102,6 +102,7 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
             holder.key.setVisibility(View.GONE);
             holder.backSpaceBtn.setVisibility(View.GONE);
             holder.fingerPrintBtn.setVisibility(View.VISIBLE);
+            holder.fingerPrintBtn.setEnabled(true);
 
             if (userFgp){
                 if (iconFingerPrint != null)
@@ -110,10 +111,9 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
                     holder.fingerPrintBtn.setBackground(mContext.getResources().getDrawable(R.drawable.ic_baseline_fingerprint_24));
 
             } else{
-                if (iconFingerPrint != null)
-                    holder.fingerPrintBtn.setBackground(iconNoFingerPrint);
-                else
-                    holder.fingerPrintBtn.setBackground(mContext.getResources().getDrawable(R.drawable.ic_baseline_no_fingerprint_24));
+                holder.fingerPrintBtn.setVisibility(View.GONE);
+                holder.fingerPrintBtn.setEnabled(false);
+                    //holder.fingerPrintBtn.setBackground(mContext.getResources().getDrawable(R.drawable.ic_baseline_no_fingerprint_24));
             }
         }
 

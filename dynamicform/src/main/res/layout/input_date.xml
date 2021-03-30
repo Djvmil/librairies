@@ -16,8 +16,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="Date"
-        android:textSize="@dimen/_10ssp"
+        android:text="---"
+        android:textSize="@dimen/_14sdp"
         android:textStyle="bold"/>
 
     <EditText
@@ -25,10 +25,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
+        style="@style/StyleEditTextPhone"
         android:clickable="false"
-        android:drawableRight="@drawable/ic_calandar"
         android:editable="false"
         android:inputType="none"
         android:textColor="@color/vertKaki"
-        android:textSize="@dimen/_10ssp"/>
+        android:textSize="@dimen/_14sdp"/>
 </LinearLayout>

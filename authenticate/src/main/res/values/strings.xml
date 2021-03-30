@@ -8,5 +8,6 @@
     <string name="pinlock_secondPin">Entrez à nouveau le code PIN</string>
     <string name="pinlock_tryagain">Les codes PIN ne sont pas les mêmes</string>
     <string name="pinlock_fingerprint">Utiliser l\'empreinte digitale</string>
-    <string name="pin_empty">Pin empty</string>
+    <string name="pin_empty">Saisir le pin</string>
+    <string name="key_app_sharpref">com.suntelecoms.auth</string>
 </resources>

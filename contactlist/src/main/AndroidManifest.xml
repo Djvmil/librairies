@@ -4,17 +4,26 @@
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <application android:supportsRtl="true">
-        <activity android:name=".MainActivity"></activity>
+    <application android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity"/>
         <activity
             android:name=".ContactListActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:launchMode="singleInstance"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:launchMode="singleInstance" >
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />
-                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>

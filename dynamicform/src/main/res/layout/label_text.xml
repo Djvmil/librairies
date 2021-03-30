@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:minHeight="@dimen/_30sdp"
         android:layout_weight="1"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_14sdp"
         android:gravity="center_vertical"
-        android:text="Label"
+        android:text="---"
         android:textStyle="bold"/>
 
     <TextView
@@ -26,9 +26,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:minHeight="@dimen/_30sdp"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_14sdp"
         android:gravity="right"
         android:layout_weight="2"
         android:imeOptions="actionNext"
-        android:text="label"/>
+        android:text="---"/>
 </LinearLayout>
+

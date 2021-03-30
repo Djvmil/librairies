@@ -11,9 +11,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by Djvmil_ on 4/27/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 4/15/20
  */
 public class ConnectionDetector {
+	private static final String TAG = "ConnectionDetector";
 
 	private static ConnectionDetector instance = new ConnectionDetector();
 	private static Context context;
@@ -151,15 +152,14 @@ public class ConnectionDetector {
 					return false;
 				}
 			} catch (MalformedURLException e1) {
-				Log.e("ConectionDetector.MalformedURLException",
-						e1.getMessage());
+				Log.e(TAG,"ConectionDetector.MalformedURLException: "+ e1.getMessage());
 				return false;
 			} catch (IOException e) {
-				Log.e("ConectionDetector.IOException", e.getMessage());
+				Log.e(TAG, "ConectionDetector.IOException: "+ e.getMessage());
 				return false;
 			}
 		} else {
-			Log.d("ConnectionDetector.isURLReachable", "URL unReached");
+			Log.d(TAG, "ConnectionDetector.isURLReachable: URL unReached");
 			return false;
 		}
 	}

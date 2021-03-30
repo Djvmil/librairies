@@ -11,6 +11,9 @@
 
     <color name="cancel">#F45757</color>
 
+    <color name="bank_colorPrimary">#2962FF</color>
+    <color name="bank_colorPrimaryDark">#0044FC</color>
+    <color name="bank_colorAccent">#FDDAD8</color>
 
     <color name="black_semi_transparent">#B2000000</color>
     <color name="background">#e5e5e5</color>

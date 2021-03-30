@@ -18,19 +18,23 @@ import android.security.keystore.KeyProperties
 import android.util.Log
 import android.view.View
 import android.view.Window
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.suntelecoms.authenticate.R
-import com.suntelecoms.authenticate.activity.AuthenticateActivity
 import com.suntelecoms.authenticate.fingerprint.FingerPrintListener
 import com.suntelecoms.authenticate.fingerprint.FingerprintHandler
-import com.suntelecoms.authenticate.pinlockview.*
+import com.suntelecoms.authenticate.pinlockview.IndicatorType
+import com.suntelecoms.authenticate.pinlockview.OnAuthListener
+import com.suntelecoms.authenticate.pinlockview.PinLockListener
 import com.suntelecoms.authenticate.util.Animate.animate
-import com.suntelecoms.authenticate.util.Utils.sha256
+import com.suntelecoms.authenticate.util.Utils.decrypt
+import com.suntelecoms.authenticate.util.Utils.encrypt
 import kotlinx.android.synthetic.main.activity_enter_code.*
 import java.io.IOException
 import java.security.*
@@ -61,6 +65,7 @@ class AuthenticateActivity : AppCompatActivity() {
     private var showFingerprint: AnimatedVectorDrawable? = null
     private var fingerprintToTick: AnimatedVectorDrawable? = null
     private var fingerprintToCross: AnimatedVectorDrawable? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -69,14 +74,18 @@ class AuthenticateActivity : AppCompatActivity() {
         mTextTitle = findViewById(R.id.title)
         mImageViewFingerView = findViewById(R.id.fingerView)
         mTextFingerText = findViewById(R.id.fingerText)
+        PREFERENCES = getString(R.string.key_app_sharpref)
+
+        mTextTitle!!.text = if (mTitle != null) mTitle else getString(R.string.pinlock_title)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             showFingerprint = getDrawable(R.drawable.show_fingerprint) as AnimatedVectorDrawable?
             fingerprintToTick = getDrawable(R.drawable.fingerprint_to_tick) as AnimatedVectorDrawable?
             fingerprintToCross = getDrawable(R.drawable.fingerprint_to_cross) as AnimatedVectorDrawable?
         }
 
-        if (goneBtnBack)imgMenuBackImageView.visibility = View.GONE
-        else imgMenuBackImageView.visibility = View.VISIBLE
+        imgMenuBackImageView.visibility =  if (goneBtnBack) View.GONE else View.VISIBLE
+
         imgMenuBackImageView.setOnClickListener {
             onBackPressed()
         }
@@ -84,11 +93,9 @@ class AuthenticateActivity : AppCompatActivity() {
         logo.setImageResource(icon)
 
         if (!useFingerPrint){
-
             mImageViewFingerView!!.visibility = View.GONE
             mTextFingerText!!.visibility = View.GONE
         }
-
 
         mSetPin = intent.getBooleanExtra(EXTRA_SET_PIN, false)
         if (mSetPin) {
@@ -233,13 +240,13 @@ class AuthenticateActivity : AppCompatActivity() {
 
     private fun writePinToSharedPreferences(pin: String) {
         val prefs = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
-        prefs.edit().putString(KEY_PIN, sha256(pin)).apply()
+        prefs.edit().putString(KEY_PIN, encrypt(pin)).apply()
     }
 
     private val pinFromSharedPreferences: String?
         private get() {
             val prefs = getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
-            return prefs.getString(KEY_PIN, "")
+            return decrypt(prefs.getString(KEY_PIN, "")!!)
         }
 
     private fun setPin(pin: String) {
@@ -252,7 +259,7 @@ class AuthenticateActivity : AppCompatActivity() {
                 writePinToSharedPreferences(pin)
                 setResult(Activity.RESULT_OK)
                 if(onAuthListener != null)
-                    onAuthListener?.onSuccess(pin, false)
+                    onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
                 finish()
             } else {
                 shake()
@@ -266,13 +273,13 @@ class AuthenticateActivity : AppCompatActivity() {
     }
 
     private fun checkPin(pin: String?) {
-        if (sha256(pin!!) == pinFromSharedPreferences) {
+        if (pin!! == pinFromSharedPreferences) {
             setResult(Activity.RESULT_OK)
             if(onAuthListener != null)
-                onAuthListener?.onSuccess(pin, false)
+                onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
             finish()
         } else {
-            Log.d(TAG, "checkPin: wrong pin ${closeAfterAttempts}" )
+            Log.d(TAG, "checkPin: wrong pin $closeAfterAttempts" )
             shake()
 
             if(onAuthListener != null)
@@ -281,7 +288,7 @@ class AuthenticateActivity : AppCompatActivity() {
             mTextAttempts!!.text = getString(R.string.pinlock_wrongpin)
             if (closeAfterAttempts){
                 setResult(Activity.RESULT_OK)
-                onAuthListener?.onSuccess(pin, false)
+                onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
                 finish()
             }
             pinlockView!!.resetPinLockView()
@@ -317,7 +324,7 @@ class AuthenticateActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK)
 
                 if(onAuthListener != null)
-                    onAuthListener?.onSuccess("", true)
+                    onAuthListener?.onSuccess("", authWithFinger = true, success = true)
                 animate(mImageViewFingerView!!, fingerprintToTick!!)
                 val handler = Handler()
                 handler.postDelayed({ finish() }, 750)
@@ -325,8 +332,10 @@ class AuthenticateActivity : AppCompatActivity() {
 
             override fun onFailed() {
 
-                if(onAuthListener != null)
+                if(onAuthListener != null){
+                    onAuthListener?.onSuccess("", authWithFinger = true, success = false)
                     onAuthListener?.onError("")
+                }
                 animate(mImageViewFingerView!!, fingerprintToCross!!)
                 val handler = Handler()
                 handler.postDelayed({ animate(mImageViewFingerView!!, showFingerprint!!) }, 750)
@@ -335,24 +344,30 @@ class AuthenticateActivity : AppCompatActivity() {
 
             override fun onError(errorString: CharSequence?) {
 
-                if(onAuthListener != null)
+                if(onAuthListener != null){
+                    onAuthListener?.onSuccess("", authWithFinger = true, success = false)
                     onAuthListener?.onError("$errorString")
+                }
+
                 Toast.makeText(this@AuthenticateActivity, errorString, Toast.LENGTH_SHORT).show()
                 if (closeAfterAttempts) finish()
             }
 
             override fun onHelp(helpString: CharSequence?) {
-                if(onAuthListener != null)
+
+                if(onAuthListener != null){
+                    onAuthListener?.onSuccess("", authWithFinger = true, success = false)
                     onAuthListener?.onError("$helpString")
+                } 
                 Toast.makeText(this@AuthenticateActivity, helpString, Toast.LENGTH_SHORT).show()
             }
         }
 
         // If you’ve set your app’s minSdkVersion to anything lower than 23, then you’ll need to verify that the device is running Marshmallow
         // or higher before executing any fingerprint-related code
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && getSystemService(Context.FINGERPRINT_SERVICE) != null) {
             val fingerprintManager = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
-            if (fingerprintManager != null && fingerprintManager.isHardwareDetected) {
+            if (fingerprintManager.isHardwareDetected) {
                 //Get an instance of KeyguardManager and FingerprintManager//
                 mKeyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
                 mFingerprintManager = getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
@@ -424,13 +439,14 @@ class AuthenticateActivity : AppCompatActivity() {
         const val RESULT_BACK_PRESSED = Activity.RESULT_FIRST_USER
 
         //    public static final int RESULT_TOO_MANY_TRIES = RESULT_FIRST_USER + 1;
+        var mTitle: String? = null
         const val EXTRA_SET_PIN = "set_pin"
         const val EXTRA_FONT_TEXT = "textFont"
         const val EXTRA_FONT_NUM = "numFont"
         private const val PIN_LENGTH = 4
         private const val FINGER_PRINT_KEY = "FingerPrintKey"
-        private const val PREFERENCES = "com.suntelecoms.auth"
-        private const val KEY_PIN = "pin"
+        private var PREFERENCES = "com.suntelecoms.auth"
+        const val KEY_PIN = "pin_key"
         var shuffle = true
         var goneBtnBack = true
         var useFingerPrint = true
@@ -443,6 +459,7 @@ class AuthenticateActivity : AppCompatActivity() {
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
+            PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
 
             if (fontText != null)
                 intent.putExtra(EXTRA_FONT_TEXT, fontText)
@@ -457,9 +474,10 @@ class AuthenticateActivity : AppCompatActivity() {
         @JvmStatic
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null,
                       onAuthListener: OnAuthListener? = null, shuffle: Boolean, @DrawableRes icon: Int,
-                      goneBtnBack: Boolean, useFingerPrint: Boolean): Intent {
+                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
+            PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
 
             if (fontText != null)
                 intent.putExtra(EXTRA_FONT_TEXT, fontText)
@@ -472,9 +490,44 @@ class AuthenticateActivity : AppCompatActivity() {
             this.icon = icon
             this.goneBtnBack = goneBtnBack
             this.useFingerPrint = useFingerPrint
+            this.mTitle = mTitle
 
             return intent
         }
+
+
+         fun changePinToSharedPreferences(context: Context?, pin: String) {
+            val prefs = context?.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
+             prefs?.edit()?.putString(KEY_PIN, encrypt(pin))?.apply()
+
+             Log.d(TAG, "changePinToSharedPreferences: $pin")
+
+        }
+
+
+
+        fun checkFingerPrint(activity: Activity): Result? {
+            var result: Result? = null
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.getSystemService(Context.FINGERPRINT_SERVICE) != null) {
+                val fingerprintManager = activity.getSystemService(Context.FINGERPRINT_SERVICE) as FingerprintManager
+                val keyguardManager = activity.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+
+                result = if (!fingerprintManager.isHardwareDetected)
+                    Result(false, "Scanner d'empreintes digitales non détecté dans l'appareil.\n")
+                else if (ContextCompat.checkSelfPermission(activity, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED)
+                    Result(false, "Autorisation d'utiliser le scanner d'empreintes digitales non accordée\n")
+                else if (!keyguardManager.isKeyguardSecure)
+                    Result(false, "Ajouter un verrou à votre téléphone dans les paramètres.\n")
+                else if (!fingerprintManager.hasEnrolledFingerprints())
+                    Result(false, "Vous devez ajouter au moins 1 empreinte digitale pour utiliser cette fonction.\n")
+                else
+                    Result(true, "Placez votre doigt sur le scanner pour accéder à l'application.\n")
+
+            } else Result(false, "Empreinte digitale non disponible pour cette version android (V-${Build.VERSION.SDK_INT}")
+
+            return result
+        }
+
     }
 
 
@@ -483,4 +536,6 @@ class AuthenticateActivity : AppCompatActivity() {
         onAuthListener = null
 
     }
+
+    class Result (var isStatus: Boolean = false, var message: String? = null)
 }

@@ -12,7 +12,8 @@ import com.djamil.fastscroll.FastScroller;
 import com.djamil.recyclerviewfastscroll.R;
 
 /**
- * Created by Djvmil_ on 6/9/20
+ * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
+ *
  * Animates showing and hiding elements of the {@link FastScroller} (handle and bubble).
  * The decision when to show/hide the element should be implemented via {@link ViewBehavior}.
  */

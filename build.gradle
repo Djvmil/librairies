@@ -1,8 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    ext.kotlin_version = '1.4.31'
     ext {
-        kotlin_version = '1.3.72'
+        mavenGradlePluginVersion    = '2.0'
+        kotlin_version              = '1.4.20'
+        bintrayVersion              = '1.7.3'
+        kotlinVersion               = '1.1.4-3'
+        gradleAndroidVersion        = '3.0.0-beta7'
     }
     repositories {
         google()
@@ -25,8 +30,36 @@ allprojects {
         maven { url 'https://jitpack.io' }
         
     }
+
+    // Avoid Kotlin docs error
+    tasks.withType(Javadoc) {
+        enabled = false
+    }
+
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+configure(allprojects) {
+    /* Android config and dependency versions */
+    ext {
+        androidMinSdkVersion 		        = 14
+        androidTargetSdkVersion             = 25
+        androidCompileSdkVersion            = 25
+        androidBuildToolsVersion            = '26.0.2'
+        androidSupportLibraryVersion        = '25.4.0'
+
+        junitVersion                        = '4.12'
+        mockitoVersion                      = '2.7.21'
+        mockitoKotlinVersion                = '1.4.0'
+        robolectricVersion                  = '3.3.1'
+        assertjVersion                      = '1.1.1'
+
+        supportTestVersion                  = '1.0.1'
+        espressoVersion                     = '3.0.1'
+        testButlerVersion                   = '1.3.1'
+
+        /* Sample only */
+        butterknifeVersion                  = '8.5.1'
+        calligraphyVersion                  = '2.2.0'
+    }
+
 }

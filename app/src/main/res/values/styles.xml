@@ -4,6 +4,56 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="StyleEditTextPhone">
+        <item name="android:drawableRight">@drawable/ic_remove_eye_black_24dp</item>
+    </style>
+
+    <style name="StyleImageViewPhone">
+        <item name="android:src">@drawable/error_circle</item>
+    </style>
+
+    <style name="AppThemeContactList" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeContactListAppBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeContactListToolbar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeDynamicForm" >
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppThemeFastScroller" >
+        <!-- Customize your theme here. -->
+        <item name="fastscroll__bubbleColor">#FFF</item>
+        <item name="fastscroll__handleColor">#FFF</item>
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+    </style>
+
+
+    <!-- Dimension auth style. -->
+    <style name="BackgroundAuth" parent="AppTheme">
+        <item name="android:background">@drawable/bank_gradientbackground</item>
     </style>
 </resources>

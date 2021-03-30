@@ -6,7 +6,7 @@ package com.suntelecoms.authenticate.pinlockview
  */
 interface OnAuthListener {
 
-    fun onSuccess(pin: String?, authWithFinger: Boolean)
+    fun onSuccess(pin: String?, authWithFinger: Boolean, success: Boolean)
 
     fun onError(msg: String?)
 }
