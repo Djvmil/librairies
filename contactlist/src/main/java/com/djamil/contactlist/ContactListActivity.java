@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +32,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ContactListActivity extends AppCompatActivity {
+public class ContactListActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private static final String TAG = "ContactListActivity";
 
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
@@ -123,6 +124,7 @@ public class ContactListActivity extends AppCompatActivity {
         if (contactsInfoList.size() > 0)
             msg.setVisibility(View.GONE);
         if (adapter != null) {
+            adapter.setArraylist();
             adapter.notifyDataSetChanged();
             if (prd != null )
                 prd.dismiss();
@@ -209,6 +211,16 @@ public class ContactListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return false;
     }
 
 

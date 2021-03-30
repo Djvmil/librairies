@@ -123,6 +123,7 @@ public class Authenticate extends RelativeLayout {
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
         doneBtn = findViewById(R.id.done_btn);
         textView.setKeyListener(null);
+        doneBtn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
 
         doneBtn.setOnClickListener(new OnClickListener() {
             @Override

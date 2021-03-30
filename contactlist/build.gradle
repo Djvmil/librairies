@@ -12,6 +12,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         consumerProguardFiles 'consumer-rules.pro'
+
+
+
     }
 
     buildTypes {
@@ -41,7 +44,8 @@ dependencies {
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     implementation "com.google.android.material:material:${axAppcompat}"
 
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0'
+   
 
     implementation "androidx.annotation:annotation:${axAppcompat}"
     implementation "androidx.cardview:cardview:1.0.0"

@@ -2,7 +2,7 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <solid android:color="@color/vert_danaya"/>
+            <solid android:color="@color/color_auth_btn"/>
             <stroke android:width="@dimen/_2ssp" android:color="@color/vert_danaya"/>
             <corners android:radius="@dimen/_10sdp"/>
         </shape>

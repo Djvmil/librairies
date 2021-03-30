@@ -22,6 +22,7 @@ import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactVH> implements SectionTitleProvider {
     private List<ContactsInfo> dataList;
+    private ArrayList<ContactsInfo> arraylist= new ArrayList<>();
     private String letter;
     private Activity activity;
     private ColorGenerator generator = ColorGenerator.MATERIAL;
@@ -146,6 +147,26 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             contactsInfo.setIndicatif("+234");
 
         }
+    }
+
+    public void setArraylist() {
+        this.arraylist.addAll(dataList);
+    }
+
+    // Filter Class for research
+    public void filter(String charText) {
+        charText = charText.toLowerCase();
+        dataList.clear();
+        if (charText.length() == 0) {
+            dataList.addAll(arraylist);
+        } else {
+            for (ContactsInfo wp : arraylist) {
+                if (wp.getDisplayName().toLowerCase().contains(charText)) {
+                    dataList.add(wp);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 
 }
