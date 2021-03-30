@@ -8,7 +8,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 30
         versionCode 2
-        versionName "1.0.2"
+        versionName "1.0.6-beta5"
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -57,6 +57,8 @@ dependencies {
     //charger une image
     implementation 'com.squareup.picasso:picasso:2.5.2'
 
+    //logger
+    implementation 'com.orhanobut:logger:2.2.0'
 
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
