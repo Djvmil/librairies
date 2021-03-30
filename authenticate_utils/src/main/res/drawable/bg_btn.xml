@@ -3,7 +3,7 @@
     <item>
         <shape>
             <solid android:color="@color/color_auth_btn"/>
-            <stroke android:width="@dimen/_2ssp" android:color="@color/vert_danaya"/>
+            <stroke android:width="@dimen/_2ssp" android:color="@color/color_auth_btn"/>
             <corners android:radius="@dimen/_10sdp"/>
         </shape>
     </item>

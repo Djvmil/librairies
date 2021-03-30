@@ -67,6 +67,7 @@ public class Authenticate extends RelativeLayout {
     private Drawable iconFingerPrint = null;
     private Drawable iconNoFingerPrint = null;
     private Drawable iconBackSpace = null;
+    private Drawable backgroundBtn = null;
 
 
     private KeyBoardAdapter keyBoardAdapter;
@@ -100,6 +101,7 @@ public class Authenticate extends RelativeLayout {
             iconBackSpace     = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_backspace);
             iconFingerPrint   = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
             iconNoFingerPrint = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
+            backgroundBtn = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
 
         } finally {
             attr.recycle();
@@ -123,7 +125,7 @@ public class Authenticate extends RelativeLayout {
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
         doneBtn = findViewById(R.id.done_btn);
         textView.setKeyListener(null);
-        doneBtn.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+        doneBtn.setBackground(backgroundBtn);
 
         doneBtn.setOnClickListener(new OnClickListener() {
             @Override

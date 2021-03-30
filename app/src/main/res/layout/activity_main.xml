@@ -105,7 +105,9 @@
             android:layout_below="@+id/contact_result"
             app:color_field="@color/colorBlack"
             app:icon_backspace="@drawable/ic_backspace_24dp"
-            app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"  />
+            app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"
+            app:background_done_btn="@drawable/bg_btn"
+            />
 
     </RelativeLayout>
 
