@@ -1,55 +1,55 @@
 
-F
-java:S1068R"*Remove this unused "cipher" private field.(ˆ–H8¶ßÎ½ö.
-H
-java:S1068S",Remove this unused "KEY_NAME" private field.(Ğ¼é8¶ßÎ½ö.
-u
-java:S1104N"XMake onResultAuth a static final constant or non-public and provide accessors if needed.(ïØ¿ 8¶ßÎ½ö.
 g
-java:S1124*"EReorder the modifiers to comply with the Java Language Specification.(µ¹øƒıÿÿÿÿ8¶ßÎ½ö.
-P
-java:S1854×":Remove this useless assignment to local variable "result".(ÃÚÃT
-x
-java:S14506"VRemove the "doneBtn" field and declare it as a local variable in the relevant methods.(“Å÷Ñøÿÿÿÿ8¶ßÎ½ö.
-H
-java:S1659="&Declare "errorMsg" on a separate line.(œíşøÿÿÿÿ8¶ßÎ½ö.
-X
-java:S1874¶":Remove this use of "isHardwareDetected"; it is deprecated.(µäß8¶ßÎ½ö.
-v
-java:S14505"YRemove the "rootLayout" field and declare it as a local variable in the relevant methods.(ìıŸ‰8¶ßÎ½ö.
-I
-java:S1068Q",Remove this unused "keyStore" private field.(’ä†Ä8¶ßÎ½ö.
-R
-java:S1659="0Declare "textNegativeButton" on a separate line.(œíşøÿÿÿÿ8¶ßÎ½ö.
+java:S11241"EReorder the modifiers to comply with the Java Language Specification.(²Èúÿÿÿÿ8¦¸›”ˆ/
+^	java:S125­"<This block of commented-out lines of code should be removed.(„Ğş±ıÿÿÿÿ8¦¸›”ˆ/
 g
-java:S1124-"EReorder the modifiers to comply with the Java Language Specification.(èŒÍ¢øÿÿÿÿ8¶ßÎ½ö.
-t
-java:S3776v"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(şñÊëÿÿÿÿÿ8¶ßÎ½ö.
-G
-java:S3010["%Remove this assignment of "activity".(ç±Ì©üÿÿÿÿ8¶ßÎ½ö.
-g
-java:S11240"EReorder the modifiers to comply with the Java Language Specification.(Úå¥ïÿÿÿÿÿ8¶ßÎ½ö.
-H
-java:S1659="&Declare "textDesc" on a separate line.(œíşøÿÿÿÿ8¶ßÎ½ö.
-g
-java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(•ä¡çüÿÿÿÿ8¶ßÎ½ö.
-^	java:S125ª"<This block of commented-out lines of code should be removed.(„Ğş±ıÿÿÿÿ8¶ßÎ½ö.
-K
-java:S10685".Remove this unused "rootLayout" private field.(ìıŸ‰8¶ßÎ½ö.
-X
-java:S1874³":Remove this use of "FingerprintManager"; it is deprecated.(¼©ä¯8¶ßÎ½ö.
-a
-java:S1124."EReorder the modifiers to comply with the Java Language Specification.(¾ë¶8¶ßÎ½ö.
-X
-java:S1874³":Remove this use of "FingerprintManager"; it is deprecated.(¼©ä¯8¶ßÎ½ö.
-L
-java:S1659="*Declare "textSubTitle" on a separate line.(œíşøÿÿÿÿ8¶ßÎ½ö.
-g
-java:S11241"EReorder the modifiers to comply with the Java Language Specification.(²Èúÿÿÿÿ8¶ßÎ½ö.
-Z
-java:S1874¹"7Remove this use of "USE_FINGERPRINT"; it is deprecated.(òİïÌşÿÿÿÿ8¶ßÎ½ö.
-]
-java:S1874¿"?Remove this use of "hasEnrolledFingerprints"; it is deprecated.(¸ÔÊ8¶ßÎ½ö.
-n	java:S116S"SRename this field "KEY_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ¼é8¶ßÎ½ö.
+java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(•ä¡çüÿÿÿÿ8¦¸›”ˆ/
 p
-java:S1871‹"MThis branch's code block is the same as the block for the branch on line 133.(§ØÆçûÿÿÿÿ8¶ßÎ½ö.
+java:S1871"MThis branch's code block is the same as the block for the branch on line 136.(§ØÆçûÿÿÿÿ8¦¸›”ˆ/
+L
+java:S1659="*Declare "textSubTitle" on a separate line.(œíşøÿÿÿÿ8®†Š”ˆ/
+v
+java:S14505"YRemove the "rootLayout" field and declare it as a local variable in the relevant methods.(ìıŸ‰8®†Š”ˆ/
+]
+java:S1874Â"?Remove this use of "hasEnrolledFingerprints"; it is deprecated.(¸ÔÊ8¦¸›”ˆ/
+W
+java:S1854Ú":Remove this useless assignment to local variable "result".(ÃÚÃT8¦¸›”ˆ/
+I
+java:S1068R",Remove this unused "keyStore" private field.(’ä†Ä8¦¸›”ˆ/
+F
+java:S1068S"*Remove this unused "cipher" private field.(ˆ–H8¦¸›”ˆ/
+X
+java:S1874¶":Remove this use of "FingerprintManager"; it is deprecated.(¼©ä¯8¦¸›”ˆ/
+G
+java:S3010\"%Remove this assignment of "activity".(ç±Ì©üÿÿÿÿ8¦¸›”ˆ/
+R
+java:S1659="0Declare "textNegativeButton" on a separate line.(œíşøÿÿÿÿ8®†Š”ˆ/
+a
+java:S1124."EReorder the modifiers to comply with the Java Language Specification.(¾ë¶8¦¸›”ˆ/
+g
+java:S1124*"EReorder the modifiers to comply with the Java Language Specification.(µ¹øƒıÿÿÿÿ8¦¸›”ˆ/
+K
+java:S10685".Remove this unused "rootLayout" private field.(ìıŸ‰8¦¸›”ˆ/
+H
+java:S1659="&Declare "textDesc" on a separate line.(œíşøÿÿÿÿ8®†Š”ˆ/
+X
+java:S1874¶":Remove this use of "FingerprintManager"; it is deprecated.(¼©ä¯8¦¸›”ˆ/
+u
+java:S1104O"XMake onResultAuth a static final constant or non-public and provide accessors if needed.(ïØ¿ 8®†Š”ˆ/
+Z
+java:S1874¼"7Remove this use of "USE_FINGERPRINT"; it is deprecated.(òİïÌşÿÿÿÿ8¦¸›”ˆ/
+g
+java:S11240"EReorder the modifiers to comply with the Java Language Specification.(Úå¥ïÿÿÿÿÿ8¦¸›”ˆ/
+n	java:S116T"SRename this field "KEY_NAME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ¼é8®†Š”ˆ/
+g
+java:S1124-"EReorder the modifiers to comply with the Java Language Specification.(èŒÍ¢øÿÿÿÿ8¦¸›”ˆ/
+t
+java:S3776x"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(şñÊëÿÿÿÿÿ8¦¸›”ˆ/
+X
+java:S1874¹":Remove this use of "isHardwareDetected"; it is deprecated.(µäß8¦¸›”ˆ/
+x
+java:S14506"VRemove the "doneBtn" field and declare it as a local variable in the relevant methods.(“Å÷Ñøÿÿÿÿ8®†Š”ˆ/
+H
+java:S1659="&Declare "errorMsg" on a separate line.(œíşøÿÿÿÿ8®†Š”ˆ/
+H
+java:S1068T",Remove this unused "KEY_NAME" private field.(Ğ¼é8¦¸›”ˆ/
