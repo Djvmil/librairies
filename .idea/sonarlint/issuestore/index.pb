@@ -1,6 +1,6 @@
 
 <
-build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 I
 authenticate/build.gradle,e/6/e68e7eb01d7b41120f110fc58197ef0c98625f51
 @
@@ -24,7 +24,7 @@ U
 O
 fragmentmanagement/build.gradle,7/c/7c772090c087788335f649121b49c046d58b670a
 ?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 [
 +dynamickeyboard/src/main/res/xml/method.xml,1/8/18be91799295f632bfac1aa0a6aa037eaff86a9c
 `
@@ -44,7 +44,7 @@ $pinview/src/main/AndroidManifest.xml,1/d/1d08060b730c32d53b46bc7839d15118a2263
 F
 contactlist/.gitignore,2/5/25019bc80a962ca5517ea5960a90a4bd54273117
 H
-contactlist/build.gradle,f/1/f1da21aab666def7061dfd70de39f650cf6bd403
+contactlist/build.gradle,f\1\f1da21aab666def7061dfd70de39f650cf6bd403
 q
 Acontactlist/src/main/java/com/djamil/contactlist/ContactList.java,f/f/ff22295a75013cca56cf6efeb5093f5898b7c13d
 y
@@ -56,9 +56,9 @@ bauthenticate_utils/src/main/java/com/djamil/authenticate_utils/fingerprint/Fing
 ‹
 [authenticate_utils/src/main/java/com/djamil/authenticate_utils/interfaces/OnResultAuth.java,e/0/e0ab2fdc83f593a8df3108a41634d8d2b916a87a
 €
-Pauthenticate_utils/src/main/java/com/djamil/authenticate_utils/Authenticate.java,4/8/485cbd6770221cf3bf469640812f2e79e55714c4
+Pauthenticate_utils/src/main/java/com/djamil/authenticate_utils/Authenticate.java,4\8\485cbd6770221cf3bf469640812f2e79e55714c4
 ƒ
-Sauthenticate_utils/src/main/java/com/djamil/authenticate_utils/KeyBoardAdapter.java,2/b/2b83d2feee3a3deb12ad08e07e56397dd69222de
+Sauthenticate_utils/src/main/java/com/djamil/authenticate_utils/KeyBoardAdapter.java,2\b\2b83d2feee3a3deb12ad08e07e56397dd69222de
 ‚
 Rauthenticate_utils/src/main/java/com/djamil/authenticate_utils/SessionManager.java,3/9/39bcb089f45bc837759a8acbd85b0a76b9d4e1a4
 r
@@ -115,7 +115,7 @@ _
 X
 (dynamicform/src/main/AndroidManifest.xml,0/2/02e5555447657d1faae6126f96020a4fb502b64a
 j
-:app/src/main/java/com/djamil/dynamicform/MainActivity.java,c/2/c2168b20ab3c8c7b13cea38d5bd5f1a1a5c0cd5e
+:app/src/main/java/com/djamil/dynamicform/MainActivity.java,c\2\c2168b20ab3c8c7b13cea38d5bd5f1a1a5c0cd5e
 c
 3utils/src/main/java/com/djamil/utils/OTPEditText.kt,4/5/45510dfc936ca804f8bc9545d1e3321d91fed3d5
 q
@@ -219,7 +219,7 @@ Itakephoto/src/main/kotlin/com/djamil/takephoto/provider/CameraProvider.kt,a/2/
 ~
 Ntakephoto/src/main/kotlin/com/djamil/takephoto/provider/CompressionProvider.kt,4/2/423ed1419095538ef56f96020df4048cb4be1f78
 e
-5utils/src/main/java/com/djamil/utils/UtilsFunction.kt,1/b/1b0f23bd5260b0054932a700dec8b951421c2d2a
+5utils/src/main/java/com/djamil/utils/UtilsFunction.kt,1\b\1b0f23bd5260b0054932a700dec8b951421c2d2a
 a
 1utils/src/main/java/com/djamil/utils/DateUtils.kt,1/2/12cfde5e1a940762c458067c84e511fcb19100bb
 j
@@ -251,8 +251,12 @@ U
 O
 authenticate_utils/build.gradle,2/6/26c9139b49742dadaf400feca6d996c1dfa558f8
 }
-Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyBoardAdapter.java,8/e/8ec85761b65d10ce831360c4f55eeb516e0df070
+Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyBoardAdapter.java,8\e\8ec85761b65d10ce831360c4f55eeb516e0df070
 ‚
 Rdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/MyInputMethodService.java,7/9/791142c0ce222d51bcf7f8b1c0b4df25195fbdfa
 }
-Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyboardDynamic.java,7/3/73efe464a7f8ecf0c49dccb1b5d169393c584e51
+Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyboardDynamic.java,7\3\73efe464a7f8ecf0c49dccb1b5d169393c584e51
+R
+"dynamickeyboard/consumer-rules.pro,3\9\3906c4950853e480ca177553bf92ce05ef4d8141
+L
+dynamickeyboard/build.gradle,4\7\47ca460bf14b8c4a8e9f2e0152d7351952e3e8e9

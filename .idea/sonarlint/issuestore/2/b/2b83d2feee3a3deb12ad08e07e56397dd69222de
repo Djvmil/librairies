@@ -1,22 +1,22 @@
 
-[	java:S107'"AConstructor has 8 parameters, which is greater than 7 authorized.(‘³ööşÿÿÿÿ
-G
-java:S5411~"*Use the primitive boolean expression here.(¸¤¶»8íˆ •ÿ.
-Q
-java:S1068!"5Remove this unused "iconNoFingerPrint" private field.(Ú–Á8’ÇÏ”/
+n	java:S127Ç"XRefactor the code in order to not assign to this loop counter from within the loop body.(ˆÜ¯Œ
+I
+java:S1874o"3Remove this use of "getDrawable"; it is deprecated.(€Ù¸º
+F
+java:S5411À"*Use the primitive boolean expression here.(æÚ¢½şÿÿÿÿ
 G
 java:S1659:",Declare "fingerPrintBtn" on a separate line.(Ì¶ßüÿÿÿÿ
-M
-java:S5411Ì"*Use the primitive boolean expression here.(‰è‡Áùÿÿÿÿ8íˆ •ÿ.
-u	java:S127Æ"XRefactor the code in order to not assign to this loop counter from within the loop body.(ˆÜ¯Œ8íˆ •ÿ.
-X	java:S125s"<This block of commented-out lines of code should be removed.(¿ç±…8íˆ •ÿ.
-E
-java:S5411j"*Use the primitive boolean expression here.(ì®ªŠûÿÿÿÿ
-I
-java:S1874n"3Remove this use of "getDrawable"; it is deprecated.(€Ù¸º
-G
-java:S5411{"*Use the primitive boolean expression here.(ı”œ‚8íˆ •ÿ.
+@
+java:S5411|"*Use the primitive boolean expression here.(ı”œ‚
+@
+java:S5411"*Use the primitive boolean expression here.(¸¤¶»
+F
+java:S5411Í"*Use the primitive boolean expression here.(‰è‡Áùÿÿÿÿ
+[	java:S107'"AConstructor has 8 parameters, which is greater than 7 authorized.(‘³ööşÿÿÿÿ
 h
-java:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ò³­«
-M
-java:S5411¿"*Use the primitive boolean expression here.(æÚ¢½şÿÿÿÿ8íˆ •ÿ.
+java:S3776Z"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(Ò³­«
+L
+java:S5411k"*Use the primitive boolean expression here.(ì®ªŠûÿÿÿÿ8¼„Š”ˆ/
+X	java:S125t"<This block of commented-out lines of code should be removed.(¿ç±…8¼„Š”ˆ/
+Q
+java:S1068!"5Remove this unused "iconNoFingerPrint" private field.(Ú–Á8¼„Š”ˆ/
