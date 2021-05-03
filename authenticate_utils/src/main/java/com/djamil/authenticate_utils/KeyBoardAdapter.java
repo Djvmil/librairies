@@ -75,6 +75,7 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
             if (iconBackSpace != null)
                 backSpaceBtn.setBackground(iconBackSpace);
 
+
         }
 
     }

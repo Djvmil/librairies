@@ -16,4 +16,5 @@
     <color name="transparent">#00000000</color>
     <color name="colorAccentAuth">#00000000</color>
     <color name="button_text_color">#00000000</color>
+    <color name="color_auth_btn">#F45757</color>
 </resources>

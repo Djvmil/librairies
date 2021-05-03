@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import com.djamil.contactlist.ContactList;
 import com.djamil.authenticate_utils.Authenticate;
 import com.djamil.contactlist.ContactsInfo;
 import com.djamil.contactlist.interfaces.OnClickCantactListener;
+import com.djamil.dynamickeyboard.KeyboardDynamic;
 import com.suntelecoms.authenticate.activity.AuthenticateActivity;
 import com.suntelecoms.authenticate.pinlockview.OnAuthListener;
 //import com.suntelecoms.library_mifare.Activities.ReadAllSectors;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
     private ContactList contactList;
     private TextView contactResult;
     private static Authenticate authenticate;
+    private EditText btnkeyboardview;
 
     private static final String FONT_TEXT = "font/ALEAWB.TTF";
     private static final String FONT_NUMBER = "font/BLKCHCRY.TTF";
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
+        btnkeyboardview  = findViewById(R.id.keyboard_view1);
 
         authenticate.setSecret("0000", false).setOnResultAuth(new OnResultAuth() {
             @Override
@@ -190,6 +194,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
             }
         });
 */
+
 
     }
 
