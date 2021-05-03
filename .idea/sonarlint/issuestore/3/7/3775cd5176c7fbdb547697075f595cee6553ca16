@@ -1,86 +1,128 @@
 
-f
-java:S1192Œ"ODefine a constant instead of duplicating this literal "getForm Error" 14 times.(Æ»£›
-z
-java:S1157õ"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ø™ÔÄ
-Q
-java:S1141º"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-Q
-java:S1141›"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
-l	java:S117ÿ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍüÉÛÿÿÿÿÿ
-F
-java:S5411­"*Use the primitive boolean expression here.(óÜîÖùÿÿÿÿ
-?
-java:S1604ı"(Make this anonymous inner class a lambda(™·÷
-?
-java:S1604Ã"(Make this anonymous inner class a lambda(Ú¼µ
+p
+java:S1871™"MThis branch's code block is the same as the block for the branch on line 141.(ûòú ùÿÿÿÿ8™°Üâƒ/
+Y	java:S125é"<This block of commented-out lines of code should be removed.(ô—Û“8¹·Ÿãƒ/
+X	java:S125—"<This block of commented-out lines of code should be removed.(ãàûQ8™°Üâƒ/
+
+java:S1157"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(ø™ÔÄ8·¹şãƒ/
+M
+java:S1874Ğ"0Remove this use of "getColor"; it is deprecated.(§Ë8™°Üâƒ/
+V
+java:S1874×
+"3Remove this use of "getDrawable"; it is deprecated.(±ûÙíúÿÿÿÿ8·¹şãƒ/
+Z
+java:S1144»"7Remove this unused private "getChampsImageView" method.(–èÛßøÿÿÿÿ8·¹şãƒ/
+N
+java:S1874ï
+"0Remove this use of "getColor"; it is deprecated.(§­—”8·¹şãƒ/
+^	java:S125Ù"<This block of commented-out lines of code should be removed.(‚Ó›»úÿÿÿÿ8·¹şãƒ/
 >
-java:S1604É"(Make this anonymous inner class a lambda(¤àïs
+java:S1659_"#Declare "Month" on a separate line.(„¾¨‹ùÿÿÿÿ
+Y	java:S125Ï"<This block of commented-out lines of code should be removed.(ôÄÃş8¹·Ÿãƒ/
+V
+java:S1874ì
+"3Remove this use of "getDrawable"; it is deprecated.(ƒªô¤øÿÿÿÿ8·¹şãƒ/
+X	java:S125‘"<This block of commented-out lines of code should be removed.(ãàûQ8™°Üâƒ/
+S
+java:S1874Ñ"0Remove this use of "getColor"; it is deprecated.(¨¼«ñşÿÿÿÿ8Æ™Èãƒ/
+N
+java:S1874Ò"0Remove this use of "getColor"; it is deprecated.(ø…îƒ8·¹şãƒ/
+n
+java:S1192º"KDefine a constant instead of duplicating this literal "loadForm: " 3 times.(‹»Éúÿÿÿÿ8¹·Ÿãƒ/
+X	java:S125š"<This block of commented-out lines of code should be removed.(ãàûQ8™°Üâƒ/
+_
+java:S1117"<Rename "textView" which hides the field declared at line 65.(¼¤«›ùÿÿÿÿ8·¹şãƒ/
+€
+java:S1450D"cRemove the "listIOFieldNotShowed" field and declare it as a local variable in the relevant methods.(½Ğ¼8½Åãƒ/
+F
+java:S1604¨"(Make this anonymous inner class a lambda(¯¬»Ú8·¹şãƒ/
+N
+java:S1874Ú
+"0Remove this use of "getColor"; it is deprecated.(ªî–Ö8·¹şãƒ/
+S
+java:S2696ê"6Make the enclosing method "static" or remove this set.(ı©­M8·¹şãƒ/
+S
+java:S1874„"0Remove this use of "getColor"; it is deprecated.(á˜–ıÿÿÿÿ8·¹şãƒ/
+F
+java:S1604ú"(Make this anonymous inner class a lambda(¯¬»Ú8·¹şãƒ/
+p
+java:S1871–"MThis branch's code block is the same as the block for the branch on line 141.(¯÷¼ıÿÿÿÿ8™°Üâƒ/
+V
+java:S1874"3Remove this use of "getDrawable"; it is deprecated.(—©©Àşÿÿÿÿ8·¹şãƒ/
+m
+java:S1192¦"ODefine a constant instead of duplicating this literal "getForm Error" 14 times.(Æ»£›8·¹şãƒ/
+I
+java:S1168"+Return an empty collection instead of null.(¥¹ï8·¹şãƒ/
+^
+java:S1128"<Remove this unused import 'android.content.DialogInterface'.(Š­›¨şÿÿÿÿ8¦‘àƒ/
+_
+java:S1117é"<Rename "textView" which hides the field declared at line 65.(åÎ§Úşÿÿÿÿ8·¹şãƒ/
+N
+java:S1874Á"0Remove this use of "getColor"; it is deprecated.(á‘ñ¾8·¹şãƒ/
+i
+java:S3008_"NRename this field "Day" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ
+p
+java:S1871“"MThis branch's code block is the same as the block for the branch on line 141.(Ü×ğ½ûÿÿÿÿ8™°Üâƒ/
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(ÿı–ä8·¹şãƒ/
+V
+java:S1874Â
+"3Remove this use of "getDrawable"; it is deprecated.(Âçàİÿÿÿÿÿ8·¹şãƒ/
+S
+java:S1874Å
+"0Remove this use of "getColor"; it is deprecated.(…²œğşÿÿÿÿ8·¹şãƒ/
+w
+java:S1128"URemove this unused import 'com.djamil.contactlist.interfaces.OnClickCantactListener'.(äÛêŞşÿÿÿÿ8¢ğ³ßƒ/
+w
+java:S1450i"ZRemove the "contactList" field and declare it as a local variable in the relevant methods.(•‚Ëæ8Ö¦ßƒ/
+ƒ
+java:S1450["aRemove the "currentIdLabelView" field and declare it as a local variable in the relevant methods.(§Èí»ıÿÿÿÿ8×òààƒ/
+]
+java:S1128"@Remove this unused import 'com.djamil.contactlist.ContactsInfo'.(ÓÅª8¢ğ³ßƒ/
+Q
+java:S1144’"3Remove this unused private "getChampsPhoto" method.(ˆáÊ8·¹şãƒ/
+N
+java:S1874ò
+"0Remove this use of "getColor"; it is deprecated.(Â¤ı£8·¹şãƒ/
+Y
+java:S1144ä"6Remove this unused private "getChampsSignView" method.(Ô€ŒØıÿÿÿÿ8·¹şãƒ/
+¥
+java:S1130¤"Remove the declaration of thrown exception 'com.djamil.dynamic_form.exceptions.EmptyValueException' which is a runtime exception.(ûÉ¨÷ûÿÿÿÿ8·¹şãƒ/
+X
+java:S1141Ó"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8·¹şãƒ/
+s	java:S117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÍüÉÛÿÿÿÿÿ8·¹şãƒ/
+k
+java:S3008_"PRename this field "Month" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ
+p
+java:S1871"MThis branch's code block is the same as the block for the branch on line 141.(¶Î¯Ãøÿÿÿÿ8™°Üâƒ/
+X	java:S125ó"<This block of commented-out lines of code should be removed.(øŠÎ98·¹şãƒ/
+F
+java:S1604Ñ"(Make this anonymous inner class a lambda(¯¬»Ú8·¹şãƒ/
+M
+java:S5411Ç"*Use the primitive boolean expression here.(óÜîÖùÿÿÿÿ8·¹şãƒ/
+N
+java:S1874È
+"0Remove this use of "getColor"; it is deprecated.(œÄ®œ8·¹şãƒ/
+S
+java:S1874İ
+"0Remove this use of "getColor"; it is deprecated.(ÕÇ¯­úÿÿÿÿ8·¹şãƒ/
+T
+java:S2696é"6Make the enclosing method "static" or remove this set.(¬¥ÖÖ8Æ™Èãƒ/
+T
+java:S5261Ä"1Add explicit curly braces to avoid dangling else.(ÑéÙêÿÿÿÿÿ8·¹şãƒ/
+X	java:S125”"<This block of commented-out lines of code should be removed.(ãàûQ8™°Üâƒ/
+<
+java:S1659_"!Declare "Day" on a separate line.(„¾¨‹ùÿÿÿÿ
+T
+java:S2696è"6Make the enclosing method "static" or remove this set.(ú©†‚8™°Üâƒ/
+^	java:S125°"<This block of commented-out lines of code should be removed.(É¥îâúÿÿÿÿ8·¹şãƒ/
+N
+java:S1874‡"0Remove this use of "getColor"; it is deprecated.(®Á¢8·¹şãƒ/
+t	java:S127¿"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ö•²ãƒ/
+X
+java:S1141µ"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8·¹şãƒ/
 7
 java:S11163"Remove this empty statement.(Åñ­õşÿÿÿÿ
+^	java:S125"<This block of commented-out lines of code should be removed.(íĞ½¹ùÿÿÿÿ8™°Üâƒ/
+Y	java:S125Ö"<This block of commented-out lines of code should be removed.(«îî±8·¹şãƒ/
 j
-java:S3008\"ORename this field "Year" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ
-k
-java:S3008\"PRename this field "Month" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ
-i
-java:S3008\"NRename this field "Day" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ
->
-java:S1659\"#Declare "Month" on a separate line.(„¾¨‹ùÿÿÿÿ
-<
-java:S1659\"!Declare "Day" on a separate line.(„¾¨‹ùÿÿÿÿ
-i
-java:S1871–"MThis branch's code block is the same as the block for the branch on line 138.(ûòú ùÿÿÿÿ
-i
-java:S1871"MThis branch's code block is the same as the block for the branch on line 138.(Ü×ğ½ûÿÿÿÿ
-i
-java:S1871"MThis branch's code block is the same as the block for the branch on line 138.(¶Î¯Ãøÿÿÿÿ
-i
-java:S1871“"MThis branch's code block is the same as the block for the branch on line 138.(¯÷¼ıÿÿÿÿ
-W	java:S125‹"<This block of commented-out lines of code should be removed.(íĞ½¹ùÿÿÿÿ
-Q	java:S125"<This block of commented-out lines of code should be removed.(ãàûQ
-Q	java:S125‘"<This block of commented-out lines of code should be removed.(ãàûQ
-Q	java:S125”"<This block of commented-out lines of code should be removed.(ãàûQ
-Q	java:S125—"<This block of commented-out lines of code should be removed.(ãàûQ
-R	java:S125¾"<This block of commented-out lines of code should be removed.(ôÄÃş
-R	java:S125Ù"<This block of commented-out lines of code should be removed.(ô—Û“
-R	java:S125ó"<This block of commented-out lines of code should be removed.(ÿı–ä
-M
-java:S5261²"1Add explicit curly braces to avoid dangling else.(ÑéÙêÿÿÿÿÿ
-R	java:S125¬"<This block of commented-out lines of code should be removed.(æëË‚
-W	java:S125³"<This block of commented-out lines of code should be removed.(’ÒÚ‘ıÿÿÿÿ
-W	java:S125º"<This block of commented-out lines of code should be removed.(¶ÍÉêÿÿÿÿÿ
-R	java:S125Á"<This block of commented-out lines of code should be removed.(Š£Ëâ
-Q	java:S125á"<This block of commented-out lines of code should be removed.(øŠÎ9
-G
-java:S1874¬"0Remove this use of "getColor"; it is deprecated.(á‘ñ¾
-X
-java:S1117Ğ"<Rename "textView" which hides the field declared at line 65.(åÎ§Úşÿÿÿÿ
-X
-java:S1117ò"<Rename "textView" which hides the field declared at line 65.(¼¤«›ùÿÿÿÿ
-G
-java:S1172±"+Remove this unused method parameter "view".(‡†šŠÿÿÿÿÿ
-F
-java:S1874¹"0Remove this use of "getColor"; it is deprecated.(§Ë
-L
-java:S1874º"0Remove this use of "getColor"; it is deprecated.(¨¼«ñşÿÿÿÿ
-G
-java:S1874»"0Remove this use of "getColor"; it is deprecated.(ø…îƒ
-R	java:S125¿"<This block of commented-out lines of code should be removed.(«îî±
-M
-java:S2696Û"6Make the enclosing method "static" or remove this set.(ú©†‚
-M
-java:S2696Ü"6Make the enclosing method "static" or remove this set.(¬¥ÖÖ
-L
-java:S2696İ"6Make the enclosing method "static" or remove this set.(ı©­M
-
-java:S1130˜"Remove the declaration of thrown exception 'com.djamil.dynamic_form.exceptions.EmptyValueException' which is a runtime exception.(ûÉ¨÷ûÿÿÿÿ
-W	java:S125¤"<This block of commented-out lines of code should be removed.(É¥îâúÿÿÿÿ
-W	java:S125Í"<This block of commented-out lines of code should be removed.(‚Ó›»úÿÿÿÿ
-B
-java:S1168‚"+Return an empty collection instead of null.(¥¹ï
-J
-java:S1144†"3Remove this unused private "getChampsPhoto" method.(ˆáÊ
-S
-java:S1144¯"7Remove this unused private "getChampsImageView" method.(–èÛßøÿÿÿÿ
-R
-java:S1144Ø"6Remove this unused private "getChampsSignView" method.(Ô€ŒØıÿÿÿÿ
+java:S3008_"ORename this field "Year" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„¾¨‹ùÿÿÿÿ

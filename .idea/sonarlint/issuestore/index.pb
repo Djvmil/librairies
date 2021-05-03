@@ -256,3 +256,9 @@ Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyBoardAdapter.java,
 Rdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/MyInputMethodService.java,7/9/791142c0ce222d51bcf7f8b1c0b4df25195fbdfa
 }
 Mdynamickeyboard/src/main/java/com/djamil/dynamickeyboard/KeyboardDynamic.java,7/3/73efe464a7f8ecf0c49dccb1b5d169393c584e51
+v
+Fdynamicform/src/main/java/com/djamil/dynamic_form/models/Sequence.java,8/f/8f8bf5b95f587953b66b3c26c0fc76b0ac16a7fe
+Œ
+\dynamicform/src/main/java/com/djamil/dynamic_form/interfaces/OnClickDynamicFormListener.java,7/a/7a32d0a284332e813220312d46f0946818e4224b
+H
+dynamicform/build.gradle,8/7/8766d0c6f86250a577ca674a899c4e6a1169a7e6
