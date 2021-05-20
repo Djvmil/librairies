@@ -22,6 +22,7 @@
         tools:replace="android:icon">
 
         <activity android:name="com.djamil.dynamicform.FormulaireActivity"/>
+        <activity android:name=".SampleActivity"/>
 
         <activity android:name="com.djamil.dynamicform.MainActivity"
             android:launchMode="singleInstance">

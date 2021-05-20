@@ -8,6 +8,7 @@ buildscript {
         bintrayVersion              = '1.7.3'
         kotlinVersion               = '1.1.4-3'
         gradleAndroidVersion        = '3.0.0-beta7'
+
     }
     repositories {
         google()
