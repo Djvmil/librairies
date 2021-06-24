@@ -29,7 +29,7 @@ repositories {
 }
 
 ext {
-    axAppcompat = '1.2.1'
+    axAppcompat = '1.1.1'
 }
 
 
