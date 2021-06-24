@@ -13,7 +13,7 @@ public class ContactList {
     private static ContactList instance;
     private static Activity activity;
     private static ContactListActivity contactListActivity;
-    static Boolean multiContact = true;
+    static Boolean multiContact = false;
     static int limit;
     static OnClickContactListener onClickContactListener;
 
