@@ -40,6 +40,8 @@ dependencies {
 
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(':fastscroll')
+    implementation project(':sweet-alert')
+    implementation project(':utils')
 
 
     def _version = "1.0.2"

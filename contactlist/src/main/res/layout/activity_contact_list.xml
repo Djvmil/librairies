@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ContactListActivity">
@@ -50,5 +51,38 @@
         android:text="@string/la_liste_de_contact_est_vide"
         android:visibility="visible"
         android:gravity="center"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extFabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="27dp"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_toStartOf="@+id/extFabClear"
+        android:text="@string/done"
+        app:icon="@android:drawable/ic_input_add"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/extFabClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="8dp"
+        app:strokeColor="@color/red"
+        app:iconTint="@android:color/holo_red_dark"
+        app:backgroundTint="@android:color/white"
+        app:strokeWidth="1dp"
+        app:icon="@android:drawable/ic_delete"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 </RelativeLayout>

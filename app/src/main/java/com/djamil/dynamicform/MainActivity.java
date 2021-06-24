@@ -15,10 +15,11 @@ import com.djamil.authenticate_utils.interfaces.OnResultAuth;
 import com.djamil.contactlist.ContactList;
 import com.djamil.authenticate_utils.Authenticate;
 import com.djamil.contactlist.ContactsInfo;
-import com.djamil.contactlist.interfaces.OnClickCantactListener;
-import com.djamil.dynamickeyboard.KeyboardDynamic;
+import com.djamil.contactlist.interfaces.OnClickContactListener;
 import com.suntelecoms.authenticate.activity.AuthenticateActivity;
 import com.suntelecoms.authenticate.pinlockview.OnAuthListener;
+
+import java.util.ArrayList;
 //import com.suntelecoms.library_mifare.Activities.ReadAllSectors;
 //import com.suntelecoms.library_mifare.Activities.WaitForReadCard;
 
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
-        btnkeyboardview  = findViewById(R.id.keyboard_view1);
+        //btnkeyboardview  = findViewById(R.id.keyboard_view1);
 
         authenticate.setSecret("0000", false).setOnResultAuth(new OnResultAuth() {
             @Override
@@ -104,34 +105,28 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         }
 
         contactList = ContactList.getInstance(this);
-        contactList.setOnClickCantactListener((v, contactsInfo) -> {
-            Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
-            contactResult.setText(contactsInfo.getDisplayName().concat("\n"+contactsInfo.getPhoneNumber()));
-        });
-
-        findViewById(R.id.dynamic_form).setOnClickListener(new View.OnClickListener() {
+        contactList.setOnClickContactListener(new OnClickContactListener() {
             @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, FormulaireActivity.class));
+            public void onClickContact(View v, ContactsInfo contactsInfo) {
+                Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
+                contactResult.setText(contactsInfo.getDisplayName().concat("\n"+contactsInfo.getPhoneNumber()));
+            }
+
+            @Override
+            public void onSelectClickContact(ArrayList<ContactsInfo> contactsInfo) {
 
             }
         });
 
-        findViewById(R.id.keyboard_view).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    authenticate.useFingerPrintForAuth(false);
-                }
+        findViewById(R.id.dynamic_form).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, FormulaireActivity.class)));
+
+        findViewById(R.id.keyboard_view).setOnClickListener(view -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                authenticate.useFingerPrintForAuth(false);
             }
         });
 
-        findViewById(R.id.contact_list).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                contactList.showContactList();
-            }
-        });
+        findViewById(R.id.contact_list).setOnClickListener(view -> contactList.showContactList());
         Button normal = findViewById(R.id.normal);
         Button setPin = findViewById(R.id.setPin);
         Button setFont = findViewById(R.id.setFont);

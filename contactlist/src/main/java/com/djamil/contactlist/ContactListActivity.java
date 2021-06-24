@@ -28,14 +28,16 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.djamil.contactlist.interfaces.OnMultipleActive;
 import com.djamil.fastscroll.FastScroller;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ContactListActivity extends AppCompatActivity {
+public class ContactListActivity extends AppCompatActivity implements OnMultipleActive {
     private static final String TAG = "ContactListActivity";
 
     public static final int PERMISSIONS_REQUEST_READ_CONTACTS = 1;
@@ -46,6 +48,8 @@ public class ContactListActivity extends AppCompatActivity {
     ProgressDialog prd;
     TextView msg;
     private SearchView searchView;
+
+    private ExtendedFloatingActionButton extFabClear, extFabAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,18 +65,35 @@ public class ContactListActivity extends AppCompatActivity {
         contactsInfoList = new ArrayList<>();
         showProgress();
 
-
         recyclerView = findViewById(R.id.contact_list);
         fastScroller = findViewById(R.id.fastscroll);
         msg = findViewById(R.id.msg);
 
+        extFabAdd = findViewById(R.id.extFabAdd);
+        extFabClear = findViewById(R.id.extFabClear);
+
+        extFabClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                extFabClear.setVisibility(View.GONE);
+                extFabAdd.setVisibility(View.GONE);
+                adapter.cleanSelect();
+            }
+        });
+        extFabAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.doneSelect(v);
+            }
+        });
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
 
         fastScroller.setRecyclerView(recyclerView);
 
         adapter = new ContactAdapter(this, contactsInfoList);
+        adapter.setOnMultipleActive(this);
         recyclerView.setAdapter(adapter);
         fastScroller.setRecyclerView(recyclerView);
         try{
@@ -268,6 +289,12 @@ public class ContactListActivity extends AppCompatActivity {
             view.setSystemUiVisibility(flags);
             getWindow().setStatusBarColor(getColor(R.color.colorPrimary));
         }
+    }
+
+    @Override
+    public void isActive(Boolean isActive) {
+        extFabClear.setVisibility(View.VISIBLE);
+        extFabAdd.setVisibility(View.VISIBLE);
     }
 
 }

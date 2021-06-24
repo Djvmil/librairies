@@ -3,7 +3,7 @@ package com.djamil.contactlist;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.djamil.contactlist.interfaces.OnClickCantactListener;
+import com.djamil.contactlist.interfaces.OnClickContactListener;
 
 /**
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
@@ -13,7 +13,9 @@ public class ContactList {
     private static ContactList instance;
     private static Activity activity;
     private static ContactListActivity contactListActivity;
-    static OnClickCantactListener onClickCantactListener;
+    static Boolean multiContact = true;
+    static int limit;
+    static OnClickContactListener onClickContactListener;
 
     private ContactList() {
 
@@ -32,8 +34,14 @@ public class ContactList {
         activity.startActivity(new Intent(activity, contactListActivity.getClass()));
     }
 
-    public void setOnClickCantactListener(OnClickCantactListener onClickListener) {
-        onClickCantactListener = onClickListener;
+    public void showContactList(Boolean multipleContact, int limitContact){
+        multiContact = multipleContact;
+        limit = limitContact;
+        activity.startActivity(new Intent(activity, contactListActivity.getClass()));
+    }
+
+    public void setOnClickContactListener(OnClickContactListener onClickListener) {
+        onClickContactListener = onClickListener;
     }
 
     public void removeInstance() {

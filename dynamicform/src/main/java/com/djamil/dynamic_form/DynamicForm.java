@@ -2,7 +2,6 @@ package com.djamil.dynamic_form;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.text.InputType;
 import android.util.AttributeSet;
@@ -26,7 +25,7 @@ import androidx.core.widget.NestedScrollView;
 
 import com.djamil.contactlist.ContactList;
 import com.djamil.contactlist.ContactsInfo;
-import com.djamil.contactlist.interfaces.OnClickCantactListener;
+import com.djamil.contactlist.interfaces.OnClickContactListener;
 import com.djamil.dynamic_form.annotations.TypeButton;
 import com.djamil.dynamic_form.exceptions.EmptyValueException;
 import com.djamil.dynamic_form.interfaces.OnBackClickListener;
@@ -531,12 +530,20 @@ public class DynamicForm extends NestedScrollView {
 
         contactList = ContactList.getInstance(activity);
         findViewById(R.id.contacts).setOnClickListener(v -> contactList.showContactList());
-        contactList.setOnClickCantactListener((v, contactsInfo) -> {
-            Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
-            if (contactsInfo.getPhoneNumber().contains("+"))
-                textView.setFullNumber(contactsInfo.getPhoneNumber());
-            else
-                editText.setText(contactsInfo.getPhoneNumber());
+        contactList.setOnClickContactListener(new OnClickContactListener() {
+            @Override
+            public void onClickContact(View v, ContactsInfo contactsInfo) {
+                    Log.e(TAG, "onClickCantact: "+ contactsInfo.getDisplayName());
+                    if (contactsInfo.getPhoneNumber().contains("+"))
+                        textView.setFullNumber(contactsInfo.getPhoneNumber());
+                    else
+                        editText.setText(contactsInfo.getPhoneNumber());
+            }
+
+            @Override
+            public void onSelectClickContact(ArrayList<ContactsInfo> contactsInfo) {
+
+            }
         });
 
         try {
