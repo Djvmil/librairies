@@ -34,6 +34,11 @@ public class ContactList {
         activity.startActivity(new Intent(activity, contactListActivity.getClass()));
     }
 
+    public void showContactList(Boolean multipleContact){
+        multiContact = multipleContact;
+        activity.startActivity(new Intent(activity, contactListActivity.getClass()));
+    }
+
     public void showContactList(Boolean multipleContact, int limitContact){
         multiContact = multipleContact;
         limit = limitContact;
