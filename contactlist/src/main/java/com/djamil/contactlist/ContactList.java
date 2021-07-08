@@ -8,7 +8,6 @@ import com.djamil.contactlist.interfaces.OnClickContactListener;
 /**
  * @Author Moustapha S. Dieme ( Djvmil_ ) on 10/12/19.
  */
-
 public class ContactList {
     private static ContactList instance;
     private static Activity activity;

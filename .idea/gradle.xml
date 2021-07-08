@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/app-view-flipper" />
             <option value="$PROJECT_DIR$/authenticate" />
             <option value="$PROJECT_DIR$/authenticate_utils" />
             <option value="$PROJECT_DIR$/contactlist" />
