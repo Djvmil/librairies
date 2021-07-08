@@ -129,7 +129,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
         pinlockView.attachIndicatorDots(indicator_dots)
         pinlockView.setPinLockListener(pinLockListener)
-        pinlockView.pinLength = PIN_LENGTH
+        pinlockView.pinLength = intent.getIntExtra(EXTRA_PIN_LENGTH, 4)
         if (shuffle) pinlockView.enableLayoutShuffling()
         indicator_dots.indicatorType = IndicatorType.FILL_WITH_ANIMATION
         checkForFont()
@@ -443,7 +443,7 @@ class AuthenticateActivity : AppCompatActivity() {
         const val EXTRA_SET_PIN = "set_pin"
         const val EXTRA_FONT_TEXT = "textFont"
         const val EXTRA_FONT_NUM = "numFont"
-        private const val PIN_LENGTH = 4
+        const val EXTRA_PIN_LENGTH = "pinLength"
         private const val FINGER_PRINT_KEY = "FingerPrintKey"
         private var PREFERENCES = "com.suntelecoms.auth"
         const val KEY_PIN = "pin_key"
@@ -456,7 +456,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
 
         @JvmStatic
-        fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null): Intent {
+        fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null, pinLength: Int? = 4): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
             PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
@@ -466,6 +466,8 @@ class AuthenticateActivity : AppCompatActivity() {
 
             if (fontNum != null)
                 intent.putExtra(EXTRA_FONT_NUM, fontNum)
+
+            intent.putExtra(EXTRA_PIN_LENGTH, pinLength)
 
             return intent
         }
@@ -474,7 +476,7 @@ class AuthenticateActivity : AppCompatActivity() {
         @JvmStatic
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null,
                       onAuthListener: OnAuthListener? = null, shuffle: Boolean, @DrawableRes icon: Int,
-                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null): Intent {
+                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null, pinLength: Int? = 4): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
             PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
@@ -484,6 +486,9 @@ class AuthenticateActivity : AppCompatActivity() {
 
             if (fontNum != null)
                 intent.putExtra(EXTRA_FONT_NUM, fontNum)
+
+
+            intent.putExtra(EXTRA_PIN_LENGTH, pinLength)
 
             this.onAuthListener = onAuthListener
             this.shuffle = shuffle
