@@ -45,6 +45,14 @@
                 android:layout_height="wrap_content"
                 android:text="Set Pin And Font" />
 
+
+                <com.suntelecoms.timeline.TimelineView
+                    android:id="@+id/timeline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_100sdp"
+                    app:tl_nbTimeLine="3"
+                    app:tl_startNumber="2"/>
+
         </LinearLayout>
 
         <Button

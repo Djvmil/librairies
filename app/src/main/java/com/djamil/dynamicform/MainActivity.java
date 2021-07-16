@@ -18,8 +18,11 @@ import com.djamil.contactlist.ContactsInfo;
 import com.djamil.contactlist.interfaces.OnClickContactListener;
 import com.suntelecoms.authenticate.activity.AuthenticateActivity;
 import com.suntelecoms.authenticate.pinlockview.OnAuthListener;
+import com.suntelecoms.timeline.TimelineView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 //import com.suntelecoms.library_mifare.Activities.ReadAllSectors;
 //import com.suntelecoms.library_mifare.Activities.WaitForReadCard;
 
@@ -42,6 +45,15 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TimelineView timeline  = findViewById(R.id.timeline);
+
+        Map<Integer, String> val = new HashMap<>();
+
+        val.put(0, "#96BFD2");
+        val.put(2, "#CD5B55");
+
+        timeline.refreshTimeline(val);
+
 /*
         findViewById(R.id.dynamic_form).setOnClickListener(view -> {
             //startActivity(new Intent(MainActivity.this, MainMenu.class));
@@ -56,14 +68,14 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
             startActivity(new Intent(MainActivity.this, WaitForReadCard.class))
         );*/
 
-        Intent intent = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
+        Intent intent = AuthenticateActivity.Companion.getIntent(MainActivity.this, false, null, null, 6);
         //AuthenticateActivity.Companion.setGoneBtnBack(true);
         AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
         AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
         AuthenticateActivity.Companion.setShuffle(true);
         AuthenticateActivity.Companion.setCloseAfterAttempts(false);
         AuthenticateActivity.Companion.setUseFingerPrint(true);
-        startActivity(intent);
+        //startActivity(intent);
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -145,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
 
         setPinAndFont.setOnClickListener(v -> {
-            Intent intent2 = AuthenticateActivity.getIntent(MainActivity.this, false, null, null);
+            Intent intent2 = AuthenticateActivity.Companion.getIntent(MainActivity.this, false, null, null, 6);
             //AuthenticateActivity.Companion.setGoneBtnBack(true);
             AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
             AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
@@ -159,7 +171,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         setPin.setOnClickListener(v -> {
 
             // set pin instead of checking it
-            Intent intent1 = AuthenticateActivity.getIntent(MainActivity.this, true, null, null);
+            Intent intent1 = AuthenticateActivity.Companion.getIntent(MainActivity.this, true, null, null, 6);
             //AuthenticateActivity.Companion.setGoneBtnBack(true);
             AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
             AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
