@@ -18,12 +18,14 @@
             <option value="$PROJECT_DIR$/contactlist" />
             <option value="$PROJECT_DIR$/dynamicform" />
             <option value="$PROJECT_DIR$/dynamickeyboard" />
+            <option value="$PROJECT_DIR$/easy-rv-indicator" />
             <option value="$PROJECT_DIR$/fastscroll" />
             <option value="$PROJECT_DIR$/fluid-swipe" />
             <option value="$PROJECT_DIR$/fragmentmanagement" />
             <option value="$PROJECT_DIR$/material-stepper" />
             <option value="$PROJECT_DIR$/pinview" />
             <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/sampleEasyRvIndicator" />
             <option value="$PROJECT_DIR$/spacelib" />
             <option value="$PROJECT_DIR$/sweet-alert" />
             <option value="$PROJECT_DIR$/takephoto" />

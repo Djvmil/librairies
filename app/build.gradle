@@ -36,6 +36,7 @@ dependencies {
     implementation project(':material-stepper')
     implementation project(':fluid-swipe')
     implementation project(':sweet-alert')
+    implementation project(':easy-rv-indicator')
     //implementation project(':fragmentmanagement')
     implementation 'com.mattprecious.swirl:swirl:1.3.0'
     //implementation files('libs/authenticate.aar')
@@ -64,6 +65,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
 
     implementation project(path: ':dynamickeyboard')
+    implementation 'com.github.instacart.truetime-android:library-extension-rx:3.4'
+
+    implementation 'com.github.instacart.truetime-android:library:3.4'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

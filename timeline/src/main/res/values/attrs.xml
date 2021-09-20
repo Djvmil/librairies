@@ -3,6 +3,7 @@
     <declare-styleable name="TimelineView">
         <attr name="name" format="string" />
         <attr name="tl_separateLength" format="integer" />
+        <attr name="tl_grise" format="integer" />
         <attr name="tl_nbTimeLine" format="integer" />
         <attr name="tl_startNumber" format="integer" />
         <attr name="tl_unit" format="string" />

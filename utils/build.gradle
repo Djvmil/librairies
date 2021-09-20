@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation("com.squareup.okhttp3:logging-interceptor:4.4.0")
 
+
     //joda-time : helper for java date
     implementation 'joda-time:joda-time:2.10.5'
 
@@ -44,9 +45,10 @@ dependencies {
 
     implementation('com.andrognito.flashbar:flashbar:1.0.3')
 
+    implementation 'com.github.instacart.truetime-android:library:3.4'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:1.6.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

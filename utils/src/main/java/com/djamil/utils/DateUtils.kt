@@ -1,32 +1,7 @@
 package com.djamil.utils
 
-import android.annotation.SuppressLint
-import android.app.Application
-import android.content.ContentResolver
-import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Matrix
-import android.media.ExifInterface
-import android.net.Uri
-import android.os.Build
-import android.provider.Settings
-import android.telephony.TelephonyManager
-import android.util.Base64
 import android.util.Log
-import android.widget.EditText
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
-import java.io.UnsupportedEncodingException
-import java.net.HttpURLConnection
-import java.net.InetSocketAddress
-import java.net.Socket
-import java.net.URL
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-import java.security.SecureRandom
-import java.text.NumberFormat
+import com.instacart.library.truetime.TrueTime
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -80,6 +55,14 @@ class DateUtils {
                     .format(date)
             Log.i("dateToString =", "$dateToString, date = $date")
             return Integer.valueOf(dateToString)
+        }
+
+
+        fun getDateNow(): String? {
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy") //new DateFormat("yyyy-MM-dd");
+            val date = TrueTime.now()
+            //   currentDate = currentDate.replace("/", "-");
+            return dateFormat.format(date) as String
         }
 
         @JvmOverloads

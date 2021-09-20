@@ -28,13 +28,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="8h"
+            android:textSize="13sp"
+            android:textColor="@color/line_verticale_color"
             app:layout_constraintBottom_toTopOf="@+id/view1"
             app:layout_constraintStart_toStartOf="@+id/view1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:background="@color/button_text_color"
+            android:layout_height="32dp"
             android:orientation="horizontal">
 
             <View
@@ -45,9 +46,9 @@
                 android:background="@drawable/middle_timeline_bg"/>
             <View
                 android:id="@+id/verticale_line"
-                android:layout_width="1dp"
-                android:layout_height="30dp"
-                android:background="@color/main_blue_color"
+                android:layout_width="2dp"
+                android:layout_height="32dp"
+                android:background="@color/line_verticale_color"
                 app:layout_constraintStart_toEndOf="@+id/view4"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
