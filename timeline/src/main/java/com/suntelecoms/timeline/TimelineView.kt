@@ -4,13 +4,13 @@ import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.Color
 import android.graphics.drawable.Drawable
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.text.format.DateUtils
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.graphics.drawable.DrawableCompat
 import com.suntelecoms.timeline.models.ItemTimeline
 import com.suntelecoms.timeline.models.Sequence
 import kotlinx.android.synthetic.main.view_first.view.*

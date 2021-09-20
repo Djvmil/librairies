@@ -1,6 +1,6 @@
 package com.suntelecoms.timeline.models
 
-import android.support.annotation.ColorRes
+import androidx.annotation.ColorRes
 import com.suntelecoms.timeline.R
 
 class ItemTimeline (

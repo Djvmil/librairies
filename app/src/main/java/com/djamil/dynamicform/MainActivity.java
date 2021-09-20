@@ -336,9 +336,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
         Log.e(TAG, "loadTimeline: hour ==> "+hour );
 
-        timelineView.reloadTimeline(TrueTimeRx.now());
-
-
         for (DataItem item: cours){
             if (item.getDate().equals(DateUtils.Companion.getDateNow())){
 
