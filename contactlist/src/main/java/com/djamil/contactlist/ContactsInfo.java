@@ -61,4 +61,15 @@ public class ContactsInfo {
     public void setPhoneNumberList(List<String> phoneNumberList) {
         this.phoneNumberList = phoneNumberList;
     }
+
+    @Override
+    public String toString() {
+        return "ContactsInfo{" +
+                "indicatif='" + indicatif + '\'' +
+                ", contactId='" + contactId + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", phoneNumberList=" + phoneNumberList +
+                '}';
+    }
 }

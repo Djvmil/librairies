@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center|bottom"
+    android:background="#222121">
+
+
+    <View
+        android:id="@+id/view0"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="0.1dp"
+        android:layout_marginLeft="0.1dp"
+        android:background="@drawable/middle_timeline_bg"/>
+
+    <LinearLayout
+        android:id="@+id/middle_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0.1dp"
+        android:layout_marginLeft="0.1dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8h"
+            android:textSize="13sp"
+            android:textColor="@color/line_verticale_color"
+            app:layout_constraintBottom_toTopOf="@+id/view1"
+            app:layout_constraintStart_toStartOf="@+id/view1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/middle_timeline_bg"/>
+            <View
+                android:id="@+id/verticale_line"
+                android:layout_width="2dp"
+                android:layout_height="32dp"
+                android:background="@color/line_verticale_color"
+                app:layout_constraintStart_toEndOf="@+id/view4"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/middle_timeline_bg"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
