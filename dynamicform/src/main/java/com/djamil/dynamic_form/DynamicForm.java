@@ -124,7 +124,7 @@ public class DynamicForm extends NestedScrollView {
         inflater =  LayoutInflater.from(activity);
         init();
 
-        TypedArray attr = activity.getTheme().obtainStyledAttributes(attrs, R.styleable.DynamicForm, 0, 0);
+        TypedArray attr = activity.getTheme().obtainStyledAttributes(attrs, R.styleable.DynamicForm, ZERO, ZERO);
 
         try {
             nbFieldPerPage = attr.getInteger(R.styleable.DynamicForm_nb_field_per_page, ZERO);
@@ -262,11 +262,11 @@ public class DynamicForm extends NestedScrollView {
         /*
         View buttons = inflater.inflate(R.layout.buttons_bar, this, true);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.BELOW, pageList.get(0).getId());
+        params.addRule(RelativeLayout.BELOW, pageList.get(ZERO).getId());
         buttons.setLayoutParams(params);
 
         RelativeLayout.LayoutParams params= new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.addRule(RelativeLayout.BELOW, pageList.get(0).getId());
+        params.addRule(RelativeLayout.BELOW, pageList.get(ZERO).getId());
         findViewById(R.id.footer).setLayoutParams(params);
         */
 
@@ -320,7 +320,7 @@ public class DynamicForm extends NestedScrollView {
                 findViewById(R.id.next_btn).setVisibility(GONE);
                 findViewById(R.id.done_btn).setVisibility(VISIBLE);
 
-            } else if (numCurrentPage == 0){
+            } else if (numCurrentPage == ZERO){
                 Log.d(TAG, "----------------- showButtons: 2 -----------------" );
                 findViewById(R.id.back_btn).setVisibility(GONE);
                 findViewById(R.id.cancel_btn).setVisibility(VISIBLE);
@@ -632,7 +632,7 @@ public class DynamicForm extends NestedScrollView {
 
         for (ItemDF itemDF : item.getListItemDF()){
 
-            rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_checkbox, null, true);
+            rowView = inflater.inflate((item.getTemplate() != ZERO) ? item.getTemplate() : R.layout.input_checkbox, null, true);
             rowView.setId(NO_ID);
 
             textView          = rowView.findViewById(R.id.textView);
@@ -640,7 +640,7 @@ public class DynamicForm extends NestedScrollView {
 
             textView.setId(NO_ID);
             textView.setText(itemDF.getLabel());
-            if(item.getColor() != 0){
+            if(item.getColor() != ZERO){
                 textView.setTextColor(item.getColor());
                 textView.setTextColor(item.getColor());
             }
@@ -668,7 +668,7 @@ public class DynamicForm extends NestedScrollView {
      */
     private View getChampsRadio(IOFieldsItem item) {
 
-        View rowView = inflater.inflate((item.getTemplate() != 0) ? item.getTemplate() : R.layout.input_radio, currentFormContainer, true);
+        View rowView = inflater.inflate((item.getTemplate() != ZERO) ? item.getTemplate() : R.layout.input_radio, currentFormContainer, true);
         RadioGroup group_radio = rowView.findViewById(R.id.group_radio);
 
         boolean active = true;
@@ -676,7 +676,7 @@ public class DynamicForm extends NestedScrollView {
             RadioButton radioButton = new RadioButton(activity);
             radioButton.setText(itemDF.getLabel());
 
-            if(item.getColor() != 0)
+            if(item.getColor() != ZERO)
                 radioButton.setTextColor(item.getColor());
 
             if(active){
@@ -723,7 +723,7 @@ public class DynamicForm extends NestedScrollView {
             }, Year, Month, Day);
 
 
-            if (colorId != 0){
+            if (colorId != ZERO){
                 datePickerFragmentDialog.setCancelColor(activity.getResources().getColor(colorId));
                 datePickerFragmentDialog.setOkColor(activity.getResources().getColor(colorId));
                 datePickerFragmentDialog.setAccentColor(activity.getResources().getColor(R.color.amdp_accent_color));
@@ -760,7 +760,7 @@ public class DynamicForm extends NestedScrollView {
         editText.setText(Day + "/" + (Month + 1) + "/" + Year);
         textView.setId(NO_ID);
         textView.setText(item.getLabel());
-        if(item.getColor() != 0){
+        if(item.getColor() != ZERO){
             textView.setTextColor(item.getColor());
             textView.setTextColor(item.getColor());
         }
@@ -800,7 +800,7 @@ public class DynamicForm extends NestedScrollView {
 
         textView.setId(NO_ID);
         textView.setText(item.getLabel());
-        if(item.getColor() != 0){
+        if(item.getColor() != ZERO){
             textView.setTextColor(item.getColor());
             textView.setTextColor(item.getColor());
         }
@@ -841,7 +841,7 @@ public class DynamicForm extends NestedScrollView {
 
         textView.setId(NO_ID);
         textView.setText(item.getLabel());
-        if(item.getColor() != 0){
+        if(item.getColor() != ZERO){
             textView.setTextColor(item.getColor());
             textView.setTextColor(item.getColor());
         }
@@ -882,7 +882,7 @@ public class DynamicForm extends NestedScrollView {
 
         textView.setId(NO_ID);
         textView.setText(item.getLabel());
-        if(item.getColor() != 0){
+        if(item.getColor() != ZERO){
             textView.setTextColor(item.getColor());
             textView.setTextColor(item.getColor());
         }
@@ -939,7 +939,7 @@ public class DynamicForm extends NestedScrollView {
     private List<IOFieldsItem> done() throws EmptyValueException {
         String value = null;
 
-        for(int i = 0; i < listIOField.size(); i++){
+        for(int i = ZERO; i < listIOField.size(); i++){
             switch (listIOField.get(i).getType()){
 
                 case INPUT_TYPE_DF.Country  : value =  ((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedCountryName();
@@ -1041,7 +1041,7 @@ public class DynamicForm extends NestedScrollView {
      * @return list IOFieldsItem
      */
     private List<IOFieldsItem> getListFormsByPageId(int numPage) {
-        if (numPage < 0 || numPage > listIOField.size())
+        if (numPage < ZERO || numPage > listIOField.size())
             return null;
         else
             return arrayListsForms.get(numPage);
