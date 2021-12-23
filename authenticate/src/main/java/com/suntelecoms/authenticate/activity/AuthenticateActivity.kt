@@ -258,9 +258,9 @@ class AuthenticateActivity : AppCompatActivity() {
             if (pin == mFirstPin) {
                 writePinToSharedPreferences(pin)
                 setResult(Activity.RESULT_OK)
+                finish()
                 if(onAuthListener != null)
                     onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
-                finish()
             } else {
                 shake()
                 mTextTitle!!.text = getString(R.string.pinlock_tryagain)
@@ -275,9 +275,9 @@ class AuthenticateActivity : AppCompatActivity() {
     private fun checkPin(pin: String?) {
         if (pin!! == pinFromSharedPreferences) {
             setResult(Activity.RESULT_OK)
+            finish()
             if(onAuthListener != null)
                 onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
-            finish()
         } else {
             Log.d(TAG, "checkPin: wrong pin $closeAfterAttempts" )
             shake()
@@ -288,8 +288,8 @@ class AuthenticateActivity : AppCompatActivity() {
             mTextAttempts!!.text = getString(R.string.pinlock_wrongpin)
             if (closeAfterAttempts){
                 setResult(Activity.RESULT_OK)
-                onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
                 finish()
+                onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
             }
             pinlockView!!.resetPinLockView()
 
@@ -332,25 +332,25 @@ class AuthenticateActivity : AppCompatActivity() {
 
             override fun onFailed() {
 
-                if(onAuthListener != null){
-                    onAuthListener?.onSuccess("", authWithFinger = true, success = false)
-                    onAuthListener?.onError("")
-                }
                 animate(mImageViewFingerView!!, fingerprintToCross!!)
                 val handler = Handler()
                 handler.postDelayed({ animate(mImageViewFingerView!!, showFingerprint!!) }, 750)
                 if (closeAfterAttempts) finish()
+                if(onAuthListener != null){
+                    onAuthListener?.onSuccess("", authWithFinger = true, success = false)
+                    onAuthListener?.onError("")
+                }
             }
 
             override fun onError(errorString: CharSequence?) {
 
+
+                Toast.makeText(this@AuthenticateActivity, errorString, Toast.LENGTH_SHORT).show()
+                if (closeAfterAttempts) finish()
                 if(onAuthListener != null){
                     onAuthListener?.onSuccess("", authWithFinger = true, success = false)
                     onAuthListener?.onError("$errorString")
                 }
-
-                Toast.makeText(this@AuthenticateActivity, errorString, Toast.LENGTH_SHORT).show()
-                if (closeAfterAttempts) finish()
             }
 
             override fun onHelp(helpString: CharSequence?) {

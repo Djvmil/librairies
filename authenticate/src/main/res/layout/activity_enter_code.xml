@@ -40,8 +40,8 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
-        <TextView
-            android:id="@+id/title"
+        <LinearLayout
+            android:id="@+id/ll_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -51,7 +51,25 @@
             android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
+            app:layout_constraintTop_toBottomOf="@+id/logo"
+            android:orientation="vertical">
+
+            <TextView android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pinlock_title"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/textsize_title"/>
+
+            <TextView android:id="@+id/sub_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/pinlock_title"
+                android:textColor="@color/text_title"
+                android:textSize="@dimen/textsize_sub_title"/>
+        </LinearLayout>
 
         <com.suntelecoms.authenticate.pinlockview.IndicatorDots
             android:id="@+id/indicator_dots"
@@ -60,7 +78,7 @@
             android:layout_margin="@dimen/dot_margintop"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title" />
+            app:layout_constraintTop_toBottomOf="@+id/ll_title" />
 
         <TextView
             android:id="@+id/attempts"

@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="authenticate/src/main/res/layout/activity_enter_code.xml" value="0.165" />
+        <entry key="authenticate/src/main/res/layout/layout_delete_item.xml" value="0.13125" />
+        <entry key="authenticate/src/main/res/layout/layout_number_item.xml" value="0.13125" />
         <entry key="contactlist/src/main/res/layout/activity_contact_list.xml" value="0.1" />
         <entry key="contactlist/src/main/res/layout/contact_list_item.xml" value="0.45" />
         <entry key="contactlist/src/main/res/layout/layout_number_list.xml" value="0.1" />
