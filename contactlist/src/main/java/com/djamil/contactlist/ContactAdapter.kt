@@ -206,6 +206,11 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         activity.finish()
     }
 
+    fun doneSelect() {
+        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
+        activity.finish()
+    }
+
 
     /*int colors[] = {R.color.red, R.color.pink, R.color.purple, R.color.deep_purple,
             R.color.indigo, R.color.blue, R.color.light_blue, R.color.cyan, R.color.teal, R.color.green,

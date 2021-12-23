@@ -13,6 +13,7 @@
     <string name="precedent">Précédent</string>
     <string name="la_liste_de_contact_est_vide">la liste de contact est vide</string>
     <string name="action_search">Recherche</string>
+    <string name="action_validate">Valider</string>
 
     <string-array name="typeName">
         <item>Double</item>

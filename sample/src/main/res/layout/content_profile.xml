@@ -11,18 +11,21 @@
             android:layout_centerInParent="true">
 
         <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_gravity="center"
-                android:layout_margin="16dp"
-                android:background="@drawable/profile_bg"
-                android:onClick="showImage"
-                android:padding="3dp"
-                android:scaleType="centerInside"
-                app:srcCompat="@drawable/ic_person" />
+            android:id="@+id/imgProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/profile_bg"
+            android:onClick="showImage"
+            android:padding="3dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_person" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_add_photo"

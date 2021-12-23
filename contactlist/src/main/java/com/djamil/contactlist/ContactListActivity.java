@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +48,7 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
     TextView msg;
     private SearchView searchView;
 
-    private ExtendedFloatingActionButton extFabClear, extFabAdd;
+    MenuItem action_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,24 +67,6 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
         recyclerView = findViewById(R.id.contact_list);
         fastScroller = findViewById(R.id.fastscroll);
         msg = findViewById(R.id.msg);
-
-        extFabAdd = findViewById(R.id.extFabAdd);
-        extFabClear = findViewById(R.id.extFabClear);
-
-        extFabClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                extFabClear.setVisibility(View.GONE);
-                extFabAdd.setVisibility(View.GONE);
-                adapter.cleanSelect();
-            }
-        });
-        extFabAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                adapter.doneSelect(v);
-            }
-        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -218,6 +199,9 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
         if (item.getItemId() == R.id.action_search) {
             return true;
         }
+        else if(item.getItemId() == R.id.action_validate){
+            adapter.doneSelect();
+        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -227,6 +211,8 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        action_menu = menu.findItem(R.id.action_validate);
 
         // Associate searchable configuration with the SearchView
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
@@ -252,6 +238,15 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
                 return false;
             }
         });
+
+//        ImageView view = (ImageView) menu.findItem(R.id.action_validate).getActionView();
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                adapter.doneSelect(view);
+//            }
+//        });
+
         return true;
     }
 
@@ -274,8 +269,12 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
 
     @Override
     public void onBackPressed() {
-        // close search view on back button pressed
-        if (!searchView.isIconified()) {
+        if(action_menu.isVisible()){
+            action_menu.setVisible(false);
+            adapter.cleanSelect();
+            return;
+        }
+        else if (!searchView.isIconified()) { // close search view on back button pressed
             searchView.setIconified(true);
             return;
         }
@@ -293,8 +292,7 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
 
     @Override
     public void isActive(Boolean isActive) {
-        extFabClear.setVisibility(View.VISIBLE);
-        extFabAdd.setVisibility(View.VISIBLE);
+        action_menu.setVisible(true);
     }
 
 }
