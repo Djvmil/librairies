@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:minHeight="@dimen/_35sdp"
     android:layout_gravity="center_horizontal"
-    android:layout_margin="10dp"
+    android:layout_margin="5dp"
     android:orientation="horizontal"
     android:weightSum="3">
 
