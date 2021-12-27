@@ -33,6 +33,7 @@ public class FormulaireActivity extends AppCompatActivity implements OnClickDyna
         IOFieldsItem ioFieldsItem;
 
         fieldItems.add(new IOFieldsItem("Nom", "nom", INPUT_TYPE_DF.Label, R.layout.label_text));
+        fieldItems.add(new IOFieldsItem("Adresse", "Adresse", INPUT_TYPE_DF.Label, R.layout.label_text));
         fieldItems.add(new IOFieldsItem("Prénom", "prenom", INPUT_TYPE_DF.Text));
 
         ioFieldsItem = new IOFieldsItem("Required", "required", INPUT_TYPE_DF.Label);
