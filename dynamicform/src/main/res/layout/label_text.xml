@@ -6,8 +6,9 @@
     android:layout_height="wrap_content"
     android:minHeight="@dimen/_35sdp"
     android:layout_gravity="center_horizontal"
-    android:layout_margin="5dp"
     android:orientation="horizontal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:weightSum="3">
 
     <TextView
