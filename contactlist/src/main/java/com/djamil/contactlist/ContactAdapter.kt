@@ -77,8 +77,8 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                     numberChoiceDialog(v, dataListFiltered!![i])
 
                 }else{
-                    ContactList.onClickContactListener.onClickContact(v, dataListFiltered!![i])
                     activity.finish()
+                    ContactList.onClickContactListener.onClickContact(v, dataListFiltered!![i])
                 }
             }else{
                 contactVH.checkBox.isChecked = !contactVH.checkBox.isChecked
@@ -186,8 +186,8 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                 else
                     listMultiple?.remove(dataListFiltered!![i])
             }else{
-                ContactList.onClickContactListener.onClickContact(view, contactsInfo)
                 activity.finish()
+                ContactList.onClickContactListener.onClickContact(view, contactsInfo)
             }
 
             sDialog?.dismissWithAnimation()
@@ -202,13 +202,13 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         if (listMultiple?.get(0) != null)
             ContactList.onClickContactListener.onClickContact(v, listMultiple?.get(0) )
 
-        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
         activity.finish()
+        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
     }
 
     fun doneSelect() {
-        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
         activity.finish()
+        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
     }
 
 
