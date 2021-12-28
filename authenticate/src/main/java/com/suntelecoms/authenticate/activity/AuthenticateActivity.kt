@@ -79,7 +79,7 @@ class AuthenticateActivity : AppCompatActivity() {
         PREFERENCES = getString(R.string.key_app_sharpref)
 
         mTextTitle!!.text = if (mTitle != null) mTitle else getString(R.string.pinlock_title)
-        mTextSubTitle!!.text = if (mSubTitle != null) mSubTitle else String.format(getString(R.string.pinlock_sub_title), )
+        mTextSubTitle!!.text = if (mSubTitle != null) mSubTitle else String.format(getString(R.string.pinlock_sub_title), pinLength)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             showFingerprint = getDrawable(R.drawable.show_fingerprint) as AnimatedVectorDrawable?
@@ -347,8 +347,6 @@ class AuthenticateActivity : AppCompatActivity() {
             }
 
             override fun onError(errorString: CharSequence?) {
-
-
                 Toast.makeText(this@AuthenticateActivity, errorString, Toast.LENGTH_SHORT).show()
                 if (closeAfterAttempts) finish()
                 if(onAuthListener != null){
@@ -358,11 +356,10 @@ class AuthenticateActivity : AppCompatActivity() {
             }
 
             override fun onHelp(helpString: CharSequence?) {
-
                 if(onAuthListener != null){
                     onAuthListener?.onSuccess("", authWithFinger = true, success = false)
                     onAuthListener?.onError("$helpString")
-                } 
+                }
                 Toast.makeText(this@AuthenticateActivity, helpString, Toast.LENGTH_SHORT).show()
             }
         }
@@ -452,6 +449,7 @@ class AuthenticateActivity : AppCompatActivity() {
         private const val FINGER_PRINT_KEY = "FingerPrintKey"
         private var PREFERENCES = "com.suntelecoms.auth"
         const val KEY_PIN = "pin_key"
+        var pinLength = 4
         var shuffle = true
         var goneBtnBack = true
         var useFingerPrint = true
@@ -480,7 +478,7 @@ class AuthenticateActivity : AppCompatActivity() {
         @JvmStatic
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null,
                       onAuthListener: OnAuthListener? = null, shuffle: Boolean, @DrawableRes icon: Int,
-                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null, mSubTitle: String? = null, pinLength: Int? = 4): Intent {
+                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null, mSubTitle: String? = null, pinLength: Int = 4): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
             PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
@@ -496,6 +494,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
             this.onAuthListener = onAuthListener
             this.shuffle = shuffle
+            this.pinLength = pinLength
             this.icon = icon
             this.goneBtnBack = goneBtnBack
             this.useFingerPrint = useFingerPrint
