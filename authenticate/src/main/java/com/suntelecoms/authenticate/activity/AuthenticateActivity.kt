@@ -49,6 +49,7 @@ import javax.crypto.SecretKey
  */
 class AuthenticateActivity : AppCompatActivity() {
     private var mTextTitle: TextView? = null
+    private var mTextSubTitle: TextView? = null
     private var mTextAttempts: TextView? = null
     private var mTextFingerText: TextView? = null
     private var mImageViewFingerView: AppCompatImageView? = null
@@ -72,11 +73,13 @@ class AuthenticateActivity : AppCompatActivity() {
         setContentView(R.layout.activity_enter_code)
         mTextAttempts = findViewById(R.id.attempts)
         mTextTitle = findViewById(R.id.title)
+        mTextSubTitle = findViewById(R.id.sub_title)
         mImageViewFingerView = findViewById(R.id.fingerView)
         mTextFingerText = findViewById(R.id.fingerText)
         PREFERENCES = getString(R.string.key_app_sharpref)
 
         mTextTitle!!.text = if (mTitle != null) mTitle else getString(R.string.pinlock_title)
+        mTextSubTitle!!.text = if (mSubTitle != null) mSubTitle else String.format(getString(R.string.pinlock_sub_title), )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             showFingerprint = getDrawable(R.drawable.show_fingerprint) as AnimatedVectorDrawable?
@@ -151,6 +154,7 @@ class AuthenticateActivity : AppCompatActivity() {
         try {
             val typeface = Typeface.createFromAsset(assets, font)
             mTextTitle!!.typeface = typeface
+            mTextSubTitle!!.typeface = typeface
             mTextAttempts!!.typeface = typeface
             mTextFingerText!!.typeface = typeface
         } catch (e: Exception) {
@@ -440,6 +444,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
         //    public static final int RESULT_TOO_MANY_TRIES = RESULT_FIRST_USER + 1;
         var mTitle: String? = null
+        var mSubTitle: String? = null
         const val EXTRA_SET_PIN = "set_pin"
         const val EXTRA_FONT_TEXT = "textFont"
         const val EXTRA_FONT_NUM = "numFont"
@@ -472,11 +477,10 @@ class AuthenticateActivity : AppCompatActivity() {
             return intent
         }
 
-
         @JvmStatic
         fun getIntent(context: Context?, setPin: Boolean, fontText: String? = null, fontNum: String? = null,
                       onAuthListener: OnAuthListener? = null, shuffle: Boolean, @DrawableRes icon: Int,
-                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null, pinLength: Int? = 4): Intent {
+                      goneBtnBack: Boolean, useFingerPrint: Boolean, mTitle: String? = null, mSubTitle: String? = null, pinLength: Int? = 4): Intent {
             val intent = Intent(context, AuthenticateActivity::class.java)
             intent.putExtra(EXTRA_SET_PIN, setPin)
             PREFERENCES = context?.getString(R.string.key_app_sharpref)!!
@@ -496,6 +500,7 @@ class AuthenticateActivity : AppCompatActivity() {
             this.goneBtnBack = goneBtnBack
             this.useFingerPrint = useFingerPrint
             this.mTitle = mTitle
+            this.mSubTitle = mSubTitle
 
             return intent
         }
