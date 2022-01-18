@@ -12,6 +12,7 @@ public class ContactsInfo {
     private String displayName;
     private String phoneNumber;
     private List<String> phoneNumberList;
+    private Boolean checked = false;
 
     public ContactsInfo() {
     }
@@ -62,6 +63,14 @@ public class ContactsInfo {
         this.phoneNumberList = phoneNumberList;
     }
 
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
+    }
+
     @Override
     public String toString() {
         return "ContactsInfo{" +
@@ -70,6 +79,7 @@ public class ContactsInfo {
                 ", displayName='" + displayName + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", phoneNumberList=" + phoneNumberList +
+                ", checked=" + checked +
                 '}';
     }
 }

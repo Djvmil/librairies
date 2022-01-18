@@ -46,13 +46,13 @@
                 android:text="Set Pin And Font" />
 
 
-                <com.suntelecoms.timeline.TimelineView
-                    android:id="@+id/timeline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50sdp"
-                    app:tl_nbTimeLine="13"
-                    app:tl_startNumber="8">
-                </com.suntelecoms.timeline.TimelineView>
+            <com.suntelecoms.timeline.TimelineView
+                android:id="@+id/timeline"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_50sdp"
+                app:tl_nbTimeLine="13"
+                app:tl_startNumber="8">
+            </com.suntelecoms.timeline.TimelineView>
 
             <TextView
                 android:id="@+id/true_time"
@@ -103,6 +103,17 @@
             android:fontFamily="@font/helvetica_neue"
             android:textStyle="bold"
             android:text="Clavier Dynamique"/>
+
+        <Button
+            android:id="@+id/authenticate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/dynamic_form"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/helvetica_neue"
+            android:textStyle="bold"
+            android:text="Authenticate"/>
 
         <Button
             android:id="@+id/utils"

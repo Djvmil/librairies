@@ -21,7 +21,6 @@ import kotlin.collections.ArrayList
 class ContactAdapter internal constructor(private val activity: Activity, dataList: ArrayList<ContactsInfo>) : RecyclerView.Adapter<ContactAdapter.ContactVH>(), SectionTitleProvider, Filterable {
     private val dataList: List<ContactsInfo>
     private var dataListFiltered: List<ContactsInfo>?
-    private var listMultiple: ArrayList<ContactsInfo>? = null
     private var letter: String? = null
     private val generator = ColorGenerator.MATERIAL
     private var onClickContactListener: OnClickContactListener? = null
@@ -59,12 +58,12 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
 
         contactVH.checkBox.visibility = if (isMutiple) View.VISIBLE else View.GONE
+        contactVH.checkBox.isChecked = dataListFiltered!![i].checked
 
         contactVH.linearLayout.setOnLongClickListener {
             if (ContactList.multiContact){
                 onMultipleActive?.isActive(true)
                 isMutiple = true
-                listMultiple = ArrayList()
                 notifyDataSetChanged()
             }
 
@@ -74,23 +73,31 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         contactVH.linearLayout.setOnClickListener { v ->
             if (!isMutiple && ContactList.onClickContactListener != null) {
                 if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1){
-                    numberChoiceDialog(v, dataListFiltered!![i])
+                    numberChoiceDialog(view = v, position = i, checkBox = contactVH.checkBox)
 
                 }else{
                     activity.finish()
-                    ContactList.onClickContactListener.onClickContact(v, dataListFiltered!![i])
+                    ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
                 }
             }else{
+
+                if (dataListFiltered?.count { it.checked }!! >= ContactList.limit){
+                    Toast.makeText(activity,
+                        if (ContactList.msgLimit.isEmpty()) "Vous ne pouvez pas sélectionner plus de ${ContactList.limit} contact"
+                        else ContactList.msgLimit,
+                        Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
                 contactVH.checkBox.isChecked = !contactVH.checkBox.isChecked
 
                 if (contactVH.checkBox.isChecked){
                     if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1){
-                        numberChoiceDialog(v, dataListFiltered!![i], contactVH.checkBox.isChecked)
+                        numberChoiceDialog(view = v, position = i, checkBox = contactVH.checkBox)
                     }else
-                        listMultiple?.add(dataListFiltered!![i])
+                        dataListFiltered!![i].checked = true
 
                 }else
-                    listMultiple?.remove(dataListFiltered!![i])
+                    dataListFiltered!![i].checked = false
 
             }
         }
@@ -98,7 +105,8 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
     fun cleanSelect(){
         isMutiple = false
-        listMultiple?.clear()
+        dataListFiltered?.forEach { it.checked = false }
+
         notifyDataSetChanged()
     }
 
@@ -163,31 +171,38 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         }
     }
 
+    private fun numberChoiceDialog(view: View, position: Int, checkBox: CheckBox? = null){
+        var contactsInfo = dataListFiltered?.get(position)
 
-    private fun numberChoiceDialog(view: View, contactsInfo: ContactsInfo, isChecked: Boolean = false){
         sDialog = SweetAlertDialog(activity, SweetAlertDialog.NORMAL_TYPE)
         //sDialog?.titleText = activity.getString(R.string.tirage_lbl)
         sDialog?.setCancelable(true)
+        sDialog?.setOnCancelListener {
+            if (isMutiple)
+                checkBox?.isChecked = false
+        }
+        sDialog?.setCancelClickListener {
+            if (isMutiple)
+                checkBox?.isChecked = false
+
+        }
 
         val layout = activity.layoutInflater.inflate(R.layout.layout_number_list, null)
 
         val listView = layout.findViewById<ListView>(R.id.list_item)
-        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, contactsInfo.phoneNumberList)
+        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, contactsInfo!!.phoneNumberList)
         listView.adapter = adapter
 
         sDialog?.setCustomView(layout)
 
         listView.setOnItemClickListener{ _, _, i: Int, _ ->
-            contactsInfo.phoneNumber = contactsInfo.phoneNumberList[i]
+            contactsInfo.phoneNumber = contactsInfo.phoneNumberList?.get(i)
 
             if (isMutiple){
-                if(isChecked)
-                    listMultiple?.add(dataListFiltered!![i])
-                else
-                    listMultiple?.remove(dataListFiltered!![i])
+                dataListFiltered!![position].checked = checkBox?.isChecked
             }else{
                 activity.finish()
-                ContactList.onClickContactListener.onClickContact(view, contactsInfo)
+                ContactList.onClickContactListener?.onClickContact(view, contactsInfo)
             }
 
             sDialog?.dismissWithAnimation()
@@ -195,20 +210,18 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
         activity.runOnUiThread {
             sDialog?.show()
-            sDialog?.getButton(SweetAlertDialog.BUTTON_CONFIRM)?.visibility = View.GONE}
+            sDialog?.getButton(SweetAlertDialog.BUTTON_CONFIRM)?.visibility = View.GONE
+        }
     }
 
     fun doneSelect(v: View) {
-        if (listMultiple?.get(0) != null)
-            ContactList.onClickContactListener.onClickContact(v, listMultiple?.get(0) )
-
         activity.finish()
-        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
+        ContactList.onClickContactListener?.onSelectClickContact(dataListFiltered?.filter {it.checked } as java.util.ArrayList<ContactsInfo>)
     }
 
     fun doneSelect() {
         activity.finish()
-        ContactList.onClickContactListener.onSelectClickContact(listMultiple)
+        ContactList.onClickContactListener?.onSelectClickContact(dataListFiltered?.filter {it.checked } as java.util.ArrayList<ContactsInfo>)
     }
 
 

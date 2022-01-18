@@ -8,7 +8,11 @@
         <entry key="authenticate/src/main/res/layout/activity_enter_code.xml" value="0.165" />
         <entry key="authenticate/src/main/res/layout/layout_delete_item.xml" value="0.13125" />
         <entry key="authenticate/src/main/res/layout/layout_number_item.xml" value="0.13125" />
+        <entry key="contactlist/src/main/res/drawable/ic_arrow_back_white_24dp_cop.xml" value="0.1" />
+        <entry key="contactlist/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml " value="0.1" />
         <entry key="contactlist/src/main/res/layout/activity_contact_list.xml" value="0.1" />
+        <entry key="contactlist/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="contactlist/src/main/res/layout/contact_info.xml" value="0.1" />
         <entry key="contactlist/src/main/res/layout/contact_list_item.xml" value="0.45" />
         <entry key="contactlist/src/main/res/layout/layout_number_list.xml" value="0.1" />
         <entry key="takephoto/src/main/res/layout/dialog_choose_app.xml" value="0.16822916666666668" />

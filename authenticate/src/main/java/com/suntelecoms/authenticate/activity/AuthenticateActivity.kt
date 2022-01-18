@@ -18,7 +18,6 @@ import android.security.keystore.KeyProperties
 import android.util.Log
 import android.view.View
 import android.view.Window
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
@@ -116,7 +115,6 @@ class AuthenticateActivity : AppCompatActivity() {
         val pinLockListener: PinLockListener = object : PinLockListener {
             override fun onComplete(pin: String?) {
                 if (mSetPin) setPin(pin!!)
-
                 else checkPin(pin)
 
             }
@@ -186,13 +184,14 @@ class AuthenticateActivity : AppCompatActivity() {
 
             //Initialize the KeyGenerator//
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                mKeyGenerator?.init(KeyGenParameterSpec.Builder(FINGER_PRINT_KEY,
-                        KeyProperties.PURPOSE_ENCRYPT or
-                                KeyProperties.PURPOSE_DECRYPT)
-                        .setBlockModes(KeyProperties.BLOCK_MODE_CBC) //Configure this key so that the user has to confirm their identity with a fingerprint each time they want to use it//
-                        .setUserAuthenticationRequired(true)
-                        .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-                        .build())
+                mKeyGenerator?.init(KeyGenParameterSpec.Builder(
+                    FINGER_PRINT_KEY,
+                    KeyProperties.PURPOSE_ENCRYPT or
+                            KeyProperties.PURPOSE_DECRYPT)
+                    .setBlockModes(KeyProperties.BLOCK_MODE_CBC) //Configure this key so that the user has to confirm their identity with a fingerprint each time they want to use it//
+                    .setUserAuthenticationRequired(true)
+                    .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+                    .build())
             }
 
             //Generate the key//
@@ -218,9 +217,9 @@ class AuthenticateActivity : AppCompatActivity() {
             //Obtain a mCipher instance and configure it with the properties required for fingerprint authentication//
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 mCipher = Cipher.getInstance(
-                        KeyProperties.KEY_ALGORITHM_AES + "/"
-                                + KeyProperties.BLOCK_MODE_CBC + "/"
-                                + KeyProperties.ENCRYPTION_PADDING_PKCS7)
+                    KeyProperties.KEY_ALGORITHM_AES + "/"
+                            + KeyProperties.BLOCK_MODE_CBC + "/"
+                            + KeyProperties.ENCRYPTION_PADDING_PKCS7)
             }
         } catch (e: NoSuchAlgorithmException) {
             Log.e(TAG, "Failed to get Cipher")
@@ -231,8 +230,9 @@ class AuthenticateActivity : AppCompatActivity() {
         }
         return try {
             mKeyStore!!.load(null)
-            val key = mKeyStore!!.getKey(FINGER_PRINT_KEY,
-                    null) as SecretKey
+            val key = mKeyStore!!.getKey(
+                FINGER_PRINT_KEY,
+                null) as SecretKey
             mCipher!!.init(Cipher.ENCRYPT_MODE, key)
             //Return true if the mCipher has been initialized successfully//
             true
@@ -375,7 +375,7 @@ class AuthenticateActivity : AppCompatActivity() {
 
                 //Check whether the user has granted your app the USE_FINGERPRINT permission//
                 if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT)
-                        != PackageManager.PERMISSION_GRANTED) {
+                    != PackageManager.PERMISSION_GRANTED) {
                     // If your app doesn't have this permission, then display the following text//
 //                Toast.makeText(EnterPinActivity.this, "Please enable the fingerprint permission", Toast.LENGTH_LONG).show();
                     mImageViewFingerView!!.visibility = View.GONE
@@ -505,11 +505,11 @@ class AuthenticateActivity : AppCompatActivity() {
         }
 
 
-         fun changePinToSharedPreferences(context: Context?, pin: String) {
+        fun changePinToSharedPreferences(context: Context?, pin: String) {
             val prefs = context?.getSharedPreferences(PREFERENCES, Context.MODE_PRIVATE)
-             prefs?.edit()?.putString(KEY_PIN, encrypt(pin))?.apply()
+            prefs?.edit()?.putString(KEY_PIN, encrypt(pin))?.apply()
 
-             Log.d(TAG, "changePinToSharedPreferences: $pin")
+            Log.d(TAG, "changePinToSharedPreferences: $pin")
 
         }
 

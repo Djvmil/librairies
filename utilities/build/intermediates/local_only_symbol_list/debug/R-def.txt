@@ -1,0 +1,44 @@
+R_DEF: Internal format may change without notice
+local
+anim utils_item_anim_fall_down
+anim utils_scale_with_alpha
+attr? Utils_dots_gravity
+attr? civ_border_color
+attr? civ_border_overlay
+attr? civ_border_width
+attr? civ_circle_background_color
+attr? civ_fill_color
+attr? dot_drawable
+attr? dot_drawable_unselected
+attr? dot_height
+attr? dot_margin
+attr? dot_tint
+attr? dot_width
+attr? dots_animator
+attr? dots_animator_reverse
+attr? name
+attr? theme5_dots_orientation
+drawable utils_bg_black_dot
+drawable utils_shadoe
+font exo
+font font_exo
+font muli
+font muli_light
+font muli_regular
+id horizontal
+id itemShape
+id vertical
+string alert_erreur_0
+string alert_erreur_1
+string alert_erreur_2
+string bank_font_bold
+string bank_font_medium
+string bank_font_regular
+string internal_server_error
+string no_internet_msg
+string utils_font_bold
+string utils_font_medium
+string utils_font_regular
+string utils_font_semi_bold
+styleable Utils_CircleImageView name civ_border_width civ_border_color civ_border_overlay civ_circle_background_color civ_fill_color
+styleable Utils_DotsIndicator dot_width dot_height dot_margin dot_drawable dot_drawable_unselected dot_tint dots_animator dots_animator_reverse theme5_dots_orientation Utils_dots_gravity

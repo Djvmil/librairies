@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 //import com.suntelecoms.library_mifare.Activities.ReadAllSectors;
 //import com.suntelecoms.library_mifare.Activities.WaitForReadCard;
 
@@ -120,14 +123,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
             startActivity(new Intent(MainActivity.this, WaitForReadCard.class))
         );*/
 
-        Intent intent = AuthenticateActivity.Companion.getIntent(MainActivity.this, false, null, null, 6);
-        //AuthenticateActivity.Companion.setGoneBtnBack(true);
-        AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
-        AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
-        AuthenticateActivity.Companion.setShuffle(true);
-        AuthenticateActivity.Companion.setCloseAfterAttempts(false);
-        AuthenticateActivity.Companion.setUseFingerPrint(true);
-        //startActivity(intent);
+
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);
@@ -178,12 +174,13 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
             @Override
             public void onSelectClickContact(ArrayList<ContactsInfo> contactsInfo) {
+                Log.e(TAG, "onClickCantact: "+ contactsInfo.toString());
 
             }
         });
 
         Button btn = findViewById(R.id.dynamic_form);
-    //    btn.setText(getDayStringOld(new Date(), Locale.FRENCH, "EEE | dd | MMMM | yyyy"));
+        //    btn.setText(getDayStringOld(new Date(), Locale.FRENCH, "EEE | dd | MMMM | yyyy"));
         findViewById(R.id.dynamic_form).setOnClickListener(view -> startActivity(new Intent(MainActivity.this, FormulaireActivity.class)));
 
         findViewById(R.id.keyboard_view).setOnClickListener(view -> {
@@ -191,15 +188,13 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
                 authenticate.useFingerPrintForAuth(false);
             }
         });
-
-        findViewById(R.id.contact_list).setOnClickListener(view -> contactList.showContactList());
+        findViewById(R.id.contact_list).setOnClickListener(view -> contactList.showContactList(true, 10, ""));
         Button normal = findViewById(R.id.normal);
         Button setPin = findViewById(R.id.setPin);
         Button setFont = findViewById(R.id.setFont);
         Button setPinAndFont = findViewById(R.id.setPinAndFont);
 
         normal.setOnClickListener(v -> {
-
 
             // start the activity, It handles the setting and checking
             Intent intent12 = new Intent(MainActivity.this, AuthenticateActivity.class);
@@ -210,7 +205,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         });
 
         loadTimeline();
-
 
         setPinAndFont.setOnClickListener(v -> {
             Intent intent2 = AuthenticateActivity.Companion.getIntent(MainActivity.this, false, null, null, 6);
@@ -259,8 +253,58 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         });
 */
 
+        Intent intent = AuthenticateActivity.Companion.getIntent(MainActivity.this, false, null, null, 6);
+        //AuthenticateActivity.Companion.setGoneBtnBack(true);
+        AuthenticateActivity.Companion.setIcon(R.drawable.logo_aicha);
+        AuthenticateActivity.Companion.setOnAuthListener(MainActivity.this);
+        AuthenticateActivity.Companion.setShuffle(true);
+        AuthenticateActivity.Companion.setCloseAfterAttempts(false);
+        AuthenticateActivity.Companion.setUseFingerPrint(true);
+        findViewById(R.id.authenticate).setOnClickListener(view -> startActivity(intent));
+    }
+
+    @Override
+    public void onSuccess(String pin, boolean authWithFinger, boolean success) {
+        Log.e(TAG, "onSuccess: " );
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                {
+                    SweetAlertDialog val = new SweetAlertDialog(MainActivity.this, SweetAlertDialog.PROGRESS_TYPE);
+                    val.setCancelable(false);
+                    val.setTitleText("Good job!")
+                            .setContentText("You clicked the button!")
+                            .show();
+                }
+            }
+        }, 3000);
+    }
+
+    @Override
+    public void onError(String msg) {
+        Log.e(TAG, "onSuccess: " );
 
     }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Log.e(TAG, "onActivityResult: " );
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (resultCode == AuthenticateActivity.RESULT_BACK_PRESSED) {
+                    Toast.makeText(MainActivity.this, "back pressed", Toast.LENGTH_LONG).show();
+                }
+                break;
+
+            case 234:
+                Toast.makeText(MainActivity.this, "Read Done", Toast.LENGTH_LONG).show();
+                break;
+        }
+    }
+
 
     private void seekLed(SeekBar seekBar, SeekBar seekBar_left, SeekBar seekBar_right) {
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -391,25 +435,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
 
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        Log.e(TAG, "onActivityResult: " );
-        switch (requestCode) {
-            case REQUEST_CODE:
-                if (resultCode == AuthenticateActivity.RESULT_BACK_PRESSED) {
-                    Toast.makeText(MainActivity.this, "back pressed", Toast.LENGTH_LONG).show();
-                }
-                break;
-
-            case 234:
-                Toast.makeText(MainActivity.this, "Read DOne", Toast.LENGTH_LONG).show();
-                break;
-        }
-    }
-
-
-    @Override
     protected void onDestroy() {
         if (contactList != null)
             contactList.removeInstance();
@@ -421,17 +446,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
-    @Override
-    public void onSuccess(String pin, boolean authWithFinger, boolean success) {
-        Log.e(TAG, "onSuccess: " );
-    }
-
-    @Override
-    public void onError(String msg) {
-
-    }
-
 
     public List<DataItem> getDataList(){
         String data = "{\n" +
