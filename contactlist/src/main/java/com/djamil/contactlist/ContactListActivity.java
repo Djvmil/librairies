@@ -186,7 +186,6 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
         }
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
