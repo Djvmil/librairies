@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
                 authenticate.useFingerPrintForAuth(false);
             }
         });
-        findViewById(R.id.contact_list).setOnClickListener(view -> contactList.showContactList(true, 10, ""));
+        findViewById(R.id.contact_list).setOnClickListener(view -> contactList.showContactList(true, 2, ""));
         Button normal = findViewById(R.id.normal);
         Button setPin = findViewById(R.id.setPin);
         Button setFont = findViewById(R.id.setFont);

@@ -81,13 +81,14 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                 }
             }else{
 
-                if (ContactList.limit != -1 && dataListFiltered?.count { it.checked }!! >= ContactList.limit){
+                if (!contactVH.checkBox.isChecked && ContactList.limit != -1 && dataListFiltered?.count { it.checked }!! >= ContactList.limit){
                     Toast.makeText(activity,
                         if (ContactList.msgLimit.isEmpty()) "Vous ne pouvez pas sélectionner plus de ${ContactList.limit} contact"
                         else ContactList.msgLimit,
                         Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
+
                 contactVH.checkBox.isChecked = !contactVH.checkBox.isChecked
 
                 if (contactVH.checkBox.isChecked){
