@@ -38,8 +38,9 @@ class ContactList private constructor() {
         var limit = -1
         var msgLimit = ""
         var onClickContactListener: OnClickContactListener? = null
+
         @JvmStatic
-        fun getInstance(act: Activity?): ContactList? {
+        fun getInstance(act: Activity?): ContactList {
             activity = act
             contactListActivity = ContactListActivity()
             if (instance == null) instance = ContactList()
