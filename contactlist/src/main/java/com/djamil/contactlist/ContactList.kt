@@ -28,12 +28,14 @@ class ContactList private constructor() {
     fun removeInstance() {
         activity = null
         instance = null
+        contactListActivity?.finish()
+        contactListActivity = null
     }
 
     companion object {
-        private var instance: ContactList? = null
         private var activity: Activity? = null
         private var contactListActivity: ContactListActivity? = null
+        private var instance: ContactList? = null
         var multiContact = false
         var limit = -1
         var msgLimit = ""
@@ -44,7 +46,7 @@ class ContactList private constructor() {
             activity = act
             contactListActivity = ContactListActivity()
             if (instance == null) instance = ContactList()
-            return instance
+            return instance!!
         }
     }
 }
