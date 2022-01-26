@@ -1,12 +1,10 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'maven'
-apply from: '../material-stepper/code_coverage.gradle'
-apply from: '../config/quality/quality.gradle'
 
 android {
     compileSdkVersion project.androidCompileSdkVersion
-    buildToolsVersion("$androidBuildToolsVersion")
+    buildToolsVersion("30.0.3")
 
     defaultConfig {
         minSdkVersion project.androidMinSdkVersion
