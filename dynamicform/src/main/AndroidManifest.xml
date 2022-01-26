@@ -5,7 +5,8 @@
     <application  android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".utils.MainActivity"/>
+        <activity android:name=".utils.MainActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

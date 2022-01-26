@@ -78,7 +78,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         return formatter.format(date);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         SeekBar seekBar_right = findViewById(R.id.seekBar_right);
         trueTime = findViewById(R.id.true_time);
 
+        Log.e(TAG, "onCreate: DIffADate => "+DateUtils.Companion.yearsBetweenDates(DateUtils.Companion.strToDate("10/10/2013", "dd/MM/yyyy"), DateUtils.Companion.strToDate("10/10/2019", "dd/MM/yyyy")) );
 
         trueTime.setText(DateUtils.Companion.dateToString(TrueTimeRx.now(), DateUtils.FORMAT_FRENCH_MEDIUM));
         seekLed(seekBar, seekBar_left, seekBar_right);
@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         Log.e(TAG, "onCreate => 5: "+ split1[0]);
         Log.e(TAG, "onCreate => 6: "+ text.split("//")[1].split("\\|")[0]);
 
-
 /*
         findViewById(R.id.dynamic_form).setOnClickListener(view -> {
             //startActivity(new Intent(MainActivity.this, MainMenu.class));
@@ -122,8 +121,6 @@ public class MainActivity extends AppCompatActivity implements OnAuthListener {
         findViewById(R.id.contact_list).setOnClickListener(view ->
             startActivity(new Intent(MainActivity.this, WaitForReadCard.class))
         );*/
-
-
 
         contactResult = findViewById(R.id.contact_result);
         authenticate  = findViewById(R.id.dynamic_key);

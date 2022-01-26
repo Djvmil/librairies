@@ -5,15 +5,18 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:requestLegacyExternalStorage="true">
+        android:requestLegacyExternalStorage="true"
+        android:name="com.google.mlkit.vision.DEPENDENCIES">
 
         <activity android:name="com.djamil.takephoto.TakePhotoActivity"
-                  android:theme="@style/Theme.Transparent.ImagePicker"
-                  android:screenOrientation="unspecified"/>
+          android:theme="@style/Theme.Transparent.ImagePicker"
+            android:exported="false"
+          android:screenOrientation="unspecified"/>
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
+            android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider

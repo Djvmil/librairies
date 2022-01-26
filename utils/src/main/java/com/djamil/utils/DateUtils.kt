@@ -2,8 +2,13 @@ package com.djamil.utils
 
 import android.util.Log
 import com.instacart.library.truetime.TrueTime
+import org.joda.time.LocalDate
+import org.joda.time.Months
+import org.joda.time.Years
 import java.text.ParseException
 import java.text.SimpleDateFormat
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -27,6 +32,7 @@ class DateUtils {
 
         fun strToDate(strDate: String?, format: String?): Date? {
             // Ex format -> dd/MM/yy hh:mm:ss
+
             val sdf = SimpleDateFormat(format)
             var d: Date? = null
             try {
@@ -371,6 +377,13 @@ class DateUtils {
             }
         }
 
+
+        //Convert Calendar to Date
+        private fun calendarToDate(calendar: Calendar): Date? {
+            return calendar.time
+        }
+
+
         fun dateInBetweenDates(dateSearchValue: Date?, startDateValue: Date?, endDateValue: Date?): Boolean {
             return try {
                 dateSearchValue?.after(startDateValue!!)!! && dateSearchValue.before(endDateValue!!)
@@ -378,6 +391,20 @@ class DateUtils {
                 e.printStackTrace()
                 false
             }
+        }
+
+        fun yearsBetweenDates(startDateValue: Date?, endDateValue: Date?): Int {
+            val start = LocalDate(dateToCalendar(startDateValue).get(Calendar.YEAR), dateToCalendar(startDateValue).get(Calendar.MONTH), dateToCalendar(startDateValue).get(Calendar.DAY_OF_MONTH))
+            val now =  LocalDate(dateToCalendar(endDateValue).get(Calendar.YEAR), dateToCalendar(endDateValue).get(Calendar.MONTH), dateToCalendar(endDateValue).get(Calendar.DAY_OF_MONTH))
+
+            return Years.yearsBetween(start, now).years
+        }
+
+        fun monthsBetweenDates(startDateValue: Date?, endDateValue: Date?): Int {
+            val start = LocalDate(dateToCalendar(startDateValue).get(Calendar.YEAR), dateToCalendar(startDateValue).get(Calendar.MONTH), dateToCalendar(startDateValue).get(Calendar.DAY_OF_MONTH))
+            val now =  LocalDate(dateToCalendar(endDateValue).get(Calendar.YEAR), dateToCalendar(endDateValue).get(Calendar.MONTH), dateToCalendar(endDateValue).get(Calendar.DAY_OF_MONTH))
+
+            return Months.monthsBetween(start, now).months
         }
 
         fun daysBetweenDates(startDateValue: Date?, endDateValue: Date?): Long {
@@ -399,6 +426,13 @@ class DateUtils {
             val diff: Long = endDateValue?.time!! - startDateValue?.time!!
 
             return  TimeUnit.SECONDS.convert(diff, TimeUnit.MILLISECONDS)
+        }
+
+        fun millisecondsBetweenDates(startDateValue: Date?, endDateValue: Date?): Long {
+
+            val diff: Long = endDateValue?.time!! - startDateValue?.time!!
+
+            return  TimeUnit.MILLISECONDS.convert(diff, TimeUnit.MILLISECONDS)
         }
 
     }
