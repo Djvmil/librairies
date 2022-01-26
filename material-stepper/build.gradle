@@ -22,16 +22,6 @@ android {
         }
     }
 
-    testOptions {
-        //workaround so that code coverage is working with Robolectric: http://stackoverflow.com/a/35769943/973379
-        unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
-        }
-        //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
-        unitTests.includeAndroidResources = true
-    }
 
     lintOptions {
         warningsAsErrors true

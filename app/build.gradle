@@ -33,7 +33,7 @@ dependencies {
     implementation project(':timeline')
     implementation project(':contactlist')
     implementation project(':authenticate_utils')
-    implementation project(':material-stepper')
+//    implementation project(':material-stepper')
     implementation project(':fluid-swipe')
     implementation project(':sweet-alert')
     implementation project(':easy-rv-indicator')
