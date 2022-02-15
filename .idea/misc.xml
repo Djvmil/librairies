@@ -37,6 +37,15 @@
         <entry key="sweet-alert/src/main/res/drawable/warning_circle.xml" value="0.1" />
         <entry key="sweet-alert/src/main/res/drawable/warning_sigh.xml" value="0.1" />
         <entry key="sweet-alert/src/main/res/layout/alert_dialog.xml" value="0.1" />
+        <entry key="timeline/src/main/res/drawable/first_timeline_bg.xml" value="0.184375" />
+        <entry key="timeline/src/main/res/drawable/last_timeline_bg.xml" value="0.184375" />
+        <entry key="timeline/src/main/res/drawable/middle_timeline_bg.xml" value="0.184375" />
+        <entry key="timeline/src/main/res/font/font_exo.xml" value="0.1984375" />
+        <entry key="timeline/src/main/res/layout/timeline_content.xml" value="0.1" />
+        <entry key="timeline/src/main/res/layout/timeline_full.xml" value="0.1" />
+        <entry key="timeline/src/main/res/layout/view_first.xml" value="0.1" />
+        <entry key="timeline/src/main/res/layout/view_last.xml" value="0.1" />
+        <entry key="timeline/src/main/res/layout/view_middle.xml" value="0.1" />
         <entry key="utils/src/main/res/layout/dp_example.xml" value="0.1" />
         <entry key="utils/src/main/res/layout/sp_example.xml" value="0.1" />
       </map>
