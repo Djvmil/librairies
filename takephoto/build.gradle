@@ -6,11 +6,12 @@ plugins {
 apply from: "../ktlint.gradle"
 
 android {
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
 
         versionCode rootProject.ext.versionCodeVersion
         versionName rootProject.ext.versionNameVersion
@@ -18,7 +19,6 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {

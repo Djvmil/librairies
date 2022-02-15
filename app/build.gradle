@@ -2,16 +2,18 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    id 'maven'
 }
 apply from: "../ktlint.gradle"
 
 android {
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         applicationId "com.djamil.suntelecom.librairies"
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
 
         versionCode rootProject.ext.versionCodeVersion
         versionName rootProject.ext.versionNameVersion

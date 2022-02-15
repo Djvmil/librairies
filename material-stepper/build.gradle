@@ -1,18 +1,19 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-//    id 'maven'
+    id 'maven'
 }
 
 //apply from: '../material-stepper/code_coverage.gradle'
 //apply from: '../config/quality/quality.gradle'
 
 android {
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdk rootProject.ext.minSdkVersion
-        targetSdk rootProject.ext.targetSdkVersion
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
 
         versionCode rootProject.ext.versionCodeVersion
         versionName rootProject.ext.versionNameVersion
@@ -20,7 +21,6 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -32,17 +32,17 @@ android {
             testCoverageEnabled true
         }
     }
-
-    testOptions {
-        //workaround so that code coverage is working with Robolectric: http://stackoverflow.com/a/35769943/973379
-        unitTests.all {
-            jacoco {
-                includeNoLocationClasses = true
-            }
-        }
-        //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
-        unitTests.includeAndroidResources = true
-    }
+//
+//    testOptions {
+//        //workaround so that code coverage is working with Robolectric: http://stackoverflow.com/a/35769943/973379
+//        unitTests.all {
+//            jacoco {
+//                includeNoLocationClasses = true
+//            }
+//        }
+//        //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
+//        unitTests.includeAndroidResources = true
+//    }
 
     lintOptions {
         warningsAsErrors true
@@ -66,6 +66,5 @@ dependencies {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testImplementation "com.nhaarman:mockito-kotlin:1.5.0"
 }

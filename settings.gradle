@@ -1,13 +1,13 @@
-dependencyResolutionManagement {
-//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-    repositories {
-        google()
-        mavenCentral()
-        maven { url 'https://jitpack.io' }
-
-        jcenter() // Warning: this repository is going to shut down soon
-    }
-}
+//dependencyResolutionManagement {
+////    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//        maven { url 'https://jitpack.io' }
+//
+//        jcenter() // Warning: this repository is going to shut down soon
+//    }
+//}
 rootProject.name = "Librairies"
 include ':app', ':authenticate', ':authenticate_utils',  ':dynamicform', ':fastscroll', ':utils', ':sweet-alert', ':contactlist', ':easy-rv-indicator', ':takephoto', ':spacelib', ':pinview', ':library', ':library-extension-rx', ':fluid-swipe', ':dynamickeyboard', ':timeline', ':material-stepper'
