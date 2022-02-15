@@ -56,7 +56,7 @@ dependencies {
     implementation project(':contactlist')
     implementation project(':authenticate')
     implementation project(':authenticate_utils')
-//    implementation project(':material-stepper')
+    implementation project(':material-stepper')
     implementation project(':fluid-swipe')
     implementation project(':takephoto')
     implementation project(':sweet-alert')
