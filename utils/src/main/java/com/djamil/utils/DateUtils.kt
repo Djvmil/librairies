@@ -1,7 +1,7 @@
 package com.djamil.utils
 
 import android.util.Log
-import com.instacart.library.truetime.TrueTime
+import com.djamil.suntelecom.truetime.TrueTime
 import org.joda.time.LocalDate
 import org.joda.time.Months
 import org.joda.time.Years

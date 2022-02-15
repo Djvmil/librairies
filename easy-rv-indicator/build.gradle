@@ -1,16 +1,21 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+}
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdk rootProject.ext.compileSdkVersion
+
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0.1"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
 
+        versionCode rootProject.ext.versionCodeVersion
+        versionName rootProject.ext.versionNameVersion
+        multiDexEnabled true
+
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -29,6 +34,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:30.1.1'
-    implementation "com.google.android.material:material:1.1.0"
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "com.google.android.material:material:1.5.0"
 }

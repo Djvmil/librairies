@@ -1,18 +1,21 @@
-apply plugin: 'com.android.library'
+plugins {
+    id 'com.android.library'
+}
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.1.2"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        versionCode rootProject.ext.versionCodeVersion
+        versionName rootProject.ext.versionNameVersion
+        multiDexEnabled true
+
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-
     }
 
     lintOptions {
@@ -21,5 +24,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.pnikosis:materialish-progress:1.7'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "com.google.android.material:material:1.5.0"
 }

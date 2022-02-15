@@ -11,8 +11,9 @@ import com.djamil.takephoto.listener.DismissListener
 import com.djamil.takephoto.listener.ResultListener
 import com.djamil.takephoto.util.DialogHelper
 import com.github.florent37.inlineactivityresult.kotlin.startForResult
+//import com.google.mlkit.vision.face.FaceDetectorOptions
 import java.io.File
- 
+
 /**
  * @ref https://github.com/Dhaval2404/ImagePicker
  */
@@ -38,6 +39,14 @@ open class TakePhoto {
         internal const val EXTRA_FILE_PATH = "extra.file_path"
         internal const val EXTRA_MIME_TYPES = "extra.mime_types"
 
+        /**
+         * Use this to use ImagePicker in Activity Class
+         *
+         * @param activity Activity Instance
+         */
+//        fun faceIdentity(activity: Activity) {
+//            activity.startActivity(Intent(activity, FaceDetectorActivity::class.java))
+//        }
         /**
          * Use this to use ImagePicker in Activity Class
          *

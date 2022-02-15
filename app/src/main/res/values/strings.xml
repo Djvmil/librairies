@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Librairie</string>
+    <string name="app_name">Librairies</string>
+    <string name="view_flipper_text1">Good Morning!!!</string>
+    <string name="view_flipper_text2">Good Afternoon!!!</string>
+    <string name="view_flipper_text3">Good Evening!!!</string>
+    <string name="view_flipper_text4">Good Night!!!</string>
+    <string name="action_github">Github Repository</string>
+
+    <string name="action_camera_only">Camera Only</string>
+    <string name="action_gallery_only">Gallery Only</string>
+
 </resources>

@@ -1,3 +1,15 @@
-include ':timeline'
-include ':authenticate', ':app', ':app-view-flipper', ':dynamicform', ':utils', ':authenticate_utils', ':contactlist', ':fragmentmanagement', ':fastscroll', ':fluid-swipe', ':pinview', ':spacelib', ':dynamickeyboard', ':sample', ':takephoto', ':sweet-alert', ':easy-rv-indicator', ':sampleEasyRvIndicator'
-rootProject.name='Librairie'
+dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
+
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "Librairies"
+include ':app', ':authenticate', ':authenticate_utils',  ':dynamicform', ':fastscroll', ':utils'
+include ':sweet-alert', ':contactlist', ':easy-rv-indicator', ':takephoto', ':spacelib', ':pinview'
+include ':library', ':library-extension-rx', ':fluid-swipe', ':dynamickeyboard', ':timeline'

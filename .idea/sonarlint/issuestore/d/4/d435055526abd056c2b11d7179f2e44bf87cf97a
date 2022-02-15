@@ -1,6 +1,0 @@
-
-S
-java:S1874%"=Remove this use of "setBackgroundDrawable"; it is deprecated.(µ“áÈ
-P
-java:S1118
-":Add a private constructor to hide the implicit public one.(¼Øûì

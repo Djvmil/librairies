@@ -8,7 +8,7 @@
         android:theme="@style/AppTheme" >
 
         <activity android:name=".activity.AuthenticateActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:launchMode="singleTask"/>
     </application>

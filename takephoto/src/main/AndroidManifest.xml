@@ -9,13 +9,18 @@
 
         <activity android:name="com.djamil.takephoto.TakePhotoActivity"
           android:theme="@style/Theme.Transparent.ImagePicker"
-            android:exported="false"
+            android:exported="true"
+          android:screenOrientation="unspecified"/>
+
+        <activity android:name="com.djamil.takephoto.FaceDetectorActivity"
+          android:theme="@style/Theme.Transparent.ImagePicker"
+            android:exported="true"
           android:screenOrientation="unspecified"/>
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <provider
@@ -29,7 +34,9 @@
                 android:resource="@xml/image_picker_provider_paths" />
 
         </provider>
-
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="true" />
     </application>
 
 </manifest>

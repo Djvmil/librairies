@@ -1,16 +1,22 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
+
+        versionCode rootProject.ext.versionCodeVersion
+        versionName rootProject.ext.versionNameVersion
+        multiDexEnabled true
+
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -23,14 +29,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:support-v4:25.0.1'
-    compile 'com.android.support:design:25.0.1'
-    implementation "androidx.core:core-ktx:1.6.0"
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation "com.google.android.material:material:1.5.0"
+    implementation "androidx.core:core-ktx:1.7.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-repositories {
-    mavenCentral()
-}
- 

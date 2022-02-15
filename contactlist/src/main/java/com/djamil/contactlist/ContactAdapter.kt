@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import cn.pedant.SweetAlert.SweetAlertDialog
-import com.amulyakhare.textdrawable.TextDrawable
-import com.amulyakhare.textdrawable.util.ColorGenerator
+import com.djamil.SweetAlert.SweetAlertDialog
 import com.djamil.contactlist.interfaces.OnClickContactListener
 import com.djamil.contactlist.interfaces.OnMultipleActive
 import com.djamil.fastscroll.SectionTitleProvider
+import com.djamil.utils.TextDrawable
+import com.djamil.utils.util.ColorGenerator
 import java.util.*
 import kotlin.collections.ArrayList
 

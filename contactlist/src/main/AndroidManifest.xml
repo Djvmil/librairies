@@ -5,13 +5,12 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.Librairies">
 
-        <activity android:name=".MainActivity"
-            android:exported="false"/>
         <activity
             android:name=".ContactListActivity"
-            android:exported="false"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:launchMode="singleInstance" >
 

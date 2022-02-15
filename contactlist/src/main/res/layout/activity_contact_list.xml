@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+    android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ContactListActivity">
@@ -13,8 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        style="@style/AppThemeContactListAppBar"
-        android:theme="@style/AppThemeContactList">
+        style="@style/ThemeContactListAppBar"
+        android:theme="@style/ThemeContactList">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,8 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                style="@style/AppThemeContactListToolbar"
-                app:popupTheme="@style/AppThemeContactListToolbar"
+                style="@style/ThemeContactListToolbar"
+                app:popupTheme="@style/ThemeContactListToolbar"
                 android:layout_alignParentLeft="true"/>
             <!--            <TextView-->
             <!--                android:layout_width="wrap_content"-->
@@ -102,7 +102,7 @@
         android:id="@+id/fastscroll"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        style="@style/AppThemeFastScroller"
+        style="@style/ThemeFastScroller"
         android:layout_below="@+id/appbar"
         android:layout_alignBottom="@+id/contact_list"
         android:layout_alignParentEnd="true"

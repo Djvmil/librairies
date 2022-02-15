@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.djamil.dynamicform">
+    package="com.djamil.suntelecom.librairies">
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.PERMISSIONS_STORAGE" />
-    <uses-permission android:name="android.permission.REQUEST_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,22 +11,39 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
         android:name=".App"
-        tools:replace="android:icon">
+        tools:replace="android:theme"
+        android:requestLegacyExternalStorage="true"
+        android:theme="@style/Theme.Librairies">
 
-        <activity android:name="com.djamil.dynamicform.FormulaireActivity"/>
-        <activity android:name=".SampleActivity"
-            android:exported="false"/>
-
-        <activity android:name="com.djamil.dynamicform.MainActivity"
-            android:exported="true"
-            android:launchMode="singleInstance">
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".takephoto.MainActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".sample_easy_rv_ind.MainActivity3"
+            android:exported="true"/>
+
+        <activity
+            android:name=".viewflipperwithindicator.MyActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".FormulaireActivity"
+            android:exported="true"/>
+
+        <activity
+            android:name=".SampleActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
