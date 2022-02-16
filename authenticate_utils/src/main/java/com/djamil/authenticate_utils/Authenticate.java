@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.djamil.authenticate_utils.fingerprint.FingerPrintHandler;
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
 import com.djamil.utils.UtilsFunction;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.KeyStore;
 import java.util.concurrent.Executor;
@@ -49,6 +50,7 @@ public class Authenticate extends RelativeLayout {
     public final static int CODED = 433;
 
     private TextView textView;
+    private TextInputLayout textinput;
     protected static Activity activity;
     private RelativeLayout rootLayout;
     private Button doneBtn;
@@ -63,6 +65,7 @@ public class Authenticate extends RelativeLayout {
     private static final int ZERO = 0;
 
     private boolean isShuffle = true;
+    private boolean useEditText = true;
     private int colorKey = 0;
     private Drawable iconFingerPrint = null;
     private Drawable iconNoFingerPrint = null;
@@ -102,6 +105,7 @@ public class Authenticate extends RelativeLayout {
             iconFingerPrint   = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
             iconNoFingerPrint = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
             backgroundBtn = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
+            useEditText = attr.getBoolean(R.styleable.DynamicKeyBoard_useEditText, true);
 
         } finally {
             attr.recycle();
@@ -122,6 +126,8 @@ public class Authenticate extends RelativeLayout {
         inflater.inflate(R.layout.container_authenticate, this, true);
         rootLayout   = findViewById(R.id.container);
         textView     = findViewById(R.id.textedit);
+        textinput     = findViewById(R.id.textinput);
+        textinput.setVisibility(useEditText ? View.VISIBLE : View.GONE);
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
         doneBtn = findViewById(R.id.done_btn);
         textView.setKeyListener(null);
@@ -165,13 +171,17 @@ public class Authenticate extends RelativeLayout {
     }
 
     private void notifyChange(){
-
         keyBoardAdapter = new KeyBoardAdapter(activity, textView, isShuffle, colorKey, iconBackSpace, iconFingerPrint, iconNoFingerPrint, userFingerPrint);
         recyclerView.setLayoutManager(new GridLayoutManager(activity, 4));
         recyclerView.setAdapter(keyBoardAdapter);
-
         //keyBoardAdapter.shuffleKey();
         keyBoardAdapter.notifyDataSetChanged();
+    }
+
+    public void setEditText(TextView editText){
+        useEditText = false;
+        textinput.setVisibility(View.GONE);
+        textView = editText;
     }
 
     public static Result checkFingerPrint(Activity activity){

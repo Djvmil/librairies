@@ -146,12 +146,24 @@
             android:textStyle="bold"
             android:text="Contact select"/>
 
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_14sdp"
+            android:layout_below="@+id/contact_result"
+            android:gravity="center"
+            android:textSize="@dimen/_15sdp"
+            android:textStyle="bold"
+            android:text="Contact select"/>
+
         <com.djamil.authenticate_utils.Authenticate
             android:id="@+id/dynamic_key"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/contact_result"
+            android:layout_below="@+id/editText"
             app:color_field="@color/colorBlack"
+            app:useEditText="false"
             app:icon_backspace="@drawable/ic_backspace_24dp"
             app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"
             app:background_done_btn="@drawable/bg_btn"

@@ -139,6 +139,8 @@ class MainActivity2 : AppCompatActivity(), OnAuthListener {
         );*/
         contactResult = findViewById(R.id.contact_result)
         authenticate = findViewById(R.id.dynamic_key)
+        val editText = findViewById<EditText>(R.id.editText)
+        authenticate?.setEditText(editText)
         //btnkeyboardview  = findViewById(R.id.keyboard_view1);
 
         //btnkeyboardview  = findViewById(R.id.keyboard_view1);
