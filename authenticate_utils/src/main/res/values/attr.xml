@@ -9,6 +9,7 @@
         <attr name="background_done_btn" format="reference" />
         <attr name="use_another_edit_text" format="boolean" />
         <attr name="edit_text_id" format="reference" />
+        <attr name="is_shuffle" format="boolean" />
         <attr name="gone_valid_btn" format="boolean" />
     </declare-styleable>
 

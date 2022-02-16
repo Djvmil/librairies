@@ -102,14 +102,15 @@ public class Authenticate extends RelativeLayout {
         Log.e(TAG, "Authenticate: color "+colorKey );
 
         try {
-            colorKey          = attr.getColor(R.styleable.DynamicKeyBoard_color_field, ZERO);
-            iconBackSpace     = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_backspace);
-            iconFingerPrint   = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
-            iconNoFingerPrint = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
-            backgroundBtn     = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
+            colorKey           = attr.getColor(R.styleable.DynamicKeyBoard_color_field, ZERO);
+            iconBackSpace      = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_backspace);
+            iconFingerPrint    = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
+            iconNoFingerPrint  = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
+            backgroundBtn      = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
+            isShuffle          = attr.getBoolean(R.styleable.DynamicKeyBoard_is_shuffle, true);
             useAnotherEditText = attr.getBoolean(R.styleable.DynamicKeyBoard_use_another_edit_text, false);
-            goneValidBtn      = attr.getBoolean(R.styleable.DynamicKeyBoard_gone_valid_btn,  false);
-            editTextId        = attr.getResourceId(R.styleable.DynamicKeyBoard_edit_text_id, -1);
+            goneValidBtn       = attr.getBoolean(R.styleable.DynamicKeyBoard_gone_valid_btn,  false);
+            editTextId         = attr.getResourceId(R.styleable.DynamicKeyBoard_edit_text_id, -1);
 
         } finally {
             attr.recycle();
@@ -192,6 +193,11 @@ public class Authenticate extends RelativeLayout {
 
     public void setGoneValidBtn(boolean value){
         useAnotherEditText = value;
+        notifyChange();
+    }
+
+    public void setShuffle(boolean value){
+        isShuffle = value;
         textinput.setVisibility(goneValidBtn ? View.GONE : View.VISIBLE);
     }
 

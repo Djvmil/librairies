@@ -166,6 +166,7 @@
             app:use_another_edit_text="false"
             app:edit_text_id="@+id/editText"
             app:gone_valid_btn="true"
+            app:is_shuffle="true"
             app:icon_backspace="@drawable/ic_backspace_24dp"
             app:icon_fingerprint="@drawable/ic_baseline_fingerprint_24"
             app:background_done_btn="@drawable/bg_btn" />
