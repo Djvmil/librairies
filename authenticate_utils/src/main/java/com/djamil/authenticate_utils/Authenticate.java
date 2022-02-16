@@ -196,6 +196,18 @@ public class Authenticate extends RelativeLayout {
         notifyChange();
     }
 
+    public void recycle(TextView editText, boolean shuffle){
+        setShuffle(shuffle);
+        setEditText(editText);
+        notifyChange();
+    }
+
+    public void recycle(TextView editText, boolean shuffle, boolean goneValidBtn){
+        setShuffle(shuffle);
+        setEditText(editText);
+        setGoneValidBtn(goneValidBtn);
+    }
+
     public void setShuffle(boolean value){
         isShuffle = value;
         textinput.setVisibility(goneValidBtn ? View.GONE : View.VISIBLE);
