@@ -7,7 +7,9 @@
         <attr name="icon_fingerprint" format="reference" />
         <attr name="icon_no_fingerprint" format="reference" />
         <attr name="background_done_btn" format="reference" />
-        <attr name="useEditText" format="boolean" />
+        <attr name="use_another_edit_text" format="boolean" />
+        <attr name="edit_text_id" format="reference" />
+        <attr name="gone_valid_btn" format="boolean" />
     </declare-styleable>
 
 </resources>
