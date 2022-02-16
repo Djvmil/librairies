@@ -177,7 +177,7 @@ public class Authenticate extends RelativeLayout {
         notifyChange();
     }
 
-    private void notifyChange(){
+    public void notifyChange(){
         keyBoardAdapter = new KeyBoardAdapter(activity, textView, isShuffle, colorKey, iconBackSpace, iconFingerPrint, iconNoFingerPrint, userFingerPrint);
         recyclerView.setLayoutManager(new GridLayoutManager(activity, 4));
         recyclerView.setAdapter(keyBoardAdapter);
@@ -189,6 +189,7 @@ public class Authenticate extends RelativeLayout {
         useAnotherEditText = false;
         textinput.setVisibility(View.GONE);
         textView = editText;
+        notifyChange();
     }
 
     public void setGoneValidBtn(boolean value){
@@ -199,7 +200,6 @@ public class Authenticate extends RelativeLayout {
     public void recycle(TextView editText, boolean shuffle){
         setShuffle(shuffle);
         setEditText(editText);
-        notifyChange();
     }
 
     public void recycle(TextView editText, boolean shuffle, boolean goneValidBtn){
