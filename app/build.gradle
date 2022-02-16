@@ -50,7 +50,7 @@ dependencies {
 
     implementation project(':authenticate')
     implementation project(':dynamicform')
-    implementation project(':dynamickeyboard')
+//    implementation project(':dynamickeyboard')
     implementation project(':utils')
     implementation project(':pinview')
     implementation project(':spacelib')

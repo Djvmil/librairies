@@ -10,4 +10,4 @@
 //    }
 //}
 rootProject.name = "Librairies"
-include ':app', ':authenticate', ':authenticate_utils',  ':dynamicform', ':fastscroll', ':utils', ':sweet-alert', ':contactlist', ':easy-rv-indicator', ':takephoto', ':spacelib', ':pinview', ':library', ':library-extension-rx', ':fluid-swipe', ':dynamickeyboard', ':timeline', ':material-stepper'
+include ':app', ':authenticate', ':authenticate_utils',  ':dynamicform', ':fastscroll', ':utils', ':sweet-alert', ':contactlist', ':easy-rv-indicator', ':takephoto', ':spacelib', ':pinview', ':library', ':library-extension-rx', ':fluid-swipe', ':timeline', ':material-stepper'
