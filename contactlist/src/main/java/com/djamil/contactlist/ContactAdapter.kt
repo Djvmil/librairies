@@ -1,6 +1,7 @@
 package com.djamil.contactlist
 
 import android.app.Activity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,9 @@ import kotlin.collections.ArrayList
  */
 class ContactAdapter internal constructor(private val activity: Activity, dataList: ArrayList<ContactsInfo>) : RecyclerView.Adapter<ContactAdapter.ContactVH>(), SectionTitleProvider, Filterable {
     private val dataList: List<ContactsInfo>
+    private val TAG = "ContactAdapter"
+
+
     private var dataListFiltered: List<ContactsInfo>?
     private var letter: String? = null
     private val generator = ColorGenerator.MATERIAL
@@ -27,6 +31,8 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
     var onMultipleActive: OnMultipleActive? = null
     private var sDialog: SweetAlertDialog? = null
     private var isMutiple = false
+    var listphone : List<String>? = null
+
 
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ContactVH {
@@ -38,19 +44,37 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         contactVH.contactName.text = dataListFiltered!![i].displayName
 
 
+
         if (dataListFiltered!![i].phoneNumberList != null) {
             var nums = ""
-            dataListFiltered!![i].phoneNumberList.forEach{ item->
-                nums += item.plus("/")
+
+            for (j in 0 until dataListFiltered!![i].phoneNumberList.size) {
+                Log.e("ContactAdapter", "size list ${dataListFiltered!![i].phoneNumberList.size}" )
+                if(dataListFiltered!![i].phoneNumberList.size == 1){
+                    nums += dataListFiltered!![i].phoneNumberList[0]
+                }else{
+                    if(j==0){
+                        nums += dataListFiltered!![i].phoneNumberList[0]
+                    }
+                    else{
+                        if(dataListFiltered!![i].phoneNumberList[j-1].trim().replace(" ", "").equals(dataListFiltered!![i].phoneNumberList[j].trim().replace(" ", ""))){
+                            j.inc();
+                            dataListFiltered!![i].duplicate= true
+                            dataListFiltered!![i].numberOfduplication= dataListFiltered!![i].numberOfduplication + 1
+                        }else{
+                            nums +="/" +dataListFiltered!![i].phoneNumberList[j]
+
+                        }
+                    }
+                }
             }
-            contactVH.phoneNumber.text = nums.substring(0, nums.length - 1)
+            contactVH.phoneNumber.text = nums.substring(0, nums.length )
             dataListFiltered!![i].phoneNumber = dataListFiltered!![i].phoneNumberList[0]
         }
         //checkCountryCode(dataList.get(i));
 
 //        Get the first letter of list item
         letter = dataListFiltered!![i].displayName[0].toString()
-
 
 //        Create a new TextDrawable for our image's background
         val drawable = TextDrawable.builder().buildRound(letter, generator.randomColor)
@@ -71,11 +95,18 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         }
 
         contactVH.linearLayout.setOnClickListener { v ->
+            Log.e(TAG, "onBindViewHolder: yes 2" )
             if (!isMutiple && ContactList.onClickContactListener != null) {
-                if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1){
+                Log.e(TAG, "onBindViewHolder: yes 3" )
+                if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size == 2 && dataListFiltered!![i].duplicate){
+                    Log.e(TAG, "onBindViewHolder: yes 6" )
+                    activity.finish()
+                    ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
+                }else if(dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1 ) {
+                    Log.e(TAG, "onBindViewHolder: yes 4" )
                     numberChoiceDialog(view = v, position = i, checkBox = contactVH.checkBox)
-
-                }else{
+                }else {
+                    Log.e(TAG, "onBindViewHolder: yes 5" )
                     activity.finish()
                     ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
                 }
