@@ -1,6 +1,7 @@
 package com.djamil.contactlist
 
 import android.app.Activity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,10 +41,27 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
         if (dataListFiltered!![i].phoneNumberList != null) {
             var nums = ""
-            dataListFiltered!![i].phoneNumberList.forEach{ item->
-                nums += item.plus("/")
+            for (j in 0 until dataListFiltered!![i].phoneNumberList.size) {
+                Log.e("ContactAdapter", "size list ${dataListFiltered!![i].phoneNumberList.size}" )
+                if(dataListFiltered!![i].phoneNumberList.size == 1){
+                    nums += dataListFiltered!![i].phoneNumberList[0]
+                }else{
+                    if(j==0){
+                        nums += dataListFiltered!![i].phoneNumberList[0]
+                    }
+                    else{
+                        if(dataListFiltered!![i].phoneNumberList[j-1].trim().replace(" ", "").equals(dataListFiltered!![i].phoneNumberList[j].trim().replace(" ", ""))){
+                            j.inc();
+                            dataListFiltered!![i].duplicate= true
+                            dataListFiltered!![i].numberOfduplication= dataListFiltered!![i].numberOfduplication + 1
+                        }else{
+                            nums +="/" +dataListFiltered!![i].phoneNumberList[j]
+
+                        }
+                    }
+                }
             }
-            contactVH.phoneNumber.text = nums.substring(0, nums.length - 1)
+            contactVH.phoneNumber.text = nums.substring(0, nums.length)
             dataListFiltered!![i].phoneNumber = dataListFiltered!![i].phoneNumberList[0]
         }
         //checkCountryCode(dataList.get(i));
@@ -72,10 +90,12 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
         contactVH.linearLayout.setOnClickListener { v ->
             if (!isMutiple && ContactList.onClickContactListener != null) {
-                if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1){
+                if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size == 2 && dataListFiltered!![i].duplicate){
+                    activity.finish()
+                    ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
+                }else if(dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1 ) {
                     numberChoiceDialog(view = v, position = i, checkBox = contactVH.checkBox)
-
-                }else{
+                }else {
                     activity.finish()
                     ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
                 }
@@ -103,6 +123,7 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
             }
         }
     }
+
 
     fun cleanSelect(){
         isMutiple = false

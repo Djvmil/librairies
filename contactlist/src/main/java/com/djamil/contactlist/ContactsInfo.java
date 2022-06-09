@@ -13,6 +13,8 @@ public class ContactsInfo {
     private String phoneNumber;
     private List<String> phoneNumberList;
     private Boolean checked = false;
+    private Boolean duplicate = false;
+    private int numberOfduplication = 0;
 
     public ContactsInfo() {
     }
@@ -23,6 +25,20 @@ public class ContactsInfo {
         this.phoneNumberList = phoneNumberList;
     }
 
+    public int getNumberOfduplication() {
+        return numberOfduplication;
+    }
+
+    public void setNumberOfduplication(int numberOfduplication) {
+        this.numberOfduplication = numberOfduplication;
+    }
+    public Boolean getDuplicate() {
+        return duplicate;
+    }
+
+    public void setDuplicate(Boolean duplicate) {
+        this.duplicate = duplicate;
+    }
     public String getContactId() {
         return contactId;
     }

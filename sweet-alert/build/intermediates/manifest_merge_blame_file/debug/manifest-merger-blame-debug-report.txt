@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="17"
-8-->/home/suntelecoms/Bureau/projects/Librairies/sweet-alert/src/main/AndroidManifest.xml
+8-->C:\Users\niang\Documents\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="31" />
-9-->/home/suntelecoms/Bureau/projects/Librairies/sweet-alert/src/main/AndroidManifest.xml
+9-->C:\Users\niang\Documents\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml
 10
 11</manifest>
