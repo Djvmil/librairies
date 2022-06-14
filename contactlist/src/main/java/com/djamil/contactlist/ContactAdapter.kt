@@ -50,7 +50,19 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                         nums += dataListFiltered!![i].phoneNumberList[0]
                     }
                     else{
-                        if(dataListFiltered!![i].phoneNumberList[j-1].trim().replace(" ", "").equals(dataListFiltered!![i].phoneNumberList[j].trim().replace(" ", ""))){
+                        var firstNumber = ""
+                        var secondNumber = ""
+                        if(dataListFiltered!![i].phoneNumberList[j-1].contains("+")){
+                            firstNumber = dataListFiltered!![i].phoneNumberList[j-1].substring(1)
+                        }else{
+                            firstNumber = dataListFiltered!![i].phoneNumberList[j-1]
+                        }
+                        if(dataListFiltered!![i].phoneNumberList[j].contains("+")){
+                            secondNumber = dataListFiltered!![i].phoneNumberList[j].substring(1)
+                        }else{
+                            secondNumber = dataListFiltered!![i].phoneNumberList[j]
+                        }
+                        if(firstNumber.trim().replace(" ", "").equals(secondNumber.trim().replace(" ", ""))){
                             j.inc();
                             dataListFiltered!![i].duplicate= true
                             dataListFiltered!![i].numberOfduplication= dataListFiltered!![i].numberOfduplication + 1
@@ -73,7 +85,6 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 //        Create a new TextDrawable for our image's background
         val drawable = TextDrawable.builder().buildRound(letter, generator.randomColor)
         contactVH.letter.setImageDrawable(drawable)
-
 
         contactVH.checkBox.visibility = if (isMutiple) View.VISIBLE else View.GONE
         contactVH.checkBox.isChecked = dataListFiltered!![i].checked
@@ -209,10 +220,43 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
         }
 
+        var newList : List<String> =  ArrayList()
+        for (j in 0 until contactsInfo!!.phoneNumberList.size) {
+            if(j==0){
+                newList += contactsInfo!!.phoneNumberList[0]
+            }else{
+                Log.e("ContactAdapter", "list phoneNumber ${contactsInfo!!.phoneNumberList}" )
+                var firstNumber = ""
+                var secondNumber = ""
+                if(contactsInfo!!.phoneNumberList[j-1].contains("+")){
+                    firstNumber = contactsInfo!!.phoneNumberList[j-1].substring(1)
+                    Log.e("ContactAdapter", "onBindViewHolder: firstNumber with  ${contactsInfo!!.phoneNumberList[j-1]}", )
+                    Log.e("ContactAdapter", "onBindViewHolder: firstNumber $firstNumber", )
+                }else{
+                    firstNumber = contactsInfo!!.phoneNumberList[j-1]
+                }
+                if(contactsInfo!!.phoneNumberList[j].contains("+")){
+                    secondNumber = contactsInfo!!.phoneNumberList[j].substring(1)
+                    Log.e("ContactAdapter", "onBindViewHolder: second with  ${contactsInfo!!.phoneNumberList[j]}", )
+                    Log.e("ContactAdapter", "onBindViewHolder: second $secondNumber" )
+                }else{
+                    secondNumber = contactsInfo!!.phoneNumberList[j]
+                }
+                if(firstNumber.trim().replace(" ", "").equals(secondNumber.trim().replace(" ", ""))){
+                    j.inc();
+                }else{
+                    newList += contactsInfo!!.phoneNumberList[j]
+
+                }
+            }
+
+        }
+
+
         val layout = activity.layoutInflater.inflate(R.layout.layout_number_list, null)
 
         val listView = layout.findViewById<ListView>(R.id.list_item)
-        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, contactsInfo!!.phoneNumberList)
+        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, newList)
         listView.adapter = adapter
 
         sDialog?.setCustomView(layout)
