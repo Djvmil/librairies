@@ -293,7 +293,7 @@ class AuthenticateActivity : AppCompatActivity() {
             if (closeAfterAttempts){
                 setResult(Activity.RESULT_OK)
                 finish()
-                onAuthListener?.onSuccess(pin, authWithFinger = false, success = true)
+                onAuthListener?.onSuccess(pin, authWithFinger = false, success = false)
             }
             pinlockView!!.resetPinLockView()
 
