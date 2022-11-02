@@ -67,6 +67,7 @@ public class ContactsInfo {
         this.indicatif = indicatif;
     }
 
+
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }

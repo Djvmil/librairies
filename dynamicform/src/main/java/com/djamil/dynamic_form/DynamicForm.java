@@ -940,7 +940,7 @@ public class DynamicForm extends NestedScrollView {
         String value = null;
 
         for(int i = ZERO; i < listIOField.size(); i++){
-            String value = null;
+            value = null;
             switch (listIOField.get(i).getType()){
 
                 case INPUT_TYPE_DF.Country  : value =  ((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedCountryName();
