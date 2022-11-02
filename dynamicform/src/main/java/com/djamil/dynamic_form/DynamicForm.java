@@ -940,6 +940,7 @@ public class DynamicForm extends NestedScrollView {
         String value = null;
 
         for(int i = ZERO; i < listIOField.size(); i++){
+            String value = null;
             switch (listIOField.get(i).getType()){
 
                 case INPUT_TYPE_DF.Country  : value =  ((CountryCodePicker)rootLayout.findViewById(listIOField.get(i).getIdView())).getSelectedCountryName();
@@ -991,7 +992,8 @@ public class DynamicForm extends NestedScrollView {
                 Log.w(TAG, "Le champ "+ listIOField.get(i).getLabel()+" \nest obligatoire" );
             //throw new EmptyValueException(listForms.get(i).getLabel());
 
-            listIOField.get(i).setValue(value);
+            if(value != null)
+                listIOField.get(i).setValue(value);
         }
 
         return listIOField;

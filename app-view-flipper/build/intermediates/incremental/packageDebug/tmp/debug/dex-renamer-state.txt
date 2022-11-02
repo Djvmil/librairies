@@ -1,0 +1,7 @@
+#Wed Nov 02 10:54:55 GMT 2022
+base.0=/home/suntelecom/Bureau/librairies/app-view-flipper/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/home/suntelecom/Bureau/librairies/app-view-flipper/build/intermediates/dex/debug/mergeDexDebug/classes2.dex

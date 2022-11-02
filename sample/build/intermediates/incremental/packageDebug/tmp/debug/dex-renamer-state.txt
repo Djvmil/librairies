@@ -1,0 +1,4 @@
+#Wed Nov 02 10:54:49 GMT 2022
+base.0=/home/suntelecom/Bureau/librairies/sample/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

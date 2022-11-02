@@ -1,0 +1,202 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.djamil.imagepicker.sample"
+4    android:versionCode="14"
+5    android:versionName="1.8" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="17"
+8-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:5:5-67
+11-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:5:22-64
+12    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+12-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:5-80
+12-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:11:22-77
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- To allow starting foreground services on Android P+ - https://developer.android.com/preview/behavior-changes#fg-svc -->
+13-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-81
+13-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-78
+14    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+14-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:26:5-77
+14-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:26:22-74
+15
+16    <application
+16-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:7:5-26:19
+17        android:allowBackup="true"
+17-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:8:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.2.0] /root/.gradle/caches/transforms-2/files-2.1/97d63f7885964359066547637ec95ca0/core-1.2.0/AndroidManifest.xml:24:18-86
+19        android:debuggable="true"
+20        android:fullBackupContent="false"
+20-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:9:9-42
+21        android:icon="@mipmap/ic_launcher"
+21-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:10:9-43
+22        android:label="@string/app_name"
+22-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:11:9-41
+23        android:requestLegacyExternalStorage="true"
+23-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:14:9-52
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:12:9-54
+25        android:supportsRtl="true"
+25-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:13:9-35
+26        android:theme="@style/AppTheme" >
+26-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:15:9-40
+27        <activity
+27-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:16:9-25:20
+28            android:name="com.djamil.takephoto.sample.MainActivity"
+28-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:17:13-68
+29            android:exported="true"
+29-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:19:13-36
+30            android:label="@string/app_name"
+30-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:18:13-45
+31            android:theme="@style/AppTheme.NoActionBar" >
+31-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:20:13-56
+32            <intent-filter>
+32-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:21:13-24:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:22:17-69
+33-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:22:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:23:17-77
+35-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:23:27-74
+36            </intent-filter>
+37        </activity>
+38
+39        <service
+39-->[com.squareup.leakcanary:leakcanary-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/4a47c6d58c0b828f861879c857c17db4/jetified-leakcanary-android-2.0/AndroidManifest.xml:23:9-25:40
+40            android:name="leakcanary.internal.HeapAnalyzerService"
+40-->[com.squareup.leakcanary:leakcanary-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/4a47c6d58c0b828f861879c857c17db4/jetified-leakcanary-android-2.0/AndroidManifest.xml:24:13-67
+41            android:exported="false" />
+41-->[com.squareup.leakcanary:leakcanary-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/4a47c6d58c0b828f861879c857c17db4/jetified-leakcanary-android-2.0/AndroidManifest.xml:25:13-37
+42
+43        <activity
+43-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:15:9-19:68
+44            android:name="com.djamil.takephoto.TakePhotoActivity"
+44-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-66
+45            android:exported="false"
+45-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-37
+46            android:screenOrientation="unspecified"
+46-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:18:13-52
+47            android:theme="@style/Theme.Transparent.ImagePicker" />
+47-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:19:13-65
+48        <activity
+48-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:20:9-24:72
+49            android:name="com.yalantis.ucrop.UCropActivity"
+49-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:21:13-60
+50            android:exported="false"
+50-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:22:13-37
+51            android:screenOrientation="portrait"
+51-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:23:13-49
+52            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+52-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:24:13-69
+53
+54        <provider
+54-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:26:9-34:20
+55            android:name="com.djamil.takephoto.TakePhotoFileProvider"
+55-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:27:13-70
+56            android:authorities="com.djamil.imagepicker.sample.imagepicker.provider"
+56-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:28:13-72
+57            android:exported="false"
+57-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:29:13-37
+58            android:grantUriPermissions="true" >
+58-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:30:13-47
+59            <meta-data
+59-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-33:71
+60                android:name="android.support.FILE_PROVIDER_PATHS"
+60-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:17-67
+61                android:resource="@xml/image_picker_provider_paths" />
+61-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:17-68
+62        </provider>
+63        <provider
+63-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:29:9-37:20
+64            android:name="leakcanary.internal.LeakCanaryFileProvider"
+64-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:30:13-70
+65            android:authorities="com.squareup.leakcanary.fileprovider.com.djamil.imagepicker.sample"
+65-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:31:13-88
+66            android:exported="false"
+66-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:32:13-37
+67            android:grantUriPermissions="true" >
+67-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:33:13-47
+68            <meta-data
+68-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:31:13-33:71
+69                android:name="android.support.FILE_PROVIDER_PATHS"
+69-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:32:17-67
+70                android:resource="@xml/leak_canary_file_paths" />
+70-->[:takephoto] /home/suntelecom/Bureau/librairies/takephoto/build/intermediates/library_manifest/debug/AndroidManifest.xml:33:17-68
+71        </provider>
+72
+73        <activity
+73-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:39:9-44:66
+74            android:name="leakcanary.internal.activity.LeakActivity"
+74-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:40:13-69
+75            android:icon="@mipmap/leak_canary_icon"
+75-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:41:13-52
+76            android:label="@string/leak_canary_display_activity_label"
+76-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:42:13-71
+77            android:taskAffinity="com.squareup.leakcanary.com.djamil.imagepicker.sample"
+77-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:43:13-76
+78            android:theme="@style/leak_canary_LeakCanary.Base" />
+78-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:44:13-63
+79
+80        <activity-alias
+80-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:46:9-59:26
+81            android:name="leakcanary.internal.activity.LeakLauncherActivity"
+81-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:47:13-77
+82            android:enabled="@bool/leak_canary_add_launcher_icon"
+82-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:48:13-66
+83            android:icon="@mipmap/leak_canary_icon"
+83-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:49:13-52
+84            android:label="@string/leak_canary_display_activity_label"
+84-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:50:13-71
+85            android:targetActivity="leakcanary.internal.activity.LeakActivity"
+85-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:51:13-79
+86            android:taskAffinity="com.squareup.leakcanary.com.djamil.imagepicker.sample"
+86-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:52:13-76
+87            android:theme="@style/leak_canary_LeakCanary.Base" >
+87-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:53:13-63
+88            <intent-filter>
+88-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:21:13-24:29
+89                <action android:name="android.intent.action.MAIN" />
+89-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:22:17-69
+89-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:22:25-66
+90
+91                <category android:name="android.intent.category.LAUNCHER" />
+91-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:23:17-77
+91-->/home/suntelecom/Bureau/librairies/sample/src/main/AndroidManifest.xml:23:27-74
+92            </intent-filter>
+93        </activity-alias>
+94
+95        <activity
+95-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:61:9-67:68
+96            android:name="leakcanary.internal.RequestStoragePermissionActivity"
+96-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:62:13-80
+97            android:excludeFromRecents="true"
+97-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:63:13-46
+98            android:icon="@mipmap/leak_canary_icon"
+98-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:64:13-52
+99            android:label="@string/leak_canary_storage_permission_activity_label"
+99-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:65:13-82
+100            android:taskAffinity="com.squareup.leakcanary.com.djamil.imagepicker.sample"
+100-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:66:13-76
+101            android:theme="@style/leak_canary_Theme.Transparent" />
+101-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:67:13-65
+102
+103        <receiver android:name="leakcanary.internal.NotificationReceiver" />
+103-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:69:9-77
+103-->[com.squareup.leakcanary:leakcanary-android-core:2.0] /root/.gradle/caches/transforms-2/files-2.1/f2b703f5ba75a31e7ae73db1b4367e46/jetified-leakcanary-android-core-2.0/AndroidManifest.xml:69:19-74
+104
+105        <provider
+105-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/7c389afaa83b0ff9cc683b7cd9e4bbfb/jetified-leakcanary-object-watcher-android-2.0/AndroidManifest.xml:8:9-11:40
+106            android:name="leakcanary.internal.AppWatcherInstaller$MainProcess"
+106-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/7c389afaa83b0ff9cc683b7cd9e4bbfb/jetified-leakcanary-object-watcher-android-2.0/AndroidManifest.xml:9:13-79
+107            android:authorities="com.djamil.imagepicker.sample.leakcanary-installer"
+107-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/7c389afaa83b0ff9cc683b7cd9e4bbfb/jetified-leakcanary-object-watcher-android-2.0/AndroidManifest.xml:10:13-72
+108            android:exported="false" />
+108-->[com.squareup.leakcanary:leakcanary-object-watcher-android:2.0] /root/.gradle/caches/transforms-2/files-2.1/7c389afaa83b0ff9cc683b7cd9e4bbfb/jetified-leakcanary-object-watcher-android-2.0/AndroidManifest.xml:11:13-37
+109    </application>
+110
+111</manifest>

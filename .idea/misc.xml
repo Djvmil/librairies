@@ -4,11 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../../layout/custom_preview.xml" value="0.1" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="..\:/Users/Suntelecoms/Desktop/Suntelecoms/librairies/authenticate_utils/src/main/res/layout/container_authenticate.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Suntelecoms/Desktop/Suntelecoms/librairies/authenticate_utils/src/main/res/layout/item_key.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Suntelecoms/Desktop/Suntelecoms/librairies/contactlist/src/main/res/layout/contact_list_item.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Suntelecoms/Desktop/Suntelecoms/librairies/dynamicform/src/main/res/layout/label_text.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/niang/Documents/Suntelecoms/librairies/dynamicform/src/main/res/drawable/ic_calandar.xml" value="0.131" />
         <entry key="app-view-flipper/src/main/res/layout/activity_my.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/sample_activity.xml" value="0.1" />
@@ -74,7 +74,7 @@
       </value>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
