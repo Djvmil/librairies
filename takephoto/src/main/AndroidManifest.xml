@@ -12,10 +12,10 @@
             android:exported="true"
           android:screenOrientation="unspecified"/>
 
-        <activity android:name="com.djamil.takephoto.FaceDetectorActivity"
-          android:theme="@style/Theme.Transparent.ImagePicker"
-            android:exported="true"
-          android:screenOrientation="unspecified"/>
+<!--        <activity android:name="com.djamil.takephoto.FaceDetectorActivity"-->
+<!--          android:theme="@style/Theme.Transparent.ImagePicker"-->
+<!--            android:exported="true"-->
+<!--          android:screenOrientation="unspecified"/>-->
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

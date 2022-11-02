@@ -82,6 +82,7 @@
             android:enabled="@bool/leak_canary_add_launcher_icon"
             android:icon="@mipmap/leak_canary_icon"
             android:label="@string/leak_canary_display_activity_label"
+            android:exported="true"
             android:targetActivity="leakcanary.internal.activity.LeakActivity"
             android:taskAffinity="com.squareup.leakcanary.com.djamil.imagepicker.sample"
             android:theme="@style/leak_canary_LeakCanary.Base" >

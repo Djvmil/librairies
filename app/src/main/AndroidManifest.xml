@@ -18,7 +18,7 @@
 
         <activity
             android:name=".MainActivity2"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,18 +28,18 @@
 
         <activity
             android:name=".takephoto.MainActivity"
-            android:exported="true"/>
+            android:exported="false"/>
         <activity
             android:name=".sample_easy_rv_ind.MainActivity3"
-            android:exported="true"/>
+            android:exported="false"/>
 
         <activity
             android:name=".viewflipperwithindicator.MyActivity"
-            android:exported="true"/>
+            android:exported="false"/>
 
         <activity
             android:name=".FormulaireActivity"
-            android:exported="true"/>
+            android:exported="false"/>
 
         <activity
             android:name=".SampleActivity"
