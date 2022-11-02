@@ -1,7 +1,0 @@
-
-“
-java:S1319+"xThe type of the "ioFieldsItems" object should be an interface such as "List" rather than the implementation "ArrayList".(Ä«ßüÿÿÿÿ
-w
-java:S1488"aImmediately return this expression instead of assigning it to the temporary variable "valFormat".(ÔıÚ¸
-P
-java:S1118":Add a private constructor to hide the implicit public one.(¼Øûì

@@ -29,9 +29,7 @@
             android:layout_height="wrap_content"
             android:text="8h"
             android:textSize="13sp"
-            android:textColor="@color/line_verticale_color"
-            app:layout_constraintBottom_toTopOf="@+id/view1"
-            app:layout_constraintStart_toStartOf="@+id/view1" />
+            android:textColor="@color/line_verticale_color" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -48,9 +46,7 @@
                 android:id="@+id/verticale_line"
                 android:layout_width="2dp"
                 android:layout_height="32dp"
-                android:background="@color/line_verticale_color"
-                app:layout_constraintStart_toEndOf="@+id/view4"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:background="@color/line_verticale_color"/>
 
             <View
                 android:id="@+id/view2"

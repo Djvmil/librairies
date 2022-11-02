@@ -29,7 +29,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.djamil.contactlist.interfaces.OnMultipleActive;
 import com.djamil.fastscroll.FastScroller;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -173,6 +172,7 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSIONS_REQUEST_READ_CONTACTS: {
                 if (grantResults.length > 0
@@ -204,39 +204,39 @@ public class ContactListActivity extends AppCompatActivity implements OnMultiple
         return super.onOptionsItemSelected(item);
     }
 
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-
+        getMenuInflater().inflate(R.menu.menu_contact_list, menu);
         action_menu = menu.findItem(R.id.action_validate);
 
-        // Associate searchable configuration with the SearchView
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+        try {
+            // Associate searchable configuration with the SearchView
+            SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+            searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
 
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+            searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-        searchView.setMaxWidth(Integer.MAX_VALUE);
+            searchView.setMaxWidth(Integer.MAX_VALUE);
 
-        // listening to search query text change
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                // filter recycler view when query submitted
-                adapter.getFilter().filter(query);
-                return false;
-            }
+            // listening to search query text change
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    // filter recycler view when query submitted
+                    adapter.getFilter().filter(query);
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String query) {
-                // filter recycler view when text is changed
-                adapter.getFilter().filter(query);
-                return false;
-            }
-        });
+                @Override
+                public boolean onQueryTextChange(String query) {
+                    // filter recycler view when text is changed
+                    adapter.getFilter().filter(query);
+                    return false;
+                }
+            });
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
 
 //        ImageView view = (ImageView) menu.findItem(R.id.action_validate).getActionView();
 //        view.setOnClickListener(new View.OnClickListener() {

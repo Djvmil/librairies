@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.djamil.authenticate_utils.fingerprint.FingerPrintHandler;
 import com.djamil.authenticate_utils.interfaces.OnResultAuth;
 import com.djamil.utils.UtilsFunction;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.KeyStore;
 import java.util.concurrent.Executor;
@@ -49,8 +50,9 @@ public class Authenticate extends RelativeLayout {
     public final static int CODED = 433;
 
     private TextView textView;
+    private TextInputLayout textinput;
     protected static Activity activity;
-    private RelativeLayout rootLayout;
+    private RelativeLayout rootLayout, relative;
     private Button doneBtn;
     private LayoutInflater inflater;
     private RecyclerView recyclerView;
@@ -63,6 +65,9 @@ public class Authenticate extends RelativeLayout {
     private static final int ZERO = 0;
 
     private boolean isShuffle = true;
+    private boolean useAnotherEditText = false;
+    private boolean goneValidBtn = false;
+    private int editTextId = -1;
     private int colorKey = 0;
     private Drawable iconFingerPrint = null;
     private Drawable iconNoFingerPrint = null;
@@ -97,11 +102,15 @@ public class Authenticate extends RelativeLayout {
         Log.e(TAG, "Authenticate: color "+colorKey );
 
         try {
-            colorKey          = attr.getColor(R.styleable.DynamicKeyBoard_color_field, ZERO);
-            iconBackSpace     = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_backspace);
-            iconFingerPrint   = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
-            iconNoFingerPrint = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
-            backgroundBtn = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
+            colorKey           = attr.getColor(R.styleable.DynamicKeyBoard_color_field, ZERO);
+            iconBackSpace      = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_backspace);
+            iconFingerPrint    = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_fingerprint);
+            iconNoFingerPrint  = attr.getDrawable(R.styleable.DynamicKeyBoard_icon_no_fingerprint);
+            backgroundBtn      = attr.getDrawable(R.styleable.DynamicKeyBoard_background_done_btn);
+            isShuffle          = attr.getBoolean(R.styleable.DynamicKeyBoard_is_shuffle, true);
+            useAnotherEditText = attr.getBoolean(R.styleable.DynamicKeyBoard_use_another_edit_text, false);
+            goneValidBtn       = attr.getBoolean(R.styleable.DynamicKeyBoard_gone_valid_btn,  false);
+            editTextId         = attr.getResourceId(R.styleable.DynamicKeyBoard_edit_text_id, -1);
 
         } finally {
             attr.recycle();
@@ -122,8 +131,12 @@ public class Authenticate extends RelativeLayout {
         inflater.inflate(R.layout.container_authenticate, this, true);
         rootLayout   = findViewById(R.id.container);
         textView     = findViewById(R.id.textedit);
+        textinput     = findViewById(R.id.textinput);
+        textinput.setVisibility(useAnotherEditText ? View.GONE : View.VISIBLE);
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
+        relative = findViewById(R.id.relative);
         doneBtn = findViewById(R.id.done_btn);
+        relative.setVisibility(goneValidBtn ? View.GONE : View.VISIBLE);
         textView.setKeyListener(null);
         doneBtn.setBackground(backgroundBtn);
 
@@ -164,14 +177,40 @@ public class Authenticate extends RelativeLayout {
         notifyChange();
     }
 
-    private void notifyChange(){
-
+    public void notifyChange(){
         keyBoardAdapter = new KeyBoardAdapter(activity, textView, isShuffle, colorKey, iconBackSpace, iconFingerPrint, iconNoFingerPrint, userFingerPrint);
         recyclerView.setLayoutManager(new GridLayoutManager(activity, 4));
         recyclerView.setAdapter(keyBoardAdapter);
-
         //keyBoardAdapter.shuffleKey();
         keyBoardAdapter.notifyDataSetChanged();
+    }
+
+    public void setEditText(TextView editText){
+        useAnotherEditText = false;
+        textinput.setVisibility(View.GONE);
+        textView = editText;
+        notifyChange();
+    }
+
+    public void setGoneValidBtn(boolean value){
+        useAnotherEditText = value;
+        notifyChange();
+    }
+
+    public void recycle(TextView editText, boolean shuffle){
+        setShuffle(shuffle);
+        setEditText(editText);
+    }
+
+    public void recycle(TextView editText, boolean shuffle, boolean goneValidBtn){
+        setShuffle(shuffle);
+        setEditText(editText);
+        setGoneValidBtn(goneValidBtn);
+    }
+
+    public void setShuffle(boolean value){
+        isShuffle = value;
+        textinput.setVisibility(goneValidBtn ? View.GONE : View.VISIBLE);
     }
 
     public static Result checkFingerPrint(Activity activity){

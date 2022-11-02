@@ -1,0 +1,4 @@
+#Wed Nov 02 10:54:16 GMT 2022
+base.0=/home/suntelecom/Bureau/librairies/sampleEasyRvIndicator/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

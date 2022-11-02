@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import cn.pedant.SweetAlert.SweetAlertDialog
-import com.amulyakhare.textdrawable.TextDrawable
-import com.amulyakhare.textdrawable.util.ColorGenerator
+import com.djamil.SweetAlert.SweetAlertDialog
 import com.djamil.contactlist.interfaces.OnClickContactListener
 import com.djamil.contactlist.interfaces.OnMultipleActive
 import com.djamil.fastscroll.SectionTitleProvider
+import com.djamil.utils.TextDrawable
+import com.djamil.utils.util.ColorGenerator
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -21,9 +21,6 @@ import kotlin.collections.ArrayList
  */
 class ContactAdapter internal constructor(private val activity: Activity, dataList: ArrayList<ContactsInfo>) : RecyclerView.Adapter<ContactAdapter.ContactVH>(), SectionTitleProvider, Filterable {
     private val dataList: List<ContactsInfo>
-    private val TAG = "ContactAdapter"
-
-
     private var dataListFiltered: List<ContactsInfo>?
     private var letter: String? = null
     private val generator = ColorGenerator.MATERIAL
@@ -31,8 +28,6 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
     var onMultipleActive: OnMultipleActive? = null
     private var sDialog: SweetAlertDialog? = null
     private var isMutiple = false
-    var listphone : List<String>? = null
-
 
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ContactVH {
@@ -44,10 +39,8 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         contactVH.contactName.text = dataListFiltered!![i].displayName
 
 
-
         if (dataListFiltered!![i].phoneNumberList != null) {
             var nums = ""
-
             for (j in 0 until dataListFiltered!![i].phoneNumberList.size) {
                 Log.e("ContactAdapter", "size list ${dataListFiltered!![i].phoneNumberList.size}" )
                 if(dataListFiltered!![i].phoneNumberList.size == 1){
@@ -57,7 +50,19 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                         nums += dataListFiltered!![i].phoneNumberList[0]
                     }
                     else{
-                        if(dataListFiltered!![i].phoneNumberList[j-1].trim().replace(" ", "").equals(dataListFiltered!![i].phoneNumberList[j].trim().replace(" ", ""))){
+                        var firstNumber = ""
+                        var secondNumber = ""
+                        if(dataListFiltered!![i].phoneNumberList[j-1].contains("+")){
+                            firstNumber = dataListFiltered!![i].phoneNumberList[j-1].substring(1)
+                        }else{
+                            firstNumber = dataListFiltered!![i].phoneNumberList[j-1]
+                        }
+                        if(dataListFiltered!![i].phoneNumberList[j].contains("+")){
+                            secondNumber = dataListFiltered!![i].phoneNumberList[j].substring(1)
+                        }else{
+                            secondNumber = dataListFiltered!![i].phoneNumberList[j]
+                        }
+                        if(firstNumber.trim().replace(" ", "").equals(secondNumber.trim().replace(" ", ""))){
                             j.inc();
                             dataListFiltered!![i].duplicate= true
                             dataListFiltered!![i].numberOfduplication= dataListFiltered!![i].numberOfduplication + 1
@@ -68,7 +73,7 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
                     }
                 }
             }
-            contactVH.phoneNumber.text = nums.substring(0, nums.length )
+            contactVH.phoneNumber.text = nums.substring(0, nums.length)
             dataListFiltered!![i].phoneNumber = dataListFiltered!![i].phoneNumberList[0]
         }
         //checkCountryCode(dataList.get(i));
@@ -76,10 +81,10 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 //        Get the first letter of list item
         letter = dataListFiltered!![i].displayName[0].toString()
 
+
 //        Create a new TextDrawable for our image's background
         val drawable = TextDrawable.builder().buildRound(letter, generator.randomColor)
         contactVH.letter.setImageDrawable(drawable)
-
 
         contactVH.checkBox.visibility = if (isMutiple) View.VISIBLE else View.GONE
         contactVH.checkBox.isChecked = dataListFiltered!![i].checked
@@ -95,18 +100,13 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
         }
 
         contactVH.linearLayout.setOnClickListener { v ->
-            Log.e(TAG, "onBindViewHolder: yes 2" )
             if (!isMutiple && ContactList.onClickContactListener != null) {
-                Log.e(TAG, "onBindViewHolder: yes 3" )
                 if (dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size == 2 && dataListFiltered!![i].duplicate){
-                    Log.e(TAG, "onBindViewHolder: yes 6" )
                     activity.finish()
                     ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
                 }else if(dataListFiltered!![i].phoneNumberList != null && dataListFiltered!![i].phoneNumberList.size > 1 ) {
-                    Log.e(TAG, "onBindViewHolder: yes 4" )
                     numberChoiceDialog(view = v, position = i, checkBox = contactVH.checkBox)
                 }else {
-                    Log.e(TAG, "onBindViewHolder: yes 5" )
                     activity.finish()
                     ContactList.onClickContactListener?.onClickContact(v, dataListFiltered!![i])
                 }
@@ -134,6 +134,7 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
             }
         }
     }
+
 
     fun cleanSelect(){
         isMutiple = false
@@ -219,10 +220,43 @@ class ContactAdapter internal constructor(private val activity: Activity, dataLi
 
         }
 
+        var newList : List<String> =  ArrayList()
+        for (j in 0 until contactsInfo!!.phoneNumberList.size) {
+            if(j==0){
+                newList += contactsInfo!!.phoneNumberList[0]
+            }else{
+                Log.e("ContactAdapter", "list phoneNumber ${contactsInfo!!.phoneNumberList}" )
+                var firstNumber = ""
+                var secondNumber = ""
+                if(contactsInfo!!.phoneNumberList[j-1].contains("+")){
+                    firstNumber = contactsInfo!!.phoneNumberList[j-1].substring(1)
+                    Log.e("ContactAdapter", "onBindViewHolder: firstNumber with  ${contactsInfo!!.phoneNumberList[j-1]}", )
+                    Log.e("ContactAdapter", "onBindViewHolder: firstNumber $firstNumber", )
+                }else{
+                    firstNumber = contactsInfo!!.phoneNumberList[j-1]
+                }
+                if(contactsInfo!!.phoneNumberList[j].contains("+")){
+                    secondNumber = contactsInfo!!.phoneNumberList[j].substring(1)
+                    Log.e("ContactAdapter", "onBindViewHolder: second with  ${contactsInfo!!.phoneNumberList[j]}", )
+                    Log.e("ContactAdapter", "onBindViewHolder: second $secondNumber" )
+                }else{
+                    secondNumber = contactsInfo!!.phoneNumberList[j]
+                }
+                if(firstNumber.trim().replace(" ", "").equals(secondNumber.trim().replace(" ", ""))){
+                    j.inc();
+                }else{
+                    newList += contactsInfo!!.phoneNumberList[j]
+
+                }
+            }
+
+        }
+
+
         val layout = activity.layoutInflater.inflate(R.layout.layout_number_list, null)
 
         val listView = layout.findViewById<ListView>(R.id.list_item)
-        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, contactsInfo!!.phoneNumberList)
+        val adapter = ArrayAdapter(activity, android.R.layout.simple_list_item_1, newList)
         listView.adapter = adapter
 
         sDialog?.setCustomView(layout)

@@ -1,15 +1,26 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'maven'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'maven'
+}
+
+//apply from: '../material-stepper/code_coverage.gradle'
+//apply from: '../config/quality/quality.gradle'
 
 android {
-    compileSdkVersion project.androidCompileSdkVersion
-    buildToolsVersion("30.0.3")
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion project.androidMinSdkVersion
-        targetSdkVersion project.androidTargetSdkVersion
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        versionCode rootProject.ext.versionCodeVersion
+        versionName rootProject.ext.versionNameVersion
+        multiDexEnabled true
+
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -21,7 +32,17 @@ android {
             testCoverageEnabled true
         }
     }
-
+//
+//    testOptions {
+//        //workaround so that code coverage is working with Robolectric: http://stackoverflow.com/a/35769943/973379
+//        unitTests.all {
+//            jacoco {
+//                includeNoLocationClasses = true
+//            }
+//        }
+//        //fixes https://github.com/robolectric/robolectric/issues/3169#issuecomment-312046322
+//        unitTests.includeAndroidResources = true
+//    }
 
     lintOptions {
         warningsAsErrors true
@@ -30,16 +51,20 @@ android {
 }
 
 dependencies {
-    api "com.android.support:appcompat-v7:$androidSupportLibraryVersion"
+    implementation "androidx.core:core-ktx:1.7.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    testImplementation "junit:junit:$junitVersion"
-    testImplementation "org.mockito:mockito-core:$mockitoVersion"
-    testImplementation "com.squareup.assertj:assertj-android:$assertjVersion"
-    testImplementation("org.robolectric:robolectric:$robolectricVersion") {
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+
+    implementation "com.google.android.material:material:1.5.0"
+
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.mockito:mockito-core:3.12.4"
+    testImplementation "com.squareup.assertj:assertj-android:1.1.1"
+    testImplementation("org.robolectric:robolectric:4.6.1") {
         exclude group: 'commons-logging', module: 'commons-logging'
         exclude group: 'org.apache.httpcomponents', module: 'httpclient'
     }
-    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlinVersion"
-    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testImplementation "com.nhaarman:mockito-kotlin:$mockitoKotlinVersion"
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    testImplementation "com.nhaarman:mockito-kotlin:1.5.0"
 }

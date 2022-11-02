@@ -461,16 +461,6 @@ int attr fastScrollHorizontalThumbDrawable 0x0
 int attr fastScrollHorizontalTrackDrawable 0x0
 int attr fastScrollVerticalThumbDrawable 0x0
 int attr fastScrollVerticalTrackDrawable 0x0
-int attr fbp_barColor 0x0
-int attr fbp_barSpinCycleTime 0x0
-int attr fbp_barWidth 0x0
-int attr fbp_circleRadius 0x0
-int attr fbp_fillRadius 0x0
-int attr fbp_linearProgress 0x0
-int attr fbp_progressIndeterminate 0x0
-int attr fbp_rimColor 0x0
-int attr fbp_rimWidth 0x0
-int attr fbp_spinSpeed 0x0
 int attr firstBaselineToTopHeight 0x0
 int attr floatingActionButtonLargePrimaryStyle 0x0
 int attr floatingActionButtonLargeSecondaryStyle 0x0
@@ -1103,7 +1093,6 @@ int attr yearTodayStyle 0x0
 int bool abc_action_bar_embed_tabs 0x0
 int bool abc_allow_stacked_button_bar 0x0
 int bool abc_config_actionMenuItemAllCaps 0x0
-int bool abc_config_showMenuShortcutsWhenKeyboardPresent 0x0
 int bool m3_sys_typescale_body_large_text_all_caps 0x0
 int bool m3_sys_typescale_body_medium_text_all_caps 0x0
 int bool m3_sys_typescale_body_small_text_all_caps 0x0
@@ -1129,7 +1118,6 @@ int color abc_decor_view_status_guard 0x0
 int color abc_decor_view_status_guard_light 0x0
 int color abc_hint_foreground_material_dark 0x0
 int color abc_hint_foreground_material_light 0x0
-int color abc_input_method_navigation_guard 0x0
 int color abc_primary_text_disable_only_material_dark 0x0
 int color abc_primary_text_disable_only_material_light 0x0
 int color abc_primary_text_material_dark 0x0
@@ -1209,7 +1197,6 @@ int color dim_foreground_disabled_material_dark 0x0
 int color dim_foreground_disabled_material_light 0x0
 int color dim_foreground_material_dark 0x0
 int color dim_foreground_material_light 0x0
-int color error_color_material 0x0
 int color error_color_material_dark 0x0
 int color error_color_material_light 0x0
 int color foreground_material_dark 0x0
@@ -1631,7 +1618,6 @@ int color material_timepicker_button_stroke 0x0
 int color material_timepicker_clock_text_color 0x0
 int color material_timepicker_clockface 0x0
 int color material_timepicker_modebutton_tint 0x0
-int color modal 0x0
 int color mtrl_btn_bg_color_selector 0x0
 int color mtrl_btn_ripple_color 0x0
 int color mtrl_btn_stroke_color_selector 0x0
@@ -1700,8 +1686,6 @@ int color secondary_text_default_material_dark 0x0
 int color secondary_text_default_material_light 0x0
 int color secondary_text_disabled_material_dark 0x0
 int color secondary_text_disabled_material_light 0x0
-int color shadow_color 0x0
-int color slate_black 0x0
 int color switch_thumb_disabled_material_dark 0x0
 int color switch_thumb_disabled_material_light 0x0
 int color switch_thumb_material_dark 0x0
@@ -1713,10 +1697,6 @@ int color test_mtrl_calendar_day 0x0
 int color test_mtrl_calendar_day_selected 0x0
 int color tooltip_background_dark 0x0
 int color tooltip_background_light 0x0
-int color translucent_black 0x0
-int color warm_grey 0x0
-int color white 0x0
-int color yellow 0x0
 int dimen _100sdp 0x0
 int dimen _100ssp 0x0
 int dimen _101sdp 0x0
@@ -2486,7 +2466,6 @@ int dimen abc_action_bar_elevation_material 0x0
 int dimen abc_action_bar_icon_vertical_padding_material 0x0
 int dimen abc_action_bar_overflow_padding_end_material 0x0
 int dimen abc_action_bar_overflow_padding_start_material 0x0
-int dimen abc_action_bar_progress_bar_size 0x0
 int dimen abc_action_bar_stacked_max_height 0x0
 int dimen abc_action_bar_stacked_tab_max_width 0x0
 int dimen abc_action_bar_subtitle_bottom_margin_material 0x0
@@ -2627,19 +2606,6 @@ int dimen disabled_alpha_material_light 0x0
 int dimen fastscroll_default_thickness 0x0
 int dimen fastscroll_margin 0x0
 int dimen fastscroll_minimum_range 0x0
-int dimen fb_bottom_compensation_margin 0x0
-int dimen fb_button_text_size 0x0
-int dimen fb_content_padding_all 0x0
-int dimen fb_icon_size 0x0
-int dimen fb_margin_progress 0x0
-int dimen fb_margin_right_icon 0x0
-int dimen fb_margin_secondary_action 0x0
-int dimen fb_margin_secondary_action_container 0x0
-int dimen fb_message_text_size 0x0
-int dimen fb_progress_size 0x0
-int dimen fb_title_message_margin 0x0
-int dimen fb_title_text_size 0x0
-int dimen fb_top_compensation_margin 0x0
 int dimen highlight_alpha_material_colored 0x0
 int dimen highlight_alpha_material_dark 0x0
 int dimen highlight_alpha_material_light 0x0
@@ -3180,9 +3146,7 @@ int drawable design_ic_visibility 0x0
 int drawable design_ic_visibility_off 0x0
 int drawable design_password_eye 0x0
 int drawable design_snackbar_background 0x0
-int drawable fb_button_background_selector 0x0
 int drawable ic_clock_black_24dp 0x0
-int drawable ic_info 0x0
 int drawable ic_keyboard_black_24dp 0x0
 int drawable ic_m3_chip_check 0x0
 int drawable ic_m3_chip_checked_circle 0x0
@@ -3232,8 +3196,6 @@ int drawable notification_template_icon_bg 0x0
 int drawable notification_template_icon_low_bg 0x0
 int drawable notification_tile_bg 0x0
 int drawable notify_panel_notification_icon_bg 0x0
-int drawable shadow_bottom 0x0
-int drawable shadow_top 0x0
 int drawable test_custom_background 0x0
 int drawable test_level_drawable 0x0
 int drawable tooltip_frame_dark 0x0
@@ -3380,17 +3342,6 @@ int id endToStart 0x0
 int id expand_activities_button 0x0
 int id expanded_menu 0x0
 int id fade 0x0
-int id fbContent 0x0
-int id fbIcon 0x0
-int id fbLeftProgress 0x0
-int id fbMessage 0x0
-int id fbNegativeAction 0x0
-int id fbPositiveAction 0x0
-int id fbPrimaryAction 0x0
-int id fbRightProgress 0x0
-int id fbRoot 0x0
-int id fbSecondaryActionContainer 0x0
-int id fbTitle 0x0
 int id fill 0x0
 int id filled 0x0
 int id fixed 0x0
@@ -3400,10 +3351,6 @@ int id forever 0x0
 int id fragment_container_view_tag 0x0
 int id ghost_view 0x0
 int id ghost_view_holder 0x0
-int id give_us_a_review_landmine_button 0x0
-int id give_us_a_review_landmine_main_layout 0x0
-int id give_us_a_review_landmine_text_1 0x0
-int id give_us_a_review_landmine_text_2 0x0
 int id glide_custom_view_target_tag 0x0
 int id gone 0x0
 int id group_divider 0x0
@@ -3645,7 +3592,6 @@ int integer app_bar_elevation_anim_duration 0x0
 int integer bottom_sheet_slide_duration 0x0
 int integer cancel_button_image_alpha 0x0
 int integer config_tooltipAnimTime 0x0
-int integer default_animation_duration 0x0
 int integer design_snackbar_text_max_lines 0x0
 int integer design_tab_indicator_anim_duration_ms 0x0
 int integer hide_password_duration 0x0
@@ -3741,8 +3687,6 @@ int layout design_navigation_menu 0x0
 int layout design_navigation_menu_item 0x0
 int layout design_text_input_end_icon 0x0
 int layout design_text_input_start_icon 0x0
-int layout dp_example 0x0
-int layout flash_bar_view 0x0
 int layout m3_alert_dialog 0x0
 int layout m3_alert_dialog_actions 0x0
 int layout m3_alert_dialog_title 0x0
@@ -3795,12 +3739,9 @@ int layout notification_template_custom_big 0x0
 int layout notification_template_icon_group 0x0
 int layout notification_template_part_chronometer 0x0
 int layout notification_template_part_time 0x0
-int layout sdp_example 0x0
 int layout select_dialog_item_material 0x0
 int layout select_dialog_multichoice_material 0x0
 int layout select_dialog_singlechoice_material 0x0
-int layout sp_example 0x0
-int layout ssp_example 0x0
 int layout support_simple_spinner_dropdown_item 0x0
 int layout test_action_chip 0x0
 int layout test_chip_zero_corner_radius 0x0
@@ -3828,18 +3769,6 @@ int string abc_activity_chooser_view_see_all 0x0
 int string abc_activitychooserview_choose_application 0x0
 int string abc_capital_off 0x0
 int string abc_capital_on 0x0
-int string abc_font_family_body_1_material 0x0
-int string abc_font_family_body_2_material 0x0
-int string abc_font_family_button_material 0x0
-int string abc_font_family_caption_material 0x0
-int string abc_font_family_display_1_material 0x0
-int string abc_font_family_display_2_material 0x0
-int string abc_font_family_display_3_material 0x0
-int string abc_font_family_display_4_material 0x0
-int string abc_font_family_headline_material 0x0
-int string abc_font_family_menu_material 0x0
-int string abc_font_family_subhead_material 0x0
-int string abc_font_family_title_material 0x0
 int string abc_menu_alt_shortcut_label 0x0
 int string abc_menu_ctrl_shortcut_label 0x0
 int string abc_menu_delete_shortcut_label 0x0
@@ -3862,7 +3791,6 @@ int string abc_toolbar_collapse_description 0x0
 int string alert_erreur_0 0x0
 int string alert_erreur_1 0x0
 int string alert_erreur_2 0x0
-int string app_name 0x0
 int string appbar_scrolling_view_behavior 0x0
 int string bank_font_bold 0x0
 int string bank_font_medium 0x0
@@ -4252,11 +4180,6 @@ int style CardView 0x0
 int style CardView_Dark 0x0
 int style CardView_Light 0x0
 int style EmptyTheme 0x0
-int style FbButtonStyle 0x0
-int style FbButtonTextStyle 0x0
-int style FbCircularIndeterminateProgressStyle 0x0
-int style FbMessageStyle 0x0
-int style FbTitleTextStyle 0x0
 int style MaterialAlertDialog_Material3 0x0
 int style MaterialAlertDialog_Material3_Body_Text 0x0
 int style MaterialAlertDialog_Material3_Body_Text_CenterStacked 0x0
@@ -5796,17 +5719,6 @@ int styleable ExtendedFloatingActionButton_shrinkMotionSpec 5
 int[] styleable ExtendedFloatingActionButton_Behavior_Layout { 0x0, 0x0 }
 int styleable ExtendedFloatingActionButton_Behavior_Layout_behavior_autoHide 0
 int styleable ExtendedFloatingActionButton_Behavior_Layout_behavior_autoShrink 1
-int[] styleable FbProgress { 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
-int styleable FbProgress_fbp_barColor 0
-int styleable FbProgress_fbp_barSpinCycleTime 1
-int styleable FbProgress_fbp_barWidth 2
-int styleable FbProgress_fbp_circleRadius 3
-int styleable FbProgress_fbp_fillRadius 4
-int styleable FbProgress_fbp_linearProgress 5
-int styleable FbProgress_fbp_progressIndeterminate 6
-int styleable FbProgress_fbp_rimColor 7
-int styleable FbProgress_fbp_rimWidth 8
-int styleable FbProgress_fbp_spinSpeed 9
 int[] styleable FloatingActionButton { 0x101000e, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 }
 int styleable FloatingActionButton_android_enabled 0
 int styleable FloatingActionButton_backgroundTint 1

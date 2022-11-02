@@ -1,0 +1,152 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4e8226e468dedac26aa83ade7f2aafa6/appcompat-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.multidex:multidex:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/36e4d18f68f9c9407fe734955f133ba9/multidex-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7fbecf4957c37d0e120f389d0b778353/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/83ef2b759f0aa0ed3098898fcbcfbd1b/vectordrawable-animated-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/2c57e379fd02211030d896986cb1b198/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/b514f614da6129c9de83988b9c9d6d04/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/5edc86e6ef97118705934a00f1d0604b/vectordrawable-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/db08b5e8e2ef43e0346a5ca18be1727a/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/85d3ce39ee8736b1292f94151830294e/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d19a2799efa95aef21213b72670c8898/coordinatorlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/9f5a1e70cba3d1cdc9b210dd3f64f38a/drawerlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7aa92192265556a75fec4e41de1d87a2/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/baee62d53bf4fa74f713e3851e5ae827/customview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d2afde914e7a7385f85a4f5e4a287461/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/21fa166629d44e11a90ddd72dd0d6de8/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d9c36ae3982dc63f3003f772dda0dcb8/versionedparcelable-1.0.0/AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/6824263916e7e1e2fc21414d1b266f77/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3d42b7acb4bd80bf71dacd29268d3f81/lifecycle-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7c842a406d7e7d2b237ded17eacadd44/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/e4dcd12f9648cdb8fb7c1d2477db8ff2/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4d7d49934c7dd82568234b25deb8eeb6/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/259c98d39a64fca4b68484b449338ff2/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3313c3d596462494ea3a25a9032b99c0/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/6df059fe0254a96fb82640d2c4c2f27b/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/932cd0e699603c4d85d8c2cf9a2a32bc/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/112dddbd858a1b1ec7f59baadd0738f7/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+	package
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:3:5-57
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:1-22:12
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:5:5-20:19
+MERGED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d9c36ae3982dc63f3003f772dda0dcb8/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d9c36ae3982dc63f3003f772dda0dcb8/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:8:9-41
+	android:icon
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:7:9-45
+	android:allowBackup
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:6:9-35
+	android:theme
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:9:9-40
+activity#com.byunghwa.demo.viewflipperwithindicator.MyActivity
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:10:9-19:20
+	android:label
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:13:13-45
+	android:exported
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:12:13-36
+	android:name
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:11:13-39
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:14:13-18:29
+action#android.intent.action.MAIN
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:17:17-77
+	android:name
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml:17:27-74
+uses-sdk
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+MERGED from [androidx.appcompat:appcompat:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4e8226e468dedac26aa83ade7f2aafa6/appcompat-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4e8226e468dedac26aa83ade7f2aafa6/appcompat-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.multidex:multidex:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/36e4d18f68f9c9407fe734955f133ba9/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.multidex:multidex:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/36e4d18f68f9c9407fe734955f133ba9/multidex-2.0.0/AndroidManifest.xml:20:5-43
+MERGED from [androidx.fragment:fragment:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7fbecf4957c37d0e120f389d0b778353/fragment-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7fbecf4957c37d0e120f389d0b778353/fragment-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/83ef2b759f0aa0ed3098898fcbcfbd1b/vectordrawable-animated-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/83ef2b759f0aa0ed3098898fcbcfbd1b/vectordrawable-animated-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/2c57e379fd02211030d896986cb1b198/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/2c57e379fd02211030d896986cb1b198/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/b514f614da6129c9de83988b9c9d6d04/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/b514f614da6129c9de83988b9c9d6d04/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/5edc86e6ef97118705934a00f1d0604b/vectordrawable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/5edc86e6ef97118705934a00f1d0604b/vectordrawable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/db08b5e8e2ef43e0346a5ca18be1727a/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/db08b5e8e2ef43e0346a5ca18be1727a/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/85d3ce39ee8736b1292f94151830294e/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/85d3ce39ee8736b1292f94151830294e/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d19a2799efa95aef21213b72670c8898/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d19a2799efa95aef21213b72670c8898/coordinatorlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/9f5a1e70cba3d1cdc9b210dd3f64f38a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/9f5a1e70cba3d1cdc9b210dd3f64f38a/drawerlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7aa92192265556a75fec4e41de1d87a2/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7aa92192265556a75fec4e41de1d87a2/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/baee62d53bf4fa74f713e3851e5ae827/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/baee62d53bf4fa74f713e3851e5ae827/customview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d2afde914e7a7385f85a4f5e4a287461/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d2afde914e7a7385f85a4f5e4a287461/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/21fa166629d44e11a90ddd72dd0d6de8/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/21fa166629d44e11a90ddd72dd0d6de8/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/f3a7a18714175a920194701d62401ff1/core-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d9c36ae3982dc63f3003f772dda0dcb8/versionedparcelable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/d9c36ae3982dc63f3003f772dda0dcb8/versionedparcelable-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/6824263916e7e1e2fc21414d1b266f77/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/6824263916e7e1e2fc21414d1b266f77/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3d42b7acb4bd80bf71dacd29268d3f81/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3d42b7acb4bd80bf71dacd29268d3f81/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7c842a406d7e7d2b237ded17eacadd44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/7c842a406d7e7d2b237ded17eacadd44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/e4dcd12f9648cdb8fb7c1d2477db8ff2/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/e4dcd12f9648cdb8fb7c1d2477db8ff2/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4d7d49934c7dd82568234b25deb8eeb6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/4d7d49934c7dd82568234b25deb8eeb6/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/259c98d39a64fca4b68484b449338ff2/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/259c98d39a64fca4b68484b449338ff2/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3313c3d596462494ea3a25a9032b99c0/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/3313c3d596462494ea3a25a9032b99c0/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/6df059fe0254a96fb82640d2c4c2f27b/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/6df059fe0254a96fb82640d2c4c2f27b/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/932cd0e699603c4d85d8c2cf9a2a32bc/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/932cd0e699603c4d85d8c2cf9a2a32bc/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/112dddbd858a1b1ec7f59baadd0738f7/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /root/.gradle/caches/transforms-2/files-2.1/112dddbd858a1b1ec7f59baadd0738f7/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		ADDED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml
+		INJECTED from /home/suntelecom/Bureau/librairies/app-view-flipper/src/main/AndroidManifest.xml

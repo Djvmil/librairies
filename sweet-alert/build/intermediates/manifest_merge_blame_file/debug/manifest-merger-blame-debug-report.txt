@@ -1,17 +1,13 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="cn.pedant.SweetAlert"
-4    android:versionCode="1"
-5    android:versionName="1.1.2" >
+3    package="com.djamil.SweetAlert"
+4    android:versionCode="2"
+5    android:versionName="1.0.7" >
 6
 7    <uses-sdk
-7-->C:\Users\Suntelecoms\Desktop\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml:6:5-47
-8        android:minSdkVersion="9"
-8-->C:\Users\Suntelecoms\Desktop\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml:6:5-47
-9        android:targetSdkVersion="30" />
-9-->C:\Users\Suntelecoms\Desktop\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml:6:15-44
+8        android:minSdkVersion="17"
+8-->/home/suntelecom/Bureau/librairies/sweet-alert/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->/home/suntelecom/Bureau/librairies/sweet-alert/src/main/AndroidManifest.xml
 10
-11    <application />
-11-->C:\Users\Suntelecoms\Desktop\Suntelecoms\librairies\sweet-alert\src\main\AndroidManifest.xml:7:5-20
-12
-13</manifest>
+11</manifest>

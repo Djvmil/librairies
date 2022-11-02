@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "applicationId": "cn.pedant.SweetAlert",
+  "applicationId": "com.djamil.SweetAlert",
   "variantType": "LIBRARY",
   "elements": [
     {
@@ -10,8 +10,8 @@
       "apkData": {
         "type": "MAIN",
         "splits": [],
-        "versionCode": 1,
-        "versionName": "1.1.2",
+        "versionCode": 2,
+        "versionName": "1.0.7",
         "outputFile": "sweet-alert-debug.aar",
         "fullName": "debug",
         "baseName": "debug",
@@ -19,7 +19,7 @@
       },
       "path": "AndroidManifest.xml",
       "properties": {
-        "packageId": "cn.pedant.SweetAlert",
+        "packageId": "com.djamil.SweetAlert",
         "split": ""
       }
     }

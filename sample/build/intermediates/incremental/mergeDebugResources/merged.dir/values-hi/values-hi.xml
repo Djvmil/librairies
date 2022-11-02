@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string msgid="7903180715631665059" name="abc_action_bar_home_description">"होम पेज पर जाएं"</string>
+    <string msgid="6794660482873516081" name="abc_action_bar_up_description">"वापस जाएं"</string>
+    <string msgid="1155814932213556626" name="abc_action_menu_overflow_description">"ज़्यादा विकल्प"</string>
+    <string msgid="2571498368472823490" name="abc_action_mode_done">"हो गया"</string>
+    <string msgid="3732416590524162402" name="abc_activity_chooser_view_see_all">"सभी देखें"</string>
+    <string msgid="1798588241954930982" name="abc_activitychooserview_choose_application">"कोई ऐप्लिकेशन चुनें"</string>
+    <string msgid="3403923230105792483" name="abc_capital_off">"बंद"</string>
+    <string msgid="7831734969929204599" name="abc_capital_on">"चालू"</string>
+    <string msgid="5725160506500770567" name="abc_menu_alt_shortcut_label">"Alt+"</string>
+    <string msgid="944415252197684443" name="abc_menu_ctrl_shortcut_label">"Ctrl+"</string>
+    <string msgid="129742188101734366" name="abc_menu_delete_shortcut_label">"delete"</string>
+    <string msgid="6840127756824236027" name="abc_menu_enter_shortcut_label">"enter"</string>
+    <string msgid="4974283687810130415" name="abc_menu_function_shortcut_label">"Function+"</string>
+    <string msgid="8046416353848716905" name="abc_menu_meta_shortcut_label">"Meta+"</string>
+    <string msgid="3271697756921353410" name="abc_menu_shift_shortcut_label">"Shift+"</string>
+    <string msgid="2304645930658438191" name="abc_menu_space_shortcut_label">"space"</string>
+    <string msgid="8327365089695024394" name="abc_menu_sym_shortcut_label">"Sym+"</string>
+    <string msgid="3570106412128999382" name="abc_prepend_shortcut_label">"Menu+"</string>
+    <string msgid="940844115270746197" name="abc_search_hint">"खोजें…"</string>
+    <string msgid="1769270744562318534" name="abc_searchview_description_clear">"क्‍वेरी हटाएं"</string>
+    <string msgid="908784302972860853" name="abc_searchview_description_query">"सर्च क्वेरी"</string>
+    <string msgid="5466662225065974044" name="abc_searchview_description_search">"खोजें"</string>
+    <string msgid="8203855622131699655" name="abc_searchview_description_submit">"क्वेरी सबमिट करें"</string>
+    <string msgid="3478748990613108725" name="abc_searchview_description_voice">"बोलकर खोजें"</string>
+    <string msgid="2650565705514630347" name="abc_shareactionprovider_share_with">"इससे शेयर करें:"</string>
+    <string msgid="9009661856846212431" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> से शेयर करें"</string>
+    <string msgid="6389460216547290468" name="abc_toolbar_collapse_description">"छोटा करें"</string>
+    <string name="action_cancel">रद्द करें</string>
+    <string msgid="8230469354668895088" name="copy_toast_msg">"लिंक क्लिपबोर्ड पर कॉपी किया गया"</string>
+    <string name="error_camera_app_not_found">कैमरा ऐप नहीं मिला</string>
+    <string name="error_failed_pick_gallery_image">गैलरी की तस्वीर लेने में विफल</string>
+    <string name="error_failed_to_compress_image">छवि को संपीड़ित करने में विफल</string>
+    <string name="error_failed_to_create_camera_image_file">कैमरा चित्र बनाने में विफल</string>
+    <string name="error_failed_to_crop_image">चित्र को काटना में विफल</string>
+    <string name="error_task_cancelled">कार्य रद्द कर दिया गया</string>
+    <string msgid="2615365786337886368" name="fallback_menu_item_copy_link">"लिंक कॉपी करें"</string>
+    <string msgid="8984733760067120953" name="fallback_menu_item_open_in_browser">"ब्राउज़र में खोलें"</string>
+    <string msgid="271185644269364308" name="fallback_menu_item_share_link">"लिंक शेयर करें"</string>
+    <string name="message_camera_permission_denied">इमेज कैप्चर करने के लिए कैमरा और स्टोरेज परमिशन की जरूरत होती है। किसी भी अनुमति को बंद करने से एप्लिकेशन आसानी से नहीं चल सकेगा। कृपया सेटिंग्स> अनुमतियों से सभी अनुरोधित अनुमतियों को चालू करें।</string>
+    <string name="message_gallery_permission_denied">छवि का चयन करने के लिए बाहरी संग्रहण की अनुमति आवश्यक है। कृपया सेटिंग्स> अनुमतियों से अनुरोधित अनुमति को चालू करें।</string>
+    <string name="permission_camera_denied">
+        <![CDATA[चित्र लेने के लिए संग्रहण अनुमति की आवश्यकता होती है। कृपया सेटिंग्स> अनुमतियों से भंडारण की अनुमति दें।]]></string>
+    <string name="permission_camera_extended_denied">
+        <![CDATA[तस्वीर लेने के लिए कैमरा और संग्रहण अनुमति की जरूरत होती है। कृपया सेटिंग> अनुमतियां से दोनों अनुरोधित अनुमतियों को अनुमति दें।]]></string>
+    <string name="permission_gallery_denied">
+        <![CDATA[गैलरी की छवि चुनने के लिए संग्रहण अनुमति की आवश्यकता होती है। कृपया सेटिंग्स> अनुमतियों से संग्रहण की अनुमति दें।]]></string>
+    <string msgid="730395136688082741" name="search_menu_title">"खोजें"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="title_camera">कैमरा</string>
+    <string name="title_choose_image_provider">चुनें</string>
+    <string name="title_gallery">गेलरी</string>
+    <string name="ucrop_crop">काटना</string>
+    <string name="ucrop_label_edit_photo">फ़ोटो संपादित करें</string>
+    <string name="ucrop_label_original">मूल</string>
+    <string name="ucrop_menu_crop">काटना</string>
+    <string name="ucrop_rotate">घुमाएँ</string>
+    <string name="ucrop_scale">स्केल</string>
+</resources>

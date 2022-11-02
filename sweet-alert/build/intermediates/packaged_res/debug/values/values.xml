@@ -47,6 +47,7 @@
     <dimen name="progress_circle_radius">34dp</dimen>
     <string name="LOADING">Loading...</string>
     <string name="app_name">SweetAlertDialog</string>
+    <string name="default_progressbar">Default Progressbar:</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_default_title">Here\'s a message!</string>
     <string name="dialog_ok">OK</string>
@@ -82,6 +83,18 @@
         <item name="android:layout_weight">1</item>
         <item name="android:lines">1</item>
     </style>
+    <declare-styleable name="ProgressWheel">
+        <attr format="boolean" name="matProg_progressIndeterminate"/>
+        <attr format="color" name="matProg_barColor"/>
+        <attr format="color" name="matProg_rimColor"/>
+        <attr format="dimension" name="matProg_rimWidth"/>
+        <attr format="float" name="matProg_spinSpeed"/>
+        <attr format="integer" name="matProg_barSpinCycleTime"/>
+        <attr format="dimension" name="matProg_circleRadius"/>
+        <attr format="boolean" name="matProg_fillRadius"/>
+        <attr format="dimension" name="matProg_barWidth"/>
+        <attr format="boolean" name="matProg_linearProgress"/>
+    </declare-styleable>
     <declare-styleable name="Rotate3dAnimation">
         <attr format="enum" name="rollType">
             <enum name="x" value="0"/>

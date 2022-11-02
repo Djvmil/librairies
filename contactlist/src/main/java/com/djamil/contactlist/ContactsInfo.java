@@ -25,6 +25,20 @@ public class ContactsInfo {
         this.phoneNumberList = phoneNumberList;
     }
 
+    public int getNumberOfduplication() {
+        return numberOfduplication;
+    }
+
+    public void setNumberOfduplication(int numberOfduplication) {
+        this.numberOfduplication = numberOfduplication;
+    }
+    public Boolean getDuplicate() {
+        return duplicate;
+    }
+
+    public void setDuplicate(Boolean duplicate) {
+        this.duplicate = duplicate;
+    }
     public String getContactId() {
         return contactId;
     }
@@ -53,13 +67,6 @@ public class ContactsInfo {
         this.indicatif = indicatif;
     }
 
-    public int getNumberOfduplication() {
-        return numberOfduplication;
-    }
-
-    public void setNumberOfduplication(int numberOfduplication) {
-        this.numberOfduplication = numberOfduplication;
-    }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
@@ -71,14 +78,6 @@ public class ContactsInfo {
 
     public void setPhoneNumberList(List<String> phoneNumberList) {
         this.phoneNumberList = phoneNumberList;
-    }
-
-    public Boolean getDuplicate() {
-        return duplicate;
-    }
-
-    public void setDuplicate(Boolean duplicate) {
-        this.duplicate = duplicate;
     }
 
     public Boolean getChecked() {

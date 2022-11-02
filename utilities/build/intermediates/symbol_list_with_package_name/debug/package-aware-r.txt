@@ -1,4 +1,4 @@
-com.djamil.utilities
+com.djamil.suntelecom.utilities
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -462,16 +462,6 @@ attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
-attr fbp_barColor
-attr fbp_barSpinCycleTime
-attr fbp_barWidth
-attr fbp_circleRadius
-attr fbp_fillRadius
-attr fbp_linearProgress
-attr fbp_progressIndeterminate
-attr fbp_rimColor
-attr fbp_rimWidth
-attr fbp_spinSpeed
 attr firstBaselineToTopHeight
 attr floatingActionButtonLargePrimaryStyle
 attr floatingActionButtonLargeSecondaryStyle
@@ -1104,7 +1094,6 @@ attr yearTodayStyle
 bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
-bool abc_config_showMenuShortcutsWhenKeyboardPresent
 bool m3_sys_typescale_body_large_text_all_caps
 bool m3_sys_typescale_body_medium_text_all_caps
 bool m3_sys_typescale_body_small_text_all_caps
@@ -1130,7 +1119,6 @@ color abc_decor_view_status_guard
 color abc_decor_view_status_guard_light
 color abc_hint_foreground_material_dark
 color abc_hint_foreground_material_light
-color abc_input_method_navigation_guard
 color abc_primary_text_disable_only_material_dark
 color abc_primary_text_disable_only_material_light
 color abc_primary_text_material_dark
@@ -1210,7 +1198,6 @@ color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
 color dim_foreground_material_light
-color error_color_material
 color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
@@ -1632,7 +1619,6 @@ color material_timepicker_button_stroke
 color material_timepicker_clock_text_color
 color material_timepicker_clockface
 color material_timepicker_modebutton_tint
-color modal
 color mtrl_btn_bg_color_selector
 color mtrl_btn_ripple_color
 color mtrl_btn_stroke_color_selector
@@ -1701,8 +1687,6 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
-color shadow_color
-color slate_black
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -1714,10 +1698,6 @@ color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
 color tooltip_background_light
-color translucent_black
-color warm_grey
-color white
-color yellow
 dimen _100sdp
 dimen _100ssp
 dimen _101sdp
@@ -2487,7 +2467,6 @@ dimen abc_action_bar_elevation_material
 dimen abc_action_bar_icon_vertical_padding_material
 dimen abc_action_bar_overflow_padding_end_material
 dimen abc_action_bar_overflow_padding_start_material
-dimen abc_action_bar_progress_bar_size
 dimen abc_action_bar_stacked_max_height
 dimen abc_action_bar_stacked_tab_max_width
 dimen abc_action_bar_subtitle_bottom_margin_material
@@ -2628,19 +2607,6 @@ dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
-dimen fb_bottom_compensation_margin
-dimen fb_button_text_size
-dimen fb_content_padding_all
-dimen fb_icon_size
-dimen fb_margin_progress
-dimen fb_margin_right_icon
-dimen fb_margin_secondary_action
-dimen fb_margin_secondary_action_container
-dimen fb_message_text_size
-dimen fb_progress_size
-dimen fb_title_message_margin
-dimen fb_title_text_size
-dimen fb_top_compensation_margin
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
@@ -3181,9 +3147,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable fb_button_background_selector
 drawable ic_clock_black_24dp
-drawable ic_info
 drawable ic_keyboard_black_24dp
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
@@ -3233,8 +3197,6 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable shadow_bottom
-drawable shadow_top
 drawable test_custom_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3381,17 +3343,6 @@ id endToStart
 id expand_activities_button
 id expanded_menu
 id fade
-id fbContent
-id fbIcon
-id fbLeftProgress
-id fbMessage
-id fbNegativeAction
-id fbPositiveAction
-id fbPrimaryAction
-id fbRightProgress
-id fbRoot
-id fbSecondaryActionContainer
-id fbTitle
 id fill
 id filled
 id fixed
@@ -3401,10 +3352,6 @@ id forever
 id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
-id give_us_a_review_landmine_button
-id give_us_a_review_landmine_main_layout
-id give_us_a_review_landmine_text_1
-id give_us_a_review_landmine_text_2
 id glide_custom_view_target_tag
 id gone
 id group_divider
@@ -3646,7 +3593,6 @@ integer app_bar_elevation_anim_duration
 integer bottom_sheet_slide_duration
 integer cancel_button_image_alpha
 integer config_tooltipAnimTime
-integer default_animation_duration
 integer design_snackbar_text_max_lines
 integer design_tab_indicator_anim_duration_ms
 integer hide_password_duration
@@ -3742,8 +3688,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout dp_example
-layout flash_bar_view
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -3796,12 +3740,9 @@ layout notification_template_custom_big
 layout notification_template_icon_group
 layout notification_template_part_chronometer
 layout notification_template_part_time
-layout sdp_example
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
-layout sp_example
-layout ssp_example
 layout support_simple_spinner_dropdown_item
 layout test_action_chip
 layout test_chip_zero_corner_radius
@@ -3829,18 +3770,6 @@ string abc_activity_chooser_view_see_all
 string abc_activitychooserview_choose_application
 string abc_capital_off
 string abc_capital_on
-string abc_font_family_body_1_material
-string abc_font_family_body_2_material
-string abc_font_family_button_material
-string abc_font_family_caption_material
-string abc_font_family_display_1_material
-string abc_font_family_display_2_material
-string abc_font_family_display_3_material
-string abc_font_family_display_4_material
-string abc_font_family_headline_material
-string abc_font_family_menu_material
-string abc_font_family_subhead_material
-string abc_font_family_title_material
 string abc_menu_alt_shortcut_label
 string abc_menu_ctrl_shortcut_label
 string abc_menu_delete_shortcut_label
@@ -3863,7 +3792,6 @@ string abc_toolbar_collapse_description
 string alert_erreur_0
 string alert_erreur_1
 string alert_erreur_2
-string app_name
 string appbar_scrolling_view_behavior
 string bank_font_bold
 string bank_font_medium
@@ -4253,11 +4181,6 @@ style CardView
 style CardView_Dark
 style CardView_Light
 style EmptyTheme
-style FbButtonStyle
-style FbButtonTextStyle
-style FbCircularIndeterminateProgressStyle
-style FbMessageStyle
-style FbTitleTextStyle
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Body_Text
 style MaterialAlertDialog_Material3_Body_Text_CenterStacked
@@ -5047,7 +4970,6 @@ styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color dra
 styleable DrawerLayout elevation
 styleable ExtendedFloatingActionButton collapsedSize elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
-styleable FbProgress fbp_barColor fbp_barSpinCycleTime fbp_barWidth fbp_circleRadius fbp_fillRadius fbp_linearProgress fbp_progressIndeterminate fbp_rimColor fbp_rimWidth fbp_spinSpeed
 styleable FloatingActionButton android_enabled backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
 styleable FlowLayout itemSpacing lineSpacing
