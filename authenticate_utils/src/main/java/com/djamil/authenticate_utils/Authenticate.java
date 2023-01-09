@@ -272,6 +272,8 @@ public class Authenticate extends RelativeLayout {
                 .setNegativeButtonText(textNegativeButton != null ? textNegativeButton : getContext().getString(R.string.text_nagative_dialog))
                 .build();
 
+        biometricPrompt.authenticate(promptInfo);
+
         keyBoardAdapter.setOnClickListener(new com.djamil.authenticate_utils.interfaces.OnClickListener() {
             @Override
             public void keyFingerPrintClicked() {
