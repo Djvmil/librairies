@@ -65,8 +65,6 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
             mCardView    = itemView.findViewById(R.id.cardviewClavier);
 
             if (colorKey != 0){
-                Log.e(TAG, "onBindViewHolder: color "+colorKey );
-
                 key.setTextColor(colorKey);
                 backSpaceBtn.setTextColor(colorKey);
                 fingerPrintBtn.setTextColor(colorKey);
