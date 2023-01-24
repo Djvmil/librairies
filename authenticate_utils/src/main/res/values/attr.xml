@@ -11,6 +11,11 @@
         <attr name="edit_text_id" format="reference" />
         <attr name="is_shuffle" format="boolean" />
         <attr name="gone_valid_btn" format="boolean" />
+        <attr name="auto_auth" format="boolean" />
+        <attr name="key_width" format="dimension" />
+        <attr name="key_height" format="dimension" />
+        <attr name="nb_char" format="integer" />
+        <attr name="valide_btn" format="reference" />
     </declare-styleable>
 
 </resources>

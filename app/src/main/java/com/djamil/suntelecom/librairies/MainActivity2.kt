@@ -141,6 +141,7 @@ class MainActivity2 : AppCompatActivity(), OnAuthListener {
         authenticate = findViewById(R.id.dynamic_key)
         val editText = findViewById<EditText>(R.id.editText)
         authenticate?.setEditText(editText)
+        authenticate?.setDoneBtn(findViewById(R.id.valider))
         //btnkeyboardview  = findViewById(R.id.keyboard_view1);
 
         //btnkeyboardview  = findViewById(R.id.keyboard_view1);
@@ -148,12 +149,12 @@ class MainActivity2 : AppCompatActivity(), OnAuthListener {
             ?.setOnResultAuth(object : OnResultAuth {
                 override fun onAuthError(errorCode: Int) {}
                 override fun onAuthFailed(typeAuth: Int) {}
-                override fun onAuthSucceeded(pwd: String, pwdMd5: String) {}
+                override fun onAuthSucceeded(pwd: String?, pwdMd5: String?) {}
                 override fun onAttempts(nbAttempts: Int) {
                     Log.e(TAG, "onAttempts: $nbAttempts")
                 }
 
-                override fun onDoneClicked(pwd: String, pwdMd5: String, isSuccess: Boolean) {
+                override fun onDoneClicked(pwd: String?, pwdMd5: String?, isSuccess: Boolean) {
                     if (!isSuccess) {
                         authenticate?.setMsgError("Unauthorized")
                     }

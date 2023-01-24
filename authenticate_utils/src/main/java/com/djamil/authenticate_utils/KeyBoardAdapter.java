@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.djamil.authenticate_utils.interfaces.OnClickListener;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -27,6 +28,8 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
     private ArrayList<Integer> numList;
     private TextView textView;
     private Boolean userFgp = false;
+    private int keyHeight = -1;
+    private int keyWidth = -1;
 
     private int colorKey = 0;
     private Drawable iconFingerPrint;
@@ -43,6 +46,20 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
         this.textView          = textView;
         this.numList           = getNumList();
         this.colorKey          = colorKey;
+
+        this.iconBackSpace     = iconBackSpace;
+        this.iconFingerPrint   = iconFingerPrint;
+        this.iconNoFingerPrint = iconNoFingerPrint;
+    }
+    public KeyBoardAdapter(Context context, TextView textView, Boolean isShuffle, int colorKey, Drawable iconBackSpace, Drawable iconFingerPrint, Drawable iconNoFingerPrint, boolean userFgp, int keyHeight, int keyWidth){
+        this.mContext          = context;
+        this.isShuffle         = isShuffle;
+        this.userFgp           = userFgp;
+        this.textView          = textView;
+        this.numList           = getNumList();
+        this.colorKey          = colorKey;
+        this.keyHeight         = keyHeight;
+        this.keyWidth          = keyWidth;
 
         this.iconBackSpace     = iconBackSpace;
         this.iconFingerPrint   = iconFingerPrint;
@@ -69,6 +86,11 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
                 backSpaceBtn.setTextColor(colorKey);
                 fingerPrintBtn.setTextColor(colorKey);
             }
+
+
+            if (keyHeight != -1 && keyWidth != -1)  resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(keyHeight));
+            else if (keyWidth != -1) resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(mCardView.getHeight()));
+            else if (keyHeight != -1) resizeView(mCardView, mContext.getResources().getDimensionPixelSize(mCardView.getWidth()), mContext.getResources().getDimensionPixelSize(keyHeight));
 
             if (iconBackSpace != null)
                 backSpaceBtn.setBackground(iconBackSpace);
@@ -218,4 +240,29 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
     public void setOnClickListener(OnClickListener onClickListener) {
         this.onClickListener = onClickListener;
     }
+
+    private void resizeView(View view, int newWidth, int newHeight) {
+        try {
+
+            Log.e(TAG, "resizeView: newHeight = "+newHeight+" -- newWidth = "+newWidth );            Log.e(TAG, "resizeView: newHeight = "+view.getHeight()+" -- newWidth = "+view.getWidth() );
+            Log.e(TAG, "resizeView: newHeight = "+view.getHeight()+" -- newWidth = "+view.getWidth() );
+
+            ViewGroup.LayoutParams params = view.getLayoutParams();
+            params.height = newHeight;
+            params.width = newWidth;
+            view.requestLayout();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+//    private void resizeView(View view, float newWidth, float newHeight) {
+//        try {
+//            Log.e(TAG, "resizeView: newHeight = "+newHeight+" -- newWidth = "+newWidth );
+//            Log.e(TAG, "resizeView: newHeight = "+view.getHeight()+" -- newWidth = "+view.getWidth() );
+//            Constructor<? extends ViewGroup.LayoutParams> ctor = view.getLayoutParams().getClass().getDeclaredConstructor(int.class, int.class);
+//            view.setLayoutParams(ctor.newInstance(newWidth, newHeight));
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
