@@ -209,18 +209,18 @@ public class Authenticate extends RelativeLayout {
                         if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(textView.getText().toString().trim()))){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
                             onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
 
                         } else if (!secretIsMd5 && secret.equals(textView.getText().toString().trim())){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
                             onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
+                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
 
                         }else{
-                            onResultAuth.onAuthFailed(CODED);
                             onResultAuth.onDoneClicked(null, null, tmp);
+                            onResultAuth.onAuthFailed(CODED);
                         }
 
                     }else

@@ -14,6 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.djamil.authenticate_utils.interfaces.OnClickListener;
+import com.djamil.utils.UtilsFunction;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -88,9 +89,9 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
             }
 
 
-            if (keyHeight != -1 && keyWidth != -1)  resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(keyHeight));
-            else if (keyWidth != -1) resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(mCardView.getHeight()));
-            else if (keyHeight != -1) resizeView(mCardView, mContext.getResources().getDimensionPixelSize(mCardView.getWidth()), mContext.getResources().getDimensionPixelSize(keyHeight));
+            if (keyHeight != -1 && keyWidth != -1)  UtilsFunction.resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(keyHeight));
+            else if (keyWidth != -1) UtilsFunction.resizeView(mCardView, mContext.getResources().getDimensionPixelSize(keyWidth), mContext.getResources().getDimensionPixelSize(mCardView.getHeight()));
+            else if (keyHeight != -1) UtilsFunction.resizeView(mCardView, mContext.getResources().getDimensionPixelSize(mCardView.getWidth()), mContext.getResources().getDimensionPixelSize(keyHeight));
 
             if (iconBackSpace != null)
                 backSpaceBtn.setBackground(iconBackSpace);
@@ -110,7 +111,7 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         final int num = numList.get(position);
 
-        Log.e(TAG, "onBindViewHolder: color "+colorKey );
+//        Log.e(TAG, "onBindViewHolder: color "+colorKey );
         holder.key.setText(String.format("%s", num));
 
         if (numList.get(position) == 10){
@@ -184,7 +185,7 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
         holder.mCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e(TAG, "onClick key: "+num );
+//                Log.e(TAG, "onClick key: "+num );
 
                 if (numList.get(position) == 10 && textView.getText().length() > 0)
                     textView.setText(String.format("%s", textView.getText().toString().substring(0, textView.getText().length()-1)));
@@ -241,20 +242,6 @@ public class KeyBoardAdapter extends RecyclerView.Adapter<KeyBoardAdapter.MyView
         this.onClickListener = onClickListener;
     }
 
-    private void resizeView(View view, int newWidth, int newHeight) {
-        try {
-
-            Log.e(TAG, "resizeView: newHeight = "+newHeight+" -- newWidth = "+newWidth );            Log.e(TAG, "resizeView: newHeight = "+view.getHeight()+" -- newWidth = "+view.getWidth() );
-            Log.e(TAG, "resizeView: newHeight = "+view.getHeight()+" -- newWidth = "+view.getWidth() );
-
-            ViewGroup.LayoutParams params = view.getLayoutParams();
-            params.height = newHeight;
-            params.width = newWidth;
-            view.requestLayout();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 //    private void resizeView(View view, float newWidth, float newHeight) {
 //        try {
 //            Log.e(TAG, "resizeView: newHeight = "+newHeight+" -- newWidth = "+newWidth );

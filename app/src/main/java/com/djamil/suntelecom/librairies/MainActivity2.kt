@@ -22,6 +22,7 @@ import com.djamil.utils.DateUtils.Companion.dateToString
 import com.djamil.utils.DateUtils.Companion.getDateNow
 import com.djamil.utils.DateUtils.Companion.strToDate
 import com.djamil.utils.DateUtils.Companion.yearsBetweenDates
+import com.djamil.utils.resizeView
 import com.example.elcapi.jnielc
 import com.google.gson.Gson
 import com.suntelecoms.authenticate.activity.AuthenticateActivity
