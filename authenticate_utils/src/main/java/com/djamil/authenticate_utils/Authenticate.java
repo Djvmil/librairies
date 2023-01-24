@@ -63,6 +63,7 @@ public class Authenticate extends RelativeLayout {
     private RecyclerView recyclerView;
 
     private String secret;
+    private String secretString;
     private boolean secretIsMd5 = false;
 
     private String textTitle, textDesc, textSubTitle, textNegativeButton, errorMsg;
@@ -109,6 +110,7 @@ public class Authenticate extends RelativeLayout {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
             if (autoAuth && s.length() >= nbChar && doneBtn != null) {
+                secretString = textView.getText().toString().trim();
                 textView.setText("");
                 doneBtn.performClick();
             }
@@ -178,6 +180,7 @@ public class Authenticate extends RelativeLayout {
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
         relative = findViewById(R.id.relative);
         doneBtn = findViewById(R.id.done_btn);
+
 //        Log.e(TAG, "init: valideBtnId = "+valideBtnId );
 //
 //        if (valideBtnId == -1)
@@ -205,19 +208,23 @@ public class Authenticate extends RelativeLayout {
         doneBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!textView.getText().toString().isEmpty()){
-                    onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFunction.md5Hash(textView.getText().toString()), false);
+                if (!secretString.isEmpty() || !textView.getText().toString().trim().isEmpty()){
+
+                    if (!textView.getText().toString().trim().isEmpty())
+                        secretString = textView.getText().toString().trim();
+
+                    onResultAuth.onDoneClicked(secretString, UtilsFunction.md5Hash(secretString), false);
                     if (secret != null){
                         boolean tmp = false;
-                        if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(textView.getText().toString().trim()))){
+                        if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(secretString))){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onAuthSucceeded(secretString, UtilsFunction.md5Hash(secretString));
 
-                        } else if (!secretIsMd5 && secret.equals(textView.getText().toString().trim())){
+                        } else if (!secretIsMd5 && secret.equals(secretString)){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
+                            onResultAuth.onAuthSucceeded(secretString, UtilsFunction.md5Hash(secretString));
 
                         }else{
                             onResultAuth.onAuthFailed(CODED);
