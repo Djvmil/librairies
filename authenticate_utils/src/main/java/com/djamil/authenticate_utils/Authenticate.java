@@ -108,8 +108,10 @@ public class Authenticate extends RelativeLayout {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            if (autoAuth && s.length() >= nbChar && doneBtn != null)
+            if (autoAuth && s.length() >= nbChar && doneBtn != null) {
+                textView.setText("");
                 doneBtn.performClick();
+            }
         }
 
         @Override
@@ -204,28 +206,24 @@ public class Authenticate extends RelativeLayout {
             @Override
             public void onClick(View view) {
                 if (!textView.getText().toString().isEmpty()){
+                    onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFunction.md5Hash(textView.getText().toString()), false);
                     if (secret != null){
                         boolean tmp = false;
                         if (secretIsMd5 && secret.equals(UtilsFunction.md5Hash(textView.getText().toString().trim()))){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
                             onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
 
                         } else if (!secretIsMd5 && secret.equals(textView.getText().toString().trim())){
                             tmp = true;
                             new SessionManager().setUseFingerprint(true);
-                            onResultAuth.onDoneClicked(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()), tmp);
                             onResultAuth.onAuthSucceeded(textView.getText().toString().trim(), UtilsFunction.md5Hash(textView.getText().toString().trim()));
 
                         }else{
-                            onResultAuth.onDoneClicked(null, null, tmp);
                             onResultAuth.onAuthFailed(CODED);
                         }
 
-                    }else
-                        onResultAuth.onDoneClicked(textView.getText().toString(), UtilsFunction.md5Hash(textView.getText().toString()), false);
-
+                    }
                     onResultAuth.onAttempts(increment());
                 }else {
                     textView.setError(errorMsg != null ? errorMsg : "Entrez votre code secret");
