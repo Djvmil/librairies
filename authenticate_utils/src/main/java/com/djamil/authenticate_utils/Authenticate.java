@@ -62,8 +62,8 @@ public class Authenticate extends RelativeLayout {
     private LayoutInflater inflater;
     private RecyclerView recyclerView;
 
-    private String secret;
-    private String secretString;
+    private String secret = "";
+    private String secretString = "";
     private boolean secretIsMd5 = false;
 
     private String textTitle, textDesc, textSubTitle, textNegativeButton, errorMsg;
