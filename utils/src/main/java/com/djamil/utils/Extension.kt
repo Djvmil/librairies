@@ -1,46 +1,44 @@
 package com.djamil.utils
 
-import android.content.Context
-import android.graphics.Color
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
-import android.graphics.Typeface
-import android.graphics.drawable.GradientDrawable
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import kotlin.math.roundToInt
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.graphics.Paint
+import android.graphics.*
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.LayerDrawable
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
+import java.lang.reflect.Constructor
 import java.text.DecimalFormat
+import kotlin.math.roundToInt
 
 fun Context.getAppColor(color: Int): Int {
     return ContextCompat.getColor(this, color)
@@ -49,6 +47,19 @@ fun View.applyBackgroundTintTheme2(color: Int) {
     (background as GradientDrawable).setColor(color)
     (background as GradientDrawable).setStroke(0, 0)
     background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.MULTIPLY)
+}
+
+fun View.resize(newWidth: Float, newHeight: Float) {
+    try {
+        val ctor: Constructor<out ViewGroup.LayoutParams?> =
+            layoutParams.javaClass.getDeclaredConstructor(
+                Int::class.javaPrimitiveType,
+                Int::class.javaPrimitiveType
+            )
+        layoutParams = ctor.newInstance(newWidth, newHeight)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
 }
 
 fun AppCompatActivity.makeTransaprant() {

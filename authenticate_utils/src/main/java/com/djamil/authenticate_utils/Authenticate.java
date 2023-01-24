@@ -4,18 +4,23 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.biometric.BiometricPrompt;
@@ -67,6 +72,7 @@ public class Authenticate extends RelativeLayout {
     private boolean isShuffle = true;
     private boolean useAnotherEditText = false;
     private boolean goneValidBtn = false;
+    private Button validButtonSetted = null;
     private int editTextId = -1;
     private int colorKey = 0;
     private Drawable iconFingerPrint = null;
@@ -87,9 +93,38 @@ public class Authenticate extends RelativeLayout {
     private KeyStore keyStore;
     private Cipher cipher;
     private String KEY_NAME = "AndroidKey";
+    private int keyHeight = -1;
+    private int keyWidth = -1;
+    private Boolean autoAuth = false;
+    private int nbChar = -1;
+    private int valideBtnId = -1;
+
+    TextWatcher watcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            if (autoAuth && s.length() >= nbChar && doneBtn != null)
+                doneBtn.performClick();
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
 
     public Authenticate(Context context) {
         super(context);
+    }
+
+    public void setActionAutoAuth(TextWatcher watcher){
+        this.watcher = watcher;
+
     }
 
     public Authenticate(Context ctx, AttributeSet attrs) {
@@ -98,8 +133,6 @@ public class Authenticate extends RelativeLayout {
         inflater =  LayoutInflater.from(ctx);
 
         TypedArray attr = activity.getTheme().obtainStyledAttributes(attrs, R.styleable.DynamicKeyBoard, 0, 0);
-
-        Log.e(TAG, "Authenticate: color "+colorKey );
 
         try {
             colorKey           = attr.getColor(R.styleable.DynamicKeyBoard_color_field, ZERO);
@@ -111,6 +144,13 @@ public class Authenticate extends RelativeLayout {
             useAnotherEditText = attr.getBoolean(R.styleable.DynamicKeyBoard_use_another_edit_text, false);
             goneValidBtn       = attr.getBoolean(R.styleable.DynamicKeyBoard_gone_valid_btn,  false);
             editTextId         = attr.getResourceId(R.styleable.DynamicKeyBoard_edit_text_id, -1);
+            keyHeight          = attr.getResourceId(R.styleable.DynamicKeyBoard_key_height, -1);
+            keyWidth           = attr.getResourceId(R.styleable.DynamicKeyBoard_key_width, -1);
+            autoAuth           = attr.getBoolean(R.styleable.DynamicKeyBoard_auto_auth, false);
+            nbChar             = attr.getInteger(R.styleable.DynamicKeyBoard_nb_char, -1);
+            nbChar             = attr.getInteger(R.styleable.DynamicKeyBoard_nb_char, -1);
+//            valideBtn          = attr.getInteger(R.styleable.DynamicKeyBoard_valide_btn, -1);
+//            valideBtnId = attr.getResourceId(R.styleable.DynamicKeyBoard_valide_btn, R.id.done_btn);
 
         } finally {
             attr.recycle();
@@ -136,8 +176,28 @@ public class Authenticate extends RelativeLayout {
         recyclerView = findViewById(R.id.recyclerviewKeyBoard);
         relative = findViewById(R.id.relative);
         doneBtn = findViewById(R.id.done_btn);
+//        Log.e(TAG, "init: valideBtnId = "+valideBtnId );
+//
+//        if (valideBtnId == -1)
+//        else doneBtn = getActivity(getContext()).getWindow().getDecorView().findViewById(valideBtnId);
+
         relative.setVisibility(goneValidBtn ? View.GONE : View.VISIBLE);
         textView.setKeyListener(null);
+
+        notifyChange();
+    }
+
+    /**
+     * Get activity instance from desired context.
+     */
+    public static Activity getActivity(Context context) {
+        if (context == null) return null;
+        if (context instanceof Activity) return (Activity) context;
+        if (context instanceof ContextWrapper) return getActivity(((ContextWrapper)context).getBaseContext());
+        return null;
+    }
+
+    public void notifyChange(){
         doneBtn.setBackground(backgroundBtn);
 
         doneBtn.setOnClickListener(new OnClickListener() {
@@ -174,21 +234,28 @@ public class Authenticate extends RelativeLayout {
             }
         });
 
-        notifyChange();
-    }
-
-    public void notifyChange(){
-        keyBoardAdapter = new KeyBoardAdapter(activity, textView, isShuffle, colorKey, iconBackSpace, iconFingerPrint, iconNoFingerPrint, userFingerPrint);
+        keyBoardAdapter = new KeyBoardAdapter(activity, textView, isShuffle,
+                colorKey, iconBackSpace, iconFingerPrint, iconNoFingerPrint,
+                userFingerPrint, keyHeight, keyWidth);
         recyclerView.setLayoutManager(new GridLayoutManager(activity, 4));
         recyclerView.setAdapter(keyBoardAdapter);
         //keyBoardAdapter.shuffleKey();
         keyBoardAdapter.notifyDataSetChanged();
+        textView.removeTextChangedListener(watcher);
+        textView.addTextChangedListener(watcher);
+
     }
 
     public void setEditText(TextView editText){
         useAnotherEditText = false;
         textinput.setVisibility(View.GONE);
         textView = editText;
+        notifyChange();
+    }
+
+    public void setDoneBtn(Button doneBtn){
+        doneBtn.setVisibility(View.GONE);
+        this.doneBtn = doneBtn;
         notifyChange();
     }
 
