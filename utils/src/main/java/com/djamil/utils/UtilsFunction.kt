@@ -18,6 +18,7 @@ import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.Base64
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -25,7 +26,6 @@ import java.io.IOException
 import java.io.UnsupportedEncodingException
 import java.net.HttpURLConnection
 import java.net.URL
-import java.nio.charset.StandardCharsets
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 import java.security.SecureRandom
@@ -485,6 +485,19 @@ object UtilsFunction {
             e.printStackTrace()
         }
         return (if (applicationInfo != null) packageManager.getApplicationLabel(applicationInfo) else "Unknown") as String
+    }
+
+
+    @JvmStatic
+    fun resizeView(view: View, newWidth: Int, newHeight: Int) {
+        try {
+            val params = view.layoutParams
+            params.height = newHeight
+            params.width = newWidth
+            view.requestLayout()
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
     }
 
 }

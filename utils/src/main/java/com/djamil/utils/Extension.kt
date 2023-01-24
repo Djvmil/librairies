@@ -36,6 +36,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.snackbar.Snackbar
+import java.lang.Exception
 import java.lang.reflect.Constructor
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
@@ -49,14 +50,12 @@ fun View.applyBackgroundTintTheme2(color: Int) {
     background.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.MULTIPLY)
 }
 
-fun View.resize(newWidth: Float, newHeight: Float) {
+fun View.resizeView(view: View, newWidth: Int, newHeight: Int) {
     try {
-        val ctor: Constructor<out ViewGroup.LayoutParams?> =
-            layoutParams.javaClass.getDeclaredConstructor(
-                Int::class.javaPrimitiveType,
-                Int::class.javaPrimitiveType
-            )
-        layoutParams = ctor.newInstance(newWidth, newHeight)
+        val params = view.layoutParams
+        params.height = newHeight
+        params.width = newWidth
+        view.requestLayout()
     } catch (e: Exception) {
         e.printStackTrace()
     }
