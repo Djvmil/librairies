@@ -80,10 +80,7 @@ public class Authenticate extends RelativeLayout {
     private Drawable iconNoFingerPrint = null;
     private Drawable iconBackSpace = null;
     private Drawable backgroundBtn = null;
-
-
     private KeyBoardAdapter keyBoardAdapter;
-
     private boolean userFingerPrint = false;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
@@ -262,6 +259,11 @@ public class Authenticate extends RelativeLayout {
         doneBtn.setVisibility(View.GONE);
         this.doneBtn = doneBtn;
         notifyChange();
+    }
+
+
+    public TextView getEditText(){
+        return textView;
     }
 
     public void setGoneValidBtn(boolean value){
